@@ -12,7 +12,7 @@ function Match(updatematch) {
             <ScrollContainer  className={style.ScrollContainerRelative} >
         {
                     updatematch?.updatematch?.map((data, index) => {
-                        return (
+                         return (
 
                             <div className={`container-fluid  ${style.updatematch }`}  key={index}>
                                 
