@@ -1,0 +1,201 @@
+
+.logo_img {
+    position: relative;
+    width: 74px;
+    top: -5px;
+    border-radius: 50px;
+}
+
+.btn_tele {
+    border-radius: 21px;
+    background-color: #0088cc;
+    position: relative;
+    top: 23px;
+    height: 45px;
+    width: 194px;
+    color: white;
+}
+
+.btn_tele:hover {
+    background-color: #2EA8DE;
+}
+
+.Homelink {
+    left: 20px;
+    position: relative;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    align-items: center;
+}
+
+.Nav {
+    background-color: #c2121c;
+}
+
+.Homelink {
+    a {
+        position: relative;
+        margin: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.dropdownLink {
+    div {
+        background-color: #c2121c;
+    }
+}
+
+.braking_news {
+    font-family: Segoe UI-MONOSPACE;
+    text-align: center;
+    background-color: #C2121C;
+    color: white;
+    width: 200px;
+    -webkit-animation: braking_news .5s step-end infinite alternate;
+
+    -webkit-animation: braking_news .5s step-end infinite alternate;
+}
+
+@-webkit-keyframes braking_news {
+    50% {
+        border-color: #ff0000;
+    }
+}
+
+@keyframes floatText {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.scroll_container {
+    font-size: 20px;
+    color: #C2121C;
+    overflow: hidden;
+    width: 100%;
+    font-family: 'Segoe UI';
+
+    .scroll_text {
+        font-size: medium;
+        display: inline-block;
+        white-space: nowrap;
+        animation: floatText 50s infinite linear;
+        padding-left: 100%;
+        position: relative;
+    }
+
+    .hovereffect {
+        background-image: linear-gradient(to right,
+                #eb7e7e,
+                #C2121C 50%);
+        background-size: 200% 100%;
+        background-position: -100%;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hovereffect:before {
+        content: '';
+        background: #C2121C;
+        display: block;
+        position: absolute;
+        bottom: 7px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .hovereffect:hover {
+        background-position: 0;
+    }
+
+    .hovereffect:hover::before {
+        height: 2px;
+        width: 100%;
+    }
+
+}
+
+.Banner_img {
+    background-image: url("/banner.jpg");
+    color: white;
+    height: 469px;
+    width: 100%;
+    h1 {
+        font-size: 30px;
+    }
+    .col {
+        margin-top: 20px;
+    }
+    .center {
+        font-size: inherit;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .top {
+        position: relative;
+        top: 150px;
+    }
+    .banner_field  {
+        text-align: center;
+        font-size: -webkit-xxx-large;
+        font: 40px;
+        font-family: Segoe UI;
+      }
+      .banner_field span{
+        font-size: 28px;
+      }
+      .banner_field a {
+        text-decoration: none;
+      }
+  
+}
+
+.update_match {
+    margin-top: 10px;
+    position: relative;
+  height: 320px;
+    color: white;
+  }
+
+.updatematch {
+    font-size: larger;
+    font-family: 'Segoe UI';
+    background-size: 100% 100%;
+    /* filter: brightness(150%); */
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+  
+    background-image: url("/matchBackground.webp");
+    .grid_row{
+
+    }
+  }
+  .ScrollContainerRelative{
+    display: flex;
+    gap: 2.6%;
+    justify-content: normal;
+    overflow-x: scroll;
+    position: relative;
+    width: 100%;
+  }
+
+
