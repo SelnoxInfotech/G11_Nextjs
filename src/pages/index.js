@@ -16,7 +16,7 @@ export default function Dashboard(props) {
 }
 
 export const getStaticProps = async (context) => {
-  
+
   const res = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1')
   const props = await res.json()
   const l = props[0]
@@ -29,7 +29,7 @@ export const getStaticProps = async (context) => {
   const l2 = props2.reverse().slice(0,100)
   const res3 = await fetch('https://grand11.in/g11/api/post')
   const props3 = await res3.json()
-  const l3 = [props3.result[0]]
+  const l3 = props3.result
   return { props: { l ,l1,l2,Breaking , l3} }
 
 }

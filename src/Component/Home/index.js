@@ -8,6 +8,7 @@ const UpdateMatch = dynamic(() => import('./Updatematch/Match'), { ssr: true, lo
 const Static_Content = dynamic(() => import('./Banner/WelcomestaticContant'), { ssr: true, loading: () => <p>Loading...</p> });
 const Breakingnews =  dynamic(()=> import('../Home/BreakingNews/Breakingnews') , {ssr:true,loading: () => <p>Loading...</p>})
 const LatestNews =  dynamic(()=> import('../Home/LatestNews/LatestNews') , {ssr:true,loading: () => <p>Loading...</p>})
+const HightLight =  dynamic(()=> import('../Home/HightLight/HightLight') , {ssr:true,loading: () => <p>Loading...</p>})
 const inter = Inter({ subsets: ["latin"] });
 const index = ({props , match,updatematch , Breaking ,latestnews}  ) => {
 
@@ -18,7 +19,8 @@ const index = ({props , match,updatematch , Breaking ,latestnews}  ) => {
         <UpdateMatch updatematch = {updatematch}></UpdateMatch>
         <Static_Content></Static_Content>
         <Breakingnews Breaking={Breaking}></Breakingnews>
-        <LatestNews latestnews ={latestnews}></LatestNews>
+        <LatestNews latestnews ={[latestnews[0]]}></LatestNews>
+        <HightLight latestnews={latestnews}></HightLight>
         </>
     )
 }
