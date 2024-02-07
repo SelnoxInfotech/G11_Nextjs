@@ -44,6 +44,7 @@ import dynamic from 'next/dynamic'
     return () => {
       window?.removeEventListener('resize', detectSize)
     }
+
   }, [windowDimenion])
   
   const toggleOffCanvas = () => {

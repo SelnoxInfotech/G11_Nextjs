@@ -5,6 +5,18 @@
   border-radius: 50px;
 }
 
+a.hovereffect {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
+  background-position: -100%;
+  background-size: 200% 100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
 .btn_tele {
   border-radius: 21px;
   background-color: #0088cc;
@@ -143,18 +155,103 @@
   text-decoration: none;
 }
 
+.update_match {
+  margin-top: 10px;
+  position: relative;
+  height: 320px;
+  color: white;
+}
+
 .updatematch {
-  font-size: larger;
   font-family: "Segoe UI";
   background-size: 100% 100%;
   /* filter: brightness(150%); */
-  width: 300px;
   height: 300px;
   border-radius: 20px;
   background-repeat: no-repeat;
   background-image: url("/matchBackground.webp");
 }
+.updatematch .grid_row {
+  width: 450px;
+}
+.updatematch .grid_row div {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.updatematch a {
+  text-decoration: none;
+  gap: 15px;
+  display: grid;
+}
+.updatematch .location {
+  margin: 0;
+  background-color: #fff;
+}
+.updatematch .location span {
+  color: #c2121c;
+}
+.updatematch .location p {
+  color: #000;
+}
+
 .ScrollContainerRelative {
+  display: flex;
+  gap: 2.6%;
+  justify-content: normal;
+  overflow-x: scroll;
+  position: relative;
+  width: 100%;
+}
+
+.Static {
+  font: normal normal normal 115%/123% Segoe UI;
+  width: 98%;
+  margin-top: 10px;
+  position: relative;
+  border: 2px solid #e7e6e6;
+}
+.Static .Static_row {
+  text-align: center;
+  align-items: center;
+}
+.Static .welcome {
+  color: #c2151b;
+}
+
+.BreakingNewsSectionHomepage a {
+  text-decoration: none;
+  color: #c2121c;
+}
+.BreakingNewsSectionHomepage a.hovereffect {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
+  background-position: -100%;
+  background-size: 200% 100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.BreakingNewsSectionHomepage .latest_bottem {
+  margin: 18px;
+  position: relative;
+  border: 1px solid #FAFAFA;
+}
+.BreakingNewsSectionHomepage .latest_bottem h3 {
+  margin: 0;
+  font: normal normal 25px/37px Segoe UI;
+}
+.BreakingNewsSectionHomepage .latest_bottem h3 .hadding {
+  color: #c2151b;
+}
+.BreakingNewsSectionHomepage .Breaking .col {
+  width: 450px;
+}
+
+.BreakingnewsScroll {
   display: flex;
   gap: 2.6%;
   justify-content: normal;

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import Link from 'next/link'
-import style from "../../styles/Style.module.scss"
+import style from "../../../styles/Style.module.scss"
 function Index({match}) {
     var settings = {
         infinite: false,

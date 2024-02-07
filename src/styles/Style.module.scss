@@ -1,10 +1,21 @@
-
 .logo_img {
     position: relative;
     width: 74px;
     top: -5px;
     border-radius: 50px;
 }
+a.hovereffect{
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(90deg,#eb7e7e,#c2121c 50%);
+    background-position: -100%;
+    background-size: 200% 100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
 
 .btn_tele {
     border-radius: 21px;
@@ -134,12 +145,15 @@
     color: white;
     height: 469px;
     width: 100%;
+
     h1 {
         font-size: 30px;
     }
+
     .col {
         margin-top: 20px;
     }
+
     .center {
         font-size: inherit;
         position: relative;
@@ -152,50 +166,148 @@
         position: relative;
         top: 150px;
     }
-    .banner_field  {
+
+    .banner_field {
         text-align: center;
         font-size: -webkit-xxx-large;
         font: 40px;
         font-family: Segoe UI;
-      }
-      .banner_field span{
+    }
+
+    .banner_field span {
         font-size: 28px;
-      }
-      .banner_field a {
+    }
+
+    .banner_field a {
         text-decoration: none;
-      }
-  
+    }
+
 }
 
 .update_match {
     margin-top: 10px;
     position: relative;
-  height: 320px;
+    height: 320px;
     color: white;
-  }
+}
 
 .updatematch {
-    font-size: larger;
+    // font-size: larger;
     font-family: 'Segoe UI';
     background-size: 100% 100%;
     /* filter: brightness(150%); */
-    width: 300px;
+
     height: 300px;
     border-radius: 20px;
     background-repeat: no-repeat;
-  
+
     background-image: url("/matchBackground.webp");
-    .grid_row{
+
+    .grid_row {
+        width: 450px;
+
+        div {
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
     }
-  }
-  .ScrollContainerRelative{
+
+    a {
+        text-decoration: none;
+        gap: 15px;
+        display: grid;
+    }
+
+    .location {
+        margin: 0;
+        background-color: #fff;
+
+        span {
+            color: #c2121c;
+        }
+
+        p {
+            color: #000;
+        }
+    }
+}
+
+.ScrollContainerRelative {
     display: flex;
     gap: 2.6%;
     justify-content: normal;
     overflow-x: scroll;
     position: relative;
     width: 100%;
-  }
+}
 
 
+.Static {
+    font: normal normal normal 115%/123% Segoe UI;
+    width: 98%;
+    margin-top: 10px;
+    position: relative;
+    border: 2px solid #e7e6e6;
+
+    .Static_row {
+        text-align: center;
+        align-items: center;
+
+    }
+
+    .welcome {
+        color: #c2151b;
+    }
+}
+
+.BreakingNewsSectionHomepage {
+    a{
+        text-decoration: none;
+        color: #c2121c;
+    }
+    a.hovereffect{
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-image: linear-gradient(90deg,#eb7e7e,#c2121c 50%);
+        background-position: -100%;
+        background-size: 200% 100%;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        transition: all .3s ease-in-out;
+    }
+    .latest_bottem {
+        margin: 18px;
+        position: relative;
+        border: 1px solid #FAFAFA;
+
+        h3 {
+            margin: 0;
+            font: normal normal 25px/37px Segoe UI;
+
+            .hadding {
+                color: #c2151b;
+            }
+        }
+    }
+
+    .Breaking {
+        .col{
+            
+            width: 450px;
+        }
+        
+    }
+}
+.BreakingnewsScroll{
+    display: flex;
+    gap: 2.6%;
+    justify-content: normal;
+    overflow-x: scroll;
+    position: relative;
+    width: 100%;
+
+}
