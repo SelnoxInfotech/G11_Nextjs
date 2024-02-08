@@ -4,7 +4,6 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
 const HightLight = ({ latestnews }) => {
-    console.log(latestnews)
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
