@@ -26,7 +26,7 @@ const HightLight = ({ latestnews }) => {
         return str
     }
     return (
-        <div className={`${'container-fluid'} ${style.HightLight}`} >
+        <div className={`${'container-fluid'} ${style.VideoSection}`} >
             <div className={style.latest_bottem}>
                 <div className=" border  ">
                     <div className="col-md-12 View_All_link">
@@ -37,20 +37,26 @@ const HightLight = ({ latestnews }) => {
                 </div>
             </div>
                 <ScrollContainer className={style.BreakingnewsScroll}>
-                    <div className='col-12 d-flex '>
+                    <div className='col-12 d-flex gap-3 '>
                         {
                             latestnews.map((data, index) => {
                                 return (
                                     <>
-                                        <div className={`${style.HightCol} col-6 col d-flex gap-3`} key={index}>
+                                        <div className={`${style.VideoSectionImage} col-2`} key={index}>
                                             <div className='col' >
-                                                <Image className="hight_news" width={100}  height={2}    layout="responsive"  src={`https://grand11.in/g11/${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                                <Image   
+                                             width={500}
+                                             height={300}
+                                             layout="responsive"
+                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                          
+           src={`https://grand11.in/g11/${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                             </div>
-                                            <div className='col'>
+                                            {/* <div className='col'>
                                                 <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>   <div className="hedding hovereffect text"><h3> {data.title.substr(0, 55)}</h3></div></Link>
                                                 <div><span className="content text">{parse(data.content.substr(0, 1000))}</span></div>
                                                 <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}><button className="btn primary hovereffect" >Read Full News</button></Link>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </>
                                 )
