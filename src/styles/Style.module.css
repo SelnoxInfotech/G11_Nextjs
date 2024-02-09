@@ -258,4 +258,156 @@ a.hovereffect {
   overflow-x: scroll;
   position: relative;
   width: 100%;
+}
+
+.LatestNewsSection a {
+  text-decoration: none;
+  color: #c2121c;
+}
+.LatestNewsSection a.hovereffect {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
+  background-position: -100%;
+  background-size: 200% 100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.LatestNewsSection .latest_bottem {
+  margin: 18px;
+  position: relative;
+  border: 1px solid #FAFAFA;
+}
+.LatestNewsSection .latest_bottem h3 {
+  margin: 0;
+  font: normal normal 25px/37px Segoe UI;
+}
+.LatestNewsSection .latest_bottem h3 .hadding {
+  color: #c2151b;
+}
+.LatestNewsSection .Breaking .col {
+  width: 450px;
+}
+.LatestNewsSection .imageCenter {
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (max-width: 850px) {
+  .LatestNewsSection .imageCenter {
+    display: contents;
+  }
+}
+.LatestNewsSection .text {
+  font-size: 16px;
+}
+
+.HightLight a {
+  text-decoration: none;
+  color: #c2121c;
+}
+.HightLight a.hovereffect {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
+  background-position: -100%;
+  background-size: 200% 100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.HightLight .latest_bottem {
+  margin: 18px;
+  position: relative;
+  border: 1px solid #FAFAFA;
+  background-color: #c2121c;
+}
+.HightLight .latest_bottem h3 {
+  color: #FAFAFA;
+  margin: 0;
+  font: normal normal 25px/37px Segoe UI;
+}
+.HightLight .HightCol {
+  display: flex;
+  overflow: hidden;
+  height: 325px;
+}
+@media only screen and (max-width: 850px) {
+  .HightLight .HightCol {
+    width: 100%;
+  }
+}
+
+.VideoSection a {
+  text-decoration: none;
+  color: #c2121c;
+}
+.VideoSection a.hovereffect {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
+  background-position: -100%;
+  background-size: 200% 100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.VideoSection .latest_bottem {
+  margin: 18px;
+  position: relative;
+  border: 1px solid #FAFAFA;
+  background-color: #c2121c;
+}
+.VideoSection .latest_bottem h3 {
+  color: #FAFAFA;
+  margin: 0;
+  font: normal normal 25px/37px Segoe UI;
+}
+.VideoSection .VideoSectionImage {
+  overflow: hidden;
+}
+@media only screen and (max-width: 850px) {
+  .VideoSection .VideoSectionImage {
+    width: 100%;
+  }
+}
+
+.Static {
+  width: 97%;
+  margin-top: 10px;
+  position: relative;
+  border: 2px solid #e7e6e6;
+  font-size: inherit;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.Static .latest_n {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111010;
+}
+.Static .todaymatchli li::marker {
+  color: #111010;
+  content: "# ";
+}
+.Static .todaymatchli ul {
+  list-style-type: none;
+}
+
+.SecondStatic {
+  font-family: segeo UI;
+}
+.SecondStatic .Static_row {
+  margin: 5px;
+}
+.SecondStatic .hedding {
+  text-align: center;
+  color: #C2151B;
+  font-weight: 900;
+  font: normal normal bold 28px/37px Segoe UI;
 }/*# sourceMappingURL=Style.module.css.map */

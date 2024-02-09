@@ -9,9 +9,11 @@ const Static_Content = dynamic(() => import('./Banner/WelcomestaticContant'), { 
 const Breakingnews =  dynamic(()=> import('../Home/BreakingNews/Breakingnews') , {ssr:true,loading: () => <p>Loading...</p>})
 const LatestNews =  dynamic(()=> import('../Home/LatestNews/LatestNews') , {ssr:true,loading: () => <p>Loading...</p>})
 const HightLight =  dynamic(()=> import('../Home/HightLight/HightLight') , {ssr:true,loading: () => <p>Loading...</p>})
-const VideoSection =  dynamic(()=> import('../Home/VideoSection/VideoSection') , {ssr:true,loading: () => <p>Loading...</p>})
+const VideoSection =  dynamic(()=> import('../Home/VideoSection/VideoSection') , {ssr:false,loading: () => <p>Loading...</p>})
+const Static =  dynamic(()=> import('../Home/Static/Static') , {ssr:true,loading: () => <p>Loading...</p>})
+const SecondStatic =  dynamic(()=> import('../Home/Static/SecondStatic') , {ssr:true,loading: () => <p>Loading...</p>})
 const inter = Inter({ subsets: ["latin"] });
-const index = ({props , match,updatematch , Breaking ,latestnews}  ) => {
+const index = ({props , match,updatematch , Breaking ,latestnews }  ) => {
 
     return(
         <>
@@ -22,7 +24,9 @@ const index = ({props , match,updatematch , Breaking ,latestnews}  ) => {
         <Breakingnews Breaking={Breaking}></Breakingnews>
         <LatestNews latestnews ={[latestnews[0]]}></LatestNews>
         <HightLight latestnews={latestnews}></HightLight>
-        <VideoSection latestnews={latestnews}></VideoSection>
+        {/* <VideoSection ></VideoSection> */}
+        <Static></Static>
+        <SecondStatic></SecondStatic>
         </>
     )
 }

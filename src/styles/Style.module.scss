@@ -4,10 +4,11 @@
     top: -5px;
     border-radius: 50px;
 }
-a.hovereffect{
+
+a.hovereffect {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    background-image: linear-gradient(90deg,#eb7e7e,#c2121c 50%);
+    background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
     background-position: -100%;
     background-size: 200% 100%;
     display: inline-block;
@@ -264,14 +265,15 @@ a.hovereffect{
 }
 
 .BreakingNewsSectionHomepage {
-    a{
+    a {
         text-decoration: none;
         color: #c2121c;
     }
-    a.hovereffect{
+
+    a.hovereffect {
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
-        background-image: linear-gradient(90deg,#eb7e7e,#c2121c 50%);
+        background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
         background-position: -100%;
         background-size: 200% 100%;
         display: inline-block;
@@ -279,6 +281,7 @@ a.hovereffect{
         position: relative;
         transition: all .3s ease-in-out;
     }
+
     .latest_bottem {
         margin: 18px;
         position: relative;
@@ -295,14 +298,15 @@ a.hovereffect{
     }
 
     .Breaking {
-        .col{
-            
+        .col {
+
             width: 450px;
         }
-        
+
     }
 }
-.BreakingnewsScroll{
+
+.BreakingnewsScroll {
     display: flex;
     gap: 2.6%;
     justify-content: normal;
@@ -310,17 +314,19 @@ a.hovereffect{
     position: relative;
     width: 100%;
 
+
 }
 
-.LatestNewsSection{
-    a{
+.LatestNewsSection {
+    a {
         text-decoration: none;
         color: #c2121c;
     }
-    a.hovereffect{
+
+    a.hovereffect {
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
-        background-image: linear-gradient(90deg,#eb7e7e,#c2121c 50%);
+        background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
         background-position: -100%;
         background-size: 200% 100%;
         display: inline-block;
@@ -328,6 +334,7 @@ a.hovereffect{
         position: relative;
         transition: all .3s ease-in-out;
     }
+
     .latest_bottem {
         margin: 18px;
         position: relative;
@@ -344,30 +351,38 @@ a.hovereffect{
     }
 
     .Breaking {
-        .col{
-            
+        .col {
+
             width: 450px;
         }
-       
-        
+
+
     }
-    .imageCenter{
+
+    .imageCenter {
         display: flex;
         justify-content: center;
-                }
-                .text{
-                    font-size: 16px;
-                }
+
+        @media only screen and (max-width: 850px) {
+            display: contents;
+        }
+    }
+
+    .text {
+        font-size: 16px;
+    }
 }
-.HightLight{
-    a{
+
+.HightLight {
+    a {
         text-decoration: none;
         color: #c2121c;
     }
-    a.hovereffect{
+
+    a.hovereffect {
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
-        background-image: linear-gradient(90deg,#eb7e7e,#c2121c 50%);
+        background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
         background-position: -100%;
         background-size: 200% 100%;
         display: inline-block;
@@ -375,6 +390,7 @@ a.hovereffect{
         position: relative;
         transition: all .3s ease-in-out;
     }
+
     .latest_bottem {
         margin: 18px;
         position: relative;
@@ -387,24 +403,29 @@ a.hovereffect{
             font: normal normal 25px/37px Segoe UI;
         }
     }
-    .HightCol{
+
+    .HightCol {
+        display: flex;
         overflow: hidden;
         height: 325px;
+
         @media only screen and (max-width: 850px) {
-           width: 100%;
-          }
+            width: 100%;
+        }
     }
-    
+
 }
-.VideoSection{
-    a{
+
+.VideoSection {
+    a {
         text-decoration: none;
         color: #c2121c;
     }
-    a.hovereffect{
+
+    a.hovereffect {
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
-        background-image: linear-gradient(90deg,#eb7e7e,#c2121c 50%);
+        background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
         background-position: -100%;
         background-size: 200% 100%;
         display: inline-block;
@@ -412,6 +433,7 @@ a.hovereffect{
         position: relative;
         transition: all .3s ease-in-out;
     }
+
     .latest_bottem {
         margin: 18px;
         position: relative;
@@ -424,14 +446,65 @@ a.hovereffect{
             font: normal normal 25px/37px Segoe UI;
         }
     }
-    .VideoSectionImage{
+
+    .VideoSectionImage {
         overflow: hidden;
-        height: 250px;
-        width: 300px;
+        // height: 250px;
+        // width: 300px;
 
         @media only screen and (max-width: 850px) {
-           width: 100%;
-          }
+            width: 100%;
+        }
     }
-    
+
+}
+
+.Static {
+    width: 97%;
+
+    margin-top: 10px;
+    position: relative;
+    border: 2px solid #e7e6e6;
+    font-size: inherit;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    //   .Static_row {
+    //     margin: 5px;
+    //   }
+    .latest_n {
+
+        font-size: 20px;
+        font-weight: 700;
+        color: #111010;
+    }
+
+    .todaymatchli li::marker {
+        color: #111010;
+        content: "# ";
+    }
+
+    .todaymatchli ul {
+        list-style-type: none;
+
+    }
+
+}
+
+.SecondStatic {
+    font-family: segeo UI;
+
+    .Static_row {
+        margin: 5px;
+    }
+
+    .hedding {
+        text-align: center;
+        color: #C2151B;
+        font-weight: 900;
+        font: normal normal bold 28px/37px Segoe UI;
+        ;
+    }
 }

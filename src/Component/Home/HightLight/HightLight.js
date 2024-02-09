@@ -42,14 +42,18 @@ const HightLight = ({ latestnews }) => {
                             latestnews.map((data, index) => {
                                 return (
                                     <>
-                                        <div className={`${style.HightCol} col-6 col d-flex gap-3`} key={index}>
+                                        <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
                                             <div className='col' >
                                                 <Image className="hight_news" width={100}  height={2}    layout="responsive"  src={`https://grand11.in/g11/${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                             </div>
                                             <div className='col'>
-                                                <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>   <div className="hedding hovereffect text"><h3> {data.title.substr(0, 55)}</h3></div></Link>
+                                                {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>    */}
+                                                <div className="hedding hovereffect text"><h3> {data.title.substr(0, 55)}</h3></div>
+                                                {/* </Link> */}
                                                 <div><span className="content text">{parse(data.content.substr(0, 1000))}</span></div>
-                                                <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}><button className="btn primary hovereffect" >Read Full News</button></Link>
+                                                {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}> */}
+                                                    <button className="btn primary hovereffect" >Read Full News</button>
+                                                    {/* </Link> */}
                                             </div>
                                         </div>
                                     </>
