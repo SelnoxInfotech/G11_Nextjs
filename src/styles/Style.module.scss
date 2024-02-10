@@ -240,7 +240,7 @@ a.hovereffect {
     display: flex;
     gap: 2.6%;
     justify-content: normal;
-    overflow-x: scroll;
+    overflow-x: scroll !important;
     position: relative;
     width: 100%;
 }
@@ -310,7 +310,7 @@ a.hovereffect {
     display: flex;
     gap: 2.6%;
     justify-content: normal;
-    overflow-x: scroll;
+    overflow: scroll !important;
     position: relative;
     width: 100%;
 
