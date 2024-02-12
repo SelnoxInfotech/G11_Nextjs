@@ -14,6 +14,10 @@ const VideoSection =  dynamic(()=> import('../Home/VideoSection/VideoSection') ,
 const Static =  dynamic(()=> import('../Home/Static/Static') , {ssr:true,loading: () => <p>Loading...</p>})
 const SecondStatic =  dynamic(()=> import('../Home/Static/SecondStatic') , {ssr:true,loading: () => <p>Loading...</p>})
 const Teams =  dynamic(()=> import('./Team/Team') , {ssr:true,loading: () => <p>Loading...</p>})
+const Review =  dynamic(()=> import('./Static/Review') , {ssr:true,loading: () => <p>Loading...</p>})
+const Customerrate =  dynamic(()=> import('./Static/Customerrate') , {ssr:true,loading: () => <p>Loading...</p>})
+const Staticres =  dynamic(()=> import('./Static/Staticres') , {ssr:true,loading: () => <p>Loading...</p>})
+const Companyexpi =  dynamic(()=> import('./Static/Companyexpi') , {ssr:true,loading: () => <p>Loading...</p>})
 const inter = Inter({ subsets: ["latin"] });
 const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) => {
 
@@ -30,6 +34,10 @@ const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) 
         <Static></Static>
         <SecondStatic></SecondStatic>
         <Teams Teamsdata= {Teamsdata}></Teams>
+        <Review></Review>
+        <Customerrate></Customerrate>
+        <Staticres></Staticres>
+        <Companyexpi></Companyexpi>
         </>
     )
 }

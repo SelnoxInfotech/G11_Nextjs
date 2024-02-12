@@ -516,28 +516,31 @@ a.hovereffect {
     background-color: #C2121C;
     font: Segoe UI;
 
-.teams_image_box{
-display: flex;
-gap: 78px;
-    .teams_image_container {
-        margin-top: 25px;
-        background-color: white;
-        border-radius: 26px;
-        width: 300px;
-        height: 230px;
-        position: relative;
-        justify-content: center;
-        display: grid;
-        div{
+    .teams_image_box {
+        display: flex;
+        gap: 78px;
+
+        .teams_image_container {
             margin-top: 25px;
-            gap: 20px;
+            background-color: white;
+            border-radius: 26px;
+            width: 300px;
+            height: 230px;
+            position: relative;
+            justify-content: center;
             display: grid;
-        }
-        p{
-            color: #000;
+
+            div {
+                margin-top: 25px;
+                gap: 20px;
+                display: grid;
+            }
+
+            p {
+                color: #000;
+            }
         }
     }
-}
 
 
     .team_img {
@@ -547,4 +550,108 @@ gap: 78px;
         border-radius: 55px;
     }
 
+}
+
+.Testimonials {
+    border: 2px solid #e7e6e6;
+    margin-top: 10px;
+    position: relative;
+    width: 97%;
+
+    .Static_row {
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+
+        .TestHeading {
+            display: flex;
+            justify-content: center;
+            color: #111010;
+            font-weight: 700;
+        }
+
+        .content {
+            margin: 5px;
+        }
+    }
+}
+
+
+.CustomerReview {
+    margin-top: 15px;
+    display: flex;
+    gap: 50px;
+
+    .Customer_box {
+        width: 27vw;
+        border: 1px solid #c2121c;
+        padding: 10px;
+        box-shadow: 5px 10px #c2121c;
+        height: 366px;
+        text-align: center;
+        align-items: center;
+
+        display: grid;
+
+        @media only screen and (max-width: 1440px) {
+            width: 40vw;
+        }
+
+        @media only screen and (max-width: 960px) {
+            width: 500px;
+        }
+
+        @media only screen and (max-width: 620px) {
+            width: 270px;
+        }
+
+        .insideBox img {
+            border-radius: 50%;
+        }
+    }
+}
+
+.static_res {
+    margin-top: 20px;
+    display: grid;
+    text-align: center;
+    background-color: #fafafa;
+    width: 97%;
+    font: normal normal normal 115%/123% Segoe UI;
+
+    .p {
+        color: #111010;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .r {
+        color: #c2121c;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .content {
+        display: grid;
+        justify-items: center;
+    }
+}
+
+.Company_expri_detail {
+    display: flex !important;
+    justify-content: center;
+    .box{
+        background-color: #fafafa;
+        border-radius: 50%;
+        height: 135px;
+        width: 150px;
+        align-items: center;
+        text-align: center;
+        justify-items: center;
+        justify-content: center;
+        display: grid;
+        color: #c2151b;
+        font: normal normal 700 16px/16px Segoe UI;
+    
+    }
 }
