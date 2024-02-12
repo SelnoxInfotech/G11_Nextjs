@@ -32,9 +32,9 @@ function Match(updatematch) {
                                             <span>{data.date}</span> |<span>{data.time}</span>
                                         </div>
                                         <div className="col">
-                                            <Image src={`${data?.team_one_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
+                                            <Image src={`https://grand11.in/g11/${data?.team_one_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
                                             <span >VS</span>
-                                            <Image src={data?.team_two_img} width={'50'} height={'50'} alt="G11-Fantasy " />
+                                            <Image src={`https://grand11.in/g11/${data?.team_two_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
                                         </div>
                                         <div className="col">
 

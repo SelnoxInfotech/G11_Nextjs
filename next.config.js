@@ -6,7 +6,7 @@ const nextConfig = {
     },
     images: {
     
-      domains: ['https://grand11.in/g11/']
+      domains: ['grand11.in' ,"www.g11fantasy.com"]
    },
   };
   

@@ -47,7 +47,7 @@ const Breakingnews = ({ Breaking }) => {
                             return (
                                 <div key={index}   >
                                     <div className={'col'} style={{ width: "450px" }}>
-                                        <Image src={`https://www.g11fantasy.com${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} />
+                                        <Image src={`https://www.g11fantasy.com/${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} />
                                         <div className="col" style={{ height: "50px" }} >
                                             <Link href={`/cricket-breakingnews/${data?.id}/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}`} >
                                                 {data?.Title.substr(0, 100)}
