@@ -11,11 +11,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
 import dynamic from 'next/dynamic'
-
+import logo from "../../../public/G11.png"
 // const window = dynamic(() => import('../../Component/Navbar/Function'));
 // import { window } from "../../Component/Navbar/Function"
 
- function OffcanvasExample() {
+ function OffcanvasExample({props}) {
   // const loadWindowObject = async () => {
   //   const window = await import('next/window');
   //   return window;
@@ -76,7 +76,7 @@ import dynamic from 'next/dynamic'
 
           >
             <Container fluid  >
-              <Nav><Image src="/G11.png" width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
+              <Nav><Image  src={logo} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas} />
               <Navbar.Offcanvas
 

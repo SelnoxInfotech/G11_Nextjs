@@ -4,6 +4,7 @@
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
+import Image from 'next/image';
 function Match(updatematch) {
   
     return (
@@ -31,9 +32,9 @@ function Match(updatematch) {
                                             <span>{data.date}</span> |<span>{data.time}</span>
                                         </div>
                                         <div className="col">
-                                            <img src={`https://grand11.in/g11/${data?.team_one_img}`} width="50" height="50" alt="G11-Fantasy " />
+                                            <Image src={`${data?.team_one_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
                                             <span >VS</span>
-                                            <img src={"https://grand11.in/g11/"+ data?.team_two_img} width="50" height="50" alt="G11-Fantasy " />
+                                            <Image src={data?.team_two_img} width={'50'} height={'50'} alt="G11-Fantasy " />
                                         </div>
                                         <div className="col">
 

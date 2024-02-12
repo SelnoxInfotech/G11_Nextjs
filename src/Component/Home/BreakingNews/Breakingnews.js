@@ -3,6 +3,7 @@ import { CiCalendarDate } from 'react-icons/ci';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
+import Image from 'next/image';
 const Breakingnews = ({ Breaking }) => {
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -46,7 +47,7 @@ const Breakingnews = ({ Breaking }) => {
                             return (
                                 <div key={index}   >
                                     <div className={'col'} style={{ width: "450px" }}>
-                                        <img src={`https://www.g11fantasy.com${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" style={{ width: "100%", height: "300px" }} />
+                                        <Image src={`https://www.g11fantasy.com${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} />
                                         <div className="col" style={{ height: "50px" }} >
                                             <Link href={`/cricket-breakingnews/${data?.id}/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}`} >
                                                 {data?.Title.substr(0, 100)}

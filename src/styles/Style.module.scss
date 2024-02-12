@@ -516,21 +516,35 @@ a.hovereffect {
     background-color: #C2121C;
     font: Segoe UI;
 
-    
-      .teams_image_container {
-  margin-top: 25px;
-  background-color: white;
+.teams_image_box{
+display: flex;
+gap: 78px;
+    .teams_image_container {
+        margin-top: 25px;
+        background-color: white;
         border-radius: 26px;
         width: 300px;
         height: 230px;
-  position: relative;
-  justify-content: center;
-  display: grid;
+        position: relative;
+        justify-content: center;
+        display: grid;
+        div{
+            margin-top: 25px;
+            gap: 20px;
+            display: grid;
+        }
+        p{
+            color: #000;
+        }
+    }
 }
-.team_img {
-    width: 10rem;
-    height: 140px;
-    position: relative;
-    border-radius: 55px;
-  }
-  }
+
+
+    .team_img {
+        width: 10rem;
+        height: 140px;
+        position: relative;
+        border-radius: 55px;
+    }
+
+}

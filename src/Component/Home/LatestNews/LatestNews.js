@@ -2,6 +2,7 @@ import React from 'react';
 import parse from 'html-react-parser';
 import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
+import Image from 'next/image';
 const Breakingnews = ({ latestnews }) => {
 
     function modifystr(str) {
@@ -37,7 +38,7 @@ const Breakingnews = ({ latestnews }) => {
             </div>
             <div className={` row `}>
                 <div className={`${style.imageCenter} col-6`}>
-                    <img className="hight_news  " src={`https://grand11.in/g11/${latestnews[0].image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                    <Image width={600} height={500} src={`https://grand11.in/g11/${latestnews[0].image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                 </div>
                 <div className='col-6'>
                     <Link href={`/cricket-news/${latestnews[0].id}/${latestnews[0].title.replace(/\s+/g, '-')}`}>   <div><h3> {latestnews[0].title.substr(0, 55)}</h3></div></Link>

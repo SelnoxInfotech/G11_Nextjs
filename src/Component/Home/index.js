@@ -15,7 +15,7 @@ const Static =  dynamic(()=> import('../Home/Static/Static') , {ssr:true,loading
 const SecondStatic =  dynamic(()=> import('../Home/Static/SecondStatic') , {ssr:true,loading: () => <p>Loading...</p>})
 const Teams =  dynamic(()=> import('./Team/Team') , {ssr:true,loading: () => <p>Loading...</p>})
 const inter = Inter({ subsets: ["latin"] });
-const index = ({props , match,updatematch , Breaking ,latestnews }  ) => {
+const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) => {
 
     return(
         <>
@@ -29,7 +29,7 @@ const index = ({props , match,updatematch , Breaking ,latestnews }  ) => {
         {/* <VideoSection ></VideoSection> */}
         <Static></Static>
         <SecondStatic></SecondStatic>
-        <Teams></Teams>
+        <Teams Teamsdata= {Teamsdata}></Teams>
         </>
     )
 }
