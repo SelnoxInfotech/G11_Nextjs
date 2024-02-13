@@ -5,7 +5,9 @@ import style from "../../../styles/Style.module.scss"
 import ScrollContainer from 'react-indiana-drag-scroll';
 import Image from "next/image";
 export default function Teams({Teamsdata}) {
- 
+  const imageLoader = ({ src, width, quality }) => {
+    return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
+  }
 
   return (
 
@@ -23,7 +25,7 @@ export default function Teams({Teamsdata}) {
                     return (
                       <div key={index} className={`${style.teams_image_container}`}>
                        <div >
-                       <Image className={style.team_img} width={100} height={20} src={`https://grand11.in/g11/${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                       <Image loader={imageLoader} className={style.team_img} width={100} height={20} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                         <p >{data.name}</p>
                        </div>
                       </div>

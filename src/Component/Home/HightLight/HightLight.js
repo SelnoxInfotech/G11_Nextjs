@@ -25,6 +25,9 @@ const HightLight = ({ latestnews }) => {
 
         return str
     }
+    const imageLoader = ({ src, width, quality }) => {
+        return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
+      }
     return (
         <div className={`${'container-fluid'} ${style.HightLight}`} >
             <div className={style.latest_bottem}>
@@ -44,7 +47,7 @@ const HightLight = ({ latestnews }) => {
                                     <>
                                         <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
                                             <div className='col' >
-                                                <Image className="hight_news" width={100}  height={2}    layout="responsive"  src={`https://grand11.in/g11/${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                                <Image loader={imageLoader} className="hight_news" width={100}  height={2}    layout="responsive"  src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                             </div>
                                             <div className='col'>
                                                 {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>    */}

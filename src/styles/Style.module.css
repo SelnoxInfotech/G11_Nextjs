@@ -5,6 +5,20 @@
   border-radius: 50px;
 }
 
+.btn_tele {
+  border-radius: 21px;
+  background-color: #0088cc;
+  position: relative;
+  top: 23px;
+  height: 45px;
+  width: 194px;
+  color: white;
+}
+
+.btn_tele:hover {
+  background-color: #2EA8DE;
+}
+
 a.hovereffect {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -43,6 +57,18 @@ a.hovereffect {
 
 .Nav {
   background-color: #c2121c;
+}
+.Nav .btn_tele {
+  border-radius: 21px;
+  background-color: #0088cc;
+  position: relative;
+  top: 23px;
+  height: 45px;
+  width: 194px;
+  color: white;
+}
+.Nav .btn_tele:hover {
+  background-color: #2EA8DE;
 }
 
 .Homelink a {
@@ -120,7 +146,6 @@ a.hovereffect {
 }
 
 .Banner_img {
-  background-image: url("/banner.jpg");
   color: white;
   height: 469px;
   width: 100%;
@@ -541,4 +566,153 @@ a.hovereffect {
   display: grid;
   color: #c2151b;
   font: normal normal 700 16px/16px Segoe UI;
+}
+
+.footer_head {
+  position: relative;
+  margin-top: 20px;
+  height: 500px;
+  background: linear-gradient(40deg, #C2121C 50%, #ffffff 50%, #f5f5f5 100%);
+}
+.footer_head .footer_text {
+  font-size: small;
+  right: -33px;
+  left: 20px;
+  text-align: center;
+  font-weight: 600;
+  top: 250px;
+  position: relative;
+  color: white;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.footer_head .size {
+  width: 494px;
+  height: 460px;
+}
+.footer_head #end {
+  bottom: 8% !important;
+  right: 10% !important;
+}
+@media (max-width: 1060px) {
+  .footer_head #end {
+    bottom: 46% !important;
+    right: 11% !important;
+  }
+  .footer_head .size {
+    width: 261px;
+    height: 265px;
+  }
+}
+@media (max-width: 734px) {
+  .footer_head #end {
+    bottom: 46% !important;
+    right: 0% !important;
+  }
+  .footer_head .size {
+    height: 262px;
+  }
+}
+@media (max-width: 500px) {
+  .footer_head #end {
+    bottom: 53% !important;
+    right: 2% !important;
+  }
+  .footer_head .size {
+    height: 270px;
+    width: 205px;
+  }
+}
+.footer_head .andriod_logo {
+  right: 7px;
+  width: 127px;
+  position: relative;
+  height: 65px;
+}
+.footer_head .apple_logo {
+  width: 151px;
+  height: 95px;
+}
+
+.footer_link {
+  position: relative;
+  width: auto;
+  height: 250px;
+}
+.footer_link .link {
+  top: 47px;
+  color: #C2121C;
+  text-align: center;
+  position: relative;
+}
+.footer_link .Follow {
+  font-weight: 500;
+  font-size: 32px;
+}
+.footer_link .socal_link {
+  position: relative;
+  top: 47px;
+  justify-content: center;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+.footer_link .policy_link li {
+  font-size: 20px;
+  color: #cc0707;
+  list-style-type: none;
+}
+.footer_link .hovereffect {
+  background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.footer_link .hovereffect:before {
+  content: "";
+  background: #C2121C;
+  display: block;
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.2s ease-in-out;
+}
+.footer_link .hovereffect:hover {
+  background-position: 0;
+}
+.footer_link .hovereffect:hover::before {
+  height: 2px;
+  width: 100%;
+}
+.footer_link .linkin {
+  font-size: 31px;
+  position: relative;
+  bottom: 3px;
+}
+.footer_link .calling {
+  color: #C2121C;
+  font-size: 25px;
+  position: relative;
+  left: 5px;
+  top: -4px;
+}
+.footer_link .copy_right {
+  position: relative;
+  top: 46px;
+  text-align: center;
+  background-color: #C2121C;
+  color: white;
+}
+.footer_link .copy_right p {
+  font-size: 24px;
+}
+.footer_link .copy_right a {
+  color: #f7f7f7;
 }/*# sourceMappingURL=Style.module.css.map */

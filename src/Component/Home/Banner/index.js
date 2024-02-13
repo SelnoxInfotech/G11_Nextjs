@@ -15,7 +15,7 @@ function Index({match}) {
     };
     return (
 
-        <div className={style.Banner_img}>
+        <div className={style.Banner_img} style={{backgroundImage: "url('/Image/banner.jpg')"}}>
             <div className={`container ${style.center} `}>
                 <div className='row '>
                     <div className={`${style.col} col-12`}><h1>{"Fantasy Cricket Prediction Today's Match"}</h1></div>

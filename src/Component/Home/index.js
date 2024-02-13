@@ -3,6 +3,7 @@ import Image from "next/image";
 import dynamic from 'next/dynamic'
 import { Inter } from "next/font/google";
 
+
 const ScrollBreaking = dynamic(() => import('./ScrollBreakingnews/index'), { ssr: true, loading: () => <p>Loading...</p> });
 const Banner = dynamic(() => import('./Banner/index'), { ssr: true, loading: () => <p>Loading...</p> });
 const UpdateMatch = dynamic(() => import('./Updatematch/Match'), { ssr: true, loading: () => <p>Loading...</p> });
@@ -18,6 +19,7 @@ const Review =  dynamic(()=> import('./Static/Review') , {ssr:true,loading: () =
 const Customerrate =  dynamic(()=> import('./Static/Customerrate') , {ssr:true,loading: () => <p>Loading...</p>})
 const Staticres =  dynamic(()=> import('./Static/Staticres') , {ssr:true,loading: () => <p>Loading...</p>})
 const Companyexpi =  dynamic(()=> import('./Static/Companyexpi') , {ssr:true,loading: () => <p>Loading...</p>})
+const Footer =  dynamic(()=> import('./FooterBanner/FooterBanner') , {ssr:true,loading: () => <p>Loading...</p>})
 const inter = Inter({ subsets: ["latin"] });
 const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) => {
 
@@ -38,6 +40,7 @@ const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) 
         <Customerrate></Customerrate>
         <Staticres></Staticres>
         <Companyexpi></Companyexpi>
+        <Footer></Footer>
         </>
     )
 }

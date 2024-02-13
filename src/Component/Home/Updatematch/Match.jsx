@@ -6,7 +6,9 @@ import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
 import Image from 'next/image';
 function Match(updatematch) {
-  
+    const imageLoader = ({ src, width, quality }) => {
+        return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
+      }
     return (
         <div className={`container-fluid ${style.update_match}`}  >
         {/* <div style={{width:"100%", overflowX: 'scroll'}}> */}
@@ -32,9 +34,9 @@ function Match(updatematch) {
                                             <span>{data.date}</span> |<span>{data.time}</span>
                                         </div>
                                         <div className="col">
-                                            <Image src={`https://grand11.in/g11/${data?.team_one_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
+                                            <Image loader={imageLoader} src={`${data?.team_one_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
                                             <span >VS</span>
-                                            <Image src={`https://grand11.in/g11/${data?.team_two_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
+                                            <Image loader={imageLoader} src={`${data?.team_two_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
                                         </div>
                                         <div className="col">
 

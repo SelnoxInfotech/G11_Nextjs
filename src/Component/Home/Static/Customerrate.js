@@ -4,9 +4,9 @@ import { AiFillStar } from 'react-icons/ai'
 import { BsStarHalf } from 'react-icons/bs'
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
-import blank_image from "../../../../public/user.webp"
+// import blank_image from "../../../Image/user.webp"
 export default function CostumerRate() {
-console.log(blank_image)
+// console.log(blank_image)
     return (
         <div className='container-fluid rate_box '>
 
@@ -17,7 +17,7 @@ console.log(blank_image)
 
                         <div className={` ${style.Customer_box}`}>
                             <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image width={100}  height={blank_image.height}className='rate_image ' src={`${blank_image.src}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image width={100}  height={100}className='rate_image ' src={`${'/Image/user.webp'}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Maria Luisa</p>
@@ -41,7 +41,7 @@ console.log(blank_image)
 
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image width={100}  height={blank_image.height}className='rate_image ' src={`${blank_image.src}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image width={100}  height={100}className='rate_image ' src={`${'/Image/user.webp'}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Bushra Parveen</p>
@@ -67,7 +67,7 @@ console.log(blank_image)
         
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image width={100}  height={blank_image.height}className='rate_image ' src={`${blank_image.src}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image width={100}  height={100}className='rate_image ' src={`${'/Image/user.webp'}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Rishi Singh</p>
@@ -92,7 +92,7 @@ console.log(blank_image)
                
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image width={100}  height={blank_image.height}className='rate_image ' src={`${blank_image.src}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image width={100}  height={100}className='rate_image ' src={`${'/Image/user.webp'}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Ishaan Sager</p>
@@ -118,7 +118,7 @@ console.log(blank_image)
               
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image width={100}  height={blank_image.height}className='rate_image ' src={`${blank_image.src}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image width={100}  height={100}className='rate_image ' src={`${'/Image/user.webp'}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Jeetpratap singh</p>
@@ -144,7 +144,7 @@ console.log(blank_image)
               
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image width={100}  height={blank_image.height}className='rate_image ' src={`${blank_image.src}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image width={100}  height={100}className='rate_image ' src={`${'/Image/user.webp'}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p> Anushka Patel</p>

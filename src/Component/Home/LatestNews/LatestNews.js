@@ -25,6 +25,10 @@ const Breakingnews = ({ latestnews }) => {
 
         return str
     }
+    const imageLoader = ({ src, width, quality }) => {
+        return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
+      }
+    
     return (
         <div className={`${'container-fluid'} ${style.LatestNewsSection}`} >
             <div className={style.latest_bottem}>
@@ -38,7 +42,7 @@ const Breakingnews = ({ latestnews }) => {
             </div>
             <div className={` row `}>
                 <div className={`${style.imageCenter} col-6`}>
-                    <Image width={600} height={500} src={`https://grand11.in/g11/${latestnews[0].image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                    <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                 </div>
                 <div className='col-6'>
                     <Link href={`/cricket-news/${latestnews[0].id}/${latestnews[0].title.replace(/\s+/g, '-')}`}>   <div><h3> {latestnews[0].title.substr(0, 55)}</h3></div></Link>
