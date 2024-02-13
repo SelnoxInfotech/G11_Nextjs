@@ -83,7 +83,7 @@ console.log(blank_image)
                             </div>
                             <div className='row center left'>
                                 <div className='col-12  cen'>
-                                    <p>Very good app. Very good prediction. Really helpful it's give proper prediction, after taking his prediction I have won 10k, guys you really go for it this app.</p>
+                                    <p>{"Very good app. Very good prediction. Really helpful it's give proper prediction, after taking his prediction I have won 10k, guys you really go for it this app."}</p>
                                 </div>
 
                             </div>
