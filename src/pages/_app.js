@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 // import Footer_link from "@/Component/Home/FooterBanner/FooterLink";
 // import Navbar from "../Component/Navbar/navbar"
-const Navbar = dynamic(() => import('../Component/Navbar/navbar'), { ssr: true, loading: () => <p>Loading...</p> });
+const Navbar = dynamic(() => import('../Component/Navbar/navbar'), { ssr: false, loading: () => <p>Loading...</p> });
 const Footer_link = dynamic(() => import('@/Component/Home/FooterBanner/FooterLink'), { ssr: true, loading: () => <p>Loading...</p> });
 export default function App({ Component, pageProps }) {
 

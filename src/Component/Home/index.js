@@ -30,17 +30,17 @@ const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) 
         <UpdateMatch updatematch = {updatematch}></UpdateMatch>
         <Static_Content></Static_Content>
         <Breakingnews Breaking={Breaking}></Breakingnews>
-        <LatestNews latestnews ={[latestnews[0]]}></LatestNews>
-        <HightLight latestnews={latestnews}></HightLight>
-        {/* <VideoSection ></VideoSection> */}
-        <Static></Static>
+         <LatestNews latestnews ={[latestnews[0]]}></LatestNews>
+    <HightLight latestnews={latestnews}></HightLight>
+         {/* <VideoSection ></VideoSection>  */}
+       <Static></Static>
         <SecondStatic></SecondStatic>
         <Teams Teamsdata= {Teamsdata}></Teams>
         <Review></Review>
         <Customerrate></Customerrate>
         <Staticres></Staticres>
         <Companyexpi></Companyexpi>
-        <Footer></Footer>
+        <Footer></Footer> 
         </>
     )
 }

@@ -8,6 +8,7 @@ const nextConfig = {
     largePageDataBytes: 2000 * 2000,
   },
   images: {
+    // formats: ['image/avif'],
     remotePatterns: [
       {
         protocol: 'https',

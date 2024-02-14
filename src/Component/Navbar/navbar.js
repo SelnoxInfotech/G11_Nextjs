@@ -68,7 +68,9 @@ function OffcanvasExample({props}) {
   const hideDropdown = e => {
     setDropshow(false);
   }
-  
+  const imageLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`
+  }
   return (
   
       <div className='sticky-top'  >
@@ -77,7 +79,7 @@ function OffcanvasExample({props}) {
 
           >
             <Container fluid  >
-              <Nav><Image  src={"/Image/G11.png"} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
+              <Nav><Image  loader={imageLoader} src={"/Image/G11.png"} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas} />
               <Navbar.Offcanvas
 

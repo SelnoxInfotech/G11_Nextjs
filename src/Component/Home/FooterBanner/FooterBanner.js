@@ -28,8 +28,8 @@ export default function Footer() {
 
 
       <div className='position-absolute bottom-0 end-0 d-flex' style={{  alignContent: 'center'}}>
-        <a href={urlAndriod}> <img className={style.andriod_logo} src='Image/google-play-badge.png' alt='Andriod' /></a>
-        <a href={UrlApple}><img className={style.apple_logo} src='Image/app-store.png' alt='apple' /></a>
+        <a href={urlAndriod}> <img className={style.andriod_logo} src='/Image/google-play-badge.png' alt='Andriod' /></a>
+        <a href={UrlApple}><img className={style.apple_logo} src='/Image/app-store.png' alt='apple' /></a>
       </div>
     </div>
 

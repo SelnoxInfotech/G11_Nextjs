@@ -27,7 +27,7 @@ const HightLight = ({ latestnews }) => {
     }
     const imageLoader = ({ src, width, quality }) => {
         return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
-      }
+    }
     return (
         <div className={`${'container-fluid'} ${style.HightLight}`} >
             <div className={style.latest_bottem}>
@@ -39,32 +39,35 @@ const HightLight = ({ latestnews }) => {
                     </div>
                 </div>
             </div>
-                <ScrollContainer className={style.BreakingnewsScroll}>
-                    <div className='col-12 d-flex '>
-                        {
-                            latestnews.map((data, index) => {
-                                return (
-                                    <>
-                                        <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
-                                            <div className='col' >
-                                                <Image loader={imageLoader} className="hight_news" width={100}  height={2}    layout="responsive"  src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
-                                            </div>
-                                            <div className='col'>
-                                                {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>    */}
-                                                <div className="hedding hovereffect text"><h3> {data.title.substr(0, 55)}</h3></div>
-                                                {/* </Link> */}
-                                                <div><span className="content text">{parse(data.content.substr(0, 1000))}</span></div>
-                                                {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}> */}
-                                                    <button className="btn primary hovereffect" >Read Full News</button>
-                                                    {/* </Link> */}
-                                            </div>
+            <ScrollContainer className={style.BreakingnewsScroll}>
+                <div className='col-12 d-flex '>
+                    {
+                        latestnews.map((data, index) => {
+                            return (
+                                <>
+                                    <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
+                                        <div className='col' >
+                                            <Image loader={imageLoader} className="hight_news" width={0}
+                                                height={0}
+                                                sizes="100vw"
+                                                style={{ width: '100%', height: '90%' }} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                         </div>
-                                    </>
-                                )
-                            })
-                        }
-                    </div>
-                </ScrollContainer>
+                                        <div className='col'>
+                                            {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>    */}
+                                            <div className="hedding hovereffect text"><h3> {data.title.substr(0, 55)}</h3></div>
+                                            {/* </Link> */}
+                                            <div><span className="content text">{parse(data.content.substr(0, 1000))}</span></div>
+                                            {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}> */}
+                                            <button className="btn primary hovereffect" >Read Full News</button>
+                                            {/* </Link> */}
+                                        </div>
+                                    </div>
+                                </>
+                            )
+                        })
+                    }
+                </div>
+            </ScrollContainer>
         </div>
 
 

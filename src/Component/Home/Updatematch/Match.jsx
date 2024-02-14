@@ -9,6 +9,9 @@ function Match(updatematch) {
     const imageLoader = ({ src, width, quality }) => {
         return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
       }
+      const imageLoader1 = ({ src, width, quality }) => {
+        return `${src}?w=${width}&q=${quality || 75}`
+      }
     return (
         <div className={`container-fluid ${style.update_match}`}  >
         {/* <div style={{width:"100%", overflowX: 'scroll'}}> */}
@@ -19,10 +22,18 @@ function Match(updatematch) {
                          return (
 
                             <div className={` ${style.updatematch }`}  key={index}>
-                                
+                     <Image
+                                  style={{
+                                    width:' 469px',
+                                    borderRadius: '20px',
+                                    height: '100%',
+                                    position: "absolute",
+                                    zIndex: "-1"
+                                }}
+                                 sizes="100vw" loader={imageLoader1} src={'/Image/matchBackground.webp'} width={'100'} height={'100'} alt="G11-Fantasy " />
                                     <div className={` ${style.grid_row}`}>
                                 <Link href={`cricket-prediction/${data.id}/${data.title.replace(/\s+/g, '-')}`} >
-
+                              
                                         <div className="col">
                                             {data.title}
                                         </div>
