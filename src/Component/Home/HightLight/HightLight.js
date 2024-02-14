@@ -44,7 +44,7 @@ const HightLight = ({ latestnews }) => {
                     {
                         latestnews.map((data, index) => {
                             return (
-                                <>
+                               
                                     <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
                                         <div className='col' >
                                             <Image loader={imageLoader} className="hight_news" width={0}
@@ -62,7 +62,7 @@ const HightLight = ({ latestnews }) => {
                                             {/* </Link> */}
                                         </div>
                                     </div>
-                                </>
+                               
                             )
                         })
                     }

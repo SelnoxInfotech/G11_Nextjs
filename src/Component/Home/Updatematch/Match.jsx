@@ -5,20 +5,20 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
 import Image from 'next/image';
-function Match(updatematch) {
+function Match({updatematch ,image}) {
     const imageLoader = ({ src, width, quality }) => {
         return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
       }
       const imageLoader1 = ({ src, width, quality }) => {
-        return `${src}?w=${width}&q=${quality || 75}`
-      }
+        return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
+    }
     return (
         <div className={`container-fluid ${style.update_match}`}  >
         {/* <div style={{width:"100%", overflowX: 'scroll'}}> */}
             <ScrollContainer  className={style.ScrollContainerRelative} >
               {/* <div className=''> */}
               {
-                    updatematch?.updatematch?.map((data, index) => {
+                    updatematch?.map((data, index) => {
                          return (
 
                             <div className={` ${style.updatematch }`}  key={index}>
@@ -30,7 +30,7 @@ function Match(updatematch) {
                                     position: "absolute",
                                     zIndex: "-1"
                                 }}
-                                 sizes="100vw" loader={imageLoader1} src={'/Image/matchBackground.webp'} width={'100'} height={'100'} alt="G11-Fantasy " />
+                                 sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
                                     <div className={` ${style.grid_row}`}>
                                 <Link href={`cricket-prediction/${data.id}/${data.title.replace(/\s+/g, '-')}`} >
                               

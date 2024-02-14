@@ -21,13 +21,13 @@ const Staticres =  dynamic(()=> import('./Static/Staticres') , {ssr:true,loading
 const Companyexpi =  dynamic(()=> import('./Static/Companyexpi') , {ssr:true,loading: () => <p>Loading...</p>})
 const Footer =  dynamic(()=> import('./FooterBanner/FooterBanner') , {ssr:true,loading: () => <p>Loading...</p>})
 const inter = Inter({ subsets: ["latin"] });
-const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) => {
-
+const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata ,image }  ) => {
+console.log(image)
     return(
         <>
         <ScrollBreaking props={props}></ScrollBreaking>
-        <Banner match={match}></Banner>
-        <UpdateMatch updatematch = {updatematch}></UpdateMatch>
+        <Banner match={match} image={image}></Banner>
+        <UpdateMatch updatematch = {updatematch} image={image}></UpdateMatch>
         <Static_Content></Static_Content>
         <Breakingnews Breaking={Breaking}></Breakingnews>
          <LatestNews latestnews ={[latestnews[0]]}></LatestNews>
@@ -37,7 +37,7 @@ const index = ({props , match,updatematch , Breaking ,latestnews,Teamsdata }  ) 
         <SecondStatic></SecondStatic>
         <Teams Teamsdata= {Teamsdata}></Teams>
         <Review></Review>
-        <Customerrate></Customerrate>
+        <Customerrate image={image}></Customerrate>
         <Staticres></Staticres>
         <Companyexpi></Companyexpi>
         <Footer></Footer> 

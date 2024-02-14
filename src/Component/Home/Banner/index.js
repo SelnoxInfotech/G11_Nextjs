@@ -5,8 +5,8 @@ import Link from 'next/link';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 // import image from "../../../../public/Image/banner.jpg"
-function Index({ match }) {
-    // console.log(image)
+function Index({ match ,image }) {
+    console.log(image[3].image)
     var settings = {
         infinite: false,
         slidesToScroll: 1,
@@ -17,14 +17,14 @@ function Index({ match }) {
         arrows: false
     };
     const imageLoader = ({ src, width, quality }) => {
-        return `${src}?w=${width}&q=${quality || 75}`
+        return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
     }
     return (
         // style={{backgroundImage: `url(${'/Image/banner.jpg'})`}}
         <div className={style.Banner_img}  >
             <Image
                 alt="G11Banner"
-                src={'/Image/banner.jpg'}
+                src={image[3].image}
                 loader={imageLoader}
                 quality={100}
                 width={100}

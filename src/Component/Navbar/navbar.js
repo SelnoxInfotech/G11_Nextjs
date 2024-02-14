@@ -15,7 +15,7 @@ import dynamic from 'next/dynamic';
 // const window = dynamic(() => import('../../Component/Navbar/Function'));
 // import { window } from "../../Component/Navbar/Function"
 function OffcanvasExample({props}) {
-
+  const [image , setimage] =  useState([])
   // const loadWindowObject = async () => {
   //   const window = await import('next/window');
   //   return window;
@@ -69,8 +69,21 @@ function OffcanvasExample({props}) {
     setDropshow(false);
   }
   const imageLoader = ({ src, width, quality }) => {
-    return `${src}?w=${width}&q=${quality || 75}`
+    return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
   }
+    
+  useEffect(()=>{
+      async function hrefFunction (){
+        const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
+        const Imageprops = await Image.json()
+    return    setimage (Imageprops)
+      }
+
+      hrefFunction()
+  },[])
+
+console.log(image[8]?.image , image.length !==0)
+
   return (
   
       <div className='sticky-top'  >
@@ -79,7 +92,9 @@ function OffcanvasExample({props}) {
 
           >
             <Container fluid  >
-              <Nav><Image  loader={imageLoader} src={"/Image/G11.png"} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
+    
+          <Nav><Image  loader={imageLoader} src={image[8]?.image} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
+     
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas} />
               <Navbar.Offcanvas
 

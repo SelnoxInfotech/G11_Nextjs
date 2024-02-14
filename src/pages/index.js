@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Dashboard(props) {
   return (
     <>
-      <Home props={[props?.l]}  match={props.l1} updatematch={props.l2} Breaking={props.Breaking} latestnews={props.l3} Teamsdata={props.Teamsdata} ></Home>
+      <Home props={[props?.l]} match={props.l1} updatematch={props.l2} Breaking={props.Breaking} latestnews={props.l3} Teamsdata={props.Teamsdata} image={props.ImageData} ></Home>
     </>
   );
 }
@@ -26,14 +26,19 @@ export const getStaticProps = async (context) => {
   const l1 = props1
   const res2 = await fetch('https://grand11.in/g11/all_matches_api.php')
   const props2 = await res2.json()
-  const l2 = props2.reverse().slice(0,100)
-  const res3 = await fetch('https://grand11.in/g11/api/post') 
+  const l2 = props2.reverse().slice(0, 100)
+  const res3 = await fetch('https://grand11.in/g11/api/post')
   const props3 = await res3.json()
   const l3 = props3.result
-  const Team = await fetch('https://grand11.in/g11/api/teams') 
+  const Team = await fetch('https://grand11.in/g11/api/teams')
   const TeamProps = await Team.json()
   const Teamsdata = TeamProps.result
-  return { props: { l ,l1,l2,Breaking , l3 , Teamsdata} }
+
+  const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
+  const Imageprops = await Image.json()
+  const ImageData = Imageprops
+
+  return { props: { l, l1, l2, Breaking, l3, Teamsdata , ImageData } }
 
 }
 
