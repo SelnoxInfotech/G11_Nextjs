@@ -24,7 +24,7 @@ function Match({updatematch ,image}) {
                             <div className={` ${style.updatematch }`}  key={index}>
                      <Image
                                   style={{
-                                    width:' 469px',
+                                    width: '22rem',
                                     borderRadius: '20px',
                                     height: '100%',
                                     position: "absolute",
@@ -45,9 +45,9 @@ function Match({updatematch ,image}) {
                                             <span>{data.date}</span> |<span>{data.time}</span>
                                         </div>
                                         <div className="col">
-                                            <Image loader={imageLoader} src={`${data?.team_one_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
+                                            <Image loader={imageLoader} src={`${data?.team_one_img}`} width={50} height={50} alt="G11-Fantasy " style={{width:"50px" ,height:'50px'}}/>
                                             <span >VS</span>
-                                            <Image loader={imageLoader} src={`${data?.team_two_img}`} width={'50'} height={'50'} alt="G11-Fantasy " />
+                                            <Image loader={imageLoader} src={`${data?.team_two_img}`} width={50} height={50} alt="G11-Fantasy " style={{width:"50px" ,height:'50px'}} />
                                         </div>
                                         <div className="col">
 

@@ -43,7 +43,7 @@ const HightLight = ({ Video }) => {
     const handleVideo = () => {
         // setHandleAudio(true)
     }
-    console.log(val)
+
     React.useEffect(() => {
 
 

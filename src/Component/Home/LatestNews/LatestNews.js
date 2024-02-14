@@ -44,7 +44,7 @@ const Breakingnews = ({ latestnews }) => {
                 <div className={`${style.imageCenter} col-6`}>
                     <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                 </div>
-                <div className='col-6'>
+                <div className='col'>
                     <Link href={`/cricket-news/${latestnews[0].id}/${latestnews[0].title.replace(/\s+/g, '-')}`}>   <div><h3> {latestnews[0].title.substr(0, 55)}</h3></div></Link>
                     <div><span className={`${style.text}`}>{parse(latestnews[0].content.substr(0, 1000))}</span></div>      
                     <Link href={`/cricket-news/${latestnews[0].id}/${latestnews[0].title.replace(/\s+/g, '-')}`}><button className="btn primary hovereffect" >Read Full News</button></Link>

@@ -232,7 +232,7 @@ a.hovereffect {
     // background-image: url("/matchBackground.webp");
 
     .grid_row {
-        width: 468px;
+        width: 22rem;
 
         div {
             color: #ffffff;
@@ -430,6 +430,10 @@ a.hovereffect {
             font: normal normal 25px/37px Segoe UI;
         }
     }
+    .BreakingnewsScrollInside{
+        display: flex;
+        gap: 32px   ;
+    }
 
     .HightCol {
         display: flex;
@@ -438,6 +442,8 @@ a.hovereffect {
 
         @media only screen and (max-width: 850px) {
             width: 100%;
+            display: block;
+                height: 500px;
         }
     }
 

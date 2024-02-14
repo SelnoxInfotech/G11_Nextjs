@@ -5,6 +5,7 @@ import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
 import Image from 'next/image';
 const HightLight = ({ latestnews }) => {
+    // console.log(latestnews)
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -40,23 +41,24 @@ const HightLight = ({ latestnews }) => {
                 </div>
             </div>
             <ScrollContainer className={style.BreakingnewsScroll}>
-                <div className='col-12 d-flex '>
+                <div className={`${'col-12'} ${style.BreakingnewsScrollInside}`}>
                     {
                         latestnews.map((data, index) => {
+                            
                             return (
                                
                                     <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
                                         <div className='col' >
-                                            <Image loader={imageLoader} className="hight_news" width={0}
+                                            <Image loader={imageLoader}  width={0}
                                                 height={0}
                                                 sizes="100vw"
-                                                style={{ width: '100%', height: '90%' }} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                                style={{ width: '100%', height: '275px' }} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                         </div>
                                         <div className='col'>
                                             {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>    */}
-                                            <div className="hedding hovereffect text"><h3> {data.title.substr(0, 55)}</h3></div>
+                                            <div className="hedding hovereffect text"><h3> {data?.title?.substr(0, 55)}</h3></div>
                                             {/* </Link> */}
-                                            <div><span className="content text">{parse(data.content.substr(0, 1000))}</span></div>
+                                            <div><span className="content text">{parse(data?.content) ? parse(data?.content) : ""}</span></div>
                                             {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}> */}
                                             <button className="btn primary hovereffect" >Read Full News</button>
                                             {/* </Link> */}
