@@ -4,20 +4,22 @@
     top: -5px;
     border-radius: 50px;
 }
+
 .btn_tele {
     border-radius: 21px;
     background-color: #0088cc;
     position: relative;
-  
+
     top: 23px;
     height: 45px;
     width: 194px;
     color: white;
-  
-  }
-  .btn_tele:hover{
+
+}
+
+.btn_tele:hover {
     background-color: #2EA8DE;
-  }
+}
 
 a.hovereffect {
     -webkit-text-fill-color: transparent;
@@ -58,6 +60,7 @@ a.hovereffect {
 
 .Nav {
     background-color: #c2121c;
+
     .btn_tele {
         border-radius: 21px;
         background-color: #0088cc;
@@ -67,7 +70,7 @@ a.hovereffect {
         width: 194px;
         color: white;
     }
-    
+
     .btn_tele:hover {
         background-color: #2EA8DE;
     }
@@ -233,7 +236,9 @@ a.hovereffect {
 
     .grid_row {
         width: 22rem;
-
+        display: grid;
+        gap: 15px;
+    
         div {
             color: #ffffff;
             display: flex;
@@ -430,9 +435,10 @@ a.hovereffect {
             font: normal normal 25px/37px Segoe UI;
         }
     }
-    .BreakingnewsScrollInside{
+
+    .BreakingnewsScrollInside {
         display: flex;
-        gap: 32px   ;
+        gap: 32px;
     }
 
     .HightCol {
@@ -443,7 +449,7 @@ a.hovereffect {
         @media only screen and (max-width: 850px) {
             width: 100%;
             display: block;
-                height: 500px;
+            height: 500px;
         }
     }
 
@@ -709,92 +715,106 @@ a.hovereffect {
         color: white;
         width: fit-content;
     }
+
     .size {
         width: 494px;
         height: 460px;
-      }
-    #end{
-        bottom: 8%!important;
-       right: 10%!important;
-   }
-   @media (max-width: 1060px) {
-    #end {
-      bottom: 46%!important;
-      right: 11%!important;
-  }
-    .size {
-      width: 261px;
-      height: 265px;
-  
     }
-  
-  }
-  @media (max-width: 734px) {
-  
+
     #end {
-      bottom: 46%!important;
-      right: 0%!important;
-  }
-    .size {
-      height: 262px;
+        bottom: 8% !important;
+        right: 10% !important;
     }
-  }
- 
-@media (max-width: 500px) {
-    #end {
-      bottom: 53%!important;
-      right: 2%!important;
-  }
-    .size {
-      height: 270px;
-      width: 205px;
+
+    @media (max-width: 1060px) {
+        #end {
+            bottom: 46% !important;
+            right: 11% !important;
+        }
+
+        .size {
+            width: 261px;
+            height: 265px;
+
+        }
+
     }
-  }
-  .andriod_logo {
-    right: 7px;
-    width: 127px;
-    position: relative;
-    height: 65px;
-  }
-  .apple_logo {
-    width: 151px;
-    height: 95px;
-  }
-  
+
+    @media (max-width: 734px) {
+
+        #end {
+            bottom: 46% !important;
+            right: 0% !important;
+        }
+
+        .size {
+            height: 262px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        #end {
+            bottom: 53% !important;
+            right: 2% !important;
+        }
+
+        .size {
+            height: 270px;
+            width: 205px;
+        }
+    }
+
+    .andriod_logo {
+        right: 7px;
+        width: 127px;
+        position: relative;
+        height: 65px;
+    }
+
+    .apple_logo {
+        width: 151px;
+        height: 95px;
+    }
+
 }
 
 .footer_link {
     position: relative;
     width: auto;
     height: 250px;
+
     .link {
         top: 47px;
         color: #C2121C;
         text-align: center;
         position: relative;
-      }   
-      .Follow{
+    }
+
+    .Follow {
         font-weight: 500;
         font-size: 32px;
-      }   
-      .socal_link {
+    }
+
+    .socal_link {
         position: relative;
         top: 47px;
         justify-content: center;
         display: flex;
         gap: 32px;
         align-items: center;
-      }
-      .policy_link  li {
+    }
+
+    .policy_link li {
         font-size: 20px;
         color: #cc0707;
         // color: #AEAEAE;
         list-style-type: none;
-      }
-      .hovereffect {
+    }
+
+    .hovereffect {
         background-image: linear-gradient(to right,
-            #eb7e7e,
-            #C2121C 50%);
+                #eb7e7e,
+                #C2121C 50%);
         background-size: 200% 100%;
         background-position: -100%;
         display: inline-block;
@@ -803,9 +823,9 @@ a.hovereffect {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         transition: all 0.3s ease-in-out;
-      }
-      
-      .hovereffect:before {
+    }
+
+    .hovereffect:before {
         content: '';
         background: #C2121C;
         display: block;
@@ -815,41 +835,66 @@ a.hovereffect {
         width: 0;
         height: 3px;
         transition: all 0.2s ease-in-out;
-      }
-      
-      .hovereffect:hover {
+    }
+
+    .hovereffect:hover {
         background-position: 0;
-      }
-      
-      .hovereffect:hover::before {
+    }
+
+    .hovereffect:hover::before {
         height: 2px;
         width: 100%;
-      }
-      
-      .linkin{
+    }
+
+    .linkin {
         font-size: 31px;
         position: relative;
         bottom: 3px;
-      }
-      .calling{
+    }
+
+    .calling {
         color: #C2121C;
         font-size: 25px;
         position: relative;
         left: 5px;
         top: -4px;
-      }
-      .copy_right {
+    }
+
+    .copy_right {
         position: relative;
         top: 46px;
         text-align: center;
         background-color: #C2121C;
         color: white;
-      }
-      .copy_right p {
+    }
+
+    .copy_right p {
         font-size: 24px;
-      }
-      .copy_right a {
+    }
+
+    .copy_right a {
         color: #f7f7f7;
-      }
-      
-  }
+    }
+
+}
+
+.matchpriviewtab {
+
+    justify-content: center;
+    align-items: center;
+
+    .match_priview {
+        color: #c2121c;
+        font-size: 22px;
+        padding: 0px;
+        margin: 0px;
+        margin-top: 8px;
+    }
+}
+
+.font h3 span {
+    background-color: #fffcfc;
+    color: #c2121c;
+    font-family: Segoe UI;
+    justify-items: center;
+}
