@@ -15,6 +15,8 @@ export default function Dashboard(props) {
   );
 }
 
+
+
 export const getStaticProps = async (context) => {
 
   const res = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1')
@@ -38,7 +40,8 @@ export const getStaticProps = async (context) => {
   const Imageprops = await Image.json()
   const ImageData = Imageprops
 
-  return { props: { l, l1, l2, Breaking, l3, Teamsdata , ImageData } }
+  return { props: { l, l1, l2, Breaking, l3, Teamsdata, ImageData } }
+
 
 }
 

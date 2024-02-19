@@ -71,12 +71,12 @@ function Matchguide(props) {
 
         const input = containerData.querySelector("div >p").innerHTML;
         const f = containerData.querySelector("div >h3").innerHTML;
-        // router.push(`/latest-match/cricket-prediction/${f.replace(/\s+/g, '-')}/${modifystr(input.replace(/\s+/g, '-').slice(26).toLowerCase())}/${router.query.id[2]}/${router.query.id[3]}`)
+        router.replace(`/latest-match/cricket-prediction/${f.replace(/\s+/g, '-')}/${modifystr(input.replace(/\s+/g, '-').slice(26).toLowerCase())}/${router.query.id[1]}/${router.query.id[2]}`)
         SetTitle(input.replace(/\s+/g, '-'))
     }, [props])
 
     function TaBFunction(e) {
-        router.push(`/latest-match/cricket-prediction/${e.target.innerText.replace(/\s+/g, '-').toLowerCase()}/${router.query.id[2]}/${modifystr(Title1.replace(/\s+/g, '-').slice(26).toLowerCase())}/${router.query.id[3]}`)
+        router.replace(`/latest-match/cricket-prediction/${e.target.innerText.replace(/\s+/g, '-').toLowerCase()}/${router.query.id[2]}/${modifystr(Title1.replace(/\s+/g, '-').slice(26).toLowerCase())}/${router.query.id[3]}`)
     }
     // console.log(preview , router.query.id[0])
     return (
@@ -143,9 +143,10 @@ export async function getStaticPaths(ctx) {
 }
 
 export async function getStaticProps(ctx) {
-    console.log( typeof parseInt(ctx.params.id[2]) , ctx.params.id[3] , ctx.params)
+    console.log( typeof parseInt(ctx.params.id[2]) , ctx.params.id[3] , ctx)
     var url = "https://grand11.in/g11/api/page/match_details/" + ctx.params.id[2]
     const Response = await axios.get(url)
+    // {`/latest-match/cricket-prediction/${"match-preview"}/${data.title.replace(/\s+/g, '-')}/${data.id}`}
     const props = await Response.data
     return { props: { props } }
     //-----------api call ------------
