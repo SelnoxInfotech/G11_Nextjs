@@ -1,5 +1,4 @@
 
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import dynamic from 'next/dynamic'
 const Home = dynamic(() => import('../Component/Home/index'), { ssr: true, loading: () => <p>Loading...</p> });
@@ -17,7 +16,7 @@ export default function Dashboard(props) {
 
 
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
 
   const res = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1')
   const props = await res.json()

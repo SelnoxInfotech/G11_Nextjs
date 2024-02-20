@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import axios from "axios";
 import Tab from 'react-bootstrap/Tab';
@@ -11,7 +12,7 @@ function Matchguide(props) {
     const [Detail, SetDetails_Data] = React.useState('')
     const [Teams_image, SetTeams_image] = React.useState('')
     const [metaDiscription, SetmetaDiscription] = React.useState('')
-    const [ Title1, SetTitle] = React.useState('')
+    const [Title1, SetTitle] = React.useState('')
     let preview = router.query.id[0]
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -35,6 +36,7 @@ function Matchguide(props) {
     }
 
     React.useEffect(() => {
+        const params = new URLSearchParams(window?.location?.search);
         var parser = new DOMParser();
         var doc = parser.parseFromString(props.props, 'text/html');
         // HTML section//// 
@@ -67,23 +69,43 @@ function Matchguide(props) {
         var TeamsData1 = Teams_.querySelectorAll("div")
         var Team_data = TeamsData1[4].innerHTML
         SetTeams_image(Team_data)
-
-
-        const input = containerData.querySelector("div >p").innerHTML;
+        const input = containerData.querySelector("div >p").innerHTML.slice(26);
         const f = containerData.querySelector("div >h3").innerHTML;
-        router.replace(`/latest-match/cricket-prediction/${f.replace(/\s+/g, '-')}/${modifystr(input.replace(/\s+/g, '-').slice(26).toLowerCase())}/${router.query.id[1]}/${router.query.id[2]}`)
-        SetTitle(input.replace(/\s+/g, '-'))
+        function checkString(string) {
+            if (typeof string === "string") {
+                return !isNaN(string)
+            }
+        }
+        console.log("sdkfjsdlkfjlksdf")
+        if (!checkString(router.query.id[3])) {
+
+            const newURL = `/latest-match/cricket-prediction/${modifystr(f)}/${router.query.id[1]}/${modifystr(input)}/${router.query.id[2]}`;
+            // window.history.replaceState({}, '', newURL);
+        }
+        SetTitle(modifystr(input))
     }, [props])
 
+
     function TaBFunction(e) {
-        router.replace(`/latest-match/cricket-prediction/${e.target.innerText.replace(/\s+/g, '-').toLowerCase()}/${router.query.id[2]}/${modifystr(Title1.replace(/\s+/g, '-').slice(26).toLowerCase())}/${router.query.id[3]}`)
+        function checkString(string) {
+            if (typeof string === "string") {
+                // console.log(!isNaN(string),788);
+                return !isNaN(string)
+            }
+        }
+        if (checkString(router.query.id[2])) {
+            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${e.target.innerText.replace(/\s+/g, '-').toLowerCase()}/${Title1}/${router.query.id[1]}/${router.query.id[2]}`);
+        }
+        else {
+            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${e.target.innerText.replace(/\s+/g, '-').toLowerCase()}/${Title1}/${router.query.id[1]}/${router.query.id[3]}`);
+        }
     }
-    // console.log(preview , router.query.id[0])
+
     return (
         <div>
-          
+
             <Tabs
-                defaultActiveKey={router.query.id[0]  }
+                defaultActiveKey={router.query.id[0]}
                 id="uncontrolled-tab-example"
                 className={style.matchpriviewtab}
                 onClick={TaBFunction}>
@@ -97,7 +119,7 @@ function Matchguide(props) {
                     </div>
                 </Tab>
                 < Tab className='color' eventKey="team-guide" title={preview === "team-guide" ? <h1 className={`${style.match_priview}`} >Team Guide</h1> : <h2 className={`${style.match_priview}`}>Team Guide</h2>} >
-                    <div className='container' section >
+                    <div className='container' >
                         <div className='row'>
                             <div className='col-12'>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide }}></div>
@@ -131,24 +153,31 @@ function Matchguide(props) {
 
 export default Matchguide;
 
-
-export async function getStaticPaths(ctx) {
-
-
-
-    return {
-        paths: [], //indicates that no page needs be created at build time
-        fallback: 'blocking' //indicates the type of fallback
+export async function getServerSideProps(ctx) {
+    console.log("dsfgds")
+    function checkString(string) {
+        if (typeof string === "string") {
+            // console.log(!isNaN(string),788);
+            return !isNaN(string)
+        }
     }
-}
 
-export async function getStaticProps(ctx) {
-    console.log( typeof parseInt(ctx.params.id[2]) , ctx.params.id[3] , ctx)
-    var url = "https://grand11.in/g11/api/page/match_details/" + ctx.params.id[2]
-    const Response = await axios.get(url)
-    // {`/latest-match/cricket-prediction/${"match-preview"}/${data.title.replace(/\s+/g, '-')}/${data.id}`}
-    const props = await Response.data
-    return { props: { props } }
+    if (checkString(ctx.params.id[2])) {
+        var url = "https://grand11.in/g11/api/page/match_details/" + ctx.params.id[2]
+        const Response = await axios.get(url)
+        // router.push(`/latest-match/cricket-prediction/${"f.replace(/\s+/g, '-')"}/${"modifystr(input.replace(/\s+/g, '-').slice(26).toLowerCase())"}}`  , undefined, { shallow: true })
+        const props = await Response.data
+        console.log(props)
+        return { props: { props } }
+    }
+    else {
+        var url = "https://grand11.in/g11/api/page/match_details/" + ctx.params.id[3]
+        const Response = await axios.get(url)
+        // router.push(`/latest-match/cricket-prediction/${"f.replace(/\s+/g, '-')"}/${"modifystr(input.replace(/\s+/g, '-').slice(26).toLowerCase())"}}`  , undefined, { shallow: true })
+        const props = await Response.data
+        console.log(props)
+        return { props: { props } }
+    }
     //-----------api call ------------
 }
 
