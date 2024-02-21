@@ -80,7 +80,7 @@ function Matchguide(props) {
         if (!checkString(router.query.id[3])) {
 
             const newURL = `/latest-match/cricket-prediction/${modifystr(f)}/${router.query.id[1]}/${modifystr(input)}/${router.query.id[2]}`;
-            // window.history.replaceState({}, '', newURL);
+            window.history.replaceState({}, '', newURL);
         }
         SetTitle(modifystr(input))
     }, [props])
@@ -150,10 +150,16 @@ function Matchguide(props) {
         </div>
     );
 }
-
-export default Matchguide;
-
-export async function getServerSideProps(ctx) {
+export async function getStaticPaths(ctx) {
+    
+    
+    
+    return {
+        paths: [], //indicates that no page needs be created at build time
+        fallback: 'blocking' //indicates the type of fallback
+    }
+}
+export async function getStaticProps(ctx) {
     console.log("dsfgds")
     function checkString(string) {
         if (typeof string === "string") {
@@ -175,7 +181,7 @@ export async function getServerSideProps(ctx) {
         const Response = await axios.get(url)
         // router.push(`/latest-match/cricket-prediction/${"f.replace(/\s+/g, '-')"}/${"modifystr(input.replace(/\s+/g, '-').slice(26).toLowerCase())"}}`  , undefined, { shallow: true })
         const props = await Response.data
-        console.log(props)
+     
         return { props: { props } }
     }
     //-----------api call ------------
@@ -184,3 +190,4 @@ export async function getServerSideProps(ctx) {
 
 
 
+export default Matchguide;

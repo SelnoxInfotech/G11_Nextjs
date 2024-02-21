@@ -19,7 +19,7 @@ export default function Footer() {
         <div className='row '>
           <div className='col-12 '>
             <div className='position-absolute bottom-50 end-50 ' id={`${style.end}`}>
-            <img src="/Image/screen.jpg" alt="G11-Fantasy Cricket Prediction for Today's Match" className={`${'img-responsive'} ${style.size}`} />
+            {/* <img src="/Image/screen.jpg" alt="G11-Fantasy Cricket Prediction for Today's Match" className={`${'img-responsive'} ${style.size}`} /> */}
             </div>
        
           </div>
@@ -28,8 +28,8 @@ export default function Footer() {
 
 
       <div className='position-absolute bottom-0 end-0 d-flex' style={{  alignContent: 'center'}}>
-        <a href={urlAndriod}> <img className={style.andriod_logo} src='/Image/google-play-badge.png' alt='Andriod' /></a>
-        <a href={UrlApple}><img className={style.apple_logo} src='/Image/app-store.png' alt='apple' /></a>
+        {/* <a href={urlAndriod}> <img className={style.andriod_logo} src='/Image/google-play-badge.png' alt='Andriod' /></a>
+        <a href={UrlApple}><img className={style.apple_logo} src='/Image/app-store.png' alt='apple' /></a> */}
       </div>
     </div>
 

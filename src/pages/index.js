@@ -16,7 +16,7 @@ export default function Dashboard(props) {
 
 
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
 
   const res = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1')
   const props = await res.json()

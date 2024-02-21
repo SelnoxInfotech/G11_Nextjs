@@ -6,7 +6,6 @@ import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 // import image from "../../../../public/Image/banner.jpg"
 function Index({ match ,image }) {
-    console.log(image[3].image)
     var settings = {
         infinite: false,
         slidesToScroll: 1,
