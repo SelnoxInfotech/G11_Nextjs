@@ -1,6 +1,3 @@
-
-
-
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
@@ -32,7 +29,7 @@ function Match({updatematch ,image}) {
                                 }}
                                  sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
                                     <div className={` ${style.grid_row}`}>
-                                <Link href={`/latest-match/cricket-prediction/${"match-preview"}/${data.title.replace(/\s+/g, '-')}/${data.id}`} >
+                                <Link href={`/latest-match/cricket-prediction`} as={`/latest-match/cricket-prediction/${`match-preview`}/${data.title.replace(/\s+/g, '-')}/${data.id}`} >
                               
                                         <div className="col">
                                             {data.title}
