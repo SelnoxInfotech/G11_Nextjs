@@ -1,11 +1,12 @@
 "use client"
+
 import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 function MatchPriview({props}) {
-    console.log("indise client slide ")
+    console.log("indise client slide " , props)
     const router = useRouter()
     const [matchpreviwe, setmatchpreviwe] = React.useState("")
     const [Team_Guide, Set_Team_Guide] = React.useState('')
@@ -39,7 +40,7 @@ function MatchPriview({props}) {
         console.log("indise use effect")
         const params = new URLSearchParams(window?.location?.search);
         var parser = new DOMParser();
-        var doc = parser.parseFromString(props.props, 'text/html');
+        var doc = parser.parseFromString(props, 'text/html');
         // HTML section//// 
         var parserhtm = doc.querySelectorAll('section');
         //  container /////
@@ -70,7 +71,7 @@ function MatchPriview({props}) {
         var TeamsData1 = Teams_.querySelectorAll("div")
         var Team_data = TeamsData1[4].innerHTML
         SetTeams_image(Team_data)
-        const input = containerData.querySelector("div >p").innerHTML.slice(26);
+        const input = `containerData.querySelector("div >p").innerHTML.slice(26);`
         const f = containerData.querySelector("div >h3").innerHTML;
         function checkString(string) {
             if (typeof string === "string") {
@@ -103,6 +104,7 @@ function MatchPriview({props}) {
     }
     return (
         <div>
+            <p>render</p>
                 <Tabs
                 defaultActiveKey={router.query.id[0]}
                 id="uncontrolled-tab-example"
