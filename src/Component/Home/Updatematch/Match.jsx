@@ -29,7 +29,7 @@ function Match({ updatematch, image }) {
                                     }}
                                     sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
                                 <div className={` ${style.grid_row}`}>
-                                    <Link href={`/latest-match/cricket-prediction/[[...id]]`} as={`/latest-match/cricket-prediction/${`match-preview`}/${encodeURIComponent(data.title.replace(/\s+/g, '-'))}/${encodeURIComponent(data.id)}`} >
+                                    <Link href={`/latest-match/cricket-prediction/[...slug]`} as={`/latest-match/cricket-prediction/match-preview/${data.title.replace(/\s+/g, '-')}/${data.id.toString()}`} >
 
                                         <div className="col">
                                             {data.title}

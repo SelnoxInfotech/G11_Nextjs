@@ -35,37 +35,50 @@ function Senglepage({ props, image }) {
         return str
     }
 
-    console.log(image[7]?.image, "asfafs")
     const imageLoader1 = ({ src, width, quality }) => {
         return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
     }
+
+    const styling = {
+        backgroundImage: `url('${"https://www.g11fantasy.com/" + image[7].image}')`,
+        padding: "0",
+        //   font-family: 'Segoe UI',
+        backgroundSize: "100% 100%",
+        /* filter: brightness(150%); */
+        width: '300px',
+        height: '300px',
+        borderRadius: '20px',
+    }
+
+    const imageLoader = ({ src, width, height ,quality }) => {
+        console.log(src, width, height ,quality)
+        return `https://grand11.in/g11/${src}?w=${width}&h=${50}&q=${quality || 75}`
+    }
+
+
+    
     return (
 
-        <section id={style.team} className="pb-5">
+        <section id={style.team} className={style.team}>
             <div className="container">
                 <h1 className={style.section_title}>Today Match Predictions - Cricket Betting Tips from Experts (100% Free)</h1>
-                <div className="row" id="team_data" >
+                <div className={`row ${style.team}`} id="team_data" >
                     {
                         props?.slice(0, next)?.map((data, index) => {
+                          
                             return (
                                 <div className="col-sm-4 bottom" key={index}>
 
-                                    <div className="container-fluid  ">
+                                    <div className="container-fluid"
 
-                                        <Image
-                                            style={{
-                                                width: '22rem',
-                                                borderRadius: '20px',
-                                                height: '100%',
-                                                objectFit: 'cover',
-                                                zIndex: 0
-                                            }}
-                                            sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
-                                        <Link href={`/latest-match/cricket-prediction/[[...id]]`} as={`/latest-match/cricket-prediction/${`match-preview`}/${encodeURIComponent(data.title.replace(/\s+/g, '-'))}/${encodeURIComponent(data.id)}`} >
+                                        style={styling}
+                                    >
 
-                                            <div className="row center grid_row">
+                                        <Link href={`/latest-match/cricket-prediction/[...slug]`} as={`/latest-match/cricket-prediction/match-preview/${modifystr(data.title)}/${data.id}`} >
+
+                                            <div className={` "row" ${style.grid_row} `}>
                                                 <div className="col-12 center color">
-                                                    {data.title}
+                                                    <p>  {data.title}</p>
                                                 </div>
                                                 <div className="col-12 center fonting font" >
                                                     <p>{data.first_team} vs {data.second_team}</p>
@@ -74,16 +87,16 @@ function Senglepage({ props, image }) {
                                                 <div className="col-12 center fonting">
                                                     <span>{data.date}</span> |<span>{data.time}</span>
                                                 </div>
-                                                <div className="col-12 center">
-                                                    {/* <img src={`https://grand11.in/g11/${data.team_one_img}`} width="50" height="50" alt="G11-Fantasy Cricket Prediction for Today's Match" /> */}
+                                                <div className={`${"col-12"} ${style.image}`}>
+                                                    <Image style={{height:'50px'}} loader={imageLoader} src={`${data.team_one_img}`} width={50} height={60} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                                     <span className="vs" >VS</span>
-                                                    {/* <img src={`https://grand11.in/g11/${data.team_two_img}`} width="50" height="50" alt="G11-Fantasy Cricket Prediction for Today's Match" /> */}
+                                                    <Image  style={{height:'50px'}} loader={imageLoader} src={`${data.team_two_img}`} width={50} height={50} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                                 </div>
                                                 <div className="col-12 center">
 
                                                 </div>
 
-                                                <div className="col-12 center location_match">
+                                                <div className={`col-12 ${style.location_match}`}>
                                                     <p className="city_location"><span className="location">match Location-</span>{data.city}</p>
                                                 </div>
                                             </div>
@@ -96,8 +109,8 @@ function Senglepage({ props, image }) {
 
 
                 </div>
-                <div className='row'>
-                    <div className='col-12 center '>
+                <div className='row '>
+                    <div className={`col-12 ${style.loadingButton}`}>
                         {next < props?.length && (
                             <button className="btn readleft" onClick={handleMoreImage}
                             >

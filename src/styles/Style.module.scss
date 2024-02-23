@@ -135,6 +135,7 @@ a.hovereffect {
     }
 
     .hovereffect {
+
         background-image: linear-gradient(to right,
                 #eb7e7e,
                 #C2121C 50%);
@@ -238,7 +239,7 @@ a.hovereffect {
         width: 22rem;
         display: grid;
         gap: 15px;
-    
+
         div {
             color: #ffffff;
             display: flex;
@@ -899,8 +900,16 @@ a.hovereffect {
     justify-items: center;
 }
 
-#team {
+.team {
     background: #FAFAFA !important;
+    grid-row-gap: 10px;
+    font-size: inherit;
+    font-family: Segoe UI;
+
+    a {
+        text-decoration: none;
+    }
+
     .section_title {
         font-size: 25px;
         text-align: center;
@@ -908,6 +917,143 @@ a.hovereffect {
         text-transform: uppercase;
         color: #c2121c;
         font-family: Segoe UI;
-      }
-      
-  }
+    }
+
+    .grid_row {
+        color: white;
+        grid-row-gap: 10px;
+        display: grid;
+        // justify-content: center;
+        text-align: center;
+    }
+
+    .loadingButton {
+
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 13px;
+
+    }
+
+    .location_match {
+        background-color: #fff;
+        color: #000;
+        position: relative;
+        top: 13px;
+    }
+
+    .image {
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+
+// Breaking News
+.Breaking_new {
+    color: #c2121c;
+    align-items: center;
+    margin-top: 32px;
+
+    .hovereffect {
+
+
+        background-image: linear-gradient(to right,
+                #eb7e7e,
+                #C2121C 50%);
+        background-size: 200% 100%;
+        background-position: -100%;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hovereffect:before {
+        content: '';
+        background: #C2121C;
+        display: block;
+        position: absolute;
+        bottom: 7px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .hovereffect:hover {
+        background-position: 0;
+    }
+
+    .hovereffect:hover::before {
+        height: 2px;
+        width: 100%;
+    }
+
+    .breaking_news_hed {
+        h1 {
+            font-size: 25px;
+        }
+
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .Breaking_news_gap {
+        //     color: #c2121c;
+        // display: flex;
+        // justify-content: center;
+        margin-top: 32px;
+    }
+
+    .card_text {
+        font: normal normal normal 115% / 123% Segoe UI;
+    }
+
+    .News_image {
+        height: 260px;
+        width: 100%;
+    }
+
+    .News_image_title {
+        height: 47px;
+    }
+
+    .viewCount {
+        border: 1px solid #cbb9ba;
+        display: flex;
+        height: 40px;
+
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ViewCountDate {
+            align-self: center;
+            padding-right: 10px;
+            text-align: end;
+        }
+
+        .viewCounteye {
+            align-self: center;
+            padding-left: 10px;
+            text-align: start;
+        }
+    }
+
+
+    .BreakingButton{
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+    }
+}

@@ -1,20 +1,20 @@
-"use client"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
-function MatchPriview({props}) {
+function MatchPriview({ props }) {
     const router = useRouter()
-    console.log("indise client slide " , props , router.query.slug[2])
-    const [matchpreviwe, setmatchpreviwe] = React.useState("")
-    const [Team_Guide, Set_Team_Guide] = React.useState('')
-    const [Detail, SetDetails_Data] = React.useState('')
-    const [Teams_image, SetTeams_image] = React.useState('')
-    const [metaDiscription, SetmetaDiscription] = React.useState('')
-    const [Title1, SetTitle] = React.useState('')
+    console.log("indise client slide ", props, router?.query?.slug[2])
+    const [matchpreviwe, setmatchpreviwe] = useState("")
+    const [Team_Guide, Set_Team_Guide] = useState('')
+    const [Detail, SetDetails_Data] = useState('')
+    const [Teams_image, SetTeams_image] = useState('')
+    const [metaDiscription, SetmetaDiscription] = useState('')
+    const [Title1, SetTitle] = useState('')
     let preview = router.query.slug[0]
+
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -36,7 +36,7 @@ function MatchPriview({props}) {
         return str.toLowerCase()
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         console.log("indise use effect")
         const params = new URLSearchParams(window?.location?.search);
         var parser = new DOMParser();
@@ -85,10 +85,13 @@ function MatchPriview({props}) {
         //     window.history.replaceState({}, '', newURL);
         // }
         SetTitle(modifystr(input))
-    }, [props])
+    }, [])
+    // const handlelessImage = () => {
+    //     setNext(next - imagePerRow);
+    // };
 
-
-    function TaBFunction(e) {
+   const TaBFunction = (e) => {
+        console.log("function calll")
         function checkString(string) {
             if (typeof string === "string") {
                 // console.log(!isNaN(string),788);
@@ -105,7 +108,7 @@ function MatchPriview({props}) {
     return (
         <div>
             <p>render</p>
-                <Tabs
+            <Tabs
                 defaultActiveKey={router.query.slug[0]}
                 id="uncontrolled-tab-example"
                 className={style.matchpriviewtab}
@@ -116,7 +119,7 @@ function MatchPriview({props}) {
                             <div className='col-12 ' >
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }} >
 
-                                   
+
                                 </div>
                                 <p>Hello World</p>
                             </div>

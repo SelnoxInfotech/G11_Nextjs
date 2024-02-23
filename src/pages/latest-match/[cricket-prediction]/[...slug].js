@@ -2,18 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
 
-const MatchPriview = dynamic(() => import('../../../Component/MatchPriview/MatchPriview'));
+const MatchPriview = dynamic(() => import('../../../Component/MatchPriview/MatchPriview') ,{ssr:false});
 
 function Matchguide({ props }) {
-
-    // var parser = new DOMParser();
-    // var doc = parser.parseFromString(props, 'text/html');
-    // // HTML section//// 
-    // var parserhtm = doc.querySelectorAll('section');
-    // //  container /////
-    // var container = parserhtm[1].querySelector(".container")
-    // var containerData = container.querySelectorAll(".row")[1]
-    // // var a = containerData.querySelector("div").innerHTML
 
     return (
         <div>
@@ -34,7 +25,7 @@ export async function getServerSideProps(ctx) {
     const url = "https://grand11.in/g11/api/page/match_details/" + ctx.params.slug[idIndex];
 
     try {
-        const response = await axios.get(url);
+        const response = await axios.get(url,    { cache: 'force-cache' | 'no-store' });
         const props = response.data;
    
         // setmatchpreviwe(a)

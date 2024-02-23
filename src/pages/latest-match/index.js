@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios"
-import style from "../../styles/Style.module.scss"
+import Head from 'next/head';
 import Senglepage from "@/Component/MatchPriview/Senglepage";
-export default function UpdateMatch({props , ImageData}) {
+export default function UpdateMatch({ props, ImageData }) {
     // React.useEffect(() => {
     //     axios(" https://grand11.in/g11/all_matches_api.php", {
     //         method: 'GET',
@@ -44,11 +44,26 @@ export default function UpdateMatch({props , ImageData}) {
     //     return str
     // }
 
-
+    console.log(ImageData[5])
 
     return (
-        <Senglepage props ={props} image={ImageData}></Senglepage>
+        <>
+            <Head>
+                <title>Breaking news</title>
+                <meta property="og:image" content={`https://www.g11fantasy.com/${ImageData[3].image}`} />
 
+                <meta property="og:title" content="Your Title" />
+
+                <meta property="og:description" content="A full description of the page." />
+
+                <meta property="og:image:width" content="1200" />
+
+                <meta property="og:image:height" content="630" />
+
+            </Head>
+            <Senglepage props={props} image={ImageData}></Senglepage>
+
+        </>
         // <section id="team" className="pb-5">
         //     <div className="container">
         //         <h1 className="section-title ">Today Match Predictions - Cricket Betting Tips from Experts (100% Free)</h1>
@@ -122,11 +137,11 @@ export async function getServerSideProps(ctx) {
     const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
     const Imageprops = await Image.json()
     const ImageData = Imageprops
-  
+
     try {
         const response = await axios.get(url);
         const props = response.data;
-        return { props: { props , ImageData} };
+        return { props: { props, ImageData } };
     } catch (error) {
         console.error("Error fetching data:", error);
         return { props: { error: "Failed to fetch data" } };
