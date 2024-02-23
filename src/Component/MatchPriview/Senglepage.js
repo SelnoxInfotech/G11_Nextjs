@@ -52,15 +52,15 @@ function Senglepage({ props, image }) {
 
                                     <div className="container-fluid  ">
 
-                                                <Image
-                                                    style={{
-                                                        width: '22rem',
-                                                        borderRadius: '20px',
-                                                        height: '100%',
-                                                        objectFit: 'cover',
-                                                        zIndex: 0
-                                                    }}
-                                                    sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
+                                        <Image
+                                            style={{
+                                                width: '22rem',
+                                                borderRadius: '20px',
+                                                height: '100%',
+                                                objectFit: 'cover',
+                                                zIndex: 0
+                                            }}
+                                            sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
                                         <Link href={`/latest-match/cricket-prediction/[[...id]]`} as={`/latest-match/cricket-prediction/${`match-preview`}/${encodeURIComponent(data.title.replace(/\s+/g, '-'))}/${encodeURIComponent(data.id)}`} >
 
                                             <div className="row center grid_row">

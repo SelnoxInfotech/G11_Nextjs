@@ -5,11 +5,20 @@ import dynamic from 'next/dynamic';
 const MatchPriview = dynamic(() => import('../../../../Component/MatchPriview/MatchPriview'));
 
 function Matchguide({ props }) {
-    console.log(props)
+
+    // var parser = new DOMParser();
+    // var doc = parser.parseFromString(props, 'text/html');
+    // // HTML section//// 
+    // var parserhtm = doc.querySelectorAll('section');
+    // //  container /////
+    // var container = parserhtm[1].querySelector(".container")
+    // var containerData = container.querySelectorAll(".row")[1]
+    // // var a = containerData.querySelector("div").innerHTML
+
     return (
         <div>
             <p>{props}</p>
-            <MatchPriview props={props}></MatchPriview>
+            {/* <MatchPriview props={props}></MatchPriview> */}
         </div>
     );
 }
@@ -27,6 +36,8 @@ export async function getServerSideProps(ctx) {
     try {
         const response = await axios.get(url);
         const props = response.data;
+   
+        // setmatchpreviwe(a)
         return { props: { props } };
     } catch (error) {
         console.error("Error fetching data:", error);
