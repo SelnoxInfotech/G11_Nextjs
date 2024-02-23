@@ -6,15 +6,15 @@ import Tabs from 'react-bootstrap/Tabs';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 function MatchPriview({props}) {
-    console.log("indise client slide " , props)
     const router = useRouter()
+    console.log("indise client slide " , props , router.query.slug[2])
     const [matchpreviwe, setmatchpreviwe] = React.useState("")
     const [Team_Guide, Set_Team_Guide] = React.useState('')
     const [Detail, SetDetails_Data] = React.useState('')
     const [Teams_image, SetTeams_image] = React.useState('')
     const [metaDiscription, SetmetaDiscription] = React.useState('')
     const [Title1, SetTitle] = React.useState('')
-    let preview = router.query.id[0]
+    let preview = router.query.slug[0]
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -79,11 +79,11 @@ function MatchPriview({props}) {
             }
         }
         console.log("sdkfjsdlkfjlksdf")
-        if (!checkString(router.query.id[3])) {
+        // if (!checkString(router.query.id[3])) {
 
-            const newURL = `/latest-match/cricket-prediction/${modifystr(f)}/${router.query.id[1]}/${modifystr(input)}/${router.query.id[2]}`;
-            window.history.replaceState({}, '', newURL);
-        }
+        //     const newURL = `/latest-match/cricket-prediction/${modifystr(f)}/${router.query.id[1]}/${modifystr(input)}/${router.query.id[2]}`;
+        //     window.history.replaceState({}, '', newURL);
+        // }
         SetTitle(modifystr(input))
     }, [props])
 
@@ -106,7 +106,7 @@ function MatchPriview({props}) {
         <div>
             <p>render</p>
                 <Tabs
-                defaultActiveKey={router.query.id[0]}
+                defaultActiveKey={router.query.slug[0]}
                 id="uncontrolled-tab-example"
                 className={style.matchpriviewtab}
                 onClick={TaBFunction}>
@@ -114,7 +114,11 @@ function MatchPriview({props}) {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12 ' >
-                                <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }}></div>
+                                <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }} >
+
+                                   
+                                </div>
+                                <p>Hello World</p>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
 
-const MatchPriview = dynamic(() => import('../../../../Component/MatchPriview/MatchPriview'));
+const MatchPriview = dynamic(() => import('../../../Component/MatchPriview/MatchPriview'));
 
 function Matchguide({ props }) {
 
@@ -18,7 +18,7 @@ function Matchguide({ props }) {
     return (
         <div>
             <p>{props}</p>
-            {/* <MatchPriview props={props}></MatchPriview> */}
+            <MatchPriview props={props}></MatchPriview>
         </div>
     );
 }
@@ -30,8 +30,8 @@ export async function getServerSideProps(ctx) {
         return typeof string === "string" && !isNaN(string);
     }
 
-    const idIndex = checkString(ctx.params.id[2]) ?  checkString(ctx.params.id[2]) :  checkString(ctx.params.id[3]);
-    const url = "https://grand11.in/g11/api/page/match_details/" + ctx.params.id[idIndex];
+    const idIndex = checkString(ctx.params.slug[2]) ?  checkString(ctx.params.slug[2]) :  checkString(ctx.params.slug[3]);
+    const url = "https://grand11.in/g11/api/page/match_details/" + ctx.params.slug[idIndex];
 
     try {
         const response = await axios.get(url);

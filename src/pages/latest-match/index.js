@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios"
-import style from "../styles/Style.module.scss"
+import style from "../../styles/Style.module.scss"
 import Senglepage from "@/Component/MatchPriview/Senglepage";
 export default function UpdateMatch({props , ImageData}) {
     // React.useEffect(() => {
