@@ -2,8 +2,9 @@ import axios from "axios"
 import parse from 'html-react-parser';
 import Head from 'next/head';
 import Image from 'next/image';
-
-export default function Detailpage({props}) {
+import Card from "./../../../Component/card/index"
+export default function Detailpage({props , props1}) {
+    console.log(props ,  props1)
 
     const imageLoader = ({ src, width, height, quality }) => {
         console.log(src)
@@ -61,6 +62,7 @@ export default function Detailpage({props}) {
                 })
 
             }
+            <Card props={props1}></Card>
         </>
     )
 
@@ -72,7 +74,10 @@ export async function getServerSideProps(ctx) {
     try {
         const response = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
         const props = response.data.data;
-        return { props: { props } };
+
+        const res = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1')
+        const props1 = await res.json()
+        return { props: { props ,props1} };
     } catch (error) {
         console.error("Error fetching data:", error);
         return { props: { error: "Failed to fetch data" } };

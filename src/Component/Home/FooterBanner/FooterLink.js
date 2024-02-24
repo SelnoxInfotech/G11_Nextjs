@@ -14,13 +14,13 @@ export default function Footer_link() {
                 <p className={`${style.Follow}`}>Follow us on social media</p>
             </div>
             <div className={`${'col-12' } ${style.link} ${style.socal_link}`}>
-                <a href='https://www.facebook.com/g11sport/ ' ><FontAwesomeIcon icon={faFacebook} size="2x"  color='#cc0707'/></a>
-                <a href='https://www.youtube.com/@g11-sportfantasyprediction66'><FontAwesomeIcon icon={faYoutube} size="2x"  color='#cc0707' /></a>
-                <a href='https://www.linkedin.com/company/g11-sport-fantasy-prediction/' className={`${style.linkin}`}><AiFillLinkedin  color='#cc0707'/></a>
-                <a href='https://www.instagram.com/g11sport/'> <FontAwesomeIcon icon={faInstagram} size="2x"  color='#cc0707'/></a>
-                <a href='https://twitter.com/g11prediction' ><FontAwesomeIcon icon={faTwitter} size="2x"  color='#cc0707'/></a>
-                <a href='tel:+916262003399' className={`${style.calling}`}><span><IoMdCall></IoMdCall> </span> </a>
-                <a href='/rss-feed' className={`${style.calling}`}><span>   <FaRssSquare /></span> </a>
+                <Link href='https://www.facebook.com/g11sport/ ' ><FontAwesomeIcon icon={faFacebook} size="2x"  color='#cc0707'/></Link>
+                <Link href='https://www.youtube.com/@g11-sportfantasyprediction66'><FontAwesomeIcon icon={faYoutube} size="2x"  color='#cc0707' /></Link>
+                <Link href='https://www.linkedin.com/company/g11-sport-fantasy-prediction/' className={`${style.linkin}`}><AiFillLinkedin  color='#cc0707'/></Link>
+                <Link href='https://www.instagram.com/g11sport/'> <FontAwesomeIcon icon={faInstagram} size="2x"  color='#cc0707'/></Link>
+                <Link href='https://twitter.com/g11prediction' ><FontAwesomeIcon icon={faTwitter} size="2x"  color='#cc0707'/></Link>
+                <Link href='tel:+916262003399' className={`${style.calling}`}><span><IoMdCall></IoMdCall> </span> </Link>
+                <Link href='/rss-feed' className={`${style.calling}`}><span>   <FaRssSquare /></span> </Link>
             </div>
             <div className={`${'container '} ${style.link }`}>
                 <ul className={`${style.policy_link}`}>
