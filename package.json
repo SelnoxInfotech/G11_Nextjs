@@ -30,6 +30,7 @@
     "react-indiana-drag-scroll": "^2.2.0",
     "react-player": "^2.14.1",
     "react-slick": "^0.30.1",
+    "react-web-share": "^2.0.2",
     "sass": "^1.70.0",
     "sharp": "^0.33.2",
     "slick-carousel": "^1.8.1",

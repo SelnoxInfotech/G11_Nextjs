@@ -1057,3 +1057,17 @@ a.hovereffect {
         margin-top: 15px;
     }
 }
+
+.ShareButton{
+    background-color: white;
+    border-radius: 20px;
+    margin-left: -26px;
+  }
+  .ShareOption{
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    top: 5%;
+    height: 0;
+    left: 90%;
+  }

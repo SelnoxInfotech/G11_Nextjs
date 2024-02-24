@@ -3,6 +3,10 @@ import React from 'react';
 import style from "../../styles/Style.module.scss"
 import Link from 'next/link';
 import Image from 'next/image';
+import { AiFillEye } from "react-icons/ai"
+import { RWebShare } from "react-web-share";
+import { BsFillShareFill } from "react-icons/bs"
+import Button from "react-bootstrap/Button";
 const Card =({props})=>{
     const imagePerRow = 8
     const [next, setNext] = React.useState(imagePerRow);
@@ -52,17 +56,18 @@ const Card =({props})=>{
                             <div className="card1 card">
                                 <div className="video text-center">
 
-                                    <div className='col ShareOption'>
-                                        {/* <RWebShare
+                                    <div className={`${"col"} ${style.ShareOption}`}>
+                                        <RWebShare
                                     data={{
-                                        url: `https://g11prediction.com/cricket-breakingnews/${breakingnews.id}/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}`
+                                        url: `http://weedx.site/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}/${breakingnews.id}`
+                               
                                     }}
                                     onClick={() => console.log("shared successfully!")}
                                 >
-                                    <Button className="ShareButton">
+                                    <Button className={`${style.ShareButton}`}>
                                         <BsFillShareFill color='#c2121c'></BsFillShareFill>
                                     </Button>
-                                </RWebShare> */}
+                                </RWebShare>
 
                                     </div>
                                     <Link className={`${style.hovereffect}`} href={`/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}/${breakingnews.id}`}>
@@ -89,13 +94,13 @@ const Card =({props})=>{
             }
             <div className={`${'row'} ${style.BreakingButton}`}>
                 <div className='col-12 ' id='Buttongap'>
-                    {next < props.l?.length && (
+                    {next < props?.length && (
                         <button className="btn readleft" onClick={handleMoreImage}
                         >
                             Load more
                         </button>
                     )}
-                    {next < props.l?.length && (
+                    {next < props?.length && (
                         <button className={next <= 5 ? 'hidden' : "btn readleft"} onClick={handlelessImage}
                         >
                             Read Less

@@ -4,10 +4,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Card from "./../../../Component/card/index"
 export default function Detailpage({props , props1}) {
-    console.log(props ,  props1)
+    // console.log(props ,  props1)
 
     const imageLoader = ({ src, width, height, quality }) => {
-        console.log(src)
+        // console.log(src)
         return (`https://www.g11fantasy.com${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
 
@@ -74,7 +74,7 @@ export async function getServerSideProps(ctx) {
     try {
         const response = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
         const props = response.data.data;
-
+console.log("new by id ")
         const res = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1')
         const props1 = await res.json()
         return { props: { props ,props1} };
