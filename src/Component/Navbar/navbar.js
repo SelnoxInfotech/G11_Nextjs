@@ -123,7 +123,7 @@ function OffcanvasExample({ props }) {
                     href="/latest-match">Match</Link>
                   <Link
                     onClick={toggleOffCanvas}
-                    href="/breakingnews">Breaking News</Link>
+                    href="/breaking-news">Breaking News</Link>
                   <Link
                     onClick={toggleOffCanvas}
                     href="/ipl-2024">IPL 2024</Link>

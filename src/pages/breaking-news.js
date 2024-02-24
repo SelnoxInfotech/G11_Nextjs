@@ -81,7 +81,7 @@ const Breakingnews = (props) => {
                                         </RWebShare> */}
 
                                             </div>
-                                            <Link className={`${style.hovereffect}`} href={`/cricket-breakingnews/${breakingnews.id}/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}`}>
+                                            <Link className={`${style.hovereffect}`} href={`/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}/${breakingnews.id}`}>
                                                 <Image className={style.News_image} loader={imageLoader} src={`${breakingnews.Image}`} height={10} width={100} alt="news_image" quality={100} />
                                                 <div className={style.News_image_title}>
                                                     <h2 className={`card-text  ${style.card_text}`}>{breakingnews.Title.slice(0, 80)}</h2>

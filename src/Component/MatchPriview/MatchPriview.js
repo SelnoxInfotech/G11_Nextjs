@@ -4,6 +4,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
+
 function MatchPriview({ props }) {
     const router = useRouter()
     console.log("indise client slide ", props, router?.query?.slug[2])
