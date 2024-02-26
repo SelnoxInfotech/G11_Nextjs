@@ -2,7 +2,7 @@ import axios from "axios"
 import Head from 'next/head';
 import Card from "./../../../Component/card/index"
 import dynamic from 'next/dynamic'
-const Details = dynamic(() => import('../../../Component/Details/Details'), { ssr: false, loading: () => <p>Loading...</p> });
+const Details = dynamic(() => import('../../../Component/Details/Details'));
 import { useRouter } from "next/router";
 import { Seo } from "@/Component/Seo/Seo";
 export default function Detailpage({ props, props1 }) {
@@ -13,7 +13,12 @@ export default function Detailpage({ props, props1 }) {
                 props?.map((data, index) => {
                     return (
                         <>
-                            <Seo  image={data?.Image} title={data. Meta_title} description={ data.Meta_Description} keywords={"Cricket Betting Tips & Predictions"}></Seo>
+                            <Seo
+                                image={data?.Image}
+                                title={data?.Meta_title}
+                                description={data?.Meta_Description}
+                                keywords={"Cricket Betting Tips & Predictions"}
+                                ></Seo>
                             <Details data={data} ></Details>
                         </>
                     )
@@ -39,18 +44,18 @@ export async function getServerSideProps(ctx) {
                 props = response.data.data;
                 res = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1')
                 props1 = await res.json()
-                break;
-            case "ipl-2024":
-                response = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
-                props = response.data.data;
-                res = await axios.get('https://g11fantasy.com/NewsSection/FilterbySubCategory/7')
-                props1 = res.data.data;
-                break;
-            case "icc-cricket-world-cup-2024":
-                response = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
-                props = response.data.data;
-                res = await axios.get('https://g11fantasy.com/NewsSection/FilterbySubCategory/8')
-                props1 = res.data.data;
+            //     break;
+            // case "ipl-2024":
+            //     response = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
+            //     props = response.data.data;
+            //     res = await axios.get('https://g11fantasy.com/NewsSection/FilterbySubCategory/7')
+            //     props1 = res.data.data;
+            //     break;
+            // case "icc-cricket-world-cup-2024":
+            //     response = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
+            //     props = response.data.data;
+            //     res = await axios.get('https://g11fantasy.com/NewsSection/FilterbySubCategory/8')
+            //     props1 = res.data.data;
                 break;
 
             default:

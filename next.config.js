@@ -6,7 +6,7 @@ const nextConfig = {
   // cacheMaxMemorySize: 0, // disable default in-memory caching
   reactStrictMode: true,
   experimental: {
-    largePageDataBytes: 2000 * 2000,
+    largePageDataBytes: 128 * 100000,
   },
   images: {
     // formats: ['image/avif'],
