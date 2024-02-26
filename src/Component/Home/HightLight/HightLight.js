@@ -2,7 +2,6 @@ import React from 'react';
 import parse from 'html-react-parser';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
-import Link from 'next/link';
 import Image from 'next/image';
 const HightLight = ({ latestnews }) => {
     // console.log(latestnews)

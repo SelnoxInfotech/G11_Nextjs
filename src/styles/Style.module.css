@@ -5,18 +5,8 @@
   border-radius: 50px;
 }
 
-.btn_tele {
-  border-radius: 21px;
-  background-color: #0088cc;
-  position: relative;
-  top: 23px;
-  height: 45px;
-  width: 194px;
-  color: white;
-}
-
-.btn_tele:hover {
-  background-color: #2EA8DE;
+.Offcanvas {
+  background-color: #c2121c;
 }
 
 a.hovereffect {
@@ -35,7 +25,7 @@ a.hovereffect {
   border-radius: 21px;
   background-color: #0088cc;
   position: relative;
-  top: 23px;
+  left: 40%;
   height: 45px;
   width: 194px;
   color: white;
@@ -194,10 +184,11 @@ a.hovereffect {
   height: 300px;
   border-radius: 20px;
   background-repeat: no-repeat;
-  background-image: url("/matchBackground.webp");
 }
 .updatematch .grid_row {
-  width: 450px;
+  width: 22rem;
+  display: grid;
+  gap: 15px;
 }
 .updatematch .grid_row div {
   color: #ffffff;
@@ -354,6 +345,10 @@ a.hovereffect {
   margin: 0;
   font: normal normal 25px/37px Segoe UI;
 }
+.HightLight .BreakingnewsScrollInside {
+  display: flex;
+  gap: 32px;
+}
 .HightLight .HightCol {
   display: flex;
   overflow: hidden;
@@ -362,6 +357,8 @@ a.hovereffect {
 @media only screen and (max-width: 850px) {
   .HightLight .HightCol {
     width: 100%;
+    display: block;
+    height: 500px;
   }
 }
 
@@ -715,4 +712,161 @@ a.hovereffect {
 }
 .footer_link .copy_right a {
   color: #f7f7f7;
+}
+
+.matchpriviewtab {
+  justify-content: center;
+  align-items: center;
+}
+.matchpriviewtab .match_priview {
+  color: #c2121c;
+  font-size: 22px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 8px;
+}
+
+.font h3 span {
+  background-color: #fffcfc;
+  color: #c2121c;
+  font-family: Segoe UI;
+  justify-items: center;
+}
+
+.team {
+  background: #FAFAFA !important;
+  grid-row-gap: 10px;
+  font-size: inherit;
+  font-family: Segoe UI;
+}
+.team a {
+  text-decoration: none;
+}
+.team .section_title {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  color: #c2121c;
+  font-family: Segoe UI;
+}
+.team .grid_row {
+  color: white;
+  grid-row-gap: 10px;
+  display: grid;
+  text-align: center;
+}
+.team .loadingButton {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 13px;
+}
+.team .location_match {
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  top: 13px;
+}
+.team .image {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Breaking_new {
+  color: #c2121c;
+  align-items: center;
+  margin-top: 32px;
+}
+.Breaking_new .hovereffect {
+  background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+.Breaking_new .hovereffect:before {
+  content: "";
+  background: #C2121C;
+  display: block;
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.2s ease-in-out;
+}
+.Breaking_new .hovereffect:hover {
+  background-position: 0;
+}
+.Breaking_new .hovereffect:hover::before {
+  height: 2px;
+  width: 100%;
+}
+.Breaking_new .breaking_news_hed {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.Breaking_new .breaking_news_hed h1 {
+  font-size: 25px;
+}
+.Breaking_new .Breaking_news_gap {
+  margin-top: 32px;
+}
+.Breaking_new .card_text {
+  font: normal normal normal 115%/123% Segoe UI;
+}
+.Breaking_new .News_image {
+  height: 260px;
+  width: 100%;
+}
+.Breaking_new .News_image_title {
+  height: 47px;
+}
+.Breaking_new .viewCount {
+  border: 1px solid #cbb9ba;
+  display: flex;
+  height: 40px;
+}
+.Breaking_new .viewCount p {
+  padding: 0;
+  margin: 0;
+}
+.Breaking_new .viewCount .ViewCountDate {
+  align-self: center;
+  padding-right: 10px;
+  text-align: end;
+}
+.Breaking_new .viewCount .viewCounteye {
+  align-self: center;
+  padding-left: 10px;
+  text-align: start;
+}
+.Breaking_new .BreakingButton {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.ShareButton {
+  background-color: white;
+  border-radius: 20px;
+  margin-left: -26px;
+}
+
+.ShareOption {
+  position: relative;
+  z-index: 1;
+  width: -moz-fit-content;
+  width: fit-content;
+  top: 5%;
+  height: 0;
+  left: 90%;
 }/*# sourceMappingURL=Style.module.css.map */

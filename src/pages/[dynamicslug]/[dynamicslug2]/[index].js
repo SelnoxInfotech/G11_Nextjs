@@ -2,8 +2,9 @@ import axios from "axios"
 import Head from 'next/head';
 import Card from "./../../../Component/card/index"
 import dynamic from 'next/dynamic'
-const Details = dynamic(() => import('../../../Component/Details/Details'), { ssr: true, loading: () => <p>Loading...</p> });
+const Details = dynamic(() => import('../../../Component/Details/Details'), { ssr: false, loading: () => <p>Loading...</p> });
 import { useRouter } from "next/router";
+import { Seo } from "@/Component/Seo/Seo";
 export default function Detailpage({ props, props1 }) {
     const router = useRouter();
     return (
@@ -12,19 +13,7 @@ export default function Detailpage({ props, props1 }) {
                 props?.map((data, index) => {
                     return (
                         <>
-                            <Head>
-                                <title>Breaking news</title>
-                                <meta property="og:image" content={`https://www.g11fantasy.com${data?.Image}`} />
-
-                                <meta property="og:title" content={data.Title} />
-
-                                <meta property="og:description" content="A full description of the page." />
-
-                                <meta property="og:image:width" content="1200" />
-
-                                <meta property="og:image:height" content="630" />
-
-                            </Head>
+                            <Seo  image={data?.Image} title={data. Meta_title} description={ data.Meta_Description} keywords={"Cricket Betting Tips & Predictions"}></Seo>
                             <Details data={data} ></Details>
                         </>
                     )

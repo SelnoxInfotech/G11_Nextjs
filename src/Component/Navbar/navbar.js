@@ -11,20 +11,9 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-// import logo from "../../Image/G11.png";
-// const window = dynamic(() => import('../../Component/Navbar/Function'));
-// import { window } from "../../Component/Navbar/Function"
 function OffcanvasExample({ props }) {
   const [image, setimage] = useState([])
-  // const loadWindowObject = async () => {
-  //   const window = await import('next/window');
-  //   return window;
-  // };
-
-  // const window = await loadWindowObject();
-
   const router = useRouter();
-  // var window =  window()
   const [Dropshow, setDropshow] = useState(false);
   const [show, setShow] = useState(false);
   const [windowDimenion, detectHW] = useState({
@@ -40,12 +29,13 @@ function OffcanvasExample({ props }) {
     })
   }
   useEffect(() => {
+    detectSize()
     window?.addEventListener('resize', detectSize)
     return () => {
       window?.removeEventListener('resize', detectSize)
     }
 
-  }, [windowDimenion])
+  }, [])
 
   const toggleOffCanvas = () => {
     if (windowDimenion?.winWidth <= 991) {
@@ -104,16 +94,16 @@ function OffcanvasExample({ props }) {
               show={show}
               onHide={toggleOffCanvas}
             >
-              <Offcanvas.Header closeButton   >
+              <Offcanvas.Header closeButton className={style.Offcanvas}  >
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
-                  <div className='row'>
-                    <div className='col-12 lrftjoin' >
+                  {/* <div className='row'> */}
+                    {/* <div className='col-12 lrftjoin' > */}
                       <button onClick={hrefFunction} type="button" className={`${style.btn_tele} ${'btn'}`}> Join Telegram </button>
-                    </div>
-                  </div>
+                    {/* </div> */}
+                  {/* </div> */}
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body>
+              <Offcanvas.Body className={style.Offcanvas}>
                 <Nav className={`${style.Homelink} , offcanvas--menu`}>
                   <Link
                     onClick={toggleOffCanvas}
@@ -143,7 +133,6 @@ function OffcanvasExample({ props }) {
                     title="More"
                     className={style.dropdownLink}
                     show={Dropshow}
-                    // onFocus={() => setDropshow(true)}
                     onMouseEnter={showDropdown}
                     onMouseLeave={hideDropdown}
 

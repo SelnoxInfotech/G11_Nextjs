@@ -2,7 +2,8 @@
 import { Inter } from "next/font/google";
 import dynamic from 'next/dynamic'
 const Home = dynamic(() => import('../Component/Home/index'), { ssr: true, loading: () => <p>Loading...</p> });
-import Head from 'next/head';
+// const {SeoHomepage} = dynamic(() => import('../Component/Seo/Seo'), { ssr: false, loading: () => <p>Loading...</p> });
+import { Seo } from "@/Component/Seo/Seo";
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -11,19 +12,12 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Dashboard(props) {
   return (
     <>
-          <Head>
-                <title>Breaking news</title>
-                <meta property="og:image" content={`https://www.g11fantasy.com/${props.ImageData[4].image}`} />
-
-                <meta property="og:title" content="Your Title" />
-
-                <meta property="og:description" content="A full description of the page." />
-
-                <meta property="og:image:width" content="1200" />
-
-                <meta property="og:image:height" content="630" />
-
-            </Head>
+      <Seo
+        image={props.ImageData[9].image}
+        title={"G11- Fantasy Cricket Prediction for Today's Match |"}
+        description="G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."
+        keywords={"G11 Fantasy Cricket Prediction, cricket news, Today's match Prediction, Latest Cricket News, Cricket Betting Tips & Predictions, fantasy cricket prediction, dream 11 today prediction, today best cricket match prediction"}
+      ></Seo>
       <Home props={[props?.l]} match={props.l1} updatematch={props.l2} Breaking={props.Breaking} latestnews={props.l3} Teamsdata={props.Teamsdata} image={props.ImageData} ></Home>
     </>
   );

@@ -5,22 +5,10 @@
     border-radius: 50px;
 }
 
-.btn_tele {
-    border-radius: 21px;
-    background-color: #0088cc;
-    position: relative;
-
-    top: 23px;
-    height: 45px;
-    width: 194px;
-    color: white;
-
+.Offcanvas{
+background-color: #c2121c;
+// justify-content: center;
 }
-
-.btn_tele:hover {
-    background-color: #2EA8DE;
-}
-
 a.hovereffect {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -38,7 +26,8 @@ a.hovereffect {
     border-radius: 21px;
     background-color: #0088cc;
     position: relative;
-    top: 23px;
+    // top: 23px;
+    left: 40%;
     height: 45px;
     width: 194px;
     color: white;
@@ -1071,3 +1060,4 @@ a.hovereffect {
     height: 0;
     left: 90%;
   }
+ 

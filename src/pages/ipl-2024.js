@@ -1,25 +1,17 @@
 import React from 'react';
-import Head from 'next/head';
 import Card from "../Component/card/index"
+import { Seo } from '@/Component/Seo/Seo';
 
-const Ipl2024 = (props) => {
+const Ipl2024 = (props) => { 
 
 
     return (
         <>
-            <Head>
-                <title>Breaking news</title>
-                {/* <meta property="og:image" content={`https://www.g11fantasy.com/${props.ImageData[8].image}`} /> */}
-
-                <meta property="og:title" content="Your Title" />
-
-                <meta property="og:description" content="A full description of the page." />
-
-                <meta property="og:image:width" content="1200" />
-
-                <meta property="og:image:height" content="630" />
-
-            </Head>
+            <Seo
+                title={"Get IPL 2024 Latest News, Predictions, Analysis On G11predictions"}
+                description={"PL 2024 Live Updates, Latest News, Match Predictions, IPL 2024 Match Schedule, Venue Details, Points Table, Match Analysis And Much More Only On G11prediction"}
+                keywords={"IPL 2024,IPL schedule 2024, IPL teams 2024, IPL venues 2024, Dream11 prediction, IPL 2024 match prediction, IPL 2024"}
+            ></Seo>
             <Card props={props.l.data} query={"ipl-2024"}></Card>
         </>
     );
@@ -32,12 +24,8 @@ export const getStaticProps = async (context) => {
     const res = await fetch('https://g11fantasy.com/NewsSection/FilterbySubCategory/7')
     const props = await res.json()
     const l = props
-    console.log("new by NewsSection " , props)
-    // const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
-    // const Imageprops = await Image.json()
-    // const ImageData = Imageprops
-  
-    return { props: { l  } }
+
+    return { props: { l } }
 
 
 }
