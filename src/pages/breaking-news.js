@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Card from "../Component/card/index"
 
 const Breakingnews = (props) => {
-    
+
 
 
     return (
@@ -21,7 +21,7 @@ const Breakingnews = (props) => {
                 <meta property="og:image:height" content="630" />
 
             </Head>
-            <Card props={props.l}></Card>
+            <Card props={props.l} query={"cricket-breaking-news"}></Card>
         </>
     );
 };
@@ -37,8 +37,8 @@ export const getStaticProps = async (context) => {
     const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
     const Imageprops = await Image.json()
     const ImageData = Imageprops
-  
-    return { props: { l , ImageData } }
+
+    return { props: { l, ImageData } }
 
 
 }

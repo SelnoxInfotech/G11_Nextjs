@@ -15,7 +15,6 @@ function Matchguide({ props }) {
 }
 
 export async function getServerSideProps(ctx) {
-    console.log("dsfgds");
 
     function checkString(string) {
         return typeof string === "string" && !isNaN(string);

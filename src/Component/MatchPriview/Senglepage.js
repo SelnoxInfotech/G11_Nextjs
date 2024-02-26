@@ -51,7 +51,6 @@ function Senglepage({ props, image }) {
     }
 
     const imageLoader = ({ src, width, height ,quality }) => {
-        console.log(src, width, height ,quality)
         return `https://grand11.in/g11/${src}?w=${width}&h=${50}&q=${quality || 75}`
     }
 
