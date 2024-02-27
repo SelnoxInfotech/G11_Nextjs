@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios"
 import Head from 'next/head';
-import Senglepage from "@/Component/MatchPriview/Senglepage";
-import { Seo } from "@/Component/Seo/Seo";
+import Senglepage from "../../Component/MatchPriview/Senglepage";
+import { Seo } from "../../Component/Seo/Seo";
 export default function UpdateMatch({ props, ImageData }) {
 
     return (

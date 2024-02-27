@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 
 function Seo({ image, title, description , keywords }) {
-      console.log(image , title)
+    //   console.log(image , title)
     return (
         <Head>
             <title>{title}</title>

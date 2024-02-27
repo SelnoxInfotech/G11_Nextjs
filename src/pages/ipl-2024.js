@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from "../Component/card/index"
-import { Seo } from '@/Component/Seo/Seo';
+import { Seo } from '../Component/Seo/Seo';
 
 const Ipl2024 = (props) => { 
 
@@ -19,10 +19,11 @@ const Ipl2024 = (props) => {
 
 export default Ipl2024;
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
 
     const res = await fetch('https://g11fantasy.com/NewsSection/FilterbySubCategory/7')
     const props = await res.json()
+    console.log("adsfggafgafs ipl 2024")
     const l = props
 
     return { props: { l } }

@@ -19,7 +19,7 @@ const Icc2024 = (props) => {
 
 export default Icc2024;
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
 
     const res = await fetch('https://g11fantasy.com/NewsSection/FilterbySubCategory/8')
     const props = await res.json()

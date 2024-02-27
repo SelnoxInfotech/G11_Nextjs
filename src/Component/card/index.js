@@ -7,7 +7,9 @@ import { AiFillEye } from "react-icons/ai"
 import { RWebShare } from "react-web-share";
 import { BsFillShareFill } from "react-icons/bs"
 import Button from "react-bootstrap/Button";
+import { fetchData1 } from '../../pages/api/utils/api';
 const Card = ({ props, query }) => {
+    const [data, setdata] = React.useState(props)
     const imagePerRow = 8
     const [next, setNext] = React.useState(imagePerRow);
     function modifystr(str) {
@@ -41,6 +43,16 @@ const Card = ({ props, query }) => {
     const handlelessImage = () => {
         setNext(next - imagePerRow);
     };
+    React.useEffect(() => {
+        if (data === undefined) {
+
+            fetchData1().then((res) => {
+                setdata(res)
+            })
+        }
+    })
+
+
     return (
         <div className='container-fluid center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
@@ -49,7 +61,7 @@ const Card = ({ props, query }) => {
                 </div>
 
                 {
-                    props?.slice(0, next)?.map((breakingnews, index) => {
+                    data?.slice(0, next)?.map((breakingnews, index) => {
                         return (
 
                             <div className={`col-xs-12 col-sm-6 col-md-3  ${style.Breaking_news_gap}`} key={index}>
@@ -70,12 +82,7 @@ const Card = ({ props, query }) => {
                                             </RWebShare>
 
                                         </div>
-                                        <Link className={`${style.hovereffect}`}
-
-                                            href=  { `/${query}/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}/${breakingnews.id}`}
-
-
-                                        >
+                                        <Link className={`${style.hovereffect}`} href={`/${query}/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}/${breakingnews.id}`} >
                                             <Image className={style.News_image} loader={imageLoader} src={`${breakingnews.Image}`} height={10} width={100} alt="news_image" quality={100} />
                                             <div className={style.News_image_title}>
                                                 <h2 className={`card-text  ${style.card_text}`}>{breakingnews.Title.slice(0, 80)}</h2>

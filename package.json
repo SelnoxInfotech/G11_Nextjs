@@ -34,6 +34,7 @@
     "sass": "^1.70.0",
     "sharp": "^0.33.2",
     "slick-carousel": "^1.8.1",
+    "swr": "^2.2.5",
     "youtube-player": "^5.6.0"
   },
   "devDependencies": {
