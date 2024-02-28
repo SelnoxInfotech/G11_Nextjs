@@ -3,7 +3,8 @@ import React from 'react';
 import Link from 'next/link';
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
-function Senglepage({ props, image }) {
+function Senglepage({ props }) {
+    console.log(props)
     const imagePerRow = 6
     const [next, setNext] = React.useState(imagePerRow);
 
@@ -40,7 +41,7 @@ function Senglepage({ props, image }) {
     }
 
     const styling = {
-        backgroundImage: `url('${"https://www.g11fantasy.com/" + image[7].image}')`,
+        backgroundImage: `url('${"https://www.g11fantasy.com/image/images/download/media/Static/matchBackground.jpg"}')`,
         padding: "0",
         //   font-family: 'Segoe UI',
         backgroundSize: "100% 100%",

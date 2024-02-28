@@ -5,13 +5,12 @@ import dynamic from 'next/dynamic'
 const Details = dynamic(() => import('../../../Component/Details/Details'));
 import { useRouter } from "next/router";
 import { Seo } from "../../../Component/Seo/Seo";
-import { fetchData2byid } from '../../api/utils/api';
+
 export default function Detailpage(props) {
-    const router = useRouter();
     return (
         <>
             {
-                props?.data1[0].map((data, index) => {
+                props?.l.map((data, index) => {
                     return (
                         <>
                             <Seo
@@ -26,7 +25,7 @@ export default function Detailpage(props) {
                 })
 
             }
-            <Card  query={router.query.dynamicslug} ></Card>
+            {/* <Card query={router.query.dynamicslug} ></Card> */}
         </>
     )
 
@@ -35,10 +34,9 @@ export default function Detailpage(props) {
 
 export async function getServerSideProps(ctx) {
     try {
-        let data1 = await Promise.all([
-            fetchData2byid(ctx.params.index),
-        ]);
-        return { props:  {data1}  };
+        const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
+        let l = res.data.data
+        return { props: { l } };
     }
     catch (error) {
         console.error("Error fetching data:", error);

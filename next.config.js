@@ -4,9 +4,9 @@ const withImages = require('next-images');
 const nextConfig = {
   // cacheHandler: require.resolve('./cache-handler.js'),
   reactStrictMode: true,
-  // experimental: {
-  //   largePageDataBytes: 128 * 100000,
-  // },
+  experimental: {
+    largePageDataBytes: 128 * 100000,
+  },
 
   images: {
     // formats: ['image/avif'],

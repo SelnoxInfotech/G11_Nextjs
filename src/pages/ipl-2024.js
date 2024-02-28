@@ -1,32 +1,67 @@
 import React from 'react';
-import Card from "../Component/card/index"
+import dynamic from 'next/dynamic'
+const Card = dynamic(() => import('../Component/card/index'), { ssr: true, loading: () => <p>Loading...</p> });
 import { Seo } from '../Component/Seo/Seo';
+import useSWR from 'swr';
 
-const Ipl2024 = (props) => { 
+const fetcher = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  };
+const Ipl2024 = ({initialData}) => { 
+    const k = initialData.breaking.data
+    const { data: fetchedData, error } = useSWR('/api/utils/Filterbycategory8',fetcher,{ k } );
+
+    const data = fetchedData || k;
+
+    if (!data) return <div>Loading...</div>;
 
 
     return (
         <>
             <Seo
+             image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                 title={"Get IPL 2024 Latest News, Predictions, Analysis On G11predictions"}
                 description={"PL 2024 Live Updates, Latest News, Match Predictions, IPL 2024 Match Schedule, Venue Details, Points Table, Match Analysis And Much More Only On G11prediction"}
                 keywords={"IPL 2024,IPL schedule 2024, IPL teams 2024, IPL venues 2024, Dream11 prediction, IPL 2024 match prediction, IPL 2024"}
             ></Seo>
-            <Card props={props.l.data} query={"ipl-2024"}></Card>
+     <Card props={data} query={"icc-cricket-world-cup-2024"}></Card>
         </>
     );
 };
 
 export default Ipl2024;
 
-export const getServerSideProps = async (context) => {
-
-    const res = await fetch('https://g11fantasy.com/NewsSection/FilterbySubCategory/7')
-    const props = await res.json()
-    console.log("adsfggafgafs ipl 2024")
-    const l = props
-
-    return { props: { l } }
-
-
-}
+export async function getStaticProps() {
+    try {
+      const [topNewsRes] = await Promise.all([
+        fetch('https://g11fantasy.com/NewsSection/FilterbySubCategory/7'),
+      ]);
+  
+      const [topNews, images] = await Promise.all([
+        topNewsRes.json(),
+      ]);
+  
+  
+      const responseData = {
+        breaking: topNews,
+      };
+      return {
+        props: {
+          initialData: responseData,
+        },
+      };
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return {
+        props: {
+          initialData: null,
+          error: 'Failed to fetch data',
+        },
+      };
+    }
+  }
+  
