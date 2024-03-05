@@ -9,6 +9,28 @@ function Match({ updatematch, image }) {
     const imageLoader1 = ({ src, width, quality }) => {
         return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
     }
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str
+    }
+
+
     return (
         <div className={`container-fluid ${style.update_match}`}  >
             {/* <div style={{width:"100%", overflowX: 'scroll'}}> */}
@@ -29,7 +51,7 @@ function Match({ updatematch, image }) {
                                     }}
                                     sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
                                 <div className={` ${style.grid_row}`}>
-                                    <Link href={`/latest-match/cricket-prediction/[...slug]`} as={`/latest-match/cricket-prediction/match-preview/${data.title.replace(/\s+/g, '-')}/${data.id.toString()}`} >
+                                    <Link href={`/latest-match/cricket-prediction/${'match-preview'}/${modifystr(data.title)}/${data.id}`} >
 
                                         <div className="col">
                                             {data.title}

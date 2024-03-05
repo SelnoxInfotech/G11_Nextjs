@@ -1,10 +1,11 @@
-"use client"
+
 import React from 'react';
-import Link from 'next/link';
+import Link from 'next/link'
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
-function Senglepage({ props }) {
-    console.log(props)
+import { useRouter } from 'next/router'
+ 
+function Senglepage({ props }) {  const router = useRouter()
     const imagePerRow = 6
     const [next, setNext] = React.useState(imagePerRow);
 
@@ -55,8 +56,11 @@ function Senglepage({ props }) {
         return `https://grand11.in/g11/${src}?w=${width}&h=${50}&q=${quality || 75}`
     }
 
-
-    
+    // const handleClick = (event, data) => {
+    //     event.preventDefault();
+    //     router.push(
+    //                  `/latest-match/cricket-prediction/${'match-preview'}/${modifystr(data.title)}/${data.id}`);
+    // };   
     return (
 
         <section id={style.team} className={style.team}>
@@ -74,9 +78,10 @@ function Senglepage({ props }) {
                                         style={styling}
                                     >
 
-                                        <Link href={`/latest-match/cricket-prediction/[...slug]`} as={`/latest-match/cricket-prediction/match-preview/${modifystr(data.title)}/${data.id}`} >
+                                        <Link  href={`/latest-match/cricket-prediction/${'match-preview'}/${modifystr(data.title)}/${data.id}`}>
 
-                                            <div className={` "row" ${style.grid_row} `}>
+                              
+                                         <div className={` "row" ${style.grid_row} `}>
                                                 <div className="col-12 center color">
                                                     <p>  {data.title}</p>
                                                 </div>
@@ -100,6 +105,7 @@ function Senglepage({ props }) {
                                                     <p className="city_location"><span className="location">match Location-</span>{data.city}</p>
                                                 </div>
                                             </div>
+                                 
                                         </Link>
                                     </div>
                                 </div>

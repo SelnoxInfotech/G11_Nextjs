@@ -185,6 +185,7 @@ const Home = dynamic(() => import('../Component/Home/index'), { ssr: true, loadi
 
 
 import useSWR from 'swr';
+import Button from '../Component/Button';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -205,6 +206,7 @@ function MyComponent({ initialData }) {
 
   return (
     <div>
+      {/* <Button></Button> */}
       <Home props={[data?.l]} match={data.l1} updatematch={data.l2} Breaking={data.breaking} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ></Home>
     </div>
   );

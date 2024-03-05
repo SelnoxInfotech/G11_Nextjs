@@ -1,4 +1,4 @@
-export default async function Filterbycategory7(req, res) {
+export  async function Filterbycategory7(req, res) {
     try {
       // Make an HTTP request to fetch data from source 1
       const [topNewsRes, imageRes] = await Promise.all([

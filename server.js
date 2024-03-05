@@ -1,24 +1,44 @@
-const express = require('express')
-const next = require('next')
-const cors = require("cors");
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const express = require('express');
+const next = require('next');
+const cors = require('cors');
+
+const dev = process.env.NODE_ENV !== 'production';
+const port = process.env.PORT || 3000;
+
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
 app.prepare()
   .then(() => {
-    const server = express()
-    server.use(cors());
-    server.get('*', (req, res) => {
-      return handle(req, res)
-    })
+    const server = express();
 
-    server.listen(3000, (err) => {
-      if (err) throw err
-      console.log('> Ready on http://localhost:3000')
-    })
+    // Apply middleware
+    server.use(cors());
+    server.use(express.json());
+    server.use(express.urlencoded({ extended: true }));
+
+    // Custom routes (if needed)
+    server.get('/custom-route', (req, res) => {
+      res.send('This is a custom route');
+    });
+
+    // Default route handler for Next.js
+    server.get('*', (req, res) => {
+      return handle(req, res);
+    });
+
+    // Error handling middleware
+    server.use((err, req, res, next) => {
+      console.error(err.stack);
+      res.status(500).send('Something went wrong!');
+    });
+
+    server.listen(port, (err) => {
+      if (err) throw err;
+      console.log(`> Ready on http://localhost:${port}`);
+    });
   })
   .catch((ex) => {
-    console.error(ex.stack)
-    process.exit(1)
-  })
+    console.error(ex.stack);
+    process.exit(1);
+  });

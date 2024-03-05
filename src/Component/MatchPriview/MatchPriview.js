@@ -1,4 +1,4 @@
-
+"use client"
 import React, { useEffect, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -7,14 +7,13 @@ import { useRouter } from 'next/router'
 
 function MatchPriview({ props }) {
     const router = useRouter()
-    console.log("indise client slide ", props, router?.query?.slug[2])
     const [matchpreviwe, setmatchpreviwe] = useState("")
     const [Team_Guide, Set_Team_Guide] = useState('')
     const [Detail, SetDetails_Data] = useState('')
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
     const [Title1, SetTitle] = useState('')
-    let preview = router.query.slug[0]
+    let preview = router.query.slug[1]
 
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -38,17 +37,16 @@ function MatchPriview({ props }) {
     }
 
     useEffect(() => {
-        console.log("indise use effect")
+
         const params = new URLSearchParams(window?.location?.search);
         var parser = new DOMParser();
-        var doc = parser.parseFromString(props, 'text/html');
+        var doc = parser.parseFromString(props.props, 'text/html');
         // HTML section//// 
         var parserhtm = doc.querySelectorAll('section');
         //  container /////
         var container = parserhtm[1].querySelector(".container")
         var containerData = container.querySelectorAll(".row")[1]
         var a = containerData.querySelector("div").innerHTML
-
         setmatchpreviwe(a)
         const list = containerData.querySelector("div")?.getElementsByTagName("*")
         for (let i = 0; i < list.length; i++) {
@@ -72,45 +70,39 @@ function MatchPriview({ props }) {
         var TeamsData1 = Teams_.querySelectorAll("div")
         var Team_data = TeamsData1[4].innerHTML
         SetTeams_image(Team_data)
-        const input = `containerData.querySelector("div >p").innerHTML.slice(26);`
+        const input = containerData.querySelector("div >p").innerHTML.slice(26)
         const f = containerData.querySelector("div >h3").innerHTML;
         function checkString(string) {
             if (typeof string === "string") {
                 return !isNaN(string)
             }
         }
-        console.log("sdkfjsdlkfjlksdf")
-        // if (!checkString(router.query.id[3])) {
+        if (checkString(router.query.slug[3])) {
 
-        //     const newURL = `/latest-match/cricket-prediction/${modifystr(f)}/${router.query.id[1]}/${modifystr(input)}/${router.query.id[2]}`;
-        //     window.history.replaceState({}, '', newURL);
-        // }
+            const newURL = `/latest-match/cricket-prediction/${router.query.slug[1]}/${router.query.slug[2]}/${modifystr(input)}/${router.query.slug[3]}`;
+            window.history.replaceState({}, '', newURL);
+        }
         SetTitle(modifystr(input))
     }, [])
-    // const handlelessImage = () => {
-    //     setNext(next - imagePerRow);
-    // };
 
-   const TaBFunction = (e) => {
-        console.log("function calll")
+    const TaBFunction = (e) => {
+        const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
         function checkString(string) {
-            if (typeof string === "string") {
-                // console.log(!isNaN(string),788);
-                return !isNaN(string)
-            }
+            return typeof string === "string" && !isNaN(string)
         }
-        if (checkString(router.query.id[2])) {
-            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${e.target.innerText.replace(/\s+/g, '-').toLowerCase()}/${Title1}/${router.query.id[1]}/${router.query.id[2]}`);
+
+        if (checkString(router.query.slug[3])) {
+            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${l}/${router.query.slug[2]}/${Title1}/${router.query.slug[3]}`);
         }
         else {
-            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${e.target.innerText.replace(/\s+/g, '-').toLowerCase()}/${Title1}/${router.query.id[1]}/${router.query.id[3]}`);
+            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${l}/${router.query.slug[2]}/${router.query.slug[3]}/${router.query.slug[4]}`);
         }
+
     }
     return (
         <div>
-            <p>render</p>
             <Tabs
-                defaultActiveKey={router.query.slug[0]}
+                defaultActiveKey={preview}
                 id="uncontrolled-tab-example"
                 className={style.matchpriviewtab}
                 onClick={TaBFunction}>
@@ -118,11 +110,8 @@ function MatchPriview({ props }) {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12 ' >
-                                <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }} >
 
-
-                                </div>
-                                <p>Hello World</p>
+                                <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }}></div>
                             </div>
                         </div>
                     </div>

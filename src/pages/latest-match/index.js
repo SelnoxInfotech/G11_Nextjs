@@ -20,7 +20,6 @@ export default function UpdateMatch({ initialData }) {
     const data = fetchedData || initialData;
     // if (error) return <div>Error loading data</div>;
     if (!data) return <div>Loading...</div>;
-    console.log(data)
     return (
         <>
             <Seo
@@ -35,22 +34,6 @@ export default function UpdateMatch({ initialData }) {
     );
 }
 
-// export async function getServerSideProps(ctx) {
-
-//     const url = "https://grand11.in/g11/all_matches_api.php"
-//     const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
-//     const Imageprops = await Image.json()
-//     const ImageData = Imageprops
-
-//     try {
-//         const response = await axios.get(url);
-//         const props = response.data;
-//         return { props: { props, ImageData } };
-//     } catch (error) {
-//         console.error("Error fetching data:", error);
-//         return { props: { error: "Failed to fetch data" } };
-//     }
-// }
 
 
 export async function getStaticProps() {
@@ -69,7 +52,7 @@ export async function getStaticProps() {
         };
         return {
             props: {
-                initialData: responseData.breaking,
+                initialData: responseData.breaking.reverse(),
             },
         };
 

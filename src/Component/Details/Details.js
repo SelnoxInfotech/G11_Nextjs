@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import parse from 'html-react-parser';
@@ -13,7 +14,7 @@ function Details({ data}) {
                 <div className="col-12"> <h1 className="title_had">{data.Title}</h1></div>
                 <div className="col-12 imag">
                     <div className="col">
-                        <Image loader={imageLoader} src={`${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"
+                        <Image loader={imageLoader} src={`${data?.Image}`} priority={false} alt="G11-Fantasy Cricket Prediction for Today's Match"
                             width={100} height={100} quality={100}
                             style={{ width: "50%" }}
                         />

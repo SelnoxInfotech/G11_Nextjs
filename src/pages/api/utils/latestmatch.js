@@ -15,7 +15,7 @@ export default async function latestmatch(req, res) {
   
       // Parse the response and return the data
   // console.log(responseData)
-      res.status(200).json(responseData.breaking);
+      res.status(200).json(responseData.breaking.reverse());
     } catch (error) {
       console.error('Error fetching data from source 1:', error);
       res.status(500).json({ error: 'Failed to fetch data' });
