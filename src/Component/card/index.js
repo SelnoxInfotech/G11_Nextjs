@@ -7,7 +7,6 @@ import { AiFillEye } from "react-icons/ai"
 import { RWebShare } from "react-web-share";
 import { BsFillShareFill } from "react-icons/bs"
 import Button from "react-bootstrap/Button";
-import { getpostbycategory } from '../../pages/api/utils/getpostbycategory';
 import axios from 'axios';
 const Card = ({ props, query }) => {
     const [data, setdata] = React.useState(props)
