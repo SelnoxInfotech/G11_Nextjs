@@ -27,7 +27,7 @@ a.hovereffect {
     background-color: #0088cc;
     position: relative;
     // top: 23px;
-    left: 40%;
+    // left: 40%;
     height: 45px;
     width: 194px;
     color: white;
@@ -1061,3 +1061,16 @@ a.hovereffect {
     left: 90%;
   }
  
+
+  .aboutus{
+    .hedding{
+       display: block;
+       text-align: center;
+       color: #c2151b;
+      font: normal normal 700 28px / 37px Segoe UI;
+}
+.text{
+    font-family: Segoe UI;
+    font-weight: 400;
+}
+  }

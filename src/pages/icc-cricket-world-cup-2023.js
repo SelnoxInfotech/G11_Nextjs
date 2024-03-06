@@ -13,10 +13,10 @@ const fetcher = async (url) => {
   return res.json();
 };
 
-const Icc2024 = ({ initialData }) => {
+const icc_cricket_world_cup_2023 = ({ initialData }) => {
 
   const k = initialData
-  const { data: fetchedData, error } = useSWR(`/FilterbySubCategory/${8}`, fetcher, { k });
+  const { data: fetchedData, error } = useSWR(`/FilterbySubCategory/${2}`, fetcher, { k });
 
   const data = fetchedData || k;
 
@@ -31,19 +31,19 @@ const Icc2024 = ({ initialData }) => {
         description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
       ></Seo>
-      <Card props={data} query={"icc-cricket-world-cup-2024"}></Card>
+      <Card props={data} query={"icc-cricket-world-cup-2023"}></Card>
     </>
   );
 };
 
-export default Icc2024;
+export default icc_cricket_world_cup_2023;
 
 
 
 export async function getStaticProps(ctx) {
   try {
     const [topNewsRes] = await Promise.all([
-      fetch(`http://localhost:3000/FilterbySubCategory/${8}`),
+      fetch(`http://localhost:3000/FilterbySubCategory/${2}`),
     ]);
 
     const [topNews, images] = await Promise.all([

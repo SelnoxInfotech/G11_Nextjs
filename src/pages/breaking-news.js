@@ -15,6 +15,8 @@ const fetcher = async (url) => {
   };
   
 const Breakingnews = ({ initialData }) => {
+  // console.log(FilterbyidNews())
+
     const { data: fetchedData, error } = useSWR('/api/utils/breakingnew',fetcher,{ initialData } );
 
     const data = fetchedData || initialData;
@@ -28,7 +30,7 @@ const Breakingnews = ({ initialData }) => {
                 description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
                 keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
             ></Seo>
-            <Card props={initialData.breaking} query={"cricket-breaking-news"} ></Card>
+            <Card props={initialData.breaking} query={"cricket-breaking-news"}></Card>
         </>
     );
 };

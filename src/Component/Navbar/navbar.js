@@ -62,15 +62,15 @@ function OffcanvasExample({ props }) {
     return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
   }
 
-  useEffect(() => {
-    async function hrefFunction() {
-      const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
-      const Imageprops = await Image.json()
-      return setimage(Imageprops)
-    }
+  // useEffect(() => {
+  //   async function hrefFunction() {
+  //     const Image = await fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
+  //     const Imageprops = await Image.json()
+  //     return setimage(Imageprops)
+  //   }
 
-    hrefFunction()
-  }, [])
+  //   hrefFunction()
+  // }, [])
 
   return (
 
@@ -82,7 +82,7 @@ function OffcanvasExample({ props }) {
           <Container fluid  >
 
             <Nav>
-              <Image loader={imageLoader} src={image[8]?.image} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
+              <Image loader={imageLoader} src={"/image/images/download/media/Static/G11.png"} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas} />
             <Navbar.Offcanvas
@@ -98,7 +98,7 @@ function OffcanvasExample({ props }) {
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
                   {/* <div className='row'> */}
                     {/* <div className='col-12 lrftjoin' > */}
-                      <button onClick={hrefFunction} type="button" className={`${style.btn_tele} ${'btn'}`}> Join Telegram </button>
+                      <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn `}> Join Telegram </button>
                     {/* </div> */}
                   {/* </div> */}
                 </Offcanvas.Title>
@@ -149,7 +149,7 @@ function OffcanvasExample({ props }) {
                   </NavDropdown>
                 </Nav>
 
-                <button onClick={hrefFunction} type="button" className=" btn btn_tele visibal "> Join Telegram </button>
+                <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn`}> Join Telegram </button>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
 

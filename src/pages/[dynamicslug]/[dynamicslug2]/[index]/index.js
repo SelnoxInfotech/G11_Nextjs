@@ -2,10 +2,9 @@ import axios from "axios"
 import Head from 'next/head';
 import Card from "../../../../Component/card/index"
 import dynamic from 'next/dynamic'
-const Details = dynamic(() => import('../../../../Component/Details/Details') ,{ssr:true} );
+const Details = dynamic(() => import('../../../../Component/Details/Details') ,{ ssr: true, loading: () => <p>Loading...</p> } );
 import { useRouter } from "next/router";
 import { Seo } from "../../../../Component/Seo/Seo";
-import  Button from "../../../../Component/Button"
 import React from "react";
 export default function Detailpage(props) {
     const router = useRouter()
@@ -17,7 +16,7 @@ export default function Detailpage(props) {
                     return (
                         <React.Fragment key={index}>
                             <Seo
-                                image={data?.Image}
+                                image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                                 title={data?.Meta_title}
                                 description={data?.Meta_Description}
                                 keywords={"Cricket Betting Tips & Predictions"}
@@ -28,7 +27,7 @@ export default function Detailpage(props) {
                 })
 
             }
-            <Card query={router.query.dynamicslug} ></Card>
+            <Card  query={router.query.dynamicslug} ></Card>
         </>
     )
 

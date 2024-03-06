@@ -1,7 +1,8 @@
 const express = require('express');
 const next = require('next');
 const cors = require('cors');
-
+const FilterbySubCategory =  require('./src/pages/api/nodeapi/FilterbySubCategory')
+const Filterbycategory =  require('./src/pages/api/nodeapi/Filterbycategory')
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 
@@ -17,11 +18,9 @@ app.prepare()
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
 
-    // Custom routes (if needed)
-    server.get('/custom-route', (req, res) => {
-      res.send('This is a custom route');
-    });
-
+    // Custom API (if needed)
+    server.get('/FilterbySubCategory/:id',FilterbySubCategory);
+    server.get('/Filterbycategory/:id',Filterbycategory);
     // Default route handler for Next.js
     server.get('*', (req, res) => {
       return handle(req, res);
