@@ -13,7 +13,7 @@ const fetcher = async (url) => {
   return res.json();
 };
 
-const cricket_rules_and_regulation = ({ initialData }) => {
+const Cricket_rules_and_regulation = ({ initialData }) => {
 
   const k = initialData
   const { data: fetchedData, error } = useSWR(`/Filterbycategory/${2}`, fetcher, { k });
@@ -35,23 +35,23 @@ const cricket_rules_and_regulation = ({ initialData }) => {
   );
 };
 
-export default cricket_rules_and_regulation;
+export default Cricket_rules_and_regulation;
 
 
 
 export async function getStaticProps(ctx) {
   try {
     const [topNewsRes] = await Promise.all([
-      fetch(`http://localhost:3000/Filterbycategory/${2}`),
+      fetch(`https://g11fantasy.com/NewsSection/FilterbyCategory/${2}`),
     ]);
-
+      console.log(topNewsRes)
     const [topNews, images] = await Promise.all([
       topNewsRes.json(),
     ]);
 
 
     const responseData = {
-      breaking: topNews,
+      breaking: topNews.data,
     };
     return {
       props: {

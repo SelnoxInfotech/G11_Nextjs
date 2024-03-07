@@ -13,7 +13,7 @@ const fetcher = async (url) => {
   return res.json();
 };
 
-const icc_cricket_world_cup_2023 = ({ initialData }) => {
+const Icc_cricket_world_cup_2023 = ({ initialData }) => {
 
   const k = initialData
   const { data: fetchedData, error } = useSWR(`/FilterbySubCategory/${2}`, fetcher, { k });
@@ -36,14 +36,14 @@ const icc_cricket_world_cup_2023 = ({ initialData }) => {
   );
 };
 
-export default icc_cricket_world_cup_2023;
+export default Icc_cricket_world_cup_2023;
 
 
 
 export async function getStaticProps(ctx) {
   try {
     const [topNewsRes] = await Promise.all([
-      fetch(`http://localhost:3000/FilterbySubCategory/${2}`),
+      fetch(`https://g11fantasy.com/NewsSection/FilterbySubCategory/${2}`),
     ]);
 
     const [topNews, images] = await Promise.all([
@@ -52,7 +52,7 @@ export async function getStaticProps(ctx) {
 
 
     const responseData = {
-      breaking: topNews,
+      breaking: topNews.data,
     };
     return {
       props: {

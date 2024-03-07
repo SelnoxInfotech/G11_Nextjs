@@ -9,7 +9,7 @@ const nextConfig = {
   },
 
   images: {
-    // formats: ['image/avif'],
+    // disableStaticImages: true,
     remotePatterns: [
       {
         protocol: 'https',

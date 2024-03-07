@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import Link from 'next/link';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
-// import image from "../../../../public/Image/banner.jpg"
 function Index({ match ,image }) {
     var settings = {
         infinite: false,
@@ -15,16 +14,16 @@ function Index({ match ,image }) {
         asNavFor: null,
         arrows: false
     };
-    // const imageLoader = ({ src, width, quality }) => {
-    //     return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
-    // }
+    const imageLoader = ({ src, width, quality }) => {
+        return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
+    }
     return (
         // style={{backgroundImage: `url(${'/Image/banner.jpg'})`}}
         <div className={style.Banner_img}  >
             <Image
                 alt="G11Banner"
-                src={"/Image/banner.jpg"}
-                // loader={imageLoader}
+                src={"/image/images/download/media/Static/banner_1.jpg"}
+                loader={imageLoader}
                 quality={100}
                 width={100}
                 height={100}

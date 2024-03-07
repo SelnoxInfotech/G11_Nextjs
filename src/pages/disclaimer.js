@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
-const disclaimer = () => {
+const Disclaimer = () => {
     return (
         <div className={`${"container"} ${style.aboutus}`}>
         <div className='row'>
@@ -19,7 +19,7 @@ const disclaimer = () => {
               You can access websites not controlled by G11 Prediction by using this website to link to them. The nature, content, and accessibility of those sites are outside our control. All the links are provided for convenience only and are not recommendations of the content found there.
               </p>
               <p>
-              Every effort is taken to maintain the website's availability and functionality. G11 Prediction disclaims all liability and duty if the website is momentarily inaccessible for reasons beyond our control.
+              {`Every effort is taken to maintain the website's availability and functionality. G11 Prediction disclaims all liability and duty if the website is momentarily inaccessible for reasons beyond our control.`}
               </p>
               <p>
               The opinions expressed by the authors in articles under several categories, including Opinions and Analysis, are those of the authors and should not be taken to represent the company. G11 Prediction will not consider any claims against information provided on the website in the event of disagreements; instead, those objections should be addressed to the Author.
@@ -32,4 +32,4 @@ const disclaimer = () => {
     );
 };
 
-export default disclaimer;
+export default Disclaimer;

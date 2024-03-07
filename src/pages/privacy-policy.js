@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
-const privacypolicy = () => {
+const Privacypolicy = () => {
     return (
         <div className={`${'container'} ${style.aboutus}`}>
             <div className='row'>
@@ -12,10 +12,10 @@ const privacypolicy = () => {
             <div className='container'>
                 <div className='row '>
                     <div className={`${"col-12"} ${style.text}`}>
-                        <p>This privacy notice for G11 Prediction ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
+                        <p>{"This privacy notice for G11 Prediction  describes how and why we might collect, store, use, and/or share your information when you use our services  such as when you:"}
                         </p>
-                            <p> • Visit our website at https://g11prediction.com/, or any website of ours that links to this privacy notice</p>
-                            <p>  • Engage with us in other related ways, including any sales, marketing, or eventsThe terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at G11 - Dream11 Prediction & Tips unless otherwise defined in this Privacy Policy.</p>
+                            <p> •{` Visit our website at https://g11prediction.com/, or any website of ours that links to this privacy notice`}</p>
+                            <p>  •{` Engage with us in other related ways, including any sales, marketing, or eventsThe terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at G11 - Dream11 Prediction & Tips unless otherwise defined in this Privacy Policy.`}</p>
                     </div>
                 </div>
             </div>
@@ -217,16 +217,16 @@ const privacypolicy = () => {
                     <div className='row '>
                         <div className='col-12 textSize '>
                             <p>
-                                In Short: Some information — such as your Internet Protocol (IP) address and/or browser and device characteristics — is collected automatically when you visit our Services.
+                                {`In Short: Some information — such as your Internet Protocol (IP) address and/or browser and device characteristics — is collected automatically when you visit our Services.`}
                             </p>
-                            <p>We automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.</p>
+                            <p>{`We automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.`}</p>
                             <p>Like many businesses, we also collect information through cookies and similar technologies.</p>
                             <p>The information we collect includes:</p>
                             <li>
-                                Device Data. We collect device data such as information about your computer, phone, tablet, or other device you use to access the Services. Depending on the device used, this device data may include information such as your IP address (or proxy server), device and application identification numbers, location, browser type, hardware model, Internet service provider and/or mobile carrier, operating system, and system configuration information.
+                                {`Device Data. We collect device data such as information about your computer, phone, tablet, or other device you use to access the Services. Depending on the device used, this device data may include information such as your IP address (or proxy server), device and application identification numbers, location, browser type, hardware model, Internet service provider and/or mobile carrier, operating system, and system configuration information.`}
                             </li>
                             <li>
-                                Location Data. We collect location data such as information about your device's location, which can be either precise or imprecise. How much information we collect depends on the type and settings of the device you use to access the Services. For example, we may use GPS and other technologies to collect geolocation data that tells us your current location (based on your IP address). You can opt out of allowing us to collect this information either by refusing access to the information or by disabling your Location setting on your device. However, if you choose to opt out, you may not be able to use certain aspects of the Services.
+                               {` Location Data. We collect location data such as information about your device's location, which can be either precise or imprecise. How much information we collect depends on the type and settings of the device you use to access the Services. For example, we may use GPS and other technologies to collect geolocation data that tells us your current location (based on your IP address). You can opt out of allowing us to collect this information either by refusing access to the information or by disabling your Location setting on your device. However, if you choose to opt out, you may not be able to use certain aspects of the Services.`}
                             </li>
 
                         </div>
@@ -271,15 +271,15 @@ const privacypolicy = () => {
                     <div className='row '>
                         <div className='col-12 textSize '>
                             <p>
-                                Short: We may share information in specific situations described in this section and/or with the following third parties.
+                               {` Short: We may share information in specific situations described in this section and/or with the following third parties.`}
                             </p>
-                            <p>We may need to share your personal information in the following situations:</p>
+                            <p>{`We may need to share your personal information in the following situations:`}</p>
                             <li>
-                                Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company
+                                {`Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company`}
                             </li>
 
                             <li>
-                                When we use Google Maps Platform APIs. We may share your information with certain Google Maps Platform APIs (e.g., Google Maps API, Places API). We obtain and store on your device ("cache") your location. You may revoke your consent anytime by contacting us at the contact details provided at the end of this document.
+                               {` When we use Google Maps Platform APIs. We may share your information with certain Google Maps Platform APIs (e.g., Google Maps API, Places API). We obtain and store on your device ("cache") your location. You may revoke your consent anytime by contacting us at the contact details provided at the end of this document.`}
                             </li>
                         </div>
 
@@ -400,7 +400,7 @@ const privacypolicy = () => {
                     <div className='row '>
                         <div className='col-12 textSize '>
                             <p>
-                                Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.
+                                {`Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.`}
                             </p>
 
                         </div>
@@ -419,10 +419,10 @@ const privacypolicy = () => {
                     <div className='row '>
                         <div className='col-12 textSize '>
                             <p>
-                                In Short: Yes, we will update this notice as necessary to stay compliant with relevant laws
+                                {`In Short: Yes, we will update this notice as necessary to stay compliant with relevant laws`}
                             </p>
                             <p>
-                                We may update this privacy notice from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.
+                               {` We may update this privacy notice from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.`}
                             </p>
                         </div>
 
@@ -475,4 +475,4 @@ const privacypolicy = () => {
     );
 };
 
-export default privacypolicy;
+export default Privacypolicy;

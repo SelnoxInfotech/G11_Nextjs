@@ -38,13 +38,13 @@ export default Ipl2024;
 export async function getStaticProps() {
     try {
       const [topNewsRes] = await Promise.all([
-        fetch(`http://localhost:3000/FilterbySubCategory/${1}`),
+        fetch(`https://g11fantasy.com/NewsSection/FilterbySubCategory/${1}`),
       ]);
       const [topNews] = await Promise.all([
         topNewsRes.json(),
       ]);
       const responseData = {
-        breaking: topNews,
+        breaking: topNews.data,
       };
       return {
         props: {

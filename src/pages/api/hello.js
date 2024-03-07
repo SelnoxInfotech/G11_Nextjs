@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-async function handler(req, res) {
+ async function handler(req, res) {
   try {
     console.log(req)
     // Make an HTTP request to fetch data from source 1
@@ -25,4 +24,5 @@ async function handler(req, res) {
   }
 }
 
-module.exports = handler
+
+export default  handler

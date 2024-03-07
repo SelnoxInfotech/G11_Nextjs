@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
-const faq = () => {
+const Faq = () => {
     return (
         <div className={`${"container"} ${style.aboutus}`}>
         <div className='row'>
@@ -14,7 +14,7 @@ const faq = () => {
         <div className='container'>
             <div className='row '>
                 <div className={`${"col-12"} ${style.text}`}>
-                    <p>G11 - fantasy Prediction and tips is a newly launched Fantasy Sports Prediction app that provides Match Analysis, Pitch Report, Weather Report, Player's, cheat sheet , match preview, recent stat, Probable XI and Teams for playing on Various Fantasy Sports apps like Dream11, My11Circle, MyTeam11, FanFight, PayTM First Game etc.</p>
+                    <p>{`G11 - fantasy Prediction and tips is a newly launched Fantasy Sports Prediction app that provides Match Analysis, Pitch Report, Weather Report, Player's, cheat sheet , match preview, recent stat, Probable XI and Teams for playing on Various Fantasy Sports apps like Dream11, My11Circle, MyTeam11, FanFight, PayTM First Game etc.`}</p>
 
                 </div>
             </div>
@@ -49,7 +49,7 @@ const faq = () => {
                     <div className='row '>
                         <div className={`${"col-12"} ${style.text}`}>
                             <p> Our Unique Research Analysis, Team Guide and Team Blueprint for each match helps users to make their own team in less time.</p>
-                            <p>If you are always busy with your work and don't get enough time to Research for a match, then you are at right place.</p>
+                            <p>{`If you are always busy with your work and don't get enough time to Research for a match, then you are at right place.`}</p>
 
                         </div>
                     </div>
@@ -61,4 +61,4 @@ const faq = () => {
     );
 };
 
-export default faq;
+export default Faq;
