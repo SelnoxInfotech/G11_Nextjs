@@ -30,7 +30,6 @@ export default async function fetchData1(req, res) {
     };
 
     // Parse the response and return the data
-console.log(responseData)
     res.status(200).json(responseData);
   } catch (error) {
     console.error('Error fetching data from source 1:', error);

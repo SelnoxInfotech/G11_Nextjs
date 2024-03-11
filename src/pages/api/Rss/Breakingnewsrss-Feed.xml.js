@@ -64,7 +64,7 @@ import RSS from "rss";
 import axios from "axios";
 
 function modifystr(str) {
-    console.log(typeof str, " ffff")
+
     str = str.replaceAll(/[^a-zA-Z0-9/ ]/g, "-");
     str = str.trim().replaceAll(' ', "-");
     let a = 0;

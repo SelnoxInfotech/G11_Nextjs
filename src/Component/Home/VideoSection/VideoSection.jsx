@@ -102,12 +102,12 @@ const HightLight = ({ Video }) => {
                     {/* <ReactPlayer controls={false} url={Video[0].VideoUrl} onClick={handleVideo} className="react_player_home" /> */}
                     {
                         val.map((data, index) => {
-                            // console.log(data.VideoUrl)
+                            console.log(data.VideoUrl)
                             return (
                                 <>
                                     <div className={`${style?.VideoSectionImage} col-2`} key={index}>
                                         <div id={"Youtube"+data.id}></div>
-                                        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/vYaqYCpPdDw?si=1YCGDfYrAFp5145g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vYaqYCpPdDw?si=1YCGDfYrAFp5145g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                         {/* <ReactPlayer  className="react-player" url={"https://www.youtube.com/embed/2Y-M5N_l7Ec?si=QtaF7YB8FZhCt7b3"} onClick={handleVideo}   config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}/> */}
                                     </div>
                                     {/* <div className='col'>
