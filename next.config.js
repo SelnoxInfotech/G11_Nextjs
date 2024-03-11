@@ -27,8 +27,24 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/latest-match/cricket-prediction/[...slug]',
-        destination: '/latest-match/cricket-prediction/[...slug]',
+        source: '/Rss/Breakingnewsrss-Feed.xml',
+        destination: '/api/Rss/icc-cricket-world-cup-2024RSS-feed.xml',
+      },
+      {
+        source: '/Rss/ipl-2024RSS-feed.xml',
+        destination: '/api/Rss/ipl-2024RSS-feed.xml',
+      },
+      {
+        source: '/Rss/icc-cricket-world-cup-2023RSS-feed.xml',
+        destination: '/api/Rss/icc-cricket-world-cup-2023RSS-feed.xml',
+      },
+      {
+        source: '/Rss/icc-cricket-world-cup-2024RSS-feed.xml',
+        destination: '/api/Rss/icc-cricket-world-cup-2024RSS-feed.xml',
+      },
+      {
+        source: '/Rss/ipl-2023RSS-feed.xml',
+        destination: '/api/Rss/ipl-2023RSS-feed.xml',
       },
       // Add more custom routing rules as needed
     ];

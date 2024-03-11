@@ -1074,3 +1074,23 @@ a.hovereffect {
     font-weight: 400;
 }
   }
+
+
+  .RSS{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    ol{
+        gap: 10px;
+    display: grid;
+    }
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+span{
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+  }
