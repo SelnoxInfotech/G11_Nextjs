@@ -2,9 +2,12 @@ import React from 'react'
 import { FontAwesomeIcon, } from "@fortawesome/react-fontawesome";
 import { IoMdCall } from 'react-icons/io';
 import { AiFillLinkedin } from 'react-icons/ai';
-import { faFacebook, faYoutube, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FaTwitter } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+// import { faFacebook, faYoutube, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import style from "../../../styles/Style.module.scss"
-// import { NavLink } from 'react-router-dom';
 import { FaRssSquare } from "react-icons/fa";
 import Link from 'next/link';
 export default function Footer_link() {
@@ -14,11 +17,11 @@ export default function Footer_link() {
                 <p className={`${style.Follow}`}>Follow us on social media</p>
             </div>
             <div className={`${'col-12' } ${style.link} ${style.socal_link}`}>
-                <Link href='https://www.facebook.com/g11sport/ ' ><FontAwesomeIcon icon={faFacebook} size="2x"  color='#cc0707'/></Link>
-                <Link href='https://www.youtube.com/@g11-sportfantasyprediction66'><FontAwesomeIcon icon={faYoutube} size="2x"  color='#cc0707' /></Link>
+                <Link href='https://www.facebook.com/g11sport/ ' ><FaFacebook size="30"  color='#cc0707'/></Link>
+                 <Link href='https://www.youtube.com/@g11-sportfantasyprediction66'><FaYoutube size="30"  color='#cc0707' /></Link>
+                <Link href='https://www.instagram.com/g11sport/'> <FaInstagram size="30"  color='#cc0707'/></Link>
                 <Link href='https://www.linkedin.com/company/g11-sport-fantasy-prediction/' className={`${style.linkin}`}><AiFillLinkedin  color='#cc0707'/></Link>
-                <Link href='https://www.instagram.com/g11sport/'> <FontAwesomeIcon icon={faInstagram} size="2x"  color='#cc0707'/></Link>
-                <Link href='https://twitter.com/g11prediction' ><FontAwesomeIcon icon={faTwitter} size="2x"  color='#cc0707'/></Link>
+                <Link href='https://twitter.com/g11prediction' ><FaTwitter  size="30"  color='#cc0707'/></Link>
                 <Link href='tel:+916262003399' className={`${style.calling}`}><span><IoMdCall></IoMdCall> </span> </Link>
                 <Link href='/rss-feed' className={`${style.calling}`}><span>   <FaRssSquare /></span> </Link>
             </div>

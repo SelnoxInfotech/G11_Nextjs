@@ -44,7 +44,6 @@ export async function getStaticProps(ctx) {
     const [topNewsRes] = await Promise.all([
       fetch(`https://g11fantasy.com/NewsSection/FilterbyCategory/${2}`),
     ]);
-      console.log(topNewsRes)
     const [topNews, images] = await Promise.all([
       topNewsRes.json(),
     ]);

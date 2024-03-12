@@ -13,7 +13,7 @@ export default function BraekingNewsSlider({ props }) {
           </div>
           <div className={`${style.scroll_container}  col`}>
             <span className={style.scroll_text}>
-              <Link href={`/cricket-breakingnews/${props[0]?.id}/${props[0]?.Title?.replace(/\s+/g, '-')}`} className={style.hovereffect} > {props[0]?.Title} </Link>
+              <Link href={`/cricket-breakingnews/${props[0]?.Title?.replace(/\s+/g, '-')}/${props[0]?.id}`} className={style.hovereffect} > {props[0]?.Title} </Link>
             </span>
           </div>
         </div>

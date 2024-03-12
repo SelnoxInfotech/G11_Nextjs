@@ -138,14 +138,16 @@ function OffcanvasExample({ props }) {
 
                   >
 
-                    <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ', left: "3%" }}> Cricket Rules and Regulation</Link>
-                    <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ', left: "21%" }}>ICC World Cup 2023</Link>
-                    <Link href="/cricket-players" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ', left: "30%" }}>  Cricket Players</Link>
-                    <Link href="/ipl_2023" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', left: "41%", width: 'fit-content' }}>IPL 2023</Link>
-                    <Link href="/cricket-news" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', left: "46%", width: 'fit-content' }}>News</Link>
+                 <div>
+                 <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
+                    <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>ICC World Cup 2023</Link>
+                    <Link href="/cricket-players" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}>  Cricket Players</Link>
+                    <Link href="/ipl_2023" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2023</Link>
+                    <Link href="/cricket-news" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>News</Link>
 
-                    <Link href="/latest-video" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', left: "46%", width: 'fit-content' }}>Video</Link>
-                    <Link href="/contact-us" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', left: "46%", width: 'fit-content' }}>Contact</Link>
+                    <Link href="/latest-video" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>Video</Link>
+                    <Link href="/contact-us" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>Contact</Link>
+                 </div>
                   </NavDropdown>
                 </Nav>
 

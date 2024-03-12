@@ -14,7 +14,6 @@ function Matchguide(props ) {
 }
 
 export async function getServerSideProps(ctx) {
-console.log(ctx.params.slug)
     function checkString(string) {
         if(typeof string === "string" && !isNaN(string)){
 
