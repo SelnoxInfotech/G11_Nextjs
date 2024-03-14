@@ -46,6 +46,14 @@ const nextConfig = {
         source: '/Rss/ipl-2023RSS-feed.xml',
         destination: '/api/Rss/ipl-2023RSS-feed.xml',
       },
+      {
+        source: '/sitemap/sitemapBreakingnews.xml',
+        destination: '/api/Rss/sitemapBreakingnews.xml',
+      },
+      {
+        source: '/sitemap/sitemapmatchpreview.xml',
+        destination: '/api/Rss/sitemapmatchpreview.xml',
+      },
       // Add more custom routing rules as needed
     ];
   },

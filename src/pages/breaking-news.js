@@ -25,7 +25,7 @@ const Breakingnews = ({ initialData }) => {
 
     return (
         <>
-            <Seo image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+            <Seo image={"/image/images/download/media/Static/favicon.jpg"}
                 title="Breaking News | G11 Fantasy Cricket Prediction |"
                 description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
                 keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
@@ -43,7 +43,7 @@ export default Breakingnews;
 export async function getStaticProps() {
     try {
       const [topNewsRes] = await Promise.all([
-        fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1'),
+        fetch('https://www.g11fantasy.com/NewsSection/Get-News/1'),
       ]);
   
       const [topNews] = await Promise.all([

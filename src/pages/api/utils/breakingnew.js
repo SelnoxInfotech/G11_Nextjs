@@ -2,7 +2,7 @@ export default async function BreakingNews(req, res) {
     try {
       // Make an HTTP request to fetch data from source 1
       const [topNewsRes, imageRes] = await Promise.all([
-        fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1'),
+        fetch('https://www.g11fantasy.com/NewsSection/Get-News/1'),
       ]);
       const [topNews ] = await Promise.all([
         topNewsRes.json(),

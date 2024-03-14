@@ -12,11 +12,10 @@ export default function Detailpage(props) {
         <>
             {
                 props?.l.map((data, index) => {
-                    
                     return (
                         <React.Fragment key={index}>
                             <Seo
-                                image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+                                image={data.Image}
                                 title={data?.Meta_title}
                                 description={data?.Meta_Description}
                                 keywords={"Cricket Betting Tips & Predictions"}
