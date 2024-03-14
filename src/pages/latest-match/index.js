@@ -14,7 +14,8 @@ const fetcher = async (url) => {
 };
 
 
-export default function UpdateMatch({ initialData }) {
+export default function UpdateMatch({ initialData }) { 
+    
     const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher, { initialData });
 
     const data = fetchedData || initialData;
