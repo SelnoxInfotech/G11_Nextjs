@@ -54,6 +54,18 @@ const nextConfig = {
         source: '/sitemap/sitemapmatchpreview.xml',
         destination: '/api/Rss/sitemapmatchpreview.xml',
       },
+      {
+        source: '/sitemap/sitemapteamguide.xml',
+        destination: '/api/Rss/sitemapteamguide.xml',
+      },
+      {
+        source: '/sitemap/sitemapcheatsheet.xml',
+        destination: '/api/Rss/sitemapcheatsheet.xml',
+      },
+      {
+        source: '/sitemap/sitemapteam.xml',
+        destination: '/api/Rss/sitemapteam.xml',
+      },
       // Add more custom routing rules as needed
     ];
   },

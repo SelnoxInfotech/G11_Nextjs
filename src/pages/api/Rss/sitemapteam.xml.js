@@ -70,7 +70,7 @@ export default async function handler(req, res) {
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
            ${rssXml.map((url) => `
                      <url>
-                      <loc>https://g11prediction.com/latest-match/cricket-predictions/match-preview/${modifystr(url.title)}/${modifystr(url.url1)}/${url.id}</loc>
+                      <loc>https://g11prediction.com/latest-match/cricket-predictions/teams/${modifystr(url.title)}/${modifystr(url.url1)}/${url.id}</loc>
                      <changefreq>daily</changefreq>
                       <priority>0.7</priority>
                      </url>
