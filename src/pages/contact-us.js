@@ -1,7 +1,15 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
-const contact_us = () => {
+import { Seo } from '../Component/Seo/Seo';
+const contact_us = () => { 
     return (
+      <>
+        <Seo
+        image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+        title={"Contact Us | G11 Fantasy Cricket Prediction Today's Match |"}
+        description={"Contact us, G11 Fantasy Cricket Prediction Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 betting tips"}
+        keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}
+      ></Seo>
         <div className={`${'container'} ${style.aboutus}`}>
             <div className='row'>
                 <div className={`${'col-12'} ${style.hedding}`}>
@@ -71,6 +79,7 @@ const contact_us = () => {
 
             </div>
         </div>
+      </>
     );
 };
 

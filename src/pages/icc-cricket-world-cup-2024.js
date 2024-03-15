@@ -27,9 +27,9 @@ const Icc2024 = ({ initialData }) => {
     <>
       <Seo
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-        title={"Breaking News | G11 Fantasy Cricket Prediction |"}
-        description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
-        keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
+        title={"ICC Men's T20 World Cup 2024 Latest News, Predictions, Analysis l G11prediction"}
+        description={"ICC Men's T20 World Cup 2024 Live Updates, Latest News, Match Predictions, ICC Men's T20 World Cup 2024 Match Schedule, Venue Details, Points Table, Match Analysis And Much More Only On G11prediction"}
+        keywords={"ICC T20 World Cup 2024,T20 schedule 2024, T20 teams 2024, T20 venues 2024, Dream11 prediction, T20 match prediction, T20 match analysis, T20 Latest News, T20 Live Updates, T20 Highlights,"}
       ></Seo>
       <Card props={data} query={"icc-cricket-world-cup-2024"}></Card>
     </>

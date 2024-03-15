@@ -13,19 +13,20 @@ const fetcher = async (url) => {
 
 
 function MyComponent({ initialData }) {
-     
-  const { data: fetchedData, error } = useSWR('/api/utils/api',fetcher,{ initialData } );
+
+  const { data: fetchedData, error } = useSWR('/api/utils/api', fetcher, { initialData });
 
   const data = fetchedData || initialData;
   if (!data) return <div>Loading...</div>;
 
   return (
     <div>
- <Seo
-             image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-                title={"G11- Fantasy Cricket Prediction for Today's Match |"}
-                keywords={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
-            ></Seo>
+      <Seo
+        image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+        title={"G11- Fantasy Cricket Prediction for Today's Match |"}
+        description={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
+        keywords={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
+      ></Seo>
       <Home props={[data?.l]} match={data.l1} updatematch={data.l2} Breaking={data.breaking} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ></Home>
     </div>
   );

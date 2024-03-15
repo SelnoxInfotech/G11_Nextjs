@@ -1,9 +1,10 @@
-"use client"
+
 import React, { useEffect, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
+import { Seo } from '../Seo/Seo';
 
 function MatchPriview({ props }) {
     const router = useRouter()
@@ -13,8 +14,12 @@ function MatchPriview({ props }) {
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
     const [Title1, SetTitle] = useState('')
-    let preview = router.query.slug[1]
+const [preview , Setpreview] = useState('')
+   
 
+    useEffect(()=>{
+        Setpreview(router.query.slug[1])
+    },[])
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -87,6 +92,7 @@ function MatchPriview({ props }) {
 
     const TaBFunction = (e) => {
         const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
+        Setpreview(()=>l)
         function checkString(string) {
             return typeof string === "string" && !isNaN(string)
         }
@@ -99,8 +105,19 @@ function MatchPriview({ props }) {
         }
 
     }
+
     return (
         <div>
+            <Seo
+                image={"/image/images/download/media/Static/favicon.jpg"}
+                description={preview === "match-preview" ? metaDiscription.slice(0, 160)
+                    : preview === "team-guide" ? `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "team guide cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"
+                        : preview === "cheat-sheet" ? `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Cheet Sheet cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"
+                            : preview === "teams" && `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Teams cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"}
+                title={`${preview?.replace('-', ' ')} | ${Title1?.replace(/\-+/g, ' ').slice(26)} | Cricket Prediction | `}
+                keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}           >
+
+            </Seo>
             <Tabs
                 defaultActiveKey={preview}
                 id="uncontrolled-tab-example"

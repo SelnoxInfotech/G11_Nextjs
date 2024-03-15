@@ -55,7 +55,7 @@ const Card = ({ props, query }) => {
         <div className='container-fluid center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
-                    <h1> Cricket Breaking News ON TRENDING TOPICS</h1>
+                    <h1>{query}</h1>
                 </div>
 
                 {

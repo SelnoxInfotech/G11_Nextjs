@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
+import Link from 'next/link';
 const HightLight = ({ latestnews }) => {
     // console.log(latestnews)
     function modifystr(str) {
@@ -43,9 +44,7 @@ const HightLight = ({ latestnews }) => {
                 <div className={`${'col-12'} ${style.BreakingnewsScrollInside}`}>
                     {
                         latestnews.map((data, index) => {
-                            
                             return (
-                               
                                     <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
                                         <div className='col' >
                                             <Image loader={imageLoader}  width={0}
@@ -54,16 +53,15 @@ const HightLight = ({ latestnews }) => {
                                                 style={{ width: '100%', height: '275px' }} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                         </div>
                                         <div className='col'>
-                                            {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}>    */}
+                                            <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>   
                                             <div className="hedding hovereffect text"><h3> {data?.title?.substr(0, 55)}</h3></div>
-                                            {/* </Link> */}
+                                            </Link>
                                             <div><span className="content text">{parse(data?.content) ? parse(data?.content) : ""}</span></div>
-                                            {/* <Link href={`/cricket-news/${data.id}/${data.title.replace(/\s+/g, '-')}`}> */}
+                                            <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>
                                             <button className="btn primary hovereffect" >Read Full News</button>
-                                            {/* </Link> */}
+                                            </Link>
                                         </div>
                                     </div>
-                               
                             )
                         })
                     }

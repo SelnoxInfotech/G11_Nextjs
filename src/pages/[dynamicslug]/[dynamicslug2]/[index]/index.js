@@ -31,17 +31,9 @@ export default function Detailpage(props) {
     )
 
 }
-// export async function getStaticPaths() {
-//     // This function should return an empty array for now
-//     return {
-//         paths: [],
-//         fallback: "blocking"
-//     };
-// }
-
-
 
 export async function getServerSideProps(ctx) {
+    console.log(ctx.query.dynamicslug  === "cricket-news")
     try {
         
         const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);

@@ -26,9 +26,9 @@ const Cricket_rules_and_regulation = ({ initialData }) => {
     <>
       <Seo
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-        title={"Breaking News | G11 Fantasy Cricket Prediction |"}
-        description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
-        keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
+        title={"Cricket Rules And Regulations | Playing Conditions- G11 Prediction |"}
+        description={"Cricket Rules And Regulations, Playing Conditions by G11 Fantasy Cricket Prediction Website and Application for Today's Match. # 1 Fantasy Cricket Prediction tips."}
+        keywords={"Cricket Playing Conditions, Cricket Rules and Regulations, Cricket Laws, Cricket Playing Rules, ODI laws, T20 rules, Cricket match playing rules, cricket penalty conditions,"}
       ></Seo>
       <Card props={data} query={"cricket-rules-and-regulation"}></Card>
     </>

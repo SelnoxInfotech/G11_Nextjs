@@ -1,8 +1,16 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
+import { Seo } from '../Component/Seo/Seo';
 
 const aboutus = () => {
     return (
+        <>
+              <Seo
+        image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+        title={"About-Us- G11 | Fantasy Cricket Prediction Web & Application |"}
+        description={"About-Us- G11 best Fantasy Cricket Prediction Web and Application. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. "}
+        keywords={"G11 Fantasy Cricket Prediction, cricket news, Today's match Prediction, Latest Cricket News, Cricket Betting Tips & Predictions, fantasy cricket prediction, dream 11 today prediction, today best cricket match prediction"}
+      ></Seo>
         <div className={`${"container"} ${style.aboutus}`}>
         <div className='row'>
                 <div className={`${'col-12 '} ${style.hedding}`}>
@@ -106,6 +114,7 @@ const aboutus = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
