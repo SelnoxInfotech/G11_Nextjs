@@ -2,45 +2,58 @@ import axios from "axios"
 import Head from 'next/head';
 import Card from "../../../../Component/card/index"
 import dynamic from 'next/dynamic'
-const Details = dynamic(() => import('../../../../Component/Details/Details') ,{ ssr: true, loading: () => <p>Loading...</p> } );
+const Details = dynamic(() => import('../../../../Component/Details/Details'), { ssr: true, loading: () => <p>Loading...</p> });
 import { useRouter } from "next/router";
 import { Seo } from "../../../../Component/Seo/Seo";
 import React from "react";
 
 export default function Detailpage(props) {
     const router = useRouter()
+   
+      const h =  router.query.dynamicslug
+    let k = props.l || props.l
+    console.log(h)
     return (
         <>
             {
-                props?.l.map((data, index) => {
+                k.map((data, index) => {
                     return (
                         <React.Fragment key={index}>
                             <Seo
-                                image={data.Image}
-                                title={data?.Meta_title}
+                                image={"https://www.g11fantasy.com"+data.Image}
+                                title={data?.Meta_title || data.title}
                                 description={data?.Meta_Description}
                                 keywords={"Cricket Betting Tips & Predictions"}
-                                canonical={`${router.query.dynamicslug+"/"+router.query.dynamicslug2+"/"+router.query.index}`}
+                                canonical={`https://g11prediction.com/${router.query.dynamicslug + "/" + router.query.dynamicslug2 + "/" + router.query.index}`}
                             ></Seo>
-                            <Details data={data} ></Details>
+                            <Details data={data}  h={router.query.dynamicslug}></Details>
                         </React.Fragment>
                     )
                 })
 
             }
-            <Card  query={router.query.dynamicslug} ></Card>
+            <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : undefined}  query={router.query.dynamicslug} ></Card>
         </>
     )
 
 }
 
 export async function getServerSideProps(ctx) {
-    console.log(ctx.query.dynamicslug  === "cricket-news")
+    console.log(ctx.query.dynamicslug === "cricket-news" , ctx.query)
     try {
-        
-        const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
-        let l = res.data.data
-        return { props: { l } };
+        if (ctx.query.dynamicslug === "cricket-news") {
+            const res = await axios.get(`https://grand11.in/g11/api/post`);
+            let k = res.data.result
+            const p = k.find(x => x.id === ctx.params.index)
+            let l = [p]
+            return { props: { l } };
+        }
+        else{
+            const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
+            let l = res.data.data
+            return { props: { l } };
+        }
+
     }
     catch (error) {
         console.error("Error fetching data:", error);

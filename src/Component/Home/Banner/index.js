@@ -5,6 +5,28 @@ import Link from 'next/link';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 function Index({ match ,image }) {
+    function modifystr(str) {
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str.includes("--")) {
+                str = str.replaceAll("--", "-")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("//", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("-/", "/")
+            } else if (str.includes("//")) {
+                str = str.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str
+    }
+
+
     var settings = {
         infinite: false,
         slidesToScroll: 1,
@@ -51,7 +73,8 @@ function Index({ match ,image }) {
                                     <div className='row '>
 
                                         <div className='col-12'>
-                                            <Link href={`cricket-prediction/${match.id}/${match.title.replace(/\s+/g, '-')}`} >
+                                        
+                                            <Link href={`latest-match/cricket-prediction/${'match-preview'}/${modifystr(match.title)}/${match.id}`} >
                                                 <div className='col-sm'>
                                                     <span style={{ color: "white" }}>{match.first_team}</span>
                                                 </div>
