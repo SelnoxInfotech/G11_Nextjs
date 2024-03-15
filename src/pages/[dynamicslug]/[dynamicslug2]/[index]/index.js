@@ -6,6 +6,7 @@ const Details = dynamic(() => import('../../../../Component/Details/Details') ,{
 import { useRouter } from "next/router";
 import { Seo } from "../../../../Component/Seo/Seo";
 import React from "react";
+
 export default function Detailpage(props) {
     const router = useRouter()
     return (
@@ -19,6 +20,7 @@ export default function Detailpage(props) {
                                 title={data?.Meta_title}
                                 description={data?.Meta_Description}
                                 keywords={"Cricket Betting Tips & Predictions"}
+                                canonical={`${router.query.dynamicslug+"/"+router.query.dynamicslug2+"/"+router.query.index}`}
                             ></Seo>
                             <Details data={data} ></Details>
                         </React.Fragment>

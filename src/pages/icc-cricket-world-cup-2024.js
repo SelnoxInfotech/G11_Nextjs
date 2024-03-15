@@ -30,7 +30,8 @@ const Icc2024 = ({ initialData }) => {
         title={"ICC Men's T20 World Cup 2024 Latest News, Predictions, Analysis l G11prediction"}
         description={"ICC Men's T20 World Cup 2024 Live Updates, Latest News, Match Predictions, ICC Men's T20 World Cup 2024 Match Schedule, Venue Details, Points Table, Match Analysis And Much More Only On G11prediction"}
         keywords={"ICC T20 World Cup 2024,T20 schedule 2024, T20 teams 2024, T20 venues 2024, Dream11 prediction, T20 match prediction, T20 match analysis, T20 Latest News, T20 Live Updates, T20 Highlights,"}
-      ></Seo>
+        canonical={"https://g11prediction.com/icc-cricket-world-cup-2024/"}
+ ></Seo>
       <Card props={data} query={"icc-cricket-world-cup-2024"}></Card>
     </>
   );

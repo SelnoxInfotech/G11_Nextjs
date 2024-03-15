@@ -6,20 +6,22 @@ import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 import { Seo } from '../Seo/Seo';
 
+
 function MatchPriview({ props }) {
     const router = useRouter()
+    console.log(router)
     const [matchpreviwe, setmatchpreviwe] = useState("")
     const [Team_Guide, Set_Team_Guide] = useState('')
     const [Detail, SetDetails_Data] = useState('')
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
     const [Title1, SetTitle] = useState('')
-const [preview , Setpreview] = useState('')
-   
+    const [preview, Setpreview] = useState(() => router.query.slug[1])
 
-    useEffect(()=>{
-        Setpreview(router.query.slug[1])
-    },[])
+
+    // useEffect(()=>{
+    //     Setpreview(router.query.slug[1])
+    // },[])
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -43,7 +45,6 @@ const [preview , Setpreview] = useState('')
 
     useEffect(() => {
 
-        const params = new URLSearchParams(window?.location?.search);
         var parser = new DOMParser();
         var doc = parser.parseFromString(props.props, 'text/html');
         // HTML section//// 
@@ -89,10 +90,9 @@ const [preview , Setpreview] = useState('')
         }
         SetTitle(modifystr(input))
     }, [])
-
     const TaBFunction = (e) => {
         const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
-        Setpreview(()=>l)
+        Setpreview(() => l)
         function checkString(string) {
             return typeof string === "string" && !isNaN(string)
         }
@@ -115,8 +115,9 @@ const [preview , Setpreview] = useState('')
                         : preview === "cheat-sheet" ? `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Cheet Sheet cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"
                             : preview === "teams" && `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Teams cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"}
                 title={`${preview?.replace('-', ' ')} | ${Title1?.replace(/\-+/g, ' ').slice(26)} | Cricket Prediction | `}
-                keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}           >
-
+                keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}          
+                canonical={`${window.location.host}/${router.query.slug[0]+"/"+preview+"/"+router.query.slug[2]+"/"+Title1+"/"+router.query.slug[3]}`}
+                >
             </Seo>
             <Tabs
                 defaultActiveKey={preview}

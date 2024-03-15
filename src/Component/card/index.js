@@ -51,6 +51,7 @@ const Card = ({ props, query }) => {
                 })
         }
     })
+    console.log(query)
     return (
         <div className='container-fluid center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
@@ -80,7 +81,7 @@ const Card = ({ props, query }) => {
                                             </RWebShare>
 
                                         </div>
-                                        <Link className={`${style.hovereffect}`} href={`/${query}/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}/${breakingnews.id}`} >
+                                        <Link className={`${style.hovereffect}`} href={`/${modifystr(query)}/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title)}/${breakingnews.id}`} >
                                             <Image className={style.News_image} loader={imageLoader} src={`${breakingnews.Image}`} height={10} width={100} alt="news_image" quality={100} />
                                             <div className={style.News_image_title}>
                                                 <h2 className={`card-text  ${style.card_text}`}>{breakingnews.Title.slice(0, 80)}</h2>

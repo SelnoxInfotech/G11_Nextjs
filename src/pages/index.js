@@ -26,7 +26,8 @@ function MyComponent({ initialData }) {
         title={"G11- Fantasy Cricket Prediction for Today's Match |"}
         description={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
         keywords={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
-      ></Seo>
+     canonical={"https://g11prediction.com/"}
+   ></Seo>
       <Home props={[data?.l]} match={data.l1} updatematch={data.l2} Breaking={data.breaking} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ></Home>
     </div>
   );

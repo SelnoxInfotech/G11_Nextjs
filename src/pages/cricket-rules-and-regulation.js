@@ -29,7 +29,8 @@ const Cricket_rules_and_regulation = ({ initialData }) => {
         title={"Cricket Rules And Regulations | Playing Conditions- G11 Prediction |"}
         description={"Cricket Rules And Regulations, Playing Conditions by G11 Fantasy Cricket Prediction Website and Application for Today's Match. # 1 Fantasy Cricket Prediction tips."}
         keywords={"Cricket Playing Conditions, Cricket Rules and Regulations, Cricket Laws, Cricket Playing Rules, ODI laws, T20 rules, Cricket match playing rules, cricket penalty conditions,"}
-      ></Seo>
+        canonical={"https://g11prediction.com/cricket-rules-and-regulation/"}
+    ></Seo>
       <Card props={data} query={"cricket-rules-and-regulation"}></Card>
     </>
   );
