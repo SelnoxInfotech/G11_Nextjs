@@ -28,7 +28,7 @@ const nextConfig = {
     return [
       {
         source: '/Rss/Breakingnewsrss-Feed.xml',
-        destination: '/api/Rss/icc-cricket-world-cup-2024RSS-feed.xml',
+        destination: '/api/Rss/Breakingnewsrss-Feed.xml',
       },
       {
         source: '/Rss/ipl-2024RSS-feed.xml',
