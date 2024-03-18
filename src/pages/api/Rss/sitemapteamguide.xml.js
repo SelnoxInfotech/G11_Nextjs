@@ -49,7 +49,6 @@ export async function generateRssXml() {
         return xmlItems.map((item) => `
             <url>
                 <loc>https://g11prediction.com/latest-match/cricket-predictions/team-guide/${modifyStr(item.title)}/${modifyStr(item.url1)}/${item.id}</loc>
-                <lastmod>${url.time}</lastmod>
                 <changefreq>daily</changefreq>
                 <priority>0.7</priority>
             </url>

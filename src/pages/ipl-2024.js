@@ -19,7 +19,6 @@ const Ipl2024 = ({initialData}) => {
 
     if (!data) return <div>Loading...</div>;
 
-
     return (
         <>
             <Seo
@@ -29,7 +28,7 @@ const Ipl2024 = ({initialData}) => {
                 keywords={"IPL 2024,IPL schedule 2024, IPL teams 2024, IPL venues 2024, Dream11 prediction, IPL 2024 match prediction, IPL 2024"}
                 canonical={"https://g11prediction.com/ipl-2024/"}
            ></Seo>
-     <Card props={data} query={"IPL 2024 - Latest News & Live Updates"}></Card>
+     <Card props={data} query={"IPL 2024 - Latest News & Live Updates"} data1={null}></Card>
         </>
     );
 };

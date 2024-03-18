@@ -77,7 +77,16 @@ const Card = ({ props, query  ,data1}) => {
         }
         else if (data1 === "ipl-2023") {
             axios.get(`/FilterbySubCategory/${1}`).then((response) => {
-                console.log(response.data)
+                setdata(response.data)
+            })
+        }
+        else if (data1 === "cricket-rules-and-regulation") {
+            axios.get(`/Filterbycategory/${2}`).then((response) => {
+                setdata(response.data)
+            })
+        }
+        else if (data1 === "cricket-players") {
+            axios.get(`/Filterbycategory/${3}`).then((response) => {
                 setdata(response.data)
             })
         }

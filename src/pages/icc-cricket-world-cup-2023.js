@@ -32,7 +32,7 @@ const Icc_cricket_world_cup_2023 = ({ initialData }) => {
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/icc-cricket-world-cup-2023/"}
     ></Seo>
-      <Card props={data} query={"icc-cricket-world-cup-2023"}></Card>
+      <Card props={data} query={"icc-cricket-world-cup-2023"} data1={null}></Card>
     </>
   );
 };

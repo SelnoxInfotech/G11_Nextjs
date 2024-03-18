@@ -20,7 +20,7 @@ const Cricket_rules_and_regulation = ({ initialData }) => {
 
   const data = fetchedData || k;
   if (!data) return <div>Loading...</div>;
-
+console.log(data)
 
   return (
     <>
@@ -31,7 +31,7 @@ const Cricket_rules_and_regulation = ({ initialData }) => {
         keywords={"Cricket Playing Conditions, Cricket Rules and Regulations, Cricket Laws, Cricket Playing Rules, ODI laws, T20 rules, Cricket match playing rules, cricket penalty conditions,"}
         canonical={"https://g11prediction.com/cricket-rules-and-regulation/"}
     ></Seo>
-      <Card props={data} query={"cricket-rules-and-regulation"}></Card>
+      <Card props={data} query={"cricket-rules-and-regulation"} data1={null}></Card>
     </>
   );
 };
@@ -40,7 +40,7 @@ export default Cricket_rules_and_regulation;
 
 
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   try {
     const [topNewsRes] = await Promise.all([
       fetch(`https://g11fantasy.com/NewsSection/FilterbyCategory/${2}`),

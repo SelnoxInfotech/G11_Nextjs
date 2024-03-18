@@ -72,7 +72,6 @@ export default async function handler(req, res) {
            ${rssXml.map((url) => `
                      <url>
                       <loc>https://g11prediction.com/latest-match/cricket-predictions/cheat-sheet/${modifystr(url.title)}/${modifystr(url.url1)}/${url.id}</loc>
-                      <lastmod>${url.time}</lastmod>
                       <changefreq>daily</changefreq>
                       <priority>0.7</priority>
                      </url>
