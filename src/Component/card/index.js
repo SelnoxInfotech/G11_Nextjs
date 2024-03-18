@@ -56,11 +56,10 @@ const Card = ({ props, query  ,data1}) => {
         }
         else if (data1 === "cricket-news") {
             axios.get(`https://grand11.in/g11/api/post`).then((res) => {
-                console.log(res.data.result)
                 // setdata(res.data.result)
             })
         }
-    },[data])
+    },[data1])
     return (
         <div className='container-fluid center'>
             <div className={`${"row"} ${style.Breaking_new}`}>

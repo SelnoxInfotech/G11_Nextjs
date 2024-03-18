@@ -33,7 +33,7 @@ async function fetchMatchDetails(matchId) {
 export async function generateRssXml() {
     try {
         const matchesResponse = await axios.get('https://grand11.in/g11/all_matches_api.php');
-        const rssData = matchesResponse.data;
+        const rssData = matchesResponse.data.reverse();
 
         const matchDetailsPromises = rssData.map(async (matchdata) => {
             const matchDetailsData = await fetchMatchDetails(matchdata.id);
@@ -52,7 +52,8 @@ export async function generateRssXml() {
                     h.push({
                       url1: firstParagraph.text().split(":")[1],
                         id: rssData[index].id,
-                        title: rssData[index].title
+                        title: rssData[index].title,
+                        time: rssData[index].date + " " +rssData[index].time ,
                     });
                 }
             }
@@ -71,7 +72,8 @@ export default async function handler(req, res) {
            ${rssXml.map((url) => `
                      <url>
                       <loc>https://g11prediction.com/latest-match/cricket-predictions/teams/${modifystr(url.title)}/${modifystr(url.url1)}/${url.id}</loc>
-                     <changefreq>daily</changefreq>
+                      <date>${url.time}</date>
+                      <changefreq>daily</changefreq>
                       <priority>0.7</priority>
                      </url>
              `).join('')}

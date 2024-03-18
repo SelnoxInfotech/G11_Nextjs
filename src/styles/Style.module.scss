@@ -401,15 +401,29 @@ background-color: #c2121c;
     .imageCenter {
         display: flex;
         justify-content: center;
-
+        // height: 50%;
         @media only screen and (max-width: 850px) {
             display: contents;
+            img{
+                height: 300px;
+            }      
         }
+      
     }
 
     .text {
         font-size: 16px;
     }
+    .box{
+        display: flex;
+        height: 375px;
+        @media only screen and (max-width: 850px) {
+            // width: 100%;
+            display: block;
+            height: inherit;
+        }
+    }
+ 
 }
 
 .HightLight {

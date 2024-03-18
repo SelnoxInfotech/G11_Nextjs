@@ -41,7 +41,7 @@ export default Icc2024;
 
 
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   try {
     const [topNewsRes] = await Promise.all([
       fetch(`https://g11fantasy.com/NewsSection/FilterbySubCategory/${8}`),

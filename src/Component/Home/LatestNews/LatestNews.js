@@ -40,8 +40,8 @@ const Breakingnews = ({ latestnews }) => {
                     </div>
                 </div>
             </div>
-            <div className={` row `}>
-                <div className={`${style.imageCenter} col-6`}>
+            <div className={` col ${style.box}`}>
+                <div className={`${style.imageCenter} col`}>
                     <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                 </div>
                 <div className='col'>
