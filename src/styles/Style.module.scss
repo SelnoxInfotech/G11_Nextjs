@@ -1064,6 +1064,8 @@ background-color: #c2121c;
         }
 
         .viewCounteye {
+            display: ruby;
+
             align-self: center;
             padding-left: 10px;
             text-align: start;
@@ -1124,4 +1126,16 @@ span{
     display: flex;
     gap: 10px;
 }
+  }
+
+
+  .ViewCountDetailspage{
+    display: flex;
+    .ViewCountDate{
+        display: flex;
+        justify-content: end;
+    }
+    .ViewCount{
+        display: ruby;
+    }
   }

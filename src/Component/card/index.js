@@ -47,7 +47,6 @@ const Card = ({ props, query  ,data1}) => {
         setNext(next - imagePerRow);
     };
     React.useEffect(() => {
-        console.log(data1)
         if (data1 === undefined) {
             axios.get('/api/utils/getpostbycategory')
                 .then(response => {
@@ -69,7 +68,6 @@ const Card = ({ props, query  ,data1}) => {
 
                 {
                     data?.slice(0, next)?.map((breakingnews, index) => {
-                        console.log(breakingnews)
                         return (
 
                             <div className={`col-xs-12 col-sm-6 col-md-3  ${style.Breaking_news_gap}`} key={index}>
@@ -98,7 +96,7 @@ const Card = ({ props, query  ,data1}) => {
                                         </Link>
                                         <div className={`col-12 ${style.viewCount}`}>
                                             <div className={`col-6 ${style.viewCounteye}`}>
-                                                {/* <AiFillEye></AiFillEye>  <span>{breakingnews?.ViewCount} view</span> */}
+                                                <AiFillEye></AiFillEye>  <span>{breakingnews?.ViewCount} view</span>
                                             </div>
                                             <div className={`col-6 ${style.ViewCountDate}`}>
                                                 <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date}</p>

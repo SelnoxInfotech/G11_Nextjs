@@ -9,37 +9,35 @@ import React from "react";
 
 export default function Detailpage(props) {
     const router = useRouter()
-   
-      const h =  router.query.dynamicslug
+    const h = router.query.dynamicslug
     let k = props.l || props.l
-    console.log(h)
     return (
         <>
             {
                 k.map((data, index) => {
+                    // console.log(data.Keywords)
                     return (
                         <React.Fragment key={index}>
                             <Seo
-                                image={"https://www.g11fantasy.com"+data.Image}
+                                image={"https://www.g11fantasy.com" + data.Image}
                                 title={data?.Meta_title || data.title}
                                 description={data?.Meta_Description}
                                 keywords={"Cricket Betting Tips & Predictions"}
                                 canonical={`https://g11prediction.com/${router.query.dynamicslug + "/" + router.query.dynamicslug2 + "/" + router.query.index}`}
                             ></Seo>
-                            <Details data={data}  h={router.query.dynamicslug}></Details>
+                            <Details data={data} h={router.query.dynamicslug}></Details>
                         </React.Fragment>
                     )
                 })
 
             }
-            <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : undefined}  query={router.query.dynamicslug} ></Card>
+            <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : undefined} query={router.query.dynamicslug} ></Card>
         </>
     )
 
 }
 
 export async function getServerSideProps(ctx) {
-    console.log(ctx.query.dynamicslug === "cricket-news" , ctx.query)
     try {
         if (ctx.query.dynamicslug === "cricket-news") {
             const res = await axios.get(`https://grand11.in/g11/api/post`);
@@ -48,9 +46,10 @@ export async function getServerSideProps(ctx) {
             let l = [p]
             return { props: { l } };
         }
-        else{
+        else {
             const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
             let l = res.data.data
+            axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.params.index })
             return { props: { l } };
         }
 

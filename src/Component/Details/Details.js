@@ -1,12 +1,29 @@
 
 import React from 'react';
+import { AiFillEye } from "react-icons/ai"
 import Image from 'next/image';
 import parse from 'html-react-parser';
+import style from "../../styles/Style.module.scss"
+import axios from 'axios';
 function Details({ data , h}) {
     const imageLoader = ({ src, width, height, quality }) => {
     const l  =  h ==="cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com/"
         return (`${l}/${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
+
+
+    // React.useEffect(() => {
+        // axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`,
+
+        //     {
+        //         "id": data.id
+
+        //     }
+
+        // ).then(response => {
+        // })
+    // }, [])
+
     return (
         <div className="container " >
 
@@ -23,11 +40,11 @@ function Details({ data , h}) {
 
                         {parse(data.Description || data.content)}
                     </div>
-                    <div className="col-12 ViewCount">
-                        <div className="col-6 ViewCountEye">
-                            {/* <AiFillEye></AiFillEye>  <span>{data?.ViewCount + 1} view</span> */}
+                    <div className={`col-12 ${style.ViewCountDetailspage}`}>
+                        <div className={`col-6 ${style.ViewCount}`}>
+                            <AiFillEye></AiFillEye>  <span>{data?.ViewCount + 1} view</span>
                         </div>
-                        <div className="col-6 ViewCountDate">
+                        <div className={`col-6 ${style.ViewCountDate}`}>
                             <p >{data?.created?.slice(0, 10) || data.post_date}</p>
                         </div>
                     </div>
@@ -39,3 +56,10 @@ function Details({ data , h}) {
 }
 
 export default Details;
+
+
+
+export async function getServerSideProps(ctx) {
+    console.log(ctx)
+
+}
