@@ -11,6 +11,7 @@ export default function Detailpage(props) {
     const router = useRouter()
     const h = router.query.dynamicslug
     let k = props.l || props.l
+    console.log(h)
     return (
         <>
             {
@@ -31,7 +32,7 @@ export default function Detailpage(props) {
                 })
 
             }
-            <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : undefined} query={router.query.dynamicslug} ></Card>
+            <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : h} query={router.query.dynamicslug} ></Card>
         </>
     )
 

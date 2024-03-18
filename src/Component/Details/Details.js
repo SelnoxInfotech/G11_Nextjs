@@ -56,10 +56,3 @@ function Details({ data , h}) {
 }
 
 export default Details;
-
-
-
-export async function getServerSideProps(ctx) {
-    console.log(ctx)
-
-}

@@ -19,6 +19,8 @@ const Icc2024 = ({ initialData }) => {
   const { data: fetchedData, error } = useSWR(`/FilterbySubCategory/${8}`, fetcher, { k });
 
   const data = fetchedData || k;
+    console.log(data , fetchedData)
+ 
 
   if (!data) return <div>Loading...</div>;
 
@@ -32,7 +34,7 @@ const Icc2024 = ({ initialData }) => {
         keywords={"ICC T20 World Cup 2024,T20 schedule 2024, T20 teams 2024, T20 venues 2024, Dream11 prediction, T20 match prediction, T20 match analysis, T20 Latest News, T20 Live Updates, T20 Highlights,"}
         canonical={"https://g11prediction.com/icc-cricket-world-cup-2024/"}
  ></Seo>
-      <Card props={data} query={"icc-cricket-world-cup-2024"}></Card>
+      <Card props={data} query={"icc-cricket-world-cup-2024"} data1={"Icc2024"}></Card> 
     </>
   );
 };
@@ -41,13 +43,13 @@ export default Icc2024;
 
 
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
   try {
     const [topNewsRes] = await Promise.all([
       fetch(`https://g11fantasy.com/NewsSection/FilterbySubCategory/${8}`),
     ]);
 
-    const [topNews, images] = await Promise.all([
+    const [topNews] = await Promise.all([
       topNewsRes.json(),
     ]);
 

@@ -58,6 +58,23 @@ const Card = ({ props, query  ,data1}) => {
                 // setdata(res.data.result)
             })
         }
+        else if (data1 === "icc-cricket-world-cup-2024") {
+            axios.get(`/FilterbySubCategory/${8}`).then((response) => {
+                setdata(response.data)
+            })
+        }
+
+        else if (data1 === "IPL-2024-Latest-News-Live-Updates") {
+            axios.get(`/FilterbySubCategory/${7}`).then((response) => {
+                console.log(response)
+                setdata(response.data)
+            })
+        }
+        else if (data1 === "cricket-breaking-news") {
+            axios.get(`/api/utils/breakingnew`).then((response) => {
+                setdata(response.data.breaking)
+            })
+        }
     },[data1])
     return (
         <div className='container-fluid center'>
@@ -112,13 +129,13 @@ const Card = ({ props, query  ,data1}) => {
                 }
                 <div className={`${'row'} ${style.BreakingButton}`}>
                     <div className='col-12 ' id='Buttongap'>
-                        {next < props?.length && (
+                        {next < data?.length && (
                             <button className="btn readleft" onClick={handleMoreImage}
                             >
                                 Load more
                             </button>
                         )}
-                        {next < props?.length && (
+                        {next < data?.length && (
                             <button className={next <= 5 ? 'hidden' : "btn readleft"} onClick={handlelessImage}
                             >
                                 Read Less

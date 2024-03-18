@@ -1,4 +1,4 @@
-""
+"use client"
 import React from 'react'
 import { FontAwesomeIcon, } from "@fortawesome/react-fontawesome";
 import { IoMdCall } from 'react-icons/io';

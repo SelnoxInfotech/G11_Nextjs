@@ -53,7 +53,7 @@ export async function generateRssXml() {
                       url1: firstParagraph.text().split(":")[1],
                         id: rssData[index].id,
                         title: rssData[index].title,
-                        time: rssData[index].date + " " +rssData[index].time ,
+                        time: new Date(rssData[index].date + "T" +rssData[index].time ),
                     });
                 }
             }
