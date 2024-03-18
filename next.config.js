@@ -27,6 +27,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/ads.txt',
+        destination: '/api/Rss/ads.txt',
+      },
+      {
         source: '/Rss/Breakingnewsrss-Feed.xml',
         destination: '/api/Rss/Breakingnewsrss-Feed.xml',
       },

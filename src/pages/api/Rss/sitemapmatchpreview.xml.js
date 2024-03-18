@@ -54,7 +54,7 @@ export async function generateRssXml() {
                       url1: firstParagraph.text().split(":")[1],
                         id: rssData[index].id,
                         title: rssData[index].title,
-                        time: rssData[index].date + " " +rssData[index].time ,
+                        time: rssData[index].date ,
                     });
                 }
             }
@@ -73,7 +73,7 @@ export default async function handler(req, res) {
            ${rssXml.map((url) => `
                      <url>
                       <loc>https://g11prediction.com/latest-match/cricket-predictions/match-preview/${modifystr(url.title)}/${modifystr(url.url1)}/${url.id}</loc>
-                      <date>${url.time}</date>
+                      <lastmod>${url.time}</lastmod>
                       <changefreq>daily</changefreq>
                       <priority>0.7</priority>
                      </url>

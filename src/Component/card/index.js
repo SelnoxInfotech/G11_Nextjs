@@ -75,6 +75,12 @@ const Card = ({ props, query  ,data1}) => {
                 setdata(response.data.breaking)
             })
         }
+        else if (data1 === "ipl-2023") {
+            axios.get(`/FilterbySubCategory/${1}`).then((response) => {
+                console.log(response.data)
+                setdata(response.data)
+            })
+        }
     },[data1])
     return (
         <div className='container-fluid center'>
@@ -153,3 +159,5 @@ const Card = ({ props, query  ,data1}) => {
 
 
 export default Card
+
+

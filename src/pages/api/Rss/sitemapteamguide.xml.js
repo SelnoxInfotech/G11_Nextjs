@@ -40,7 +40,7 @@ export async function generateRssXml() {
                         url1: url1.trim(),
                         id: rssData[index].id,
                         title: rssData[index].title,
-                        time: rssData[index].date + " " + rssData[index].time,
+                        time: rssData[index].date,
                     });
                 }
             }
@@ -49,7 +49,7 @@ export async function generateRssXml() {
         return xmlItems.map((item) => `
             <url>
                 <loc>https://g11prediction.com/latest-match/cricket-predictions/team-guide/${modifyStr(item.title)}/${modifyStr(item.url1)}/${item.id}</loc>
-                <date>${item.time}</date>
+                <lastmod>${url.time}</lastmod>
                 <changefreq>daily</changefreq>
                 <priority>0.7</priority>
             </url>
