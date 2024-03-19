@@ -55,21 +55,22 @@ const nextConfig = {
         destination: '/api/Rss/sitemapBreakingnews.xml',
       },
       {
-        source: '/sitemap/sitemapmatchpreview.xml',
-        destination: '/api/Rss/sitemapmatchpreview.xml',
+        source: '/breaking-news',
+        destination: '/cricket-breaking-news',
       },
       {
-        source: '/sitemap/sitemapteamguide.xml',
-        destination: '/api/Rss/sitemapteamguide.xml',
+        source: '/Cricket-BreakingNews\\(default\\)/:slug2/:slug',
+        destination: '/cricket-breaking-news/:slug/:slug2',
       },
       {
-        source: '/sitemap/sitemapcheatsheet.xml',
-        destination: '/api/Rss/sitemapcheatsheet.xml',
+
+        source: '/latest-match',
+        destination: '/cricket-match-predictions',
       },
       {
-        source: '/sitemap/sitemapteam.xml',
-        destination: '/api/Rss/sitemapteam.xml',
-      },
+        source:'/latest-match/:slug*',
+        destination:'/cricket-match-predictions/:slug*',
+      }
       // Add more custom routing rules as needed
     ];
   },

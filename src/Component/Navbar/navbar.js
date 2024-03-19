@@ -10,9 +10,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from 'react-bootstrap/Dropdown';
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 function OffcanvasExample({ props }) {
-  const [image, setimage] = useState([])
+  // const [image, setimage] = useState([])
   const router = useRouter();
   const [Dropshow, setDropshow] = useState(false);
   const [show, setShow] = useState(false);
@@ -110,10 +109,10 @@ function OffcanvasExample({ props }) {
                     className="NavLink" href="/">Home</Link>
                   <Link
                     onClick={toggleOffCanvas}
-                    href="/latest-match">Match</Link>
+                    href="/cricket-match-predictions">Match</Link>
                   <Link
                     onClick={toggleOffCanvas}
-                    href="/breaking-news">Breaking News</Link>
+                    href="/cricket-breaking-news">Breaking News</Link>
                   <Link
                     onClick={toggleOffCanvas}
                     href="/ipl-2024">IPL 2024</Link>

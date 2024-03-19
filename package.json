@@ -23,6 +23,7 @@
     "next-fonts": "^1.5.1",
     "next-images": "^1.8.5",
     "next-js-player": "^1.2.0",
+    "node-cron": "^3.0.3",
     "node-html-parser": "^6.1.12",
     "react": "^18",
     "react-bootstrap": "^2.10.0",

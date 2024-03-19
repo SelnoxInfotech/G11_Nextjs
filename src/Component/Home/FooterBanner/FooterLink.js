@@ -1,6 +1,5 @@
 
 import React from 'react'
-import { FontAwesomeIcon, } from "@fortawesome/react-fontawesome";
 import { IoMdCall } from 'react-icons/io';
 import { AiFillLinkedin } from 'react-icons/ai';
 import { FaTwitter } from "react-icons/fa";

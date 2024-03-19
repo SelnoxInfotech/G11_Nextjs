@@ -1,3 +1,5 @@
+"use client"
+
 import axios from "axios"
 import Head from 'next/head';
 import Card from "../../../../Component/card/index"
@@ -9,14 +11,17 @@ import React from "react";
 
 export default function Detailpage(props) {
     const router = useRouter()
-    const h = router.query.dynamicslug
     let k = props.l || props.l
-    console.log(h)
+    React.useEffect(() => {
+        if (router.query.dynamicslug === "Cricket-BreakingNews") {
+            router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
+        }
+    }, [])
+    const h = router.query.dynamicslug
     return (
         <>
             {
                 k.map((data, index) => {
-                    // console.log(data.Keywords)
                     return (
                         <React.Fragment key={index}>
                             <Seo
@@ -30,7 +35,6 @@ export default function Detailpage(props) {
                         </React.Fragment>
                     )
                 })
-
             }
             <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : h} query={router.query.dynamicslug} ></Card>
         </>
@@ -48,10 +52,19 @@ export async function getServerSideProps(ctx) {
             return { props: { l } };
         }
         else {
-            const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
-            let l = res.data.data
-            axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.params.index })
-            return { props: { l } };
+
+            if (ctx.query.dynamicslug === "Cricket-BreakingNews") {
+                const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.dynamicslug2}`);
+                let l = res.data.data
+                axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.params.dynamicslug2 })
+                return { props: { l } };
+            }
+            else {
+                const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
+                let l = res.data.data
+                axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.params.index })
+                return { props: { l } };
+            }
         }
 
     }

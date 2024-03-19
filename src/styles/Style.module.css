@@ -9,23 +9,10 @@
   background-color: #c2121c;
 }
 
-a.hovereffect {
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
-  background-position: -100%;
-  background-size: 200% 100%;
-  display: inline-block;
-  padding: 5px 0;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-}
-
 .btn_tele {
   border-radius: 21px;
   background-color: #0088cc;
   position: relative;
-  left: 40%;
   height: 45px;
   width: 194px;
   color: white;
@@ -75,6 +62,14 @@ a.hovereffect {
 .dropdownLink div {
   background-color: #c2121c;
 }
+.dropdownLink div div {
+  margin: 10px;
+  display: grid;
+  justify-items: center;
+}
+.dropdownLink div div a {
+  width: 230px;
+}
 
 .braking_news {
   font-family: Segoe UI-MONOSPACE;
@@ -105,7 +100,7 @@ a.hovereffect {
   padding-left: 100%;
   position: relative;
 }
-.scroll_container .hovereffect {
+.scroll_container a {
   background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
   background-size: 200% 100%;
   background-position: -100%;
@@ -116,7 +111,7 @@ a.hovereffect {
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease-in-out;
 }
-.scroll_container .hovereffect:before {
+.scroll_container a:before {
   content: "";
   background: #C2121C;
   display: block;
@@ -127,10 +122,10 @@ a.hovereffect {
   height: 3px;
   transition: all 0.2s ease-in-out;
 }
-.scroll_container .hovereffect:hover {
+.scroll_container a:hover {
   background-position: 0;
 }
-.scroll_container .hovereffect:hover::before {
+.scroll_container a:hover::before {
   height: 2px;
   width: 100%;
 }
@@ -237,19 +232,33 @@ a.hovereffect {
 }
 
 .BreakingNewsSectionHomepage a {
-  text-decoration: none;
-  color: #c2121c;
-}
-.BreakingNewsSectionHomepage a.hovereffect {
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-image: linear-gradient(90deg, #eb7e7e, #c2121c 50%);
-  background-position: -100%;
+  background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
   background-size: 200% 100%;
+  background-position: -100%;
   display: inline-block;
   padding: 5px 0;
   position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   transition: all 0.3s ease-in-out;
+}
+.BreakingNewsSectionHomepage a:before {
+  content: "";
+  background: #C2121C;
+  display: block;
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.2s ease-in-out;
+}
+.BreakingNewsSectionHomepage a:hover {
+  background-position: 0;
+}
+.BreakingNewsSectionHomepage a:hover::before {
+  height: 2px;
+  width: 100%;
 }
 .BreakingNewsSectionHomepage .latest_bottem {
   margin: 18px;
@@ -314,9 +323,22 @@ a.hovereffect {
   .LatestNewsSection .imageCenter {
     display: contents;
   }
+  .LatestNewsSection .imageCenter img {
+    height: 300px;
+  }
 }
 .LatestNewsSection .text {
   font-size: 16px;
+}
+.LatestNewsSection .box {
+  display: flex;
+  height: 375px;
+}
+@media only screen and (max-width: 850px) {
+  .LatestNewsSection .box {
+    display: block;
+    height: inherit;
+  }
 }
 
 .HightLight a {
@@ -584,8 +606,8 @@ a.hovereffect {
   width: fit-content;
 }
 .footer_head .size {
-  width: 494px;
-  height: 460px;
+  width: 412px;
+  height: 494px;
 }
 .footer_head #end {
   bottom: 8% !important;
@@ -651,7 +673,7 @@ a.hovereffect {
   top: 47px;
   justify-content: center;
   display: flex;
-  gap: 32px;
+  gap: 19px;
   align-items: center;
 }
 .footer_link .policy_link li {
@@ -746,7 +768,6 @@ a.hovereffect {
   font-size: 25px;
   text-align: center;
   margin-bottom: 50px;
-  text-transform: uppercase;
   color: #c2121c;
   font-family: Segoe UI;
 }
@@ -845,6 +866,7 @@ a.hovereffect {
   text-align: end;
 }
 .Breaking_new .viewCount .viewCounteye {
+  display: ruby;
   align-self: center;
   padding-left: 10px;
   text-align: start;
@@ -869,4 +891,45 @@ a.hovereffect {
   top: 5%;
   height: 0;
   left: 90%;
+}
+
+.aboutus .hedding {
+  display: block;
+  text-align: center;
+  color: #c2151b;
+  font: normal normal 700 28px/37px Segoe UI;
+}
+.aboutus .text {
+  font-family: Segoe UI;
+  font-weight: 400;
+}
+
+.RSS {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+.RSS ol {
+  gap: 10px;
+  display: grid;
+}
+.RSS p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.RSS span {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.ViewCountDetailspage {
+  display: flex;
+}
+.ViewCountDetailspage .ViewCountDate {
+  display: flex;
+  justify-content: end;
+}
+.ViewCountDetailspage .ViewCount {
+  display: ruby;
 }/*# sourceMappingURL=Style.module.css.map */

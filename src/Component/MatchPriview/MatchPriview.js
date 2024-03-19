@@ -9,14 +9,13 @@ import { Seo } from '../Seo/Seo';
 
 function MatchPriview({ props }) {
     const router = useRouter()
-    console.log(router)
     const [matchpreviwe, setmatchpreviwe] = useState("")
     const [Team_Guide, Set_Team_Guide] = useState('')
     const [Detail, SetDetails_Data] = useState('')
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
     const [Title1, SetTitle] = useState('')
-    const [preview, Setpreview] = useState(() => router.query.slug[1])
+    const [preview, Setpreview] = useState(() => router.query.slug[1] )
 
 
     // useEffect(()=>{
@@ -83,11 +82,19 @@ function MatchPriview({ props }) {
                 return !isNaN(string)
             }
         }
-        if (checkString(router.query.slug[3])) {
+        console.log(router.query.slug[0] === "cricket-prediction" , router.query)
+        if(router.query.slug[0] === "cricket-prediction"){
+            if (checkString(router.query.slug[4])) {
 
-            const newURL = `/latest-match/cricket-prediction/${router.query.slug[1]}/${router.query.slug[2]}/${modifystr(input)}/${router.query.slug[3]}`;
-            window.history.replaceState({}, '', newURL);
+                const newURL = `/cricket-match-predictions/${router.query.slug[1]}/${router.query.slug[2]}/${modifystr(input)}/${router.query.slug[4]}`;
+                window.history.replaceState({}, '', newURL);
+            }
         }
+        else{
+            const newURL = `/cricket-match-predictions/${router.query.slug[0]}/${router.query.slug[1]}/${modifystr(input)}/${router.query.slug[2]}`;
+                window.history.replaceState({}, '', newURL);
+        }
+      
         SetTitle(modifystr(input))
     }, [])
     const TaBFunction = (e) => {
@@ -98,10 +105,10 @@ function MatchPriview({ props }) {
         }
 
         if (checkString(router.query.slug[3])) {
-            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${l}/${router.query.slug[2]}/${Title1}/${router.query.slug[3]}`);
+            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[2]}/${Title1}/${router.query.slug[3]}`);
         }
         else {
-            window.history.replaceState({}, '', `/latest-match/cricket-prediction/${l}/${router.query.slug[2]}/${router.query.slug[3]}/${router.query.slug[4]}`);
+            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[2]}/${router.query.slug[3]}/${router.query.slug[4]}`);
         }
 
     }
@@ -115,8 +122,8 @@ function MatchPriview({ props }) {
                         : preview === "cheat-sheet" ? `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Cheet Sheet cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"
                             : preview === "teams" && `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Teams cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"}
                 title={`${preview?.replace('-', ' ')} | ${Title1?.replace(/\-+/g, ' ').slice(26)} | Cricket Prediction | `}
-                keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}          
-                canonical={`${window.location.host}/${router.query.slug[0]+"/"+preview+"/"+router.query.slug[2]+"/"+Title1+"/"+router.query.slug[3]}`}
+                keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,dream11 today team,dream11 update,dream11 prediction,today dream11 team,dream11 prediction today match,who will win today match,who win today ipl match,my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}          
+                canonical={`${"cricket-match-predictions"}/${router.query.slug[0]+"/"+preview+"/"+router.query.slug[2]+"/"+Title1+"/"+router.query.slug[3]}`}
                 >
             </Seo>
             <Tabs

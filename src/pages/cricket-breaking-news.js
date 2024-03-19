@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 const Card = dynamic(() => import('../Component/card/index'), { ssr: false, loading: () => <p>Loading...</p> });
 import { Seo } from '../Component/Seo/Seo';
 import useSWR from 'swr';
-
+  import { useRouter } from 'next/router'
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -15,8 +15,12 @@ const fetcher = async (url) => {
 
 const Breakingnews = ({ initialData }) => {
   // console.log(FilterbyidNews())
-
+  const router = useRouter()
   const { data: fetchedData, error } = useSWR('/api/utils/breakingnew', fetcher, { initialData });
+
+if(router.asPath === "/breaking-news/"){
+  window.history.replaceState({}, '', `/cricket-breaking-news`);
+}
 
   const data = fetchedData || initialData;
   // if (error) return <div>Error loading data</div>;

@@ -25,9 +25,12 @@ export default function UpdateMatch({ initialData }) {
         <>
             <Seo
                 image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-                title="Today's Match | G11 | Fantasy Cricket Betting Prediction"
-                description={"Today's Match updates, G11 Fantasy Cricket Betting Prediction Site and Application. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps"}
-                keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}
+                title="Today's Cricket Match Prediction & Betting Tips From Experts (100% Free)"
+                description={"today's cricket match predictions and betting tips from G11 Prediction. we provides 100% sure and safe cricket match prediction tips about who will win today's match."}
+                keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,
+                dream11 today team,dream11 update,dream11 prediction,today dream11 team,
+                dream11 prediction today match,who will win today match,who win today ipl match,
+                my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}
                 canonical={""}
                 ></Seo>
             <Senglepage props={data} ></Senglepage>

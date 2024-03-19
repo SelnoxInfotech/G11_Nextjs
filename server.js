@@ -3,18 +3,57 @@ const next = require('next');
 const cors = require('cors');
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
-const fs = require("fs")
+const generateSitemap = require("./node/generateSitemap")
+const cron = require('node-cron')
+
 const app = next({ dev });
 const handle = app.getRequestHandler();
-
+const sitemap = require("./node/sitemap");
+let  run =  0
 app.prepare()
   .then(() => {
     const server = express();
-   
+
     // Apply middleware
     server.use(cors());
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
+    server.use(sitemap);
+
+    cron.schedule("*/1 * * * *  ", async function () {
+      if (run === 0) {
+        run = 1
+        const k = await generateSitemap()
+        run = k
+        console.log("running a task every 1 seconds");
+      }
+
+    });
+
+
+
+    // server.get('/open-xml', (req, res) => {
+    //   const filePath = path.join(__dirname, '/public/txt.xml'); // Update the file path accordingly
+
+    //   // Check if the file exists
+    //   fs.access(filePath, fs.constants.F_OK, (err) => {
+    //     if (err) {
+    //       console.error(err);
+    //       return res.status(404).send('XML file not found');
+    //     }
+
+    //     // Set headers to specify XML content and to open directly in browser
+    //     res.set({
+    //       'Content-Type': 'application/xml',
+    //       // 'Content-Disposition': 'inline', // This header tells the browser to open the file instead of downloading it
+    //     });
+
+    //     // Stream the file as response
+    //     const fileStream = fs.createReadStream(filePath);
+    //     fileStream.pipe(res);
+    //   });
+    // });
+
 
     // Custom API (if needed)
     server.get('/FilterbySubCategory/:id', (req, res) => {
@@ -68,30 +107,9 @@ app.prepare()
       l()
     }
     );
-    // Default route handler for Next.js
-    // server.get("/rssp", (req, res)=>{
-    //   console.log("dfhak")
-    //   const feed = new Feed({
-    //     title: 'My Next.js Blog',
-    //     description: 'A simple blog built with Next.js',
-    //     link: 'https://example.com',
-    //     language: 'en',
-    //   });
 
-    //   // Add items to the feed
-    //   feed.addItem({
-    //     title: 'First Post',
-    //     description: 'This is my first post.',
-    //     link: 'https://example.com/posts/first-post',
-    //     date: new Date(),
-    //   });
 
-    //   // Generate XML
-    //   const rss = feed.rss2();
 
-    //   res.setHeader('Content-Type', 'application/xml');
-    //   res.status(200).send(rss);
-    // })
     server.get('*', (req, res) => {
       return handle(req, res);
     });
