@@ -15,7 +15,7 @@ function MatchPriview({ props }) {
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
     const [Title1, SetTitle] = useState('')
-    const [preview, Setpreview] = useState(() => router.query.slug[1] )
+    const [preview, Setpreview] = useState(() =>' match-preview ')
 
 
     // useEffect(()=>{
@@ -103,13 +103,13 @@ function MatchPriview({ props }) {
         function checkString(string) {
             return typeof string === "string" && !isNaN(string)
         }
-
-        if (checkString(router.query.slug[3])) {
-            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[2]}/${Title1}/${router.query.slug[3]}`);
-        }
-        else {
-            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[2]}/${router.query.slug[3]}/${router.query.slug[4]}`);
-        }
+console.log(router.query)
+//         if (checkString(router.query.slug[3])) {
+            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[1]}/${Title1}/${router.query.slug[3]}`);
+        // }
+        // else {
+        //     window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[1]}/${Title1}}/${router.query.slug[2]}`);
+        // }
 
     }
 
