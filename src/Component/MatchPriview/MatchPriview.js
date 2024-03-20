@@ -15,12 +15,13 @@ function MatchPriview({ props }) {
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
     const [Title1, SetTitle] = useState('')
-    const [preview, Setpreview] = useState(() =>' match-preview ')
+    const [preview, Setpreview] = useState()
 
 
-    // useEffect(()=>{
-    //     Setpreview(router.query.slug[1])
-    // },[])
+    useEffect(()=>{
+        console.log(router.query)
+        Setpreview(router.query.slug[1])
+    },[])
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -103,13 +104,12 @@ function MatchPriview({ props }) {
         function checkString(string) {
             return typeof string === "string" && !isNaN(string)
         }
-console.log(router.query)
 //         if (checkString(router.query.slug[3])) {
-            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[1]}/${Title1}/${router.query.slug[3]}`);
+            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(Title1)}/${router.query.slug[3]}`);
         // }
         // else {
         //     window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${router.query.slug[1]}/${Title1}}/${router.query.slug[2]}`);
-        // }
+        // }    
 
     }
 
