@@ -1118,6 +1118,11 @@ background-color: #c2121c;
     ol{
         gap: 10px;
     display: grid;
+    li {
+        a {
+            color: #c2121c;
+        }
+    }
     }
 p{
     margin-top: 0;

@@ -19,6 +19,8 @@ function MyComponent({ initialData }) {
   const data = fetchedData || initialData;
   if (!data) return <div>Loading...</div>;
 
+ console.log(data?.l)
+
   return (
     <div>
       <Seo
