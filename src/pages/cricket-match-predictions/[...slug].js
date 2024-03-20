@@ -29,7 +29,6 @@ export async function getServerSideProps(ctx) {
         }
     }
 
- console.log(ctx.params.slug[0] === "cricket-match-predictions" , "cricket-match-predictions/" , ctx.params) 
     if(ctx.params.slug[0] === "cricket-prediction"){
  
         const idIndex = checkString(ctx.params.slug[3]) ? checkString(ctx.params.slug[3]) : checkString(ctx.params.slug[4]);
