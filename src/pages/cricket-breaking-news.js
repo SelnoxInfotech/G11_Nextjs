@@ -17,8 +17,8 @@ const Breakingnews = ({ initialData }) => {
   // console.log(FilterbyidNews())
   const router = useRouter()
   const { data: fetchedData, error } = useSWR('/api/utils/breakingnew', fetcher, { initialData });
-
-if(router.asPath === "/breaking-news/"){
+console.log( router.asPath === "/BreakingNews/")
+if(router.asPath === "/breaking-news/" || router.asPath === "/BreakingNews/"){
   window.history.replaceState({}, '', `/cricket-breaking-news`);
 }
 

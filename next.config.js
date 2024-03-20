@@ -59,6 +59,10 @@ const nextConfig = {
         destination: '/cricket-breaking-news',
       },
       {
+        source: '/BreakingNews',
+        destination: '/cricket-breaking-news',
+      },
+      {
         source: '/Cricket-BreakingNews\\(default\\)/:slug2/:slug',
         destination: '/cricket-breaking-news/:slug/:slug2',
       },

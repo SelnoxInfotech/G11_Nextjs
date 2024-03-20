@@ -17,7 +17,6 @@ function MatchPriview({ props }) {
     const [Title1, SetTitle] = useState('')
     const [preview, Setpreview] = useState()
 
-
     useEffect(() => {
         Setpreview(router.query.slug[1])
     }, [])
@@ -88,16 +87,20 @@ function MatchPriview({ props }) {
                 const newURL = `/cricket-match-predictions/${router.query.slug[1]}/${modifystr(router.query.slug[2])}/${modifystr(input)}/${router.query.slug[4]}`;
                 window.history.replaceState({}, '', newURL);
             }
+            else if (router.asPath.slice(0, 13) === "/latest-match") {
+                const newURL = `/cricket-match-predictions/${router.query.slug[1]}/${modifystr(router.query.slug[2])}/${modifystr(input)}/${router.query.slug[3]}`;
+                window.history.replaceState({}, '', newURL);
+            }
         }
         else {
-            if (checkString(router.query.slug[2])) {
+
+            if (router.asPath.slice(0, 13) === "/latest-match" || checkString(router.query.slug[2])) {
 
                 const newURL = `/cricket-match-predictions/${router.query.slug[0]}/${modifystr(router.query.slug[1])}/${modifystr(input)}/${router.query.slug[2]}`;
                 window.history.replaceState({}, '', newURL);
             }
         }
-
-        SetTitle(modifystr(input))
+        SetTitle(input)
     }, [])
     const TaBFunction = (e) => {
         const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
@@ -105,12 +108,12 @@ function MatchPriview({ props }) {
         function checkString(string) {
             return typeof string === "string" && !isNaN(string)
         }
-                if (checkString(router.query.slug[3])) {
-                    window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[3]}`);
+        if (checkString(router.query.slug[3])) {
+            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[3]}`);
         }
         else {
-        window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[2]}`);
-        }    
+            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[2]}`);
+        }
 
     }
 
@@ -118,13 +121,9 @@ function MatchPriview({ props }) {
         <div>
             <Seo
                 image={"/image/images/download/media/Static/favicon.jpg"}
-                description={preview === "match-preview" ? metaDiscription.slice(0, 160)
-                    : preview === "team-guide" ? `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "team guide cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"
-                        : preview === "cheat-sheet" ? `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Cheet Sheet cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"
-                            : preview === "teams" && `${Title1?.replace(/\-+/g, ' ').slice(26)}` + " " + "Teams cricket prediction by G11 Fantasy Cricket Betting Prediction Site and Application"}
-                title={`${preview?.replace('-', ' ')} | ${Title1?.replace(/\-+/g, ' ').slice(26)} | Cricket Prediction | `}
+                description={` cricket match prediction for today match ${Title1}. who will win today match between ${Title1}`}
                 keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,dream11 today team,dream11 update,dream11 prediction,today dream11 team,dream11 prediction today match,who will win today match,who win today ipl match,my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}
-                canonical={`${"cricket-match-predictions"}/${router.query.slug[0] + "/" + preview + "/" + router.query.slug[2] + "/" + Title1 + "/" + router.query.slug[3]}`}
+                canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${router.query.slug[0] + "/" + preview + "/" + Title1 + "/" + router.query.slug[3]}`}
             >
             </Seo>
             <Tabs
@@ -135,8 +134,8 @@ function MatchPriview({ props }) {
                 < Tab className='color' eventKey="match-preview" title={preview === "match-preview" ? <h1 className={`${style.match_priview}`} >Match Preview</h1> : <h2 className={`${style.match_priview}`}>Match Preview</h2>} >
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-12 ' >
-
+                            <div className='col-12 mt-5' >
+                                <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction"}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }}></div>
                             </div>
                         </div>
@@ -145,7 +144,8 @@ function MatchPriview({ props }) {
                 < Tab className='color' eventKey="team-guide" title={preview === "team-guide" ? <h1 className={`${style.match_priview}`} >Team Guide</h1> : <h2 className={`${style.match_priview}`}>Team Guide</h2>} >
                     <div className='container' >
                         <div className='row'>
-                            <div className='col-12'>
+                            <div className='col-12 mt-5'>
+                            <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction"}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide }}></div>
                             </div>
                         </div>
@@ -155,7 +155,8 @@ function MatchPriview({ props }) {
                 < Tab className='color' eventKey="cheat-sheet" title={preview === "cheat-sheet" ? <h1 className={`${style.match_priview}`} >Cheat sheet</h1> : <h2 className={`${style.match_priview}`}>Cheat sheet</h2>}>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-12 '>
+                            <div className='col-12  mt-5'>
+                            <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction"}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: Detail }}></div>
                             </div>
                         </div>
@@ -164,7 +165,8 @@ function MatchPriview({ props }) {
                 < Tab className='color' eventKey="teams" title={preview === "teams" ? <h1 className={`${style.match_priview}`} >Teams</h1> : <h2 className={`${style.match_priview}`}>Teams</h2>}>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-12'>
+                            <p className={`${style.matchPrivewTitle} mb-5 mt-5`}>{Title1 + " Today match Pridiction"}</p>
+                            <div className='col-4 '>
                                 <div className='Teams_image_full img-thumbnail' dangerouslySetInnerHTML={{ __html: Teams_image }}></div>
                             </div>
                         </div>

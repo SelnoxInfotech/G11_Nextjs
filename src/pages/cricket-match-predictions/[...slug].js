@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router'
+import { Seo } from '../../Component/Seo/Seo';
 const MatchPriview = dynamic(() => import('../../Component/MatchPriview/MatchPriview'), { ssr: true });
 
 function Matchguide(props) {
@@ -13,6 +14,7 @@ function Matchguide(props) {
 
     return (
         <div>
+ 
             <MatchPriview props={props} ></MatchPriview>
         </div>
     );
