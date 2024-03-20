@@ -31,7 +31,7 @@ console.log(data)
         keywords={"Cricket Playing Conditions, Cricket Rules and Regulations, Cricket Laws, Cricket Playing Rules, ODI laws, T20 rules, Cricket match playing rules, cricket penalty conditions,"}
         canonical={"https://g11prediction.com/cricket-rules-and-regulation/"}
     ></Seo>
-      <Card props={data} query={"cricket-rules-and-regulation"} data1={null}></Card>
+      <Card props={data} heading={<h1>cricket rules and regulation</h1>} query={"cricket-rules-and-regulation"} data1={null}></Card>
     </>
   );
 };

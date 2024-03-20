@@ -1,9 +1,9 @@
 import React from 'react';
 import dynamic from 'next/dynamic'
-const   Card = dynamic(() => import('../Component/card/index'), { ssr: false  , loading: () => <p>Loading...</p> });
+const   Card = dynamic(() => import('../Component/card/index'), { ssr: true  , loading: () => <p>Loading...</p> });
 import { Seo } from '../Component/Seo/Seo';
 import useSWR from 'swr';
-
+import { useRouter } from 'next/router'
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -13,13 +13,14 @@ const fetcher = async (url) => {
 };
 
 const Cricket_news = ({ initialData }) => {
-
+  const router = useRouter()
   const k = initialData
-  const { data: fetchedData, error } = useSWR(`/Filterbycategory/${3}`, fetcher, { k });
-
-  const data = fetchedData || k;
+  const { data: fetchedData, error } = useSWR(`https://grand11.in/g11/api/post`, fetcher, { k });
+  if(router.asPath === "/Cricket-news/"){
+    window.history.replaceState({}, '', `/cricket-news`);
+  }
+  const data = fetchedData?.result || k;  
   if (!data) return <div>Loading...</div>;
-
 
   return (
     <>
@@ -30,7 +31,7 @@ const Cricket_news = ({ initialData }) => {
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/cricket-news/"}
     ></Seo>
-      <Card props={data} query={"cricket-players"}  data1={null}></Card>
+      <Card props={data} heading={<h1>cricket players</h1>} query={"cricket-news"}  data1={"cricket-news"}></Card>
     </>
   );
 };
@@ -42,16 +43,15 @@ export default Cricket_news;
 export async function getStaticProps(ctx) {
   try {
     const [topNewsRes] = await Promise.all([
-      fetch(`https://g11fantasy.com/NewsSection/FilterbyCategory/${3}`),
+      fetch(`https://grand11.in/g11/api/post`),
     ]);
 
     const [topNews, images] = await Promise.all([
       topNewsRes.json(),
     ]);
 
-
     const responseData = {
-      breaking: topNews.data,
+      breaking: topNews.result,
     };
     return {
       props: {

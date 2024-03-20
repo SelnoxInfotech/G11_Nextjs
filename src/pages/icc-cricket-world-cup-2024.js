@@ -34,7 +34,7 @@ const Icc2024 = ({ initialData }) => {
         keywords={"ICC T20 World Cup 2024,T20 schedule 2024, T20 teams 2024, T20 venues 2024, Dream11 prediction, T20 match prediction, T20 match analysis, T20 Latest News, T20 Live Updates, T20 Highlights,"}
         canonical={"https://g11prediction.com/icc-cricket-world-cup-2024/"}
  ></Seo>
-      <Card props={data} query={"icc-cricket-world-cup-2024"} data1={"Icc2024"}></Card> 
+      <Card props={data} heading={<h1>icc cricket world cup 2024</h1>} query={"icc-cricket-world-cup-2024"} data1={"Icc2024"}></Card> 
     </>
   );
 };

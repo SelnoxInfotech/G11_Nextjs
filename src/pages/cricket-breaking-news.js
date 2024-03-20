@@ -22,10 +22,9 @@ if(router.asPath === "/breaking-news/"){
   window.history.replaceState({}, '', `/cricket-breaking-news`);
 }
 
-  const data = fetchedData || initialData;
+  const data = fetchedData?.breaking || initialData?.breaking;
   // if (error) return <div>Error loading data</div>;
   if (!data) return <div>Loading...</div>;
-
   return (
     <>
       <Seo
@@ -35,7 +34,7 @@ if(router.asPath === "/breaking-news/"){
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/breaking-news/"}
       ></Seo>
-      <Card props={initialData.breaking} query={"cricket-breaking-news"}></Card>
+      <Card props={data}  heading={<h1>cricket breaking news</h1>}query={"cricket-breaking-news"}></Card>
     </>
   );
 };

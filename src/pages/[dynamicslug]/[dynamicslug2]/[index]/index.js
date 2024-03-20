@@ -36,7 +36,7 @@ export default function Detailpage(props) {
                     )
                 })
             }
-            <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : h} query={router.query.dynamicslug} ></Card>
+            <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : h} heading={<h2>{router.query.dynamicslug}</h2>} query={router.query.dynamicslug}  ></Card>
         </>
     )
 

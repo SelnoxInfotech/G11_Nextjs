@@ -70,6 +70,10 @@ const nextConfig = {
       {
         source:'/latest-match/:slug*',
         destination:'/cricket-match-predictions/:slug*',
+      },
+      {
+        source:'/Cricket-news',
+        destination:'/cricket-news',
       }
       // Add more custom routing rules as needed
     ];

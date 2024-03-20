@@ -3,13 +3,13 @@ const next = require('next');
 const cors = require('cors');
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
-const generateSitemap = require("./node/generateSitemap")
-const cron = require('node-cron')
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const sitemap = require("./node/sitemap");
-let  run =  0
+const Rss = require("./node/GetRssMatchPriview")
+
+
 app.prepare()
   .then(() => {
     const server = express();
@@ -19,16 +19,16 @@ app.prepare()
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
     server.use(sitemap);
+    server.use(Rss);
+    // cron.schedule("*/1 * * * *  ", async function () {
+    //   if (run === 0) {
+    //     run = 1
+    //     const k = await generateSitemap()
+    //     run = k
+    //     console.log("running a task every 1 seconds");
+    //   }
 
-    cron.schedule("*/1 * * * *  ", async function () {
-      if (run === 0) {
-        run = 1
-        const k = await generateSitemap()
-        run = k
-        console.log("running a task every 1 seconds");
-      }
-
-    });
+    // });
 
 
 

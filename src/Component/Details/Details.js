@@ -42,7 +42,9 @@ function Details({ data , h}) {
                     </div>
                     <div className={`col-12 ${style.ViewCountDetailspage}`}>
                         <div className={`col-6 ${style.ViewCount}`}>
+                         { data?.ViewCount &&   <>
                             <AiFillEye></AiFillEye>  <span>{data?.ViewCount + 1} view</span>
+                         </>}
                         </div>
                         <div className={`col-6 ${style.ViewCountDate}`}>
                             <p >{data?.created?.slice(0, 10) || data.post_date}</p>
