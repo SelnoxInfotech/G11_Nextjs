@@ -8,7 +8,7 @@ function generateSiteMap() {
    <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
      <!-- Add the static URLs manually -->
      <url>
-       <loc>https://g11prediction.com/sitemap/sitemapBreakingnews.xml</loc>
+       <loc>https://g11prediction.com/sitemapBreakingnews.xml</loc>
      </url>
      <url>
        <loc>https://g11prediction.com/sitemap/sitemapmatchpreview.xml</loc>

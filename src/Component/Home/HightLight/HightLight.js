@@ -27,6 +27,7 @@ const HightLight = ({ latestnews }) => {
         return str
     }
     const imageLoader = ({ src, width, quality }) => {
+        console.log(src)
         return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
     }
     return (

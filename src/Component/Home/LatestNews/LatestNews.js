@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 const Breakingnews = ({ latestnews }) => {
 
- console.log(latestnews )
+
 
     const imageLoader = ({ src, width, quality }) => {
         console.log(src)

@@ -55,7 +55,7 @@ const nextConfig = {
         destination: '/api/Rss/ipl-2023RSS-feed.xml',
       },
       {
-        source: '/sitemap/sitemapBreakingnews.xml',
+        source: '/sitemapBreakingnews.xml',
         destination: '/api/Rss/sitemapBreakingnews.xml',
       },
       {
