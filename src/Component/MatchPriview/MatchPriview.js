@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 import { Seo } from '../Seo/Seo';
-import TableOfContent from '../../Component/TableOfContent/index'
+import TableOfContent from '../tableofcontent/index'
 function MatchPriview(props) {
     const router = useRouter()
     const [matchpreviwe, setmatchpreviwe] = useState("")

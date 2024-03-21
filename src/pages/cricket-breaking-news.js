@@ -80,7 +80,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { Seo } from '../Component/Seo/Seo';
 import { useRouter } from 'next/router';
-import TableOfContent from '../Component/TableOfContent/index'
+import TableOfContent from '../Component/tableofcontent/index'
 const Card = dynamic(() => import('../Component/card/index'), { ssr: false, loading: () => <p>Loading...</p> });
 
 const Breakingnews = ({ breakingData }) => {

@@ -8,7 +8,7 @@ const Details = dynamic(() => import('../../../../Component/Details/Details'), {
 import { useRouter } from "next/router";
 import { Seo } from "../../../../Component/Seo/Seo";
 import React from "react";
-import TableOfContent from '../../../../Component/TableOfContent/index'
+import TableOfContent from '../../../../Component/tableofcontent/index'
 
 export default function Detailpage(props) {
     const router = useRouter()
