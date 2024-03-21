@@ -1,7 +1,5 @@
 
 import React, { useEffect, useState } from 'react';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 import { Seo } from '../Seo/Seo';
@@ -54,7 +52,7 @@ function MatchPriview({ props }) {
         setmatchpreviwe(a)
         const list = containerData.querySelector("div")?.getElementsByTagName("*")
         for (let i = 0; i < list.length; i++) {
-            list[i].innerHTML === "Preview :" && SetmetaDiscription(list[i + 1].innerText + list[i + 2].innerText)
+            list[i]?.innerHTML === "Preview :" && SetmetaDiscription(list[i + 1]?.innerText + list[i + 2]?.innerText)
         };
         // Team section///
         var Team = parserhtm[1].querySelector(".container")
@@ -102,21 +100,21 @@ function MatchPriview({ props }) {
         }
         SetTitle(input)
     }, [])
-    const TaBFunction = (e) => {
-        const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
-        Setpreview(() => l)
-        function checkString(string) {
-            return typeof string === "string" && !isNaN(string)
-        }
-        if (checkString(router.query.slug[3])) {
-            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[3]}`);
-        }
-        else {
-            window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[2]}`);
-        }
+    // const TaBFunction = (e) => {
+    //     const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
+    //     Setpreview(() => l)
+    //     function checkString(string) {
+    //         return typeof string === "string" && !isNaN(string)
+    //     }
+    //     if (checkString(router.query.slug[3])) {
+    //         window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[3]}`);
+    //     }
+    //     else {
+    //         window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[2]}`);
+    //     }
 
-    }
-
+    // }
+    // console.log(Team_Guide.split('&nbsp;').join(''))
     return (
         <div>
             <Seo
@@ -126,7 +124,7 @@ function MatchPriview({ props }) {
                 canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${router.query.slug[0] + "/" + preview + "/" + Title1 + "/" + router.query.slug[3]}`}
             >
             </Seo>
-            <Tabs
+            {/* <Tabs
                 defaultActiveKey={preview}
                 id="uncontrolled-tab-example"
                 className={style.matchpriviewtab}
@@ -172,7 +170,24 @@ function MatchPriview({ props }) {
                         </div>
                     </div>
                 </Tab>
-            </Tabs>
+            </Tabs> */}
+
+            <div className={`${style.matchpage} container py-5`}>
+                 <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
+                     
+                <div className='row mt-3'>
+                     <div className='col-8' >
+                           
+                       <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe.split('&nbsp;').join('') }}></div>
+                       <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide.split('&nbsp;').join('') }}></div>
+                       <div className={style.font} dangerouslySetInnerHTML={{ __html: Detail.split('&nbsp;').join('') }}></div>
+                       <div className={style.pridctionImageSection}>
+                          <div className='Teams_image_full img-thumbnail' dangerouslySetInnerHTML={{ __html: Teams_image }}></div>
+                       </div>
+                     </div>
+                     <div className='col-4'>fhguhuy sdu yfsgh surfhiusdfniu sdfg8urshgdfusignudf uifdhudfbhdfub h uy</div>
+                </div>
+             </div>
         </div>
     );
 }
