@@ -22,7 +22,6 @@ const Companyexpi = dynamic(() => import('./Static/Companyexpi'), { ssr: true, l
 const Footer = dynamic(() => import('./FooterBanner/FooterBanner'), { ssr: true, loading: () => <p>Loading...</p> })
 const inter = Inter({ subsets: ["latin"] });
 const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, image, ipl  }) => {
-    console.log(props, match, updatematch, Breaking, latestnews, Teamsdata, image, ipl )
     return (
         <>
             <ScrollBreaking props={props}></ScrollBreaking>
@@ -40,7 +39,7 @@ const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, ima
             <Customerrate image={image}></Customerrate>
             <Staticres></Staticres>
             <Companyexpi></Companyexpi>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </>
     )
 }

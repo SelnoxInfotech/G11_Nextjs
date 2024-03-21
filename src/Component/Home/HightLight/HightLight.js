@@ -5,7 +5,6 @@ import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 import Link from 'next/link';
 const HightLight = ({ latestnews }) => {
-    console.log(latestnews)
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");

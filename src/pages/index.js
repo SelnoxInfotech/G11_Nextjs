@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 const Home = dynamic(() => import('../Component/Home/index'));
 import useSWR from 'swr';
 import { Seo } from '../Component/Seo/Seo';
+
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -11,14 +12,10 @@ const fetcher = async (url) => {
   return res.json();
 };
 
-
 function MyComponent({ initialData }) {
 
-  // const { data: fetchedData, error } = useSWR('/api/utils/api', fetcher, { initialData });
-
-  const data =  initialData;
+  const data = initialData;
   if (!data) return <div>Loading...</div>;
-
 
   return (
     <div>
@@ -34,62 +31,59 @@ function MyComponent({ initialData }) {
   );
 }
 
-
 export async function getStaticProps() {
-  try {
-    const [topNewsRes, matchesRes, allMatchesRes, postRes, teamsRes, imageRes , ipl] = await Promise.all([
-      fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1'),
-      fetch('https://grand11.in/g11/api/matches'),
-      fetch('https://grand11.in/g11/all_matches_api.php'),
-      fetch('https://grand11.in/g11/api/post'),
-      fetch('https://grand11.in/g11/api/teams'),
-      fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/'),
-      fetch('https://www.g11fantasy.com/NewsSection/Get-News/1')
-    ]);
-
-      let k =  await matchesRes.json()
-      console.log(k)
-
-    const [topNews, matches, allMatches, posts, teams, images , ipldata] = await Promise.all([
-      topNewsRes.json(),
-      matchesRes.json(),
-      allMatchesRes.json(),
-      postRes.json(),
-      teamsRes.json(),
-      imageRes.json(),
-      ipl.json()
-    ]);
-
-    // Assuming breaking news is the first item in topNews array
-
-    const responseData = {
-      breaking:topNews,
-      l:topNews[0],
-      l1:matches,
-      l2:allMatches.reverse().slice(0, 100),
-      l3:posts.result,
-      teamsData:teams.result,
-      imageData:images,
-      ipl:ipldata
-    };
-
-
-    return {
-      props: {
-        initialData: responseData,
-
-      },
-      revalidate: 60 ,
-    };
-  } catch (error) {
+  const handleError = (error) => {
     console.error('Error fetching data:', error);
     return {
       props: {
-        breakingData: null,
+        initialData: null,
         error: 'Failed to fetch data',
       },
       revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs
     };
+  };
+
+  try {
+    const [topNewsRes, matchesRes, allMatchesRes, postRes, teamsRes, imageRes, iplRes] = await Promise.all([
+      fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1').catch(handleError),
+      fetch('https://grand11.in/g11/api/matches').catch(handleError),
+      fetch('https://grand11.in/g11/all_matches_api.php').catch(handleError),
+      fetch('https://grand11.in/g11/api/post').catch(handleError),
+      fetch('https://grand11.in/g11/api/teams').catch(handleError),
+      fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/').catch(handleError),
+      fetch('https://www.g11fantasy.com/NewsSection/Get-News/1').catch(handleError)
+    ]);
+
+    const [topNews, matches, allMatches, posts, teams, images, ipl] = await Promise.all([
+      topNewsRes.json().catch(handleError),
+      matchesRes.json().catch(handleError),
+      allMatchesRes.json().catch(handleError),
+      postRes.json().catch(handleError),
+      teamsRes.json().catch(handleError),
+      imageRes.json().catch(handleError),
+      iplRes.json().catch(handleError)
+    ]);
+
+    // Assuming breaking news is the first item in topNews array
+    const responseData = {
+      breaking: topNews,
+      l: topNews[0],
+      l1: matches,
+      l2: allMatches?.reverse()?.slice(0, 100),
+      l3: posts?.result,
+      teamsData: teams?.result,
+      imageData: images,
+      ipl: ipl
+    };
+
+    return {
+      props: {
+        initialData: responseData,
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    return handleError(error);
   }
 }
 

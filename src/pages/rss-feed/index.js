@@ -28,15 +28,6 @@ export default function Rss() {
                     <li>
                         <a href='/GetRss/match-prediction.xml' className='calling'><span> <FaRssSquare />matchpreview</span> </a>
                     </li>
-                    <li>
-                        <a href='/GetRss/cheatsheet.xml' className='calling'><span> <FaRssSquare />cheatsheet </span> </a>
-                    </li>
-                    <li>
-                        <a href='/GetRss/teamguide.xml' className='calling'><span> <FaRssSquare />teamguide </span> </a>
-                    </li>
-                    <li>
-                        <a href='/GetRss/teams.xml' className='calling'><span> <FaRssSquare />teams</span> </a>
-                    </li>
                 </ol>
             </div>
 

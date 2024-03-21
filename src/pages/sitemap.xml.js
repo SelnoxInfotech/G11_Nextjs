@@ -13,15 +13,6 @@ function generateSiteMap() {
      <url>
        <loc>https://g11prediction.com/sitemap/sitemapmatchpreview.xml</loc>
      </url>
-      <url>
-       <loc>https://g11prediction.com/sitemap/sitemapteamguide.xml</loc>
-     </url>
-     <url>
-       <loc>https://g11prediction.com/sitemap/sitemapcheatsheet.xml</loc>
-     </url>
-     <url>
-     <loc>https://g11prediction.com/sitemap/sitemapteam.xml</loc>
-   </url>
    </urlset>
  `;
 }

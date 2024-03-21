@@ -8,7 +8,6 @@ const Breakingnews = ({ latestnews }) => {
 
 
     const imageLoader = ({ src, width, quality }) => {
-        console.log(src)
         return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
       }
     
