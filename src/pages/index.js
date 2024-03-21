@@ -14,12 +14,11 @@ const fetcher = async (url) => {
 
 function MyComponent({ initialData }) {
 
-  const { data: fetchedData, error } = useSWR('/api/utils/api', fetcher, { initialData });
+  // const { data: fetchedData, error } = useSWR('/api/utils/api', fetcher, { initialData });
 
-  const data = fetchedData || initialData;
+  const data =  initialData;
   if (!data) return <div>Loading...</div>;
 
- console.log(data?.l)
 
   return (
     <div>
@@ -30,7 +29,7 @@ function MyComponent({ initialData }) {
         keywords={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
         canonical={"https://g11prediction.com/"}
       ></Seo>
-      <Home props={[data?.l]} match={data.l1} updatematch={data.l2} Breaking={data.breaking} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ></Home>
+      <Home props={[data?.l]} match={data.l1} updatematch={data.l2} Breaking={data.breaking} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ipl={data.ipl} ></Home>
     </div>
   );
 }
@@ -38,47 +37,55 @@ function MyComponent({ initialData }) {
 
 export async function getStaticProps() {
   try {
-    const [topNewsRes, matchesRes, allMatchesRes, postRes, teamsRes, imageRes] = await Promise.all([
+    const [topNewsRes, matchesRes, allMatchesRes, postRes, teamsRes, imageRes , ipl] = await Promise.all([
       fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1'),
       fetch('https://grand11.in/g11/api/matches'),
       fetch('https://grand11.in/g11/all_matches_api.php'),
       fetch('https://grand11.in/g11/api/post'),
       fetch('https://grand11.in/g11/api/teams'),
-      fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/')
+      fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/'),
+      fetch('https://www.g11fantasy.com/NewsSection/Get-News/1')
     ]);
 
-    const [topNews, matches, allMatches, posts, teams, images] = await Promise.all([
+    const [topNews, matches, allMatches, posts, teams, images , ipldata] = await Promise.all([
       topNewsRes.json(),
       matchesRes.json(),
       allMatchesRes.json(),
       postRes.json(),
       teamsRes.json(),
-      imageRes.json()
+      imageRes.json(),
+      ipl.json()
     ]);
 
     // Assuming breaking news is the first item in topNews array
 
     const responseData = {
-      breaking: topNews,
-      l: topNews[0],
-      l1: matches,
-      l2: allMatches.reverse().slice(0, 100),
-      l3: posts.result,
-      teamsData: teams.result,
-      imageData: images
+      breaking:topNews,
+      l:topNews[0],
+      l1:matches,
+      l2:allMatches.reverse().slice(0, 100),
+      l3:posts.result,
+      teamsData:teams.result,
+      imageData:images,
+      ipl:ipldata
     };
+
+
     return {
       props: {
         initialData: responseData,
+
       },
+      revalidate: 60 ,
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       props: {
-        initialData: null,
+        breakingData: null,
         error: 'Failed to fetch data',
       },
+      revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs
     };
   }
 }

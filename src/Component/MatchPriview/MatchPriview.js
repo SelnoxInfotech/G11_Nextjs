@@ -54,7 +54,7 @@ function MatchPriview({ props }) {
         setmatchpreviwe(a)
         const list = containerData.querySelector("div")?.getElementsByTagName("*")
         for (let i = 0; i < list.length; i++) {
-            list[i].innerHTML === "Preview :" && SetmetaDiscription(list[i + 1].innerText + list[i + 2].innerText)
+            list[i].innerHTML === "Preview :" && SetmetaDiscription(list[i + 1]?.innerText + list[i + 2]?.innerText)
         };
         // Team section///
         var Team = parserhtm[1].querySelector(".container")

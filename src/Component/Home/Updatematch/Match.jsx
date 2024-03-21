@@ -51,7 +51,7 @@ function Match({ updatematch, image }) {
                                     }}
                                     sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
                                 <div className={` ${style.grid_row}`}>
-                                    <Link href={`/latest-match/cricket-prediction/${'match-preview'}/${modifystr(data.title)}/${data.id}`} >
+                                    <Link href={`/cricket-match-predictions/${'match-preview'}/${modifystr(data.title)}/${data.id}`} >
 
                                         <div className="col">
                                             {data.title}
