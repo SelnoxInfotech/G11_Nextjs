@@ -15,7 +15,7 @@ const fetcher = async (url) => {
 const Cricket_news = ({ initialData }) => {
   const router = useRouter()
   const k = initialData
-  const { data: fetchedData, error } = useSWR(`https://grand11.in/g11/api/post`, fetcher, { k });
+  // const { data: fetchedData, error } = useSWR(`https://grand11.in/g11/api/post`, fetcher, { k });
   if(router.asPath === "/Cricket-news/"){
     window.history.replaceState({}, '', `/cricket-news`);
   }
