@@ -26,7 +26,7 @@ export default function Rss() {
                         <a href='/RSS/ipl-2024RSS-feed.xml' className='calling'><span> <FaRssSquare />Ipl-2024 </span> </a>
                     </li>
                     <li>
-                        <a href='/GetRss/matchpreview.xml' className='calling'><span> <FaRssSquare />matchpreview</span> </a>
+                        <a href='/GetRss/match-prediction.xml' className='calling'><span> <FaRssSquare />matchpreview</span> </a>
                     </li>
                     <li>
                         <a href='/GetRss/cheatsheet.xml' className='calling'><span> <FaRssSquare />cheatsheet </span> </a>

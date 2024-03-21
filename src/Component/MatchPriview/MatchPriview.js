@@ -181,7 +181,7 @@ function MatchPriview(props) {
             </Tabs>  */}
 
             <div className={`${style.matchpage} container py-5`}>
-                 <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
+                 <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " , dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
                      
                 <div className='row mt-3'>
                      <div className='col-lg-8' >
