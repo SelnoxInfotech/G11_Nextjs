@@ -92,7 +92,6 @@ function OffcanvasExample({ props }) {
               show={show}
               onHide={toggleOffCanvas}
             >
-              <span className="navbar-toggler-icon fas fa-bars"></span>
               <Offcanvas.Header closeButton className={style.Offcanvas}  >
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
                   {/* <div className='row'> */}

@@ -14,7 +14,7 @@ function Matchguide(props) {
 
     return (
         <div>
- 
+         
             <MatchPriview props={props} ></MatchPriview>
         </div>
     );
@@ -50,8 +50,9 @@ export async function getServerSideProps(ctx) {
         }
     }
     else{
-        console.log( ctx.params ) 
-        const idIndex = checkString(ctx.params.slug[2]) ? checkString(ctx.params.slug[2]) : checkString(ctx.params.slug[3]);
+
+        const idIndex = checkString(ctx.params.slug[0]) ? checkString(ctx.params.slug[0]) : checkString(ctx.params.slug[1]);
+
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
      
         try {
