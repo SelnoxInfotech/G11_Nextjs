@@ -15,7 +15,6 @@ function MatchPriview(props) {
     const [breakingNews, SetbreakingNews] = useState([])
     const [Title1, SetTitle] = useState('')
     const [preview, Setpreview] = useState()
-    console.log(props ,'props')
     useEffect(() => {
         Setpreview(router.query.slug[1])
     }, [])
@@ -80,27 +79,34 @@ function MatchPriview(props) {
                 return !isNaN(string)
             }
         }
-        if (router.query.slug[0] === "cricket-prediction") {
+        if (router.query.slug[0] === "cricket-match-predictions") {
             if (checkString(router.query.slug[4])) {
 
-                const newURL = `/cricket-match-predictions/${router.query.slug[1]}/${modifystr(router.query.slug[2])}/${modifystr(input)}/${router.query.slug[4]}`;
+                const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[4]}`;
                 window.history.replaceState({}, '', newURL);
             }
             else if (router.asPath.slice(0, 13) === "/latest-match") {
-                const newURL = `/cricket-match-predictions/${router.query.slug[1]}/${modifystr(router.query.slug[2])}/${modifystr(input)}/${router.query.slug[3]}`;
+                const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[3]}`;
                 window.history.replaceState({}, '', newURL);
             }
+          
+        }
+    
+        else if(checkString(router.query.slug[0])){
+            const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[0]}`;
+                window.history.replaceState({}, '', newURL);
         }
         else {
 
             if (router.asPath.slice(0, 13) === "/latest-match" || checkString(router.query.slug[2])) {
 
-                const newURL = `/cricket-match-predictions/${router.query.slug[0]}/${modifystr(router.query.slug[1])}/${modifystr(input)}/${router.query.slug[2]}`;
+                const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[2]}`;
                 window.history.replaceState({}, '', newURL);
             }
         }
         SetTitle(input)
     }, [])
+
     // const TaBFunction = (e) => {
     //     const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
     //     Setpreview(() => l)
@@ -119,10 +125,11 @@ function MatchPriview(props) {
     return (
         <div>
             <Seo
+            title={`Dream11 Prediction Today Match | Dream11 Team Today`}
                 image={"/image/images/download/media/Static/favicon.jpg"}
-                description={` cricket match prediction for today match ${Title1}. who will win today match between ${Title1}`}
+                description={`Dream11 today match prediction for  ${Title1}.Win big with accurate tips & best Dream11 team prediction, Today Dream11 Team Check out!`}
                 keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,dream11 today team,dream11 update,dream11 prediction,today dream11 team,dream11 prediction today match,who will win today match,who win today ipl match,my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}
-                canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${router.query.slug[0] + "/" + preview + "/" + Title1 + "/" + router.query.slug[3]}`}
+                canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${router.asPath}`}
             >
             </Seo>
             {/* <Tabs
@@ -134,7 +141,7 @@ function MatchPriview(props) {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12 mt-5' >
-                                <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
+                                <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }}></div>
                             </div>
                         </div>
@@ -144,7 +151,7 @@ function MatchPriview(props) {
                     <div className='container' >
                         <div className='row'>
                             <div className='col-12 mt-5'>
-                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
+                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide }}></div>
                             </div>
                         </div>
@@ -155,7 +162,7 @@ function MatchPriview(props) {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12  mt-5'>
-                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  ", dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
+                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  ", dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: Detail }}></div>
                             </div>
                         </div>
@@ -164,7 +171,7 @@ function MatchPriview(props) {
                 < Tab className='color' eventKey="teams" title={preview === "teams" ? <h1 className={`${style.match_priview}`} >Teams</h1> : <h2 className={`${style.match_priview}`}>Teams</h2>}>
                     <div className='container'>
                         <div className='row'>
-                            <p className={`${style.matchPrivewTitle} mb-5 mt-5`}>{Title1 + " Today match Pridiction"}</p>
+                            <p className={`${style.matchPrivewTitle} mb-5 mt-5`}>{Title1 + "dream11 prediction today match"}</p>
                             <div className='col-4 '>
                                 <div className='Teams_image_full img-thumbnail' dangerouslySetInnerHTML={{ __html: Teams_image }}></div>
                             </div>
@@ -174,7 +181,7 @@ function MatchPriview(props) {
             </Tabs>  */}
 
             <div className={`${style.matchpage} container py-5`}>
-                 <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
+                 <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
                      
                 <div className='row mt-3'>
                      <div className='col-lg-8' >

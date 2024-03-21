@@ -3,7 +3,7 @@ const next = require('next');
 const cors = require('cors');
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
-
+const generateSitemap = require("./node/generateSitemap")
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const sitemap = require("./node/sitemap");
@@ -23,8 +23,8 @@ app.prepare()
     // cron.schedule("*/1 * * * *  ", async function () {
     //   if (run === 0) {
     //     run = 1
-    //     const k = await generateSitemap()
-    //     run = k
+       generateSitemap()
+    
     //     console.log("running a task every 1 seconds");
     //   }
 
