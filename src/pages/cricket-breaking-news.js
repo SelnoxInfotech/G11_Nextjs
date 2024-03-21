@@ -80,7 +80,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { Seo } from '../Component/Seo/Seo';
 import { useRouter } from 'next/router';
-
+import TableOfContent from '../Component/TableOfContent/index'
 const Card = dynamic(() => import('../Component/card/index'), { ssr: false, loading: () => <p>Loading...</p> });
 
 const Breakingnews = ({ breakingData }) => {
@@ -89,7 +89,7 @@ const Breakingnews = ({ breakingData }) => {
   if (!breakingData) return <div>Loading...</div>;
 
   return (
-    <>
+    <React.Fragment>
       <Seo
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title="Breaking News | G11 Fantasy Cricket Prediction |"
@@ -97,8 +97,8 @@ const Breakingnews = ({ breakingData }) => {
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/breaking-news/"}
       />
-      <Card props={breakingData} heading={<h1>cricket breaking news</h1>} query={"cricket-breaking-news"} />
-    </>
+       <Card props={breakingData} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} />
+    </React.Fragment>
   );
 };
 

@@ -1148,17 +1148,57 @@ span{
   }
 
   .matchPrivewTitle{
-    text-align: center;
-    font-size: 25px;
+    text-align: left;
+    font-size: 32px;
     color: #c2121c;
+    font-weight: 700;
+    line-height: 1.5;
+    
   }
 
 
   .matchpage{
+    position: relative;
     .pridctionImageSection{
         img{
             width: 30%;
             // margin: 0 auto;
         }
     }
+ 
   }
+
+  .breaknewssidebar{ 
+    border: 1.5px solid rgba(0, 0, 0, 0.425); 
+    padding: 20px;
+    border-radius: 5px;
+    position: sticky;
+    top: 100px;
+    .breaknewssidebartitle{
+        font-size: 24px;
+        font-weight: 600;
+        color: rgb(0, 81, 156);
+        line-height: 1.5;
+        border-bottom: 1px solid black;
+    }
+    .breaknewssidebarList{
+        padding: 20px 10px;
+        a{
+            text-decoration: none;
+        li.breaknewssidebarListitem{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #313131;
+            margin-bottom: 20px;
+            list-style-type: disc;
+            text-decoration: none;
+            &:hover{
+              color: #000;
+              font-weight: 500;
+              transition: all .3s ease;
+            }
+        }
+    }
+    }
+}

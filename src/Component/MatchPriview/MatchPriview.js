@@ -3,18 +3,19 @@ import React, { useEffect, useState } from 'react';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 import { Seo } from '../Seo/Seo';
+import Link from 'next/link';
 
-
-function MatchPriview({ props }) {
+function MatchPriview(props) {
     const router = useRouter()
     const [matchpreviwe, setmatchpreviwe] = useState("")
     const [Team_Guide, Set_Team_Guide] = useState('')
     const [Detail, SetDetails_Data] = useState('')
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
+    const [breakingNews, SetbreakingNews] = useState([])
     const [Title1, SetTitle] = useState('')
     const [preview, Setpreview] = useState()
-
+    console.log(props ,'props')
     useEffect(() => {
         Setpreview(router.query.slug[1])
     }, [])
@@ -40,9 +41,9 @@ function MatchPriview({ props }) {
     }
 
     useEffect(() => {
-
+        SetbreakingNews(props?.props?.Newsdata.slice(0,5))
         var parser = new DOMParser();
-        var doc = parser.parseFromString(props.props, 'text/html');
+        var doc = parser.parseFromString(props?.props?.MatchData, 'text/html');
         // HTML section//// 
         var parserhtm = doc.querySelectorAll('section');
         //  container /////
@@ -114,7 +115,7 @@ function MatchPriview({ props }) {
     //     }
 
     // }
-    // console.log(Team_Guide.split('&nbsp;').join(''))
+  
     return (
         <div>
             <Seo
@@ -170,13 +171,13 @@ function MatchPriview({ props }) {
                         </div>
                     </div>
                 </Tab>
-            </Tabs> */}
+            </Tabs>  */}
 
             <div className={`${style.matchpage} container py-5`}>
                  <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
                      
                 <div className='row mt-3'>
-                     <div className='col-8' >
+                     <div className='col-lg-8' >
                            
                        <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe.split('&nbsp;').join('') }}></div>
                        <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide.split('&nbsp;').join('') }}></div>
@@ -185,7 +186,19 @@ function MatchPriview({ props }) {
                           <div className='Teams_image_full img-thumbnail' dangerouslySetInnerHTML={{ __html: Teams_image }}></div>
                        </div>
                      </div>
-                     <div className='col-4'>fhguhuy sdu yfsgh surfhiusdfniu sdfg8urshgdfusignudf uifdhudfbhdfub h uy</div>
+                     <div className='col-lg-4 '>
+                        <div className={style.breaknewssidebar}>
+                            <h4 className={style.breaknewssidebartitle}>Recent News</h4>
+                            <ul className={style.breaknewssidebarList}>
+                                
+                            {
+                                breakingNews.map((item)=>{
+                                    return <Link href={`/cricket-breaking-news/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title ||  item?.title)}/${item.id}`}><li className={style.breaknewssidebarListitem}>{item.Title}</li></Link>
+                                })
+                            }
+                            </ul>
+                        </div>
+                     </div>
                 </div>
              </div>
         </div>
@@ -193,3 +206,4 @@ function MatchPriview({ props }) {
 }
 
 export default MatchPriview;
+  

@@ -8,6 +8,7 @@ const Details = dynamic(() => import('../../../../Component/Details/Details'), {
 import { useRouter } from "next/router";
 import { Seo } from "../../../../Component/Seo/Seo";
 import React from "react";
+import TableOfContent from '../../../../Component/TableOfContent/index'
 
 export default function Detailpage(props) {
     const router = useRouter()
@@ -19,9 +20,11 @@ export default function Detailpage(props) {
     }, [])
     const h = router.query.dynamicslug
     return (
-        <>
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-8">
             {
-                k.map((data, index) => {
+                k?.map((data, index) => {
                     return (
                         <React.Fragment key={index}>
                             <Seo
@@ -36,8 +39,16 @@ export default function Detailpage(props) {
                     )
                 })
             }
+          
+                </div>
+                <div className="col-4">
+                    <TableOfContent/>
+                </div>
+             
+            </div>
             <Card data1={router.query.dynamicslug === "cricket-news" ? "cricket-news" : h} heading={<h2>{router.query.dynamicslug}</h2>} query={router.query.dynamicslug}  ></Card>
-        </>
+
+        </div>
     )
 
 }

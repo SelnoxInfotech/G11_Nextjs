@@ -35,13 +35,16 @@ export async function getServerSideProps(ctx) {
  
         const idIndex = checkString(ctx.params.slug[3]) ? checkString(ctx.params.slug[3]) : checkString(ctx.params.slug[4]);
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
-    
+        const response = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
+ 
+        // Parse the JSON
+        const Newsdata = await response.json();
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
             //    console.log(props)
             // setmatchpreviwe(a)
-            return { props: { props } };
+            return { props: { MatchData: props  , Newsdata:Newsdata } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
@@ -51,13 +54,14 @@ export async function getServerSideProps(ctx) {
         console.log( ctx.params ) 
         const idIndex = checkString(ctx.params.slug[2]) ? checkString(ctx.params.slug[2]) : checkString(ctx.params.slug[3]);
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
-    
+        const response = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
+        const Newsdata = await response.json();
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
             //    console.log(props)
             // setmatchpreviwe(a)
-            return { props: { props } };
+            return { props: { MatchData:props ,Newsdata:Newsdata} };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
