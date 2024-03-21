@@ -35,7 +35,7 @@ const Breakingnews = ({ latestnews }) => {
                 <div className="row border  ">
                     <div className="col-md-12 View_All_link">
                         <div>
-                            <h3><span className={style.hadding}> Latest</span> <span className="latest_n hadd">News</span></h3>
+                            <h3><span className={style.hadding}> Ipl 2024  Latest</span> <span className="latest_n hadd">News</span></h3>
                         </div>
                     </div>
                 </div>
@@ -45,9 +45,9 @@ const Breakingnews = ({ latestnews }) => {
                     <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                 </div>
                 <div className='col'>
-                    <Link href={`/cricket-news/${latestnews[0].title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>   <div><h3> {latestnews[0].title.substr(0, 55)}</h3></div></Link>
+                    <Link href={`/cricket-breaking-news/${latestnews[0].title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>   <div><h3> {latestnews[0].title.substr(0, 55)}</h3></div></Link>
                     <div><span className={`${style.text}`}>{parse(latestnews[0].content.substr(0, 1000))}</span></div>      
-                    <Link href={`/cricket-news/${latestnews[0].title.replace(/\s+/g, '-')}/${latestnews[0].id}`}><button className="btn primary hovereffect" >Read Full News</button></Link>
+                    <Link href={`/cricket-breaking-news/${latestnews[0].title.replace(/\s+/g, '-')}/${latestnews[0].id}`}><button className="btn primary hovereffect" >Read Full News</button></Link>
                 </div>
 
 

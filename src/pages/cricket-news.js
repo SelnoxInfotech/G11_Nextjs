@@ -19,9 +19,9 @@ const Cricket_news = ({ initialData }) => {
   if(router.asPath === "/Cricket-news/"){
     window.history.replaceState({}, '', `/cricket-news`);
   }
-  const data = fetchedData?.result || k;  
+  const data = k;  
   if (!data) return <div>Loading...</div>;
-
+  //  console.log
   return (
     <>
       <Seo
@@ -49,7 +49,7 @@ export async function getStaticProps(ctx) {
     const [topNews, images] = await Promise.all([
       topNewsRes.json(),
     ]);
-
+ 
     const responseData = {
       breaking: topNews.result,
     };

@@ -209,7 +209,7 @@ async function generateSitemap() {
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
           ${data.map((url) => `
             <url>
-              <loc>https://g11prediction.com/latest-match/cricket-predictions/${type}/${modifyString(url.title)}/${modifyString(url.url1)}/${url.id}</loc>
+              <loc>https://g11prediction.com/cricket-match-predictions/${type}/${modifyString(url.title)}/${modifyString(url.url1)}/${url.id}</loc>
               <changefreq>daily</changefreq>
               <priority>0.7</priority>
             </url>
@@ -220,7 +220,7 @@ async function generateSitemap() {
           feed.item({
             title: url.title,
             description: url.description,
-            url: `https://g11prediction.com/latest-match/cricket-predictions/${type}/${modifyString(url.title)}/${modifyString(url.url1)}/${url.id}`,
+            url: `https://g11prediction.com/cricket-match-predictions/${type}/${modifyString(url.title)}/${modifyString(url.url1)}/${url.id}`,
           });
         });
 

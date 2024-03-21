@@ -109,7 +109,7 @@ const Card = ({ props, query  ,data1 , heading}) => {
 
                 {
                     data?.slice(0, next)?.map((breakingnews, index) => {
-                        console.log(breakingnews?.urlslug !== (null || undefined)  , breakingnews?.urlslug  , breakingnews)
+                        // console.log(breakingnews?.urlslug !== (null || undefined)  , breakingnews?.urlslug  , breakingnews)
                         return (
 
                             <div className={`col-xs-12 col-sm-6 col-md-3  ${style.Breaking_news_gap}`} key={index}>

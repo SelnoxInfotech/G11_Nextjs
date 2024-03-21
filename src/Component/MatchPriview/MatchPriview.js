@@ -135,7 +135,7 @@ function MatchPriview({ props }) {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12 mt-5' >
-                                <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction"}</p>
+                                <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }}></div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@ function MatchPriview({ props }) {
                     <div className='container' >
                         <div className='row'>
                             <div className='col-12 mt-5'>
-                            <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction"}</p>
+                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide }}></div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@ function MatchPriview({ props }) {
                     <div className='container'>
                         <div className='row'>
                             <div className='col-12  mt-5'>
-                            <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction"}</p>
+                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " Today match Pridiction" +  ", dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
                                 <div className={style.font} dangerouslySetInnerHTML={{ __html: Detail }}></div>
                             </div>
                         </div>

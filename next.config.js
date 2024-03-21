@@ -20,15 +20,19 @@ const nextConfig = {
         hostname: 'localhost',
         port: '3000',
         pathname: '/Image/**',
-      }, 
+      },
     ],
   },
-  
+
   async rewrites() {
     return [
       {
         source: '/ads.txt',
         destination: '/api/Rss/ads.txt',
+      },
+      {
+        source: '/robot.txt',
+        destination: '/api/Rss/robot.txt',
       },
       {
         source: '/Rss/Breakingnewsrss-Feed.xml',
@@ -72,12 +76,12 @@ const nextConfig = {
         destination: '/cricket-match-predictions',
       },
       {
-        source:'/latest-match/:slug*',
-        destination:'/cricket-match-predictions/:slug*',
+        source: '/latest-match/:slug*',
+        destination: '/cricket-match-predictions/:slug*',
       },
       {
-        source:'/Cricket-news',
-        destination:'/cricket-news',
+        source: '/Cricket-news',
+        destination: '/cricket-news',
       }
       // Add more custom routing rules as needed
     ];
