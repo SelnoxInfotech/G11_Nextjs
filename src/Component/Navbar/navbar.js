@@ -83,16 +83,16 @@ function OffcanvasExample({ props }) {
             <Nav>
               <Image loader={imageLoader} src={"/image/images/download/media/Static/G11.png"} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
 
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas} />
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas}   />
             <Navbar.Offcanvas
 
-              id={`offcanvasNavbar-expand-${expand}`}
-
+              id={`offcanvasNavbar-expand-${expand}`}      
               aria-labelledby="offcanvasNavbarLabel"
               placement='end'
               show={show}
               onHide={toggleOffCanvas}
             >
+              <span className="navbar-toggler-icon fas fa-bars"></span>
               <Offcanvas.Header closeButton className={style.Offcanvas}  >
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
                   {/* <div className='row'> */}

@@ -25,8 +25,8 @@ export default function UpdateMatch({ initialData }) {
         <>
             <Seo
                 image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-                title={"Today's Cricket Match Prediction & Betting Tips From Experts (100% Free)"}
-                description={"today's cricket match predictions and betting tips from G11 Prediction. we provides 100% sure and safe cricket match prediction tips about who will win today's match"}
+                title={"Today Cricket Match Prediction & Dream11 Prediction - G11 prediction "}
+                description={"G11 Prediction - Your trusted source for today's match prediction, Dream11  prediction, and expert updates. Get 100% free betting tips & accurate match predictions now! "}
                 keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,
                 dream11 today team,dream11 update,dream11 prediction,today dream11 team,
                 dream11 prediction today match,who will win today match,who win today ipl match,

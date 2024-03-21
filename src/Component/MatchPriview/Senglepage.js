@@ -66,13 +66,13 @@ function Senglepage({ props }) {
     return (
 
         <>
-            <Seo
+            {/* <Seo
                 image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                 title="Today's Match | G11 | Fantasy Cricket Betting Prediction"
                 description={"Today's Match updates, G11 Fantasy Cricket Betting Prediction Site and Application. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps"}
                 keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}
                 canonical={"https://g11prediction.com/latest-match"}
-            ></Seo>
+            ></Seo> */}
             <section id={style.team} className={style.team}>
                 <div className="container">
                     <h1 className={style.section_title}>Today Match Predictions - Cricket Betting Tips from Experts (100% Free)</h1>
