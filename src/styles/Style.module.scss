@@ -1162,18 +1162,81 @@ span{
     .pridctionImageSection{
         img{
             width: 30%;
-            // margin: 0 auto;
         }
+      
     }
  
   }
 
+  @media (max-width: 1024px){
+    .matchpage{
+        position: relative;
+        .pridctionImageSection{
+            img{
+                width: 50%;
+            }
+          
+        }
+     
+      }
+      .matchPrivewTitle{
+        text-align: left;
+        font-size: 24px;
+        color: #c2121c;
+        font-weight: 700;
+        line-height: 1.5;
+        
+      }   
+  }
+  @media (max-width: 576px){
+    .matchpage{
+        position: relative;
+        .pridctionImageSection{
+            img{
+                width: 90%;
+                margin:  0 auto;
+            }
+          
+        }
+        h3 {
+            span{
+                font-size: 18px !important;
+            }
+        }
+        P{
+            font-size: 14px !important;
+            span{
+                font-size: 16px !important;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+        }
+     
+        
+     
+      }
+      .matchPrivewTitle{
+        text-align: left;
+        font-size: 20px;
+        color: #c2121c;
+        font-weight: 700;
+        line-height: 1.5;
+        
+      }   
+      .logo_img {
+        position: relative;
+        width: 48px;
+        top: -5px;
+        border-radius: 50px;
+    }    
+  }
   .breaknewssidebar{ 
     border: 1.5px solid rgba(0, 0, 0, 0.425); 
     padding: 20px;
     border-radius: 5px;
     position: sticky;
     top: 100px;
+    width: 100%;
     .breaknewssidebartitle{
         font-size: 24px;
         font-weight: 600;

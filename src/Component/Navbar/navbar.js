@@ -138,7 +138,7 @@ function OffcanvasExample({ props }) {
                   >
 
                  <div>
-                 <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
+                   <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
                     <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>ICC World Cup 2023</Link>
                     <Link href="/cricket-players" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}>  Cricket Players</Link>
                     <Link href="/ipl_2023" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2023</Link>

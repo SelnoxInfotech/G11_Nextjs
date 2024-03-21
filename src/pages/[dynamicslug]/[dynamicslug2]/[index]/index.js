@@ -22,7 +22,7 @@ export default function Detailpage(props) {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-lg-8">
+                <div className="col-lg-8 col-12">
             {
                 k?.map((data, index) => {
                     return (
@@ -41,7 +41,7 @@ export default function Detailpage(props) {
             }
           
                 </div>
-                <div className="col-4">
+                <div className="col-lg-4 col-12">
                     <TableOfContent/>
                 </div>
              

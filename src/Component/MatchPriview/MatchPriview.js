@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 import { Seo } from '../Seo/Seo';
-import Link from 'next/link';
-
+import TableOfContent from '../../Component/TableOfContent/index'
 function MatchPriview(props) {
     const router = useRouter()
     const [matchpreviwe, setmatchpreviwe] = useState("")
@@ -12,10 +11,10 @@ function MatchPriview(props) {
     const [Detail, SetDetails_Data] = useState('')
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
-    const [breakingNews, SetbreakingNews] = useState([])
+   
     const [Title1, SetTitle] = useState('')
     const [preview, Setpreview] = useState()
-    console.log(props ,'props')
+   
     useEffect(() => {
         Setpreview(router.query.slug[1])
     }, [])
@@ -41,7 +40,7 @@ function MatchPriview(props) {
     }
 
     useEffect(() => {
-        SetbreakingNews(props?.props?.Newsdata.slice(0,5))
+      
         var parser = new DOMParser();
         var doc = parser.parseFromString(props?.props?.MatchData, 'text/html');
         // HTML section//// 
@@ -187,7 +186,7 @@ function MatchPriview(props) {
                        </div>
                      </div>
                      <div className='col-lg-4 '>
-                        <div className={style.breaknewssidebar}>
+                        {/* <div className={style.breaknewssidebar}>
                             <h4 className={style.breaknewssidebartitle}>Recent News</h4>
                             <ul className={style.breaknewssidebarList}>
                                 
@@ -197,7 +196,8 @@ function MatchPriview(props) {
                                 })
                             }
                             </ul>
-                        </div>
+                        </div> */}
+                        <TableOfContent/>
                      </div>
                 </div>
              </div>
