@@ -7,10 +7,10 @@ export default function Static_Content() {
                 <div className='col-12' >
                     <h2 className={style.welcome}>Welcome to G11</h2>
                 </div>
-                <div className='col-12 latest_n  center '>
+                <div className='col-12 latest_n center'>
                     <h2>Fantasy Cricket Prediction Site</h2>
                 </div>
-                <div className='col-12 center font '>
+                <div className='col-12 center font'>
                     <p>We really aim to give you the best cricket prediction. Our team experts analyze all the
                         conditions for winning chances and all the factors like pitch reports, recent performances,
                         weather conditions, and statistics that can affect a player&#39;s performance.</p>

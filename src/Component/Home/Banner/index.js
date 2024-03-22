@@ -62,7 +62,7 @@ function Index({ match ,image }) {
                     <div className={`${style.col} col-12`}><h1>{"Fantasy Cricket Prediction Today's Match"}</h1></div>
                 </div>
             </div>
-            <div className={style.top}>
+            <div className={style.homepagebannertext}>
                 <Slider {...settings}  >
                     {
                         match?.result?.map((match, index) => {
@@ -74,14 +74,14 @@ function Index({ match ,image }) {
 
                                         <div className='col-12'>
                                         
-                                            <Link href={`latest-match/cricket-prediction/${'match-preview'}/${modifystr(match.title)}/${match.id}`} >
-                                                <div className='col-sm'>
+                                            <Link href={`latest-match/cricket-prediction/${'match-preview'}/${modifystr(match.title)}/${match.id}`} className='row ' >
+                                                <div className='col-sm-12 '>
                                                     <span style={{ color: "white" }}>{match.first_team}</span>
                                                 </div>
-                                                <div className='col-sm'>
+                                                <div className='col-sm-12 '>
                                                     <span style={{ color: "red" }}> Vs </span>
                                                 </div>
-                                                <div className='col-sm'>
+                                                <div className='col-sm-12 '>
                                                     <span style={{ color: "white" }}>{match.second_team}</span>
                                                 </div>
                                             </Link>

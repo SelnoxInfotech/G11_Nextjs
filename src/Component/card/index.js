@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import axios from 'axios';
 const Card = ({ props, query  ,data1 , heading}) => {
     const [data, setdata] = React.useState(props)
-    const imagePerRow = 8
+    const imagePerRow = 12
     const [next, setNext] = React.useState(imagePerRow);
     function modifystr(str) {
 
@@ -104,54 +104,53 @@ const Card = ({ props, query  ,data1 , heading}) => {
         <div className='container-fluid center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
-                {heading}
+                   {heading}
                 </div>
+               <div className={style.Breaking_newCardWrapper}>
+                    {
+                        data?.slice(0, next)?.map((breakingnews, index) => {
+                            // console.log(breakingnews?.urlslug !== (null || undefined)  , breakingnews?.urlslug  , breakingnews)
+                            return (
 
-                {
-                    data?.slice(0, next)?.map((breakingnews, index) => {
-                        // console.log(breakingnews?.urlslug !== (null || undefined)  , breakingnews?.urlslug  , breakingnews)
-                        return (
+                                <div className={`${style.Breaking_news_gap}`} key={index}>
+                                    <div className={style.BreakingNewscard}>
+                                        
+                                            <div className={`${"col"}`}>
+                                                <RWebShare
+                                                    data={{
+                                                        // url: `http://weedx.site/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title || breakingnews?.title)}/${breakingnews.id}`
 
-                            <div className={`col-xs-12 col-sm-6 col-md-3  ${style.Breaking_news_gap}`} key={index}>
-                                <div className="card1 card">
-                                    <div className="video text-center">
+                                                    }}
+                                                    onClick={() => console.log("shared successfully!")}
+                                                >
+                                                    <Button className={`${style.ShareButton}`}>
+                                                        <BsFillShareFill  color='#c2121c'></BsFillShareFill>
+                                                    </Button>
+                                                </RWebShare>
 
-                                        <div className={`${"col"} ${style.ShareOption}`}>
-                                            <RWebShare
-                                                data={{
-                                                    // url: `http://weedx.site/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title || breakingnews?.title)}/${breakingnews.id}`
-
-                                                }}
-                                                onClick={() => console.log("shared successfully!")}
-                                            >
-                                                <Button className={`${style.ShareButton}`}>
-                                                    <BsFillShareFill color='#c2121c'></BsFillShareFill>
-                                                </Button>
-                                            </RWebShare>
-
-                                        </div>
-                                        <Link className={`${style.hovereffect}`} href={`/${query}/${breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title)}/${breakingnews.id}`} >
-                                            <Image className={style.News_image} loader={imageLoader} src={`${breakingnews?.Image || breakingnews?.image}`} height={10} width={100} alt="news_image" quality={100} />
-                                            <div className={style.News_image_title}>
-                                                <h2 className={`card-text  ${style.card_text}`}>{breakingnews?.Title?.slice(0, 80) || breakingnews?.title}</h2>
                                             </div>
-                                        </Link>
-                                        <div className={`col-12 ${style.viewCount}`}>
-                                            <div className={`col-6 ${style.viewCounteye}`}>
-                                                <AiFillEye></AiFillEye>  <span>{breakingnews?.ViewCount} view</span>
+                                            <Link className={`${style.hovereffect}`} href={`/${query}/${breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title)}/${breakingnews.id}`} >
+                                                <Image className={style.News_image} loader={imageLoader} src={`${breakingnews?.Image || breakingnews?.image}`} height={10} width={100} alt="news_image" quality={100} />
+                                                <div className={style.News_image_title}>
+                                                    <h2 className={`card-text  ${style.card_text}`}>{breakingnews?.Title?.slice(0, 80) || breakingnews?.title}</h2>
+                                                </div>
+                                            </Link>
+                                            <div className={`col-12 ${style.viewCount}`}>
+                                                <div className={`col-md-6 col-4 ${style.viewCounteye}`}>
+                                                    <span>{breakingnews?.ViewCount}</span><AiFillEye></AiFillEye>
+                                                </div>
+                                                <div className={`col-md-6 col-8 ${style.ViewCountDate}`}>
+                                                    <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date}</p>
+                                                </div>
                                             </div>
-                                            <div className={`col-6 ${style.ViewCountDate}`}>
-                                                <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date}</p>
-                                            </div>
-                                        </div>
+                                    
                                     </div>
                                 </div>
-                            </div>
 
-                        )
-                    })
-
-                }
+                            )
+                        })
+                    }
+                </div>
                 <div className={`${'row'} ${style.BreakingButton}`}>
                     <div className='col-12 ' id='Buttongap'>
                         {next < data?.length && (

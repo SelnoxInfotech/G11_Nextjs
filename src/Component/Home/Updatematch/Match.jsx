@@ -63,17 +63,17 @@ function Match({ updatematch, image }) {
                                         <div className="col">
                                             <span>{data.date}</span> |<span>{data.time}</span>
                                         </div>
-                                        <div className="col">
-                                            <Image loader={imageLoader} src={`${data?.team_one_img}`} width={50} height={50} alt="G11-Fantasy " style={{ width: "50px", height: '50px' }} />
+                                        <div className="col gap-3">
+                                            <Image loader={imageLoader} src={`${data?.team_one_img}`} width={50} height={50} alt="G11-Fantasy " className='rounded' style={{ width: "50px", height: '50px' }} />
                                             <span >VS</span>
-                                            <Image loader={imageLoader} src={`${data?.team_two_img}`} width={50} height={50} alt="G11-Fantasy " style={{ width: "50px", height: '50px' }} />
+                                            <Image loader={imageLoader} src={`${data?.team_two_img}`} width={50} height={50} alt="G11-Fantasy " className='rounded' style={{ width: "50px", height: '50px' }} />
                                         </div>
                                         <div className="col">
 
                                         </div>
 
                                         <div className={`${style.location} col`} >
-                                            <p className="city_location"><span>match Location-</span>{data.city}</p>
+                                            <p className="city_location m-0 py-1"><span>match Location-</span>{data.city}</p>
                                         </div>
                                     </Link>
                                 </div>

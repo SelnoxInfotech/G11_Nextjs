@@ -4,6 +4,8 @@ import { IoMdCall } from 'react-icons/io';
 import { AiFillLinkedin } from 'react-icons/ai';
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 // import { faFacebook, faYoutube, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -21,7 +23,7 @@ export default function Footer_link() {
                  <Link href='https://www.youtube.com/@g11-sportfantasyprediction66'><FaYoutube size="30"  color='#cc0707' /></Link>
                 <Link href='https://www.instagram.com/g11sport/'> <FaInstagram size="30"  color='#cc0707'/></Link>
                 <Link href='https://www.linkedin.com/company/g11-sport-fantasy-prediction/' className={`${style.linkin}`}><AiFillLinkedin  color='#cc0707'/></Link>
-                <Link href='https://twitter.com/g11prediction' ><FaTwitter  size="30"  color='#cc0707'/></Link>
+                <Link href='https://twitter.com/G11sport123230' ><BsTwitterX   size="30"  color='#cc0707'/></Link>
                 <Link href='tel:+916262003399' className={`${style.calling}`}><span><IoMdCall></IoMdCall> </span> </Link>
                 <Link href='/rss-feed' className={`${style.calling}`}><span>   <FaRssSquare /></span> </Link>
             </div>

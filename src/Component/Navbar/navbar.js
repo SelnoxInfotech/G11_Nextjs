@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { React, useState, useEffect } from 'react';
-          import Link from 'next/link'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -96,7 +96,7 @@ function OffcanvasExample({ props }) {
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
                   {/* <div className='row'> */}
                     {/* <div className='col-12 lrftjoin' > */}
-                      <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn `}> Join Telegram </button>
+                      <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn `}><Link href={'https://t.me/+TyYoHMGT3r1jMjM1'} className='text-white text-decoration-none'> Join Telegram </Link> </button>
                     {/* </div> */}
                   {/* </div> */}
                 </Offcanvas.Title>
@@ -115,11 +115,11 @@ function OffcanvasExample({ props }) {
                   <Link
                     onClick={toggleOffCanvas}
                     href="/ipl-2024">IPL 2024</Link>
+               
+
                   <Link
                     onClick={toggleOffCanvas}
-                    href="/icc-cricket-world-cup-2024">ICC World Cup 2024</Link >
-
-
+                    href="/ipl-2024-dream11-predictions">IPL 2024 Prediction</Link >
                   <Link
                     onClick={toggleOffCanvas}
                     href="/about-us">About</Link >
@@ -138,7 +138,11 @@ function OffcanvasExample({ props }) {
 
                  <div>
                    <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
+                   <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}
+                    onClick={toggleOffCanvas}
+                    href="/icc-cricket-world-cup-2024">ICC World Cup 2024</Link >
                     <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>ICC World Cup 2023</Link>
+                    {/* <Link href="/ipl-2024-dream11-predictions" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>IPL 2024 Predictions</Link> */}
                     <Link href="/cricket-players" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}>  Cricket Players</Link>
                     <Link href="/ipl_2023" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2023</Link>
                     <Link href="/cricket-news" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>News</Link>
@@ -149,7 +153,7 @@ function OffcanvasExample({ props }) {
                   </NavDropdown>
                 </Nav>
 
-                <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn`}> Join Telegram </button>
+              {  !show &&  <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn`}> <Link href={'https://t.me/+TyYoHMGT3r1jMjM1'} className='text-decoration-none text-white'> Join Telegram </Link> </button>}
               </Offcanvas.Body>
             </Navbar.Offcanvas>
 

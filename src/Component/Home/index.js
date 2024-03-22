@@ -21,11 +21,13 @@ const Staticres = dynamic(() => import('./Static/Staticres'), { ssr: true, loadi
 const Companyexpi = dynamic(() => import('./Static/Companyexpi'), { ssr: true, loading: () => <p>Loading...</p> })
 const Footer = dynamic(() => import('./FooterBanner/FooterBanner'), { ssr: true, loading: () => <p>Loading...</p> })
 const inter = Inter({ subsets: ["latin"] });
-const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, image, ipl  }) => {
+const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, image, ipl,predictiondata  }) => {
+    console.log(props ,'propsnew')
     return (
         <>
             <ScrollBreaking props={props}></ScrollBreaking>
             <Banner match={match} image={image}></Banner>
+            <div className="container">
             <UpdateMatch updatematch={updatematch} image={image}></UpdateMatch>
             <Static_Content></Static_Content>
             <Breakingnews Breaking={Breaking}></Breakingnews>
@@ -38,6 +40,7 @@ const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, ima
             <Review></Review>
             <Customerrate image={image}></Customerrate>
             <Staticres></Staticres>
+            </div>
             <Companyexpi></Companyexpi>
             <Footer></Footer>
         </>
@@ -45,4 +48,5 @@ const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, ima
 }
 
 export default index
+
 

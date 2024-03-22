@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 import { Seo } from '../Seo/Seo';
-import TableOfContent from '../tableofcontent/index'
+import TableOfContent from '../tableofcontent/index';
 function MatchPriview(props) {
     const router = useRouter()
     const [matchpreviwe, setmatchpreviwe] = useState("")
@@ -38,7 +38,7 @@ function MatchPriview(props) {
 
         return str.toLowerCase()
     }
-
+console.log(props.props.topNews.slice(0,5))
     useEffect(() => {
       
         var parser = new DOMParser();
@@ -132,7 +132,7 @@ function MatchPriview(props) {
                 canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${router.asPath}`}
             >
             </Seo>
-            {/* <Tabs
+                {/* <Tabs
                 defaultActiveKey={preview}
                 id="uncontrolled-tab-example"
                 className={style.matchpriviewtab}
@@ -205,7 +205,7 @@ function MatchPriview(props) {
                             }
                             </ul>
                         </div> */}
-                        <TableOfContent/>
+                        <TableOfContent  props={props.props.topNews.slice(0,5)}/>
                      </div>
                 </div>
              </div>

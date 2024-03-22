@@ -26,7 +26,7 @@ function MyComponent({ initialData }) {
         keywords={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
         canonical={"https://g11prediction.com/"}
       ></Seo>
-      <Home props={[data?.l]} match={data.l1} updatematch={data.l2} Breaking={data.breaking} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ipl={data.ipl} ></Home>
+      <Home props={[data?.l]} match={data.l1} updatematch={data.l2} Breaking={data.breaking} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ipl={data.ipl}></Home>
     </div>
   );
 }
@@ -44,24 +44,26 @@ export async function getStaticProps() {
   };
 
   try {
-    const [topNewsRes, matchesRes, allMatchesRes, postRes, teamsRes, imageRes, iplRes] = await Promise.all([
+    const [topNewsRes, matchesRes, allMatchesRes, postRes, teamsRes, imageRes, iplRes ] = await Promise.all([
       fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1').catch(handleError),
       fetch('https://grand11.in/g11/api/matches').catch(handleError),
       fetch('https://grand11.in/g11/all_matches_api.php').catch(handleError),
       fetch('https://grand11.in/g11/api/post').catch(handleError),
       fetch('https://grand11.in/g11/api/teams').catch(handleError),
       fetch('https://www.g11fantasy.com/NewsSection/Get-StaticImage/').catch(handleError),
-      fetch('https://www.g11fantasy.com/NewsSection/Get-News/1').catch(handleError)
+      fetch('https://www.g11fantasy.com/NewsSection/Get-News/1').catch(handleError),
+      
     ]);
 
-    const [topNews, matches, allMatches, posts, teams, images, ipl] = await Promise.all([
+    const [topNews, matches, allMatches, posts, teams, images, ipl ] = await Promise.all([
       topNewsRes.json().catch(handleError),
       matchesRes.json().catch(handleError),
       allMatchesRes.json().catch(handleError),
       postRes.json().catch(handleError),
       teamsRes.json().catch(handleError),
       imageRes.json().catch(handleError),
-      iplRes.json().catch(handleError)
+      iplRes.json().catch(handleError),
+
     ]);
 
     // Assuming breaking news is the first item in topNews array
@@ -73,7 +75,8 @@ export async function getStaticProps() {
       l3: posts?.result,
       teamsData: teams?.result,
       imageData: images,
-      ipl: ipl
+      ipl: ipl,
+      
     };
 
     return {

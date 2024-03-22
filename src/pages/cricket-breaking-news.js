@@ -97,7 +97,9 @@ const Breakingnews = ({ breakingData }) => {
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/breaking-news/"}
       />
+      <div className='container'>
        <Card props={breakingData} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} />
+       </div>
     </React.Fragment>
   );
 };
