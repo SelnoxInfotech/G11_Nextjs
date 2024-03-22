@@ -66,11 +66,9 @@ const fs = require("fs");
 const { default: axios } = require('axios');
 
 router.get('/cricket-prediction.xml', (req, res) => {
- 
 
-  console.log("ashdasdgasdasgdhga")
 
-  const filePath = path.join(__dirname, '../Xml/cricket-prediction.xml'); // Update the file path accordingly
+  const filePath = path.join(__dirname, '../Xml/matches.xml'); // Update the file path accordingly
 
   // Check if the file exists
   fs.access(filePath, fs.constants.F_OK, (err) => {
