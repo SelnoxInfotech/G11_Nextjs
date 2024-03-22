@@ -18,8 +18,7 @@ const Icc2024 = ({ initialData }) => {
   const k = initialData
   const { data: fetchedData, error } = useSWR(`/FilterbySubCategory/${8}`, fetcher, { k });
 
-  const data = fetchedData || k;
-    console.log(data , fetchedData)
+  const data = fetchedData || k; 
  
 
   if (!data) return <div>Loading...</div>;
