@@ -7,8 +7,7 @@ const generateSitemap = require("./node/generateSitemap")
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const sitemap = require("./node/sitemap");
-const Rss = require("./node/GetRssMatchPriview")
-
+const Rss =  require("./node/GetRssMatchPriview")
 
 app.prepare()
   .then(() => {

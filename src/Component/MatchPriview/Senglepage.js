@@ -88,7 +88,7 @@ function Senglepage({ props }) {
                                             style={styling}
                                         >
 
-                                            <Link href={`/cricket-match-predictions/${data.id}`}>
+                                            <Link href={`/cricket-match-predictions/${data.id}/`}>
 
 
                                                 <div className={` "row" ${style.grid_row} `}>

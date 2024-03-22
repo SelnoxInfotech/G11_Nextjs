@@ -5,6 +5,7 @@ import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 import Link from 'next/link';
 const HightLight = ({ latestnews }) => {
+
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -25,10 +26,11 @@ const HightLight = ({ latestnews }) => {
 
         return str
     }
+
     const imageLoader = ({ src, width, quality }) => {
-        console.log(src)
         return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
     }
+    
     return (
         <div className={`${'container-fluid'} ${style.HightLight}`} >
             <div className={style.latest_bottem}>

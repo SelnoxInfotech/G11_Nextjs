@@ -37,8 +37,8 @@ const Card = ({ props, query  ,data1 , heading}) => {
     //     return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
     // }
     const imageLoader = ({ src, width, height, quality }) => {
-        const l  =  data1 === "cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com/"
-            return (`${l}/${src}?w=${width}&h=${height}&q=${quality || 100}`)
+        const l  =  data1 === "cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com"
+            return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
         }
 
     const handleMoreImage = () => {
