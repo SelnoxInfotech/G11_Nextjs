@@ -22,7 +22,7 @@ app.prepare()
     // cron.schedule("*/1 * * * *  ", async function () {
     //   if (run === 0) {
     //     run = 1
-      //  generateSitemap()
+       generateSitemap()
     
     //     console.log("running a task every 1 seconds");
     //   }

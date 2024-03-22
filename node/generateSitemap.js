@@ -41,10 +41,10 @@ async function generateRssXml(rssData) {
         const firstParagraph = $('p').first();
         if (firstParagraph.text().split(':')[1] !== undefined) {
           acc.push({
-            url1: firstParagraph.text().split(':')[1],
-            id: rssData[index].id,
-            title: rssData[index].title,
-            description: firstParagraph.text().split(':')[1]
+            url1:firstParagraph.text().split(':')[1].trim(),
+            id:rssData[index].id,
+            title:rssData[index].title,
+            description:firstParagraph.text().split(':')[1].trim()
           });
         }
       }
@@ -90,7 +90,7 @@ async function generateSitemap() {
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         ${rssXml.map((data) => `
           <url>
-            <loc>https://g11prediction.com/cricket-match-predictions/${modifyString(data.url1 + "-dream11 prediction today match")}/${data.id}/</loc>
+            <loc>https://g11prediction.com/cricket-match-predictions/${modifyString(data.url1+"-dream11 prediction today match")}/${data.id}/</loc>
             <changefreq>daily</changefreq>
             <priority>0.7</priority>
           </url>
