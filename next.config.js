@@ -32,7 +32,7 @@ const nextConfig = {
       },
       {
         source: '/robots.txt',
-        destination: '/api/Rss/robot.txt',
+        destination: '/api/Rss/robots.txt',
       },
       {
         source: '/icc-cricket-world-cup-2024.xml',

@@ -121,9 +121,7 @@ function MatchPriview(props) {
     //     }
 
     // }
-  
 
-     console.log(router.query.slug[1])
     return (
         <div>
             <Seo
@@ -131,7 +129,7 @@ function MatchPriview(props) {
                 image={"/image/images/download/media/Static/favicon.jpg"}
                 description={`Dream11 today match prediction for ${Title1}.Win big with accurate tips & best Dream11 team prediction, Today Dream11 Team Check out!`}
                 keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,dream11 today team,dream11 update,dream11 prediction,today dream11 team,dream11 prediction today match,who will win today match,who win today ipl match,my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}
-                canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(Title1) +"-dream11-prediction-today-match"}/${router.query.slug[1]}/`}
+                canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(Title1) +"-dream11-prediction-today-match"}/${router.query.slug[1] || router.query.slug[0]}/`}
             >
             </Seo>
             {/* <Tabs
