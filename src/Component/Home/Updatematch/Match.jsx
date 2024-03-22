@@ -45,7 +45,7 @@ function Match({ updatematch, image }) {
                                     style={{
                                         width: '22rem',
                                         borderRadius: '20px',
-                                        height: '100%',
+                                      
                                         position: "absolute",
                                         zIndex: "-1"
                                     }}
