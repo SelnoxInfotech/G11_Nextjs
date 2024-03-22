@@ -31,33 +31,37 @@ const nextConfig = {
         destination: '/api/Rss/ads.txt',
       },
       {
-        source: '/robot.txt',
+        source: '/robots.txt',
         destination: '/api/Rss/robot.txt',
       },
       {
-        source: '/Rss/Breakingnewsrss-Feed.xml',
-        destination: '/api/Rss/Breakingnewsrss-Feed.xml',
+        source: '/icc-cricket-world-cup-2024.xml',
+        destination: '/api/Rss/icc-cricket-world-cup-2024.xml',
       },
       {
-        source: '/Rss/ipl-2024RSS-feed.xml',
-        destination: '/api/Rss/ipl-2024RSS-feed.xml',
+        source: '/icc-cricket-world-cup-2023.xml',
+        destination: '/api/Rss/icc-cricket-world-cup-2023.xml',
       },
       {
-        source: '/Rss/icc-cricket-world-cup-2023RSS-feed.xml',
-        destination: '/api/Rss/icc-cricket-world-cup-2023RSS-feed.xml',
+        source: '/ipl-2023.xml',
+        destination: '/api/Rss/ipl-2023RSS.xml',
       },
       {
-        source: '/Rss/icc-cricket-world-cup-2024RSS-feed.xml',
-        destination: '/api/Rss/icc-cricket-world-cup-2024RSS-feed.xml',
+        source: '/ipl-2024.xml',
+        destination: '/api/Rss/ipl-2024RSS.xml',
       },
       {
-        source: '/Rss/ipl-2023RSS-feed.xml',
-        destination: '/api/Rss/ipl-2023RSS-feed.xml',
+        source: '/breaking-news.xml',
+        destination: '/api/Rss/breaking-news.xml',
       },
       {
-        source: '/sitemapBreakingnews.xml',
-        destination: '/api/Rss/sitemapBreakingnews.xml',
+        source: '/cricket-rules-and-regulation.xml',
+        destination: '/api/Rss/cricket-rules-and-regulation.xml',
       },
+      // {
+      //   source: '/sitemapBreakingnews.xml',
+      //   destination: '/api/Rss/sitemapBreakingnews.xml',
+      // },
       {
         source: '/breaking-news',
         destination: '/cricket-breaking-news',

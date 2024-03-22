@@ -23,14 +23,13 @@ function modifystr(str) {
 }
 
 export async function generateRssXml() {
-    const data = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-News/1`);
-    const rssData = data.data;
-    console.log(rssData)
+    const data = await axios.get(`https://g11fantasy.com/NewsSection/FilterbySubCategory/7`);
+    const rssData = data.data.data;
     const sitemapTeamguide = `<?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
              ${rssData.map((url) => `
                        <url>
-                        <loc>https://g11prediction.com/cricket-breaking-news/${modifystr(url.Title)}/${url.id}</loc>
+                        <loc>https://g11prediction.com/ipl-2024/${modifystr(url.Title)}/${url.id}/</loc>
                        <changefreq>daily</changefreq>
                         <priority>0.7</priority>
                        </url>

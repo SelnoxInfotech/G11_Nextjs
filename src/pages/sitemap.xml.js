@@ -8,10 +8,10 @@ function generateSiteMap() {
    <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
      <!-- Add the static URLs manually -->
      <url>
-       <loc>https://g11prediction.com/sitemapBreakingnews.xml</loc>
+       <loc>https://g11prediction.com/breaking-news.xml</loc>
      </url>
      <url>
-       <loc>https://g11prediction.com/sitemap/sitemapmatchpreview.xmll</loc>
+       <loc>https://g11prediction.com/sitemap/cricket-prediction.xml</loc>
      </url>
 
    </urlset>
@@ -21,7 +21,18 @@ function generateSiteMap() {
 export async function getServerSideProps({ res }) {
     
     // Generate the XML sitemap with the blog data
-    const sitemap = generateSiteMap();
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+      <!-- Add the static URLs manually -->
+      <url>
+        <loc>https://g11prediction.com/breaking-news.xml</loc>
+      </url>
+      <url>
+        <loc>https://g11prediction.com/sitemap/cricket-prediction.xml</loc>
+      </url>
+ 
+    </urlset>
+  `;
 
     res.setHeader("Content-Type", "text/xml");
     // Send the XML to the browser
