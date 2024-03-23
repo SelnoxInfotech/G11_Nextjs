@@ -60,7 +60,7 @@ const ipl2024dream11predictions = (props) => {
                                                   </RWebShare>
 
                                               </div>
-                                              <Link className={`${style.hovereffect}`} href={`/ipl2024dream11predictions/${items?.urlslug !== (null || undefined) ? modifystr(items?.urlslug) : modifystr(items?.Title ||  items?.title)}/${items.id}`} >
+                                              <Link className={`${style.hovereffect}`} href={`/ipl-2024-dream11-predictions/${items?.urlslug !== (null || undefined) ? modifystr(items?.urlslug) : modifystr(items?.Title ||  items?.title)}/${items.id}`} >
                                                   <Image className={style.News_image} loader={imageLoader} src={items?.Image} height={10} width={100} alt="news_image" quality={100} />
                                                   <div className={style.News_image_title}>
                                                       <h2 className={`card-text  ${style.card_text}`}>{items?.Title}</h2>
