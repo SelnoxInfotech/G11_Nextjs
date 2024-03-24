@@ -32,7 +32,7 @@ router.get('/rss/:category', (req, res) => {
     const data = await axios.get(url);
     console.log(link === "icc-cricket-world-cup-2023RSS-feed.xml")
 
-    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data : data.data;
+    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data :  link === "ipl-2024-dream11-predictions.xml"  ? data.data.data:data.data;
 
     let feed = new RSS({
       title: 'Cricket Breaking News ON TRENDING TOPICS',

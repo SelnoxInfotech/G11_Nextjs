@@ -14,20 +14,23 @@ function generateSiteMap() {
        <loc>https://g11prediction.com/icc-cricket-world-cup-2024.xml</loc>
      </url>
      <url>
-     <loc>https://g11prediction.com/sitemap/icc-cricket-world-cup-2023.xml</loc>
+     <loc>https://g11prediction.com/icc-cricket-world-cup-2023.xml</loc>
    </url>
    <url>
-   <loc>https://g11prediction.com/sitemap/ipl-2023.xml</loc>
+   <loc>https://g11prediction.com/ipl-2023.xml</loc>
  </url>
  <url>
- <loc>https://g11prediction.com/sitemap/ipl-2024.xml</loc>
+ <loc>https://g11prediction.com/ipl-2024.xml</loc>
 </url>
 <url>
-<loc>https://g11prediction.com/sitemap/cricket-rules-and-regulation.xml</loc>
+<loc>https://g11prediction.com/cricket-rules-and-regulation.xml</loc>
 </url>
      <url>
-       <loc>https://g11prediction.com/sitemap/cricket-prediction.xml</loc>
+       <loc>https://g11prediction.com/cricket-prediction.xml</loc>
      </url>
+     <url>
+     <loc>https://g11prediction.com/ipl-2024-dream11-predictions.xml</loc>
+   </url>
    </urlset>
  `;
 }

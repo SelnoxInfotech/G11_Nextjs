@@ -28,6 +28,9 @@ export default function Rss() {
                     <li>
                         <a href='/rss/cricket-prediction.xml' className='calling'><span> <FaRssSquare />matchpreview</span> </a>
                     </li>
+                    <li>
+                        <a href='/rss/ipl-2024-dream11-predictions.xml' className='calling'><span> <FaRssSquare />matchpreview</span> </a>
+                    </li>
                 </ol>
             </div>
 
