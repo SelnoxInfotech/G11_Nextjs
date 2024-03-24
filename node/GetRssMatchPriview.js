@@ -156,6 +156,21 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
+  else if (req.params.category === "ipl-2024-dream11-predictions.xml") {
+    try {
+      async function k() {
+        const rssXml = await generateRssXml("https://g11fantasy.com/NewsSection/FilterbySubCategory/11", "ipl-2024-dream11-predictions.xml", "ipl-2024-dream11-predictions");
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(rssXml);
+        res.end();
+      }
+      k()
+    } catch (error) {
+      console.error('Error generating RSS feed:', error);
+      res.status(500).end('Internal Server Error');
+    }
+  }
   else {
     res.status(200).json("page Not Found");
   }
