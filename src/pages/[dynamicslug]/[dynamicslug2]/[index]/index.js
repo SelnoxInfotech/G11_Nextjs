@@ -19,8 +19,6 @@ export default function Detailpage(props) {
         }
     }, [])
 
-
-    console.log(props.topNews.slice(0,5))
     const h = router.query.dynamicslug
     return (
         <div className="container">
@@ -46,7 +44,7 @@ export default function Detailpage(props) {
           
                 </div>
                 <div className="col-lg-4 col-12">
-                    <TableOfContent props={props.topNews.slice(0,5)}/>
+                    <TableOfContent props={props?.topNews?.slice(0,5 ||  [])}/>
                 </div>
              
             </div>
@@ -71,8 +69,8 @@ export async function getServerSideProps(ctx) {
             if (ctx.query.dynamicslug === "Cricket-BreakingNews") {
                 const res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.dynamicslug2}`);
                 const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
-                const topNews = await topNewsRes.json();
-                let l = res.data.data
+                const topNews = await topNewsRes?.json();
+                let l = res?.data?.data
                 axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.params.dynamicslug2 })
                 return { props: { l  , topNews} };
             }
