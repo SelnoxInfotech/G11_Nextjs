@@ -8,7 +8,7 @@ import style from "../../../styles/Style.module.scss"
 export default function CostumerRate({image}) {
 
 const imageLoader = ({ src, width, quality }) => {
-    return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
+    return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
   }
     return (
 

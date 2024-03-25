@@ -7,7 +7,7 @@ import style from "../../styles/Style.module.scss"
 import axios from 'axios';
 function Details({ data , h}) {
     const imageLoader = ({ src, width, height, quality }) => {
-    const l  =  h ==="cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com/"
+    const l  =  h ==="cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com"
         return (`${l}/${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
 

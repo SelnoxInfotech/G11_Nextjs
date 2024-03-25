@@ -29,7 +29,7 @@ export default function Rss() {
                         <a href='/rss/cricket-prediction.xml' className='calling'><span> <FaRssSquare />matchpreview</span> </a>
                     </li>
                     <li>
-                        <a href='/rss/ipl-2024-dream11-predictions.xml' className='calling'><span> <FaRssSquare />matchpreview</span> </a>
+                        <a href='/rss/ipl-2024-dream11-predictions.xml' className='calling'><span> <FaRssSquare />ipl-2024-dream11-predictions</span> </a>
                     </li>
                 </ol>
             </div>

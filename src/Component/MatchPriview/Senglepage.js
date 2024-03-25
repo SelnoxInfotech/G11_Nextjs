@@ -39,7 +39,7 @@ function Senglepage({ props }) {
     }
 
     const imageLoader1 = ({ src, width, quality }) => {
-        return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
+        return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
     }
 
     const styling = {
