@@ -7,7 +7,7 @@ function Match({ updatematch, image }) {
         return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
     }
     const imageLoader1 = ({ src, width, quality }) => {
-        return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
+        return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
     }
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");

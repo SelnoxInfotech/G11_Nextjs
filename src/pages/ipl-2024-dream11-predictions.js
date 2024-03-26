@@ -8,7 +8,7 @@ import { RWebShare } from "react-web-share";
 import { BsFillShareFill } from "react-icons/bs"
 const ipl2024dream11predictions = (props) => {
   const imageLoader = ({ src, width, height, quality }) => {
-    const l ="https://www.g11fantasy.com/"
+    const l ="https://www.g11fantasy.com"
         return (`${l}/${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
   function modifystr(str) {

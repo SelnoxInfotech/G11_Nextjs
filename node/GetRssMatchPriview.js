@@ -32,7 +32,7 @@ router.get('/rss/:category', (req, res) => {
     const data = await axios.get(url);
     console.log(link === "icc-cricket-world-cup-2023RSS-feed.xml")
 
-    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data : data.data;
+    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data :  link === "ipl-2024-dream11-predictions.xml"  ? data.data.data:data.data;
 
     let feed = new RSS({
       title: 'Cricket Breaking News ON TRENDING TOPICS',
@@ -145,6 +145,21 @@ router.get('/rss/:category', (req, res) => {
     try {
       async function k() {
         const rssXml = await generateRssXml("https://g11fantasy.com/NewsSection/FilterbySubCategory/7", "ipl-2024RSS-feed.xml", "ipl-2024");
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(rssXml);
+        res.end();
+      }
+      k()
+    } catch (error) {
+      console.error('Error generating RSS feed:', error);
+      res.status(500).end('Internal Server Error');
+    }
+  }
+  else if (req.params.category === "ipl-2024-dream11-predictions.xml") {
+    try {
+      async function k() {
+        const rssXml = await generateRssXml("https://g11fantasy.com/NewsSection/FilterbySubCategory/11", "ipl-2024-dream11-predictions.xml", "ipl-2024-dream11-predictions");
         res.setHeader('Content-Type', 'text/xml');
         res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
         res.write(rssXml);

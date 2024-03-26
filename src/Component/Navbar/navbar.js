@@ -60,7 +60,7 @@ function OffcanvasExample({ props }) {
     setDropshow(false);
   }
   const imageLoader = ({ src, width, quality }) => {
-    return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
+    return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
   }
 
   // useEffect(() => {
