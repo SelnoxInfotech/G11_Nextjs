@@ -25,7 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 }
-
+.btn-close{
+    background: url('../Image/iconscross.png') !important;
+    background-size: cover !important;
+    opacity: 1 !important;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

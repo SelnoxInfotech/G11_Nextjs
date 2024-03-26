@@ -24,11 +24,12 @@ const Breakingnews = ({ latestnews }) => {
             </div>
             <div className={` col ${style.box}`}>
                 <div className={`${style.imageCenter} col`}>
+                    <div className={style.headeringImagehover}></div>
                     <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                 </div>
-                <div className='col'>
+                <div className={`${style.latestnewshomepage} col`}>
                     <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>   <div><h3> {latestnews[0].Title.substr(0, 55)}</h3></div></Link>
-                    <div><span className={`${style.text}`}>{parse(latestnews[0].Description.substr(0, 1000))}</span></div>      
+                    <div className={style.latestnewsTextdesc}><span className={`${style.text}`}>{parse(latestnews[0].Description.substr(0, 1000))}</span></div>      
                     <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}><button className="btn primary hovereffect" >Read Full News</button></Link>
                 </div>
 

@@ -31,11 +31,12 @@ function Details({ data , h}) {
                 <div className="row ">
                     <div className="col-12"> <h1 className="title_had">{data.Title || data.title}</h1></div>
                     <div className="col-12 imag">
-                        <div className="col headeringImage">
+                        <div className={`col ${style.headeringImage}`}>
                             <Image className='w-100' loader={imageLoader} src={`${data?.Image || data.image}`} priority={false} alt="G11-Fantasy Cricket Prediction for Today's Match"
                                 width={100} height={100} quality={100}
                                 
                             />
+                        <div className={style.headeringImagehover}></div>
                         </div>
                         <div className={style.detailspagecontent}>
 

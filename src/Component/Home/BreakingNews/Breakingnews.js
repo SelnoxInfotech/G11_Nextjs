@@ -49,18 +49,18 @@ const Breakingnews = ({ Breaking }) => {
                         {Breaking !== undefined && Breaking?.map((data, index) => {
 
                             return (
-                                <div key={index}   >
-                                    <div className={'col'} style={{ width: "450px" }}>
+                                <div key={index} className={style.homepagebreakingness} >
+                                    <div className={'col'} >
                                         <Image loader={imageLoader} src={`${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} />
-                                        <div className="col" style={{ height: "50px" }} >
+                                  
                                             <Link href={`/cricket-breakingnews/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}/${data?.id}`} >
                                                 {data?.Title.substr(0, 100)}
                                             </Link>
-                                        </div>
+                                     
                                     </div>
                                     <div className="col ">
-                                        <span className="BreakingNews_date d-flex" >
-                                            <span className="ClenderIcon"> <CiCalendarDate></CiCalendarDate></span>
+                                        <span className={`${style.BreakingNews_date} d-flex`} >
+                                            <span className="ClenderIcon"> <CiCalendarDate color='#000'></CiCalendarDate></span>
                                             {data?.created.slice(0, 10)}
                                         </span>
 

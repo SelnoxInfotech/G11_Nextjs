@@ -7,6 +7,8 @@ import { React, useState, useEffect } from 'react';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { GiHamburgerMenu } from "react-icons/gi";
+
 import Dropdown from 'react-bootstrap/Dropdown';
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
@@ -83,7 +85,7 @@ function OffcanvasExample({ props }) {
             <Nav>
               <Image loader={imageLoader} src={"/image/images/download/media/Static/G11.png"} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
 
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas}   />
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas}  ><GiHamburgerMenu color='#fff'  size={32}/></Navbar.Toggle>
             <Navbar.Offcanvas
 
               id={`offcanvasNavbar-expand-${expand}`}      

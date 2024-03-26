@@ -81,14 +81,11 @@ function Senglepage({ props }) {
                             props?.slice(0, next)?.map((data, index) => {
 
                                 return (
-                                    <div className="col-sm-4 bottom" key={index}>
+                                    <div className="col-sm-4 my-3 bottom" key={index}>
 
-                                        <div className="container-fluid"
-
-                                            style={styling}
-                                        >
-
-                                            <Link href={`/cricket-match-predictions/${data.id}/`}>
+                                        <div className={style.matchcard} style={styling} >
+                                             <div className='d-flex align-items-center h-100 w-100'>
+                                            <Link href={`/cricket-match-predictions/${data.id}/`} className='w-100'>
 
 
                                                 <div className={` "row" ${style.grid_row} `}>
@@ -102,21 +99,19 @@ function Senglepage({ props }) {
                                                     <div className="col-12 center fonting">
                                                         <span>{data.date}</span> |<span>{data.time}</span>
                                                     </div>
-                                                    <div className={`${"col-12"} ${style.image}`}>
-                                                        <Image style={{ height: '50px' }} loader={imageLoader} src={`${data.team_one_img}`} width={50} height={60} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                                    <div className={`${"col-12 gap-2"} ${style.image}`}>
+                                                        <Image style={{ height: '50px' }} loader={imageLoader} src={`${data.team_one_img}`} className='rounded-circle' width={50} height={60} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                                         <span className="vs" >VS</span>
-                                                        <Image style={{ height: '50px' }} loader={imageLoader} src={`${data.team_two_img}`} width={50} height={50} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                                        <Image style={{ height: '50px' }} loader={imageLoader} src={`${data.team_two_img}`} className='rounded-circle' width={50} height={50} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                                     </div>
-                                                    <div className="col-12 center">
-
-                                                    </div>
-
+                                                  
                                                     <div className={`col-12 ${style.location_match}`}>
-                                                        <p className="city_location"><span className="location">match Location-</span>{data.city}</p>
+                                                        <p className="city_location m-0 py-1"><span className="location text-danger">match Location-</span>{data.city}</p>
                                                     </div>
                                                 </div>
 
                                             </Link>
+                                             </div>
                                         </div>
                                     </div>
                                 )

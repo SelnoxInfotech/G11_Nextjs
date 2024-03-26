@@ -42,13 +42,7 @@ function Match({ updatematch, image }) {
 
                             <div className={` ${style.updatematch}`} key={index}>
                                 <Image
-                                    style={{
-                                        width: '22rem',
-                                        borderRadius: '20px',
-                                      
-                                        position: "absolute",
-                                        zIndex: "-1"
-                                    }}
+                                   className={style.updatematchimg}
                                     sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
                                 <div className={` ${style.grid_row}`}>
                                     <Link href={`/cricket-match-predictions/${data.id}`} >
@@ -64,9 +58,9 @@ function Match({ updatematch, image }) {
                                             <span>{data.date}</span> |<span>{data.time}</span>
                                         </div>
                                         <div className="col gap-3">
-                                            <Image loader={imageLoader} src={`${data?.team_one_img}`} width={50} height={50} alt="G11-Fantasy " className='rounded' style={{ width: "50px", height: '50px' }} />
+                                            <Image loader={imageLoader} src={`${data?.team_one_img}`} width={50} height={50} alt="G11-Fantasy " className='rounded-circle' style={{ width: "50px", height: '50px' }} />
                                             <span >VS</span>
-                                            <Image loader={imageLoader} src={`${data?.team_two_img}`} width={50} height={50} alt="G11-Fantasy " className='rounded' style={{ width: "50px", height: '50px' }} />
+                                            <Image loader={imageLoader} src={`${data?.team_two_img}`} width={50} height={50} alt="G11-Fantasy " className='rounded-circle' style={{ width: "50px", height: '50px' }} />
                                         </div>
                                         <div className="col">
 
