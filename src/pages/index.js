@@ -45,7 +45,6 @@ export async function getStaticProps() {
   try {
     const [ matchesRes, postRes, teamsRes, iplRes ] = await Promise.all([
       fetch('https://grand11.in/g11/api/matches').catch(handleError),
-      // fetch('https://grand11.in/g11/all_matches_api.php').catch(handleError),
       fetch('https://grand11.in/g11/api/post').catch(handleError),
       fetch('https://grand11.in/g11/api/teams').catch(handleError),
       fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1').catch(handleError),

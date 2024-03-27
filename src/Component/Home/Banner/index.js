@@ -76,7 +76,7 @@ function Index({ match ,image }) {
 
                                         <div className='col-12'>
                                         
-                                            <Link href={`latest-match/cricket-prediction/${'match-preview'}/${modifystr(match.title)}/${match.id}`} className='row ' >
+                                            <Link href={`/cricket-match-predictions/${match.id}`} className='row ' >
                                                 <div className='col-sm-12 '>
                                                     <span style={{ color: "white" }}>{match.first_team}</span>
                                                 </div>

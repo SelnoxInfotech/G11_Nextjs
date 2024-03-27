@@ -51,7 +51,7 @@ export async function getServerSideProps(ctx) {
             let k = res.data.result;
             const p = k.find(x => x.id === ctx.params.index);
             let l = [p];
-            return { props: { l: [], topNews: [] } };
+            return { props: { l: l, topNews: k } };
         } else {
             let res;
             if (ctx.query.dynamicslug === "Cricket-BreakingNews") {
