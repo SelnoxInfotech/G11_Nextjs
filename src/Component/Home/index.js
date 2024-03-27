@@ -22,7 +22,6 @@ const Companyexpi = dynamic(() => import('./Static/Companyexpi'), { ssr: true, l
 const Footer = dynamic(() => import('./FooterBanner/FooterBanner'), { ssr: true, loading: () => <p>Loading...</p> })
 const inter = Inter({ subsets: ["latin"] });
 const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, image, ipl,predictiondata  }) => {
-    console.log(props ,'propsnew')
     return (
         <>
             <ScrollBreaking props={props}></ScrollBreaking>

@@ -42,7 +42,6 @@ export async function getServerSideProps(ctx) {
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
-            //    console.log(props)
             // setmatchpreviwe(a)
             return { props: { MatchData: props , topNews } };
         } catch (error) {
@@ -60,7 +59,6 @@ export async function getServerSideProps(ctx) {
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
-            //    console.log(props)
             // setmatchpreviwe(a)
             return { props: { MatchData:props  ,topNews} };
         } catch (error) {

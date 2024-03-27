@@ -20,7 +20,6 @@ const Cricket_rules_and_regulation = ({ initialData }) => {
 
   const data = fetchedData || k;
   if (!data) return <div>Loading...</div>;
-console.log(data)
 
   return (
     <>

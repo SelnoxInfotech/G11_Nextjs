@@ -67,7 +67,6 @@ const Card = ({ props, query  ,data1 , heading}) => {
 
         else if (data1 === "IPL-2024-Latest-News-Live-Updates") {
             axios.get(`/FilterbySubCategory/${7}`).then((response) => {
-                console.log(response)
                 setdata(response.data)
             })
         }
@@ -109,7 +108,6 @@ const Card = ({ props, query  ,data1 , heading}) => {
                <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {
-                            // console.log(breakingnews?.urlslug !== (null || undefined)  , breakingnews?.urlslug  , breakingnews)
                             return (
 
                                 <div className={`${style.Breaking_news_gap}`} key={index}>

@@ -24,7 +24,6 @@ const Video = ({ initialData }) => {
     const data = fetchedData || k;
 
     if (!data) return <div>Loading...</div>;
-    // console.log()
     const handleVideo = () => {
         setHandleAudio(true)
     }

@@ -36,7 +36,7 @@ export async function getStaticProps() {
     console.error('Error fetching data:', error);
     return {
       props: {
-        initialData: null,
+        initialData: [],
         error: 'Failed to fetch data',
       },
       revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs

@@ -92,7 +92,6 @@ export async function getStaticProps() {
   try {
     const topNewsRes = await fetch('https://g11fantasy.com/NewsSection/FilterbySubCategory/11');
     const topNews = await topNewsRes.json();
-    console.log(topNews)
     return {
       props: {
         breakingData: topNews,

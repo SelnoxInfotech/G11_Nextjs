@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 
 export default function Index ({props}){
-    console.log(props)
     const [recentnews, setrecentnews] = React.useState([]);
 
     // React.useEffect(() => {

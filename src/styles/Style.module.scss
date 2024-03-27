@@ -1057,10 +1057,10 @@ img.updatematchimg{
     color: #c2121c;
     align-items: center;
     margin-top: 32px;
-
+    justify-content: flex-end;
     .hovereffect {
 
-
+        justify-content: flex-end;
         background-image: linear-gradient(to right,
                 #eb7e7e,
                 #C2121C 50%);
@@ -1158,7 +1158,7 @@ img.updatematchimg{
                 .ViewCountDate {
                     align-self: center;
                     padding-right: 10px;
-                    text-align: end;
+                    text-align: flex-end;
                     P{
                         font-size: 12px;
                         font-weight: 500;
@@ -1266,7 +1266,7 @@ span{
     display: flex;
     .ViewCountDate{
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
     }
     .ViewCount{
         display: ruby;
@@ -1599,7 +1599,7 @@ h1.newcardwrappermainHeading{
                     .ViewCountDate {
                         align-self: center;
                         padding-right: 5px;
-                        text-align: end;
+                        text-align: flex-end;
                         P{
                             font-size: 12px;
                             font-weight: 400;

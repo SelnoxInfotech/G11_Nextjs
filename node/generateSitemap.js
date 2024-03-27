@@ -48,7 +48,6 @@ async function generateRssXml(rssData) {
           });
         }
       }
-      console.log(acc)
       return acc;
     }, []);
 

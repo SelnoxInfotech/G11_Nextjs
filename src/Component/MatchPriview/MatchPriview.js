@@ -38,7 +38,6 @@ function MatchPriview(props) {
 
         return str.toLowerCase()
     }
-console.log(props.props.topNews.slice(0,5))
     useEffect(() => {
       
         var parser = new DOMParser();

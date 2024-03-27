@@ -67,7 +67,6 @@ const HightLight = ({ Video }) => {
             // })
 
             val.forEach(({id, VideoUrl }) => {
-                console.log(id, VideoUrl.match(rx)[1])
                 const player = YouTubePlayer("Youtube"+id, {
                   videoId: VideoUrl.match(rx)[1],
                   width: '100%',
@@ -102,7 +101,6 @@ const HightLight = ({ Video }) => {
                     {/* <ReactPlayer controls={false} url={Video[0].VideoUrl} onClick={handleVideo} className="react_player_home" /> */}
                     {
                         val.map((data, index) => {
-                            console.log(data.VideoUrl)
                             return (
                                 <>
                                     <div className={`${style?.VideoSectionImage} col-2`} key={index}>

@@ -21,7 +21,6 @@ const Cricket_news = ({ initialData }) => {
   }
   const data = k;  
   if (!data) return <div>Loading...</div>;
-  //  console.log
   return (
     <>
       <Seo

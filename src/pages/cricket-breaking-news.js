@@ -110,7 +110,6 @@ export async function getStaticProps() {
   try {
     const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
     const topNews = await topNewsRes.json();
-    console.log(topNews)
     return {
       props: {
         breakingData: topNews,

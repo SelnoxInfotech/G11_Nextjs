@@ -21,3 +21,9 @@ export default async function getpostbycategory(req, res) {
         res.status(500).json({ error: 'Failed to fetch data' });
     }
 }
+
+export const config = {
+    api: {
+      responseLimit: false,
+    },
+  }

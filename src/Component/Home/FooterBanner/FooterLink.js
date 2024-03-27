@@ -9,7 +9,7 @@ import { BsTwitterX } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 // import { faFacebook, faYoutube, faInstagram, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import style from "../../../styles/Style.module.scss"
+import style from "../../../../src/styles/Style.module.scss"
 import { FaRssSquare } from "react-icons/fa";
 import Link from 'next/link';
 export default function Footer_link() {

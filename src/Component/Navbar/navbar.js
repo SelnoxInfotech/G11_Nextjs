@@ -10,7 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import Dropdown from 'react-bootstrap/Dropdown';
-import style from "../../styles/Style.module.scss"
+import style from "../../../src/styles/Style.module.scss"
 import Image from 'next/image';
 function OffcanvasExample({ props }) {
   // const [image, setimage] = useState([])
