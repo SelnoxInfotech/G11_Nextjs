@@ -278,6 +278,10 @@
   color: #c2151b;
 }
 
+.updatecardhomewrapper {
+  justify-content: center;
+}
+
 .BreakingNewsSectionHomepage a {
   background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
   background-size: 200% 100%;
@@ -1530,6 +1534,9 @@ h1.newcardwrappermainHeading {
   }
 }
 @media (max-width: 992px) {
+  .updatecardhomewrapper {
+    justify-content: flex-start;
+  }
   .Breaking_new .Breaking_newCardWrapper {
     gap: 10px;
   }

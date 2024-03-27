@@ -321,7 +321,9 @@ background-color: #c2121c;
         color: #c2151b;
     }
 }
-
+.updatecardhomewrapper{
+    justify-content: center;
+}
 .BreakingNewsSectionHomepage {
     a {
 
@@ -1785,6 +1787,9 @@ h1.newcardwrappermainHeading{
     }
   }
   @media (max-width : 992px){
+    .updatecardhomewrapper{
+        justify-content: flex-start;
+    }
     .Breaking_new {
     .Breaking_newCardWrapper{
         gap: 10px;

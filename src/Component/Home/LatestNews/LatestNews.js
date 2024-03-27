@@ -25,7 +25,9 @@ const Breakingnews = ({ latestnews }) => {
             <div className={` col ${style.box}`}>
                 <div className={`${style.imageCenter} col`}>
                    
-                    <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                  <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>
+                  <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                  </Link>
                 </div>
                 <div className={`${style.latestnewshomepage} col`}>
                     <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>   <div><h3> {latestnews[0].Title.substr(0, 55)}</h3></div></Link>

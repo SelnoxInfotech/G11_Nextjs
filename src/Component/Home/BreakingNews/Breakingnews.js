@@ -51,9 +51,9 @@ const Breakingnews = ({ Breaking }) => {
                             return (
                                 <div key={index} className={style.homepagebreakingness} >
                                     <div className={'col'} >
+                                            <Link href={`/cricket-breaking-news/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}/${data?.id}`} >
                                         <Image loader={imageLoader} src={`${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} />
                                   
-                                            <Link href={`/cricket-breakingnews/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}/${data?.id}`} >
                                                 {data?.Title.substr(0, 100)}
                                             </Link>
                                      
