@@ -13,7 +13,7 @@ export default function Static_benifit() {
                 <div className={`${'col-12 ' } ${style.hedding}`}>
                     Our Benefits
                 </div>
-               <div className='row '>
+            
                     <div className='col-12 '>
                         {/* <ol>
                             <li>
@@ -70,9 +70,9 @@ export default function Static_benifit() {
                                 other platforms. </div>
 			</div>
 		</li>
-	</ol>
+                    	</ol>
                     </div>
-               </div>
+     
             </div>
         </div>
     )

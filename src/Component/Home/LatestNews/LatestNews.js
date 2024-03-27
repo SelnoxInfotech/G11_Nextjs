@@ -30,7 +30,7 @@ const Breakingnews = ({ latestnews }) => {
                 <div className={`${style.latestnewshomepage} col`}>
                     <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>   <div><h3> {latestnews[0].Title.substr(0, 55)}</h3></div></Link>
                     <div className={style.latestnewsTextdesc}><span className={`${style.text}`}>{parse(latestnews[0].Description.substr(0, 1000))}</span></div>      
-                    <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}><button className="btn primary hovereffect" >Read Full News</button></Link>
+                    <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}><button className={`${style.highlightcardbtn} ${style.hoverSlideRight}`}>Read Full News</button></Link>
                 </div>
 
 

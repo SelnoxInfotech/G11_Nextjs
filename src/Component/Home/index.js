@@ -19,7 +19,7 @@ const Review = dynamic(() => import('./Static/Review'), { ssr: true, loading: ()
 const Customerrate = dynamic(() => import('./Static/Customerrate'), { ssr: true, loading: () => <p>Loading...</p> })
 const Staticres = dynamic(() => import('./Static/Staticres'), { ssr: true, loading: () => <p>Loading...</p> })
 const Companyexpi = dynamic(() => import('./Static/Companyexpi'), { ssr: true, loading: () => <p>Loading...</p> })
-const Footer = dynamic(() => import('./FooterBanner/FooterBanner'), { ssr: true, loading: () => <p>Loading...</p> })
+const Footer = dynamic(() => import('./FooterBanner/FooterBanner'))
 const inter = Inter({ subsets: ["latin"] });
 const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, image, ipl,predictiondata  }) => {
     return (

@@ -438,6 +438,17 @@ background-color: #c2121c;
             }
           p{
              display: none;
+             overflow: hidden;
+             display: -webkit-box;
+             -webkit-line-clamp: 3; /* number of lines to show */
+                     line-clamp: 3; 
+             -webkit-box-orient: vertical;
+             &:first-child{
+                display: block;
+             }
+             &:nth-child(2){
+                display: block;
+             }
          }
      }
      }
@@ -449,7 +460,6 @@ background-color: #c2121c;
 
 
     }
-
     .imageCenter {
         display: flex;
         justify-content: center;
@@ -477,7 +487,6 @@ background-color: #c2121c;
         }
       
     }
-
     .text {
         font-size: 16px;
     }
@@ -490,7 +499,13 @@ background-color: #c2121c;
             height: inherit;
         }
     }
- 
+    button.highlightcardbtn{
+        border: 2px solid #c2121c;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+      }
 }
 .homepagebreakingness{
      border: 1.5px solid black;
@@ -705,7 +720,9 @@ background-color: #c2121c;
     font-family: segeo UI;
 
     .Static_row {
-        margin: 5px;
+     
+        background: #e4ebf4;
+        padding: 20px 40px;
         .olcards {
             margin: 0;
             padding: 0;
@@ -949,48 +966,73 @@ background-color: #c2121c;
     margin-top: 20px;
     display: grid;
     text-align: center;
-    background-color: #fafafa;
-    width: 97%;
+    background: url('../Image/cricketdesktopbg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    padding: 25px 15px;
     font: normal normal normal 115%/123% Segoe UI;
-
-    .p {
-        color: #111010;
+    .bgsssd{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        background-color: hsla(0, 0%, 0%, 0.7);
+        width: 100%;
+        height: 100%;
+    }
+    p.garunteResultDesc {
+        color: #ffffff;
         font-size: 20px;
+        z-index: 10;
         font-weight: 700;
+        font-family: "Inter", sans-serif;
+        letter-spacing: 1.5px;
+        word-spacing: 4px;
+
     }
 
-    .r {
-        color: #c2121c;
-        font-size: 20px;
-        font-weight: 700;
-    }
-
+ 
     .content {
-        display: grid;
-        justify-items: center;
+        width: 80%;
+        margin: 0 auto;
+        color: #ffffff;
+        font-size: 14px;
+        z-index: 10;
+        font-weight: 400;
+        font-family: "Inter", sans-serif;
     }
 }
-
-.Company_expri_detail {
-    display: flex !important;
-    justify-content: center;
-
-    .box {
-        background-color: #fafafa;
-        border-radius: 50%;
-        height: 135px;
-        width: 150px;
+    .Company_expri_detail_wrapper{
+        display: flex;
+        justify-content: space-evenly;
         align-items: center;
-        text-align: center;
-        justify-items: center;
-        justify-content: center;
-        display: grid;
-        color: #c2151b;
-        font: normal normal 700 16px/16px Segoe UI;
+        padding: 40px 0;
+        .Company_expri_detail {
+            display: flex !important;
+            justify-content: center;
+      
+            .box {
+                background-color: #fafafa;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 200px;
+                width: 200px;
+                gap: 5px;
+                color: #c2151b;
+                font: normal normal 700 16px/16px Segoe UI;
+                P{
+                    margin: 0;
+                }
 
+            }
+        }
     }
-}
-
 
 .footer_head {
     position: relative;
@@ -1673,56 +1715,6 @@ h1.newcardwrappermainHeading{
         }
      }
   }
-  @media (max-width: 576px){
-    .matchpage{
-        position: relative;
-        .pridctionImageSection{
-            img{
-                width: 90%;
-                margin:  0 auto;
-            }
-          
-        }
-        h3 {
-            span{
-                font-size: 18px !important;
-            }
-        }
-        P{
-            font-size: 14px !important;
-            span{
-                font-size: 16px !important;
-                font-weight: 600;
-                margin-bottom: 0;
-            }
-        }
-     
-        
-     
-      }
-      .matchPrivewTitle{
-        text-align: left;
-        font-size: 20px;
-        color: #c2121c;
-        font-weight: 700;
-        line-height: 1.5;
-        
-      }   
-      .logo_img {
-        position: relative;
-        width: 48px;
-        top: -5px;
-        border-radius: 50px;
-      } 
-      .detailspaget{
-        h1{
-            font-size: 24px;
-             line-height: 1.5;
-             margin: 10px 0;
-        }
-     
-    }   
-  }
   @media (max-width : 1400px){
     .Breaking_new {
     .Breaking_newCardWrapper{
@@ -1940,7 +1932,6 @@ h1.newcardwrappermainHeading{
        }
     }
   }
- 
   @media (max-width : 576px){
     .Breaking_new {
         .Breaking_newCardWrapper{
@@ -2098,4 +2089,244 @@ h1.newcardwrappermainHeading{
           align-items: center;
        }
     }
+    .static_res {
+        padding:15px 10px;
+        p.garunteResultDesc {
+         font-size: 18px;
+        }
+        .content {
+            display: grid;
+            justify-items: unset;
+            width: 100%;
+            color: #ffffff;
+            font-size: 12px;
+            z-index: 10;
+            font-weight: 400;
+            font-family: "Inter", sans-serif;
+            P{
+                text-align: left;
+            }
+        }
+    }
+    .SecondStatic {
+        font-family: segeo UI;
+    
+        .Static_row {
+           
+            background: #e4ebf4;
+            padding: 20px;
+            padding-right: 30px;
+            .olcards {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                list-style: none;
+                counter-reset: cardCount;
+                font-family: $font-family_1;
+                display: flex;
+                flex-direction: column;
+                --cardsgap: 1rem;
+                gap: var(--cardsGap);
+                padding-bottom: var(--cardsGap);
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                li {
+                    counter-increment: cardCount;
+                    padding: 10px;
+                    display: flex;
+                    color: $color_1;
+                    --labeloffset: 1rem;
+                    --arrowclipsize: 1.5rem;
+                    margin-top: var(--labelOffset);
+                    position: relative;
+                    margin-bottom: 10px;
+                    &:first-child{
+                       background-color: #C2121C;
+                       &::before{
+                        content: '';
+                        clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+                        width: 30px;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        right: -30px;
+                       background-color: #C2121C;
+    
+                       }
+                    }
+                    &:nth-child(2){
+                        background-color: #ec4b00;
+                        &::before{
+                            content: '';
+                            clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+                            width: 30px;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            right: -30px;
+                           background-color: #ec4b00;
+        
+                           }
+                    }
+                    &:nth-child(3){
+                        background-color: #00a2ff;
+                        &::before{
+                            content: '';
+                            clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+                            width: 30px;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            right: -30px;
+                            background-color: #00a2ff;
+        
+                           }
+                    }
+                    &:nth-child(4){
+                        background-color: #c300ff;
+                        &::before{
+                            content: '';
+                            clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+                            width: 30px;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            right: -30px;
+                           background-color: #c300ff;
+        
+                           }
+                    }
+                  
+                    .content {
+                        background-color: $background-color_1;
+                        --inlinepadding: 1em;
+                        --boxpadding: 0.5em;
+                        display: grid;
+                        padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize)) var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
+                        grid-template-areas: "icon title" "icon text";
+                        gap: 0.25em 1em;
+                        clip-path: polygon( 0 0, calc(100% - var(--arrowClipSize)) 0, 100% 50%, calc(100% - var(--arrowClipSize)) 100%, calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)), 0 calc(100% + var(--cardsGap)) );
+                        position: relative;
+                       
+                        .title {
+                           font-size: 18px;
+                           font-weight: 700;
+                           line-height: 1.5;
+                           font-family: "Inter", sans-serif;
+    
+                        }
+                        .text {
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 1.5;
+                        font-family: "Inter", sans-serif;
+    
+                        }
+                    }
+                    .icon {
+                        grid-area: icon;
+                        align-self: center;
+                        font-size: 2em;
+                     
+                        justify-self: center;
+                        text-align: center;
+                    }
+                }
+            }
+            
+        }
+    
+        .hedding {
+            text-align: center;
+            color: #C2151B;
+            font-weight: 900;
+            font: normal normal bold 28px/37px Segoe UI;
+            ;
+        }
+    }
+    .Company_expri_detail_wrapper{
+       
+        padding: 40px 0;
+        flex-wrap: wrap;
+        .Company_expri_detail {
+            display: flex !important;
+            justify-content: center;
+           
+            .box {
+                background-color: #fafafa;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 120px;
+                width: 120px;
+                gap: 5px;
+                color: #c2151b;
+                
+                P{
+                    margin: 0;
+                    font-size: 12px;
+                    font-weight: 500;
+                     word-wrap: break-word;
+                     width: 80%;
+                     text-align: center;
+                }
+
+            }
+        }
+    }
+  }
+  @media (max-width : 576px){
+    .matchpage{
+        position: relative;
+        .pridctionImageSection{
+            img{
+                width: 90%;
+                margin:  0 auto;
+            }
+          
+        }
+        h3 {
+            span{
+                font-size: 18px !important;
+            }
+        }
+        P{
+            font-size: 14px !important;
+            span{
+                font-size: 16px !important;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+        }
+     
+        
+     
+      }
+      .matchPrivewTitle{
+        text-align: left;
+        font-size: 20px;
+        color: #c2121c;
+        font-weight: 700;
+        line-height: 1.5;
+        
+      }   
+      .logo_img {
+        position: relative;
+        width: 48px;
+        top: -5px;
+        border-radius: 50px;
+      } 
+      .detailspaget{
+        h1{
+            font-size: 24px;
+             line-height: 1.5;
+             margin: 10px 0;
+        }
+     
+    }   
   }

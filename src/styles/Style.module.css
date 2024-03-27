@@ -369,6 +369,17 @@
 }
 .LatestNewsSection .latestnewshomepage span p {
   display: none;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.LatestNewsSection .latestnewshomepage span p:first-child {
+  display: block;
+}
+.LatestNewsSection .latestnewshomepage span p:nth-child(2) {
+  display: block;
 }
 .LatestNewsSection .Breaking .col {
   width: 450px;
@@ -412,6 +423,13 @@
     display: block;
     height: inherit;
   }
+}
+.LatestNewsSection button.highlightcardbtn {
+  border: 2px solid #c2121c;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 }
 
 .homepagebreakingness {
@@ -598,7 +616,8 @@
   font-family: segeo UI;
 }
 .SecondStatic .Static_row {
-  margin: 5px;
+  background: #e4ebf4;
+  padding: 20px 40px;
 }
 .SecondStatic .Static_row .olcards {
   margin: 0;
@@ -822,41 +841,68 @@
   margin-top: 20px;
   display: grid;
   text-align: center;
-  background-color: #fafafa;
-  width: 97%;
+  background: url("../Image/cricketdesktopbg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  padding: 25px 15px;
   font: normal normal normal 115%/123% Segoe UI;
 }
-.static_res .p {
-  color: #111010;
-  font-size: 20px;
-  font-weight: 700;
+.static_res .bgsssd {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: hsla(0, 0%, 0%, 0.7);
+  width: 100%;
+  height: 100%;
 }
-.static_res .r {
-  color: #c2121c;
+.static_res p.garunteResultDesc {
+  color: #ffffff;
   font-size: 20px;
+  z-index: 10;
   font-weight: 700;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1.5px;
+  word-spacing: 4px;
 }
 .static_res .content {
-  display: grid;
-  justify-items: center;
+  width: 80%;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 14px;
+  z-index: 10;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
 }
 
-.Company_expri_detail {
+.Company_expri_detail_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 40px 0;
+}
+.Company_expri_detail_wrapper .Company_expri_detail {
   display: flex !important;
   justify-content: center;
 }
-.Company_expri_detail .box {
+.Company_expri_detail_wrapper .Company_expri_detail .box {
   background-color: #fafafa;
   border-radius: 50%;
-  height: 135px;
-  width: 150px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  text-align: center;
-  justify-items: center;
   justify-content: center;
-  display: grid;
+  height: 200px;
+  width: 200px;
+  gap: 5px;
   color: #c2151b;
   font: normal normal 700 16px/16px Segoe UI;
+}
+.Company_expri_detail_wrapper .Company_expri_detail .box P {
+  margin: 0;
 }
 
 .footer_head {
@@ -1442,44 +1488,6 @@ h1.newcardwrappermainHeading {
   font-weight: 600;
 }
 
-@media (max-width: 576px) {
-  .matchpage {
-    position: relative;
-  }
-  .matchpage .pridctionImageSection img {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .matchpage h3 span {
-    font-size: 18px !important;
-  }
-  .matchpage P {
-    font-size: 14px !important;
-  }
-  .matchpage P span {
-    font-size: 16px !important;
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-  .matchPrivewTitle {
-    text-align: left;
-    font-size: 20px;
-    color: #c2121c;
-    font-weight: 700;
-    line-height: 1.5;
-  }
-  .logo_img {
-    position: relative;
-    width: 48px;
-    top: -5px;
-    border-radius: 50px;
-  }
-  .detailspaget h1 {
-    font-size: 24px;
-    line-height: 1.5;
-    margin: 10px 0;
-  }
-}
 @media (max-width: 1400px) {
   .Breaking_new .Breaking_newCardWrapper {
     gap: 10px;
@@ -1746,5 +1754,220 @@ h1.newcardwrappermainHeading {
     display: flex;
     gap: 5px;
     align-items: center;
+  }
+  .static_res {
+    padding: 15px 10px;
+  }
+  .static_res p.garunteResultDesc {
+    font-size: 18px;
+  }
+  .static_res .content {
+    display: grid;
+    justify-items: unset;
+    width: 100%;
+    color: #ffffff;
+    font-size: 12px;
+    z-index: 10;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+  }
+  .static_res .content P {
+    text-align: left;
+  }
+  .SecondStatic {
+    font-family: segeo UI;
+  }
+  .SecondStatic .Static_row {
+    background: #e4ebf4;
+    padding: 20px;
+    padding-right: 30px;
+  }
+  .SecondStatic .Static_row .olcards {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    counter-reset: cardCount;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    --cardsgap: 1rem;
+    gap: var(--cardsGap);
+    padding-bottom: var(--cardsGap);
+  }
+  .SecondStatic .Static_row .olcards * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .SecondStatic .Static_row .olcards li {
+    counter-increment: cardCount;
+    padding: 10px;
+    display: flex;
+    color: white;
+    --labeloffset: 1rem;
+    --arrowclipsize: 1.5rem;
+    margin-top: var(--labelOffset);
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .SecondStatic .Static_row .olcards li:first-child {
+    background-color: #C2121C;
+  }
+  .SecondStatic .Static_row .olcards li:first-child::before {
+    content: "";
+    -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+            clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    background-color: #C2121C;
+  }
+  .SecondStatic .Static_row .olcards li:nth-child(2) {
+    background-color: #ec4b00;
+  }
+  .SecondStatic .Static_row .olcards li:nth-child(2)::before {
+    content: "";
+    -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+            clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    background-color: #ec4b00;
+  }
+  .SecondStatic .Static_row .olcards li:nth-child(3) {
+    background-color: #00a2ff;
+  }
+  .SecondStatic .Static_row .olcards li:nth-child(3)::before {
+    content: "";
+    -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+            clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    background-color: #00a2ff;
+  }
+  .SecondStatic .Static_row .olcards li:nth-child(4) {
+    background-color: #c300ff;
+  }
+  .SecondStatic .Static_row .olcards li:nth-child(4)::before {
+    content: "";
+    -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+            clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -30px;
+    background-color: #c300ff;
+  }
+  .SecondStatic .Static_row .olcards li .content {
+    background-color: var(--cardColor);
+    --inlinepadding: 1em;
+    --boxpadding: 0.5em;
+    display: grid;
+    padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize)) var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
+    grid-template-areas: "icon title" "icon text";
+    gap: 0.25em 1em;
+    -webkit-clip-path: polygon(0 0, calc(100% - var(--arrowClipSize)) 0, 100% 50%, calc(100% - var(--arrowClipSize)) 100%, calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)), 0 calc(100% + var(--cardsGap)));
+            clip-path: polygon(0 0, calc(100% - var(--arrowClipSize)) 0, 100% 50%, calc(100% - var(--arrowClipSize)) 100%, calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)), 0 calc(100% + var(--cardsGap)));
+    position: relative;
+  }
+  .SecondStatic .Static_row .olcards li .content .title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+  }
+  .SecondStatic .Static_row .olcards li .content .text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: "Inter", sans-serif;
+  }
+  .SecondStatic .Static_row .olcards li .icon {
+    grid-area: icon;
+    align-self: center;
+    font-size: 2em;
+    justify-self: center;
+    text-align: center;
+  }
+  .SecondStatic .hedding {
+    text-align: center;
+    color: #C2151B;
+    font-weight: 900;
+    font: normal normal bold 28px/37px Segoe UI;
+  }
+  .Company_expri_detail_wrapper {
+    padding: 40px 0;
+    flex-wrap: wrap;
+  }
+  .Company_expri_detail_wrapper .Company_expri_detail {
+    display: flex !important;
+    justify-content: center;
+  }
+  .Company_expri_detail_wrapper .Company_expri_detail .box {
+    background-color: #fafafa;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    gap: 5px;
+    color: #c2151b;
+  }
+  .Company_expri_detail_wrapper .Company_expri_detail .box P {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    word-wrap: break-word;
+    width: 80%;
+    text-align: center;
+  }
+}
+@media (max-width: 576px) {
+  .matchpage {
+    position: relative;
+  }
+  .matchpage .pridctionImageSection img {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .matchpage h3 span {
+    font-size: 18px !important;
+  }
+  .matchpage P {
+    font-size: 14px !important;
+  }
+  .matchpage P span {
+    font-size: 16px !important;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+  .matchPrivewTitle {
+    text-align: left;
+    font-size: 20px;
+    color: #c2121c;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .logo_img {
+    position: relative;
+    width: 48px;
+    top: -5px;
+    border-radius: 50px;
+  }
+  .detailspaget h1 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 10px 0;
   }
 }/*# sourceMappingURL=Style.module.css.map */

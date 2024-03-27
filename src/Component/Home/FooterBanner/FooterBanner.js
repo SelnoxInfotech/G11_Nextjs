@@ -1,7 +1,8 @@
-"use client"
+
 import React from 'react'
 import style from "../../../styles/Style.module.scss"
-import Image from 'next/image'
+import Image from 'next/image';
+import image1 from  "./downloadapp.webp"
 export default function Footer() {
   const urlAndriod = "https://play.google.com/store/apps/details?id=com.g11.g11&pli"
   const UrlApple = " https://apps.apple.com/in/app/g11-dream11-prediction/id1618742298"
@@ -24,7 +25,7 @@ export default function Footer() {
         <div className='row '>
           <div className='col-12 '>
             <div className='position-absolute bottom-50 end-50 ' id={`${style.end}`}>
-            <Image   loader={imageLoader} width={600} height={500}   src="/image/images/download/media/Static/screen.jpg" alt="G11-Fantasy Cricket Prediction for Today's Match" className={`${'img-responsive'} ${style.size}`} />
+            <Image width={600} height={500}   src={image1} alt="G11-Fantasy Cricket Prediction for Today's Match" className={`${'img-responsive'} ${style.size}`} />
             </div>
        
           </div>

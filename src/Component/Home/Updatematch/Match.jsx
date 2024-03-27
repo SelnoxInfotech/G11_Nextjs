@@ -36,7 +36,7 @@ function Match({ updatematch, image }) {
         <div className={`container-fluid ${style.update_match}`}  >
             {/* <div style={{width:"100%", overflowX: 'scroll'}}> */}
             <ScrollContainer className={style.ScrollContainerRelative} >
-                {/* <div className=''> */}
+              
                 {
                     updatematch?.map((data, index) => {
                         return (
@@ -78,7 +78,7 @@ function Match({ updatematch, image }) {
                         )
                     })
                 }
-                {/* </div> */}
+               
             </ScrollContainer>
             {/* </div> */}
         </div>
