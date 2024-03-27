@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 
 
 const ScrollBreaking = dynamic(() => import('./ScrollBreakingnews/index'), { ssr: true, loading: () => <p>Loading...</p> });
-const Banner = dynamic(() => import('./Banner/index'), { ssr: true, loading: () => <p>Loading...</p> });
+const Banner = dynamic(() => import('./Banner/index'));
 const UpdateMatch = dynamic(() => import('./Updatematch/Match'), { ssr: true, loading: () => <p>Loading...</p> });
 const Static_Content = dynamic(() => import('./Banner/WelcomestaticContant'), { ssr: true, loading: () => <p>Loading...</p> });
 const Breakingnews = dynamic(() => import('../Home/BreakingNews/Breakingnews'), { ssr: true, loading: () => <p>Loading...</p> })
@@ -29,7 +29,7 @@ const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, ima
             <div className="container">
             <UpdateMatch updatematch={updatematch} image={image}></UpdateMatch>
             <Static_Content></Static_Content>
-            <Breakingnews Breaking={Breaking}></Breakingnews>
+            <Breakingnews Breaking={Breaking}></Breakingnews>   
             <LatestNews latestnews={[ipl[0]]}></LatestNews>
             <HightLight latestnews={latestnews}></HightLight>
             {/* <VideoSection ></VideoSection>  */}
