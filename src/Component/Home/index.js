@@ -29,7 +29,7 @@ const index = ({ props, match, updatematch, Breaking, latestnews, Teamsdata, ima
             <div className="container">
             <UpdateMatch updatematch={updatematch} image={image}></UpdateMatch>
             <Static_Content></Static_Content>
-            <Breakingnews Breaking={Breaking}></Breakingnews>
+            <Breakingnews Breaking={Breaking}></Breakingnews>   
             <LatestNews latestnews={[ipl[0]]}></LatestNews>
             <HightLight latestnews={latestnews}></HightLight>
             {/* <VideoSection ></VideoSection>  */}

@@ -9,7 +9,7 @@ const nextConfig = {
   },
 
   images: {
-    // disableStaticImages: true,
+    disableStaticImages: true,
     remotePatterns: [
       {
         protocol: 'https',

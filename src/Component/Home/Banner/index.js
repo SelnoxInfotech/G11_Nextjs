@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import Link from 'next/link';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
+import image1 from "./banner.png";
+
 function Index({ match ,image }) {
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -44,8 +46,8 @@ function Index({ match ,image }) {
         <div className={style.Banner_img}  >
             <Image
                 alt="G11Banner"
-                src={"/image/images/download/media/Static/banner_1.jpg"}
-                loader={imageLoader}
+                src={image1}
+                // loader={imageLoader}
                 quality={100}
                 width={100}
                 height={100}
@@ -65,7 +67,7 @@ function Index({ match ,image }) {
             <div className={style.homepagebannertext}>
                 <Slider {...settings}  >
                     {
-                        match?.result?.map((match, index) => {
+                        match?.map((match, index) => {
 
                             return (
                                 <div className={` ${style.banner_field}`} key={index} >
