@@ -42,25 +42,26 @@ const HightLight = ({ latestnews }) => {
                     </div>
                 </div>
             </div>
-            <ScrollContainer className={style.BreakingnewsScroll}>
+            <div className={style.highlightCardWrapper}>
+            <ScrollContainer vertical={false} className={style.BreakingnewsScroll}>
                 <div className={`${'col-12'} ${style.BreakingnewsScrollInside}`}>
                     {
                         latestnews.map((data, index) => {
                             return (
-                                    <div className={`${style.HightCol} col-6 col gap-3`} key={index}>
-                                        <div className='col' >
+                                    <div className={`${style.HightCol} col-lg-6  col-sm-4 col-6  gap-3`} key={index}>
+                                        <div className='col-lg-6 col-12 overflow-hidden' >
                                             <Image loader={imageLoader}  width={0}
                                                 height={0}
                                                 sizes="100vw"
                                                 style={{ width: '100%', height: '275px' }} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                                         </div>
-                                        <div className='col'>
+                                        <div className='col-lg-6 col-12'>
                                             <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>   
-                                            <div className="hedding hovereffect text"><h3> {data?.title?.substr(0, 55)}</h3></div>
+                                             <h3 className={style.highlightcardtitle}> {data?.title?.substr(0, 55)}</h3>
                                             </Link>
-                                            <div><span className="content text">{parse(data?.content) ? parse(data?.content) : ""}</span></div>
+                                            <span className={style.highlightcarddescription}>{parse(data?.content) ? parse(data?.content) : ""}</span>
                                             <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>
-                                            <button className="btn primary hovereffect" >Read Full News</button>
+                                            <button className={`${style.highlightcardbtn} ${style.hoverSlideRight}`} >Read Full News</button>
                                             </Link>
                                         </div>
                                     </div>
@@ -69,6 +70,7 @@ const HightLight = ({ latestnews }) => {
                     }
                 </div>
             </ScrollContainer>
+            </div>
         </div>
 
 

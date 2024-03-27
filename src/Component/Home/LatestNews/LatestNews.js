@@ -24,7 +24,7 @@ const Breakingnews = ({ latestnews }) => {
             </div>
             <div className={` col ${style.box}`}>
                 <div className={`${style.imageCenter} col`}>
-                    <div className={style.headeringImagehover}></div>
+                   
                     <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                 </div>
                 <div className={`${style.latestnewshomepage} col`}>

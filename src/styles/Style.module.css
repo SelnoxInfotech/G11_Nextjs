@@ -1,8 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 .logo_img {
   position: relative;
   width: 74px;
   top: -5px;
   border-radius: 50px;
+}
+
+.hoverSlideRight {
+  position: relative;
+}
+.hoverSlideRight::before {
+  position: absolute;
+  content: "";
+  background-color: #C2121C;
+  transition: 0.3s ease-out;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  z-index: -10;
+}
+.hoverSlideRight:hover {
+  color: #fff;
+}
+.hoverSlideRight:hover::before {
+  width: 100%;
 }
 
 .Offcanvas {
@@ -176,10 +199,13 @@
   color: white;
 }
 
-.updatematch {
+.update_match {
+  padding: 20px 0;
+  box-sizing: content-box;
+}
+.update_match .updatematch {
   font-family: "Segoe UI";
   background-size: 100% 100%;
-  /* filter: brightness(150%); */
   height: 300px;
   border-radius: 20px;
   background-repeat: no-repeat;
@@ -188,36 +214,42 @@
   width: 300px;
   position: relative;
 }
-.updatematch img.updatematchimg {
+.update_match .updatematch:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transition: all 0.3s ease-in-out;
+}
+.update_match .updatematch img.updatematchimg {
   width: 100%;
   border-radius: 20px;
+  height: 100%;
   position: absolute;
   z-index: -1;
 }
-.updatematch .grid_row {
+.update_match .updatematch .grid_row {
   width: 22rem;
   display: grid;
   gap: 15px;
 }
-.updatematch .grid_row div {
+.update_match .updatematch .grid_row div {
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.updatematch a {
+.update_match .updatematch a {
   text-decoration: none;
   gap: 15px;
   display: grid;
+  height: 100%;
 }
-.updatematch .location {
+.update_match .updatematch .location {
   margin: 0;
   background-color: #fff;
 }
-.updatematch .location span {
+.update_match .updatematch .location span {
   color: #c2121c;
 }
-.updatematch .location p {
+.update_match .updatematch .location p {
   color: #000;
 }
 
@@ -228,6 +260,7 @@
   overflow-x: scroll !important;
   position: relative;
   width: 100%;
+  padding: 20px 0;
 }
 
 .Static {
@@ -292,11 +325,12 @@
 
 .BreakingnewsScroll {
   display: flex;
-  gap: 2.6%;
+  gap: 0 2.6%;
   justify-content: normal;
-  overflow: scroll !important;
+  overflow-x: scroll !important;
   position: relative;
   width: 100%;
+  scroll-behavior: unset !important;
 }
 
 .LatestNewsSection a {
@@ -381,22 +415,30 @@
 }
 
 .homepagebreakingness {
-  border: 1px solid black;
+  border: 1.5px solid black;
   border-radius: 5px;
   overflow: hidden;
-  min-width: 280px;
+  min-width: 220px;
   height: auto;
+}
+.homepagebreakingness:hover {
+  border-color: #c2121c;
+}
+.homepagebreakingness:hover img {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
 }
 .homepagebreakingness img {
   width: 100%;
-  height: 200px;
-  max-height: 220px;
+  height: 1500px;
+  max-height: 160px;
 }
 .homepagebreakingness a {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  min-height: 50px;
 }
 .homepagebreakingness .BreakingNews_date {
   padding: 10px 0;
@@ -436,18 +478,61 @@
 .HightLight .BreakingnewsScrollInside {
   display: flex;
   gap: 32px;
+  padding: 20px;
 }
-.HightLight .HightCol {
+.HightLight .BreakingnewsScrollInside .HightCol {
   display: flex;
   overflow: hidden;
   height: 325px;
+  border-radius: 8px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 15px;
 }
-@media only screen and (max-width: 850px) {
-  .HightLight .HightCol {
-    width: 100%;
-    display: block;
-    height: 500px;
-  }
+.HightLight .BreakingnewsScrollInside .HightCol:hover img {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+.HightLight .BreakingnewsScrollInside .HightCol h3.highlightcardtitle {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
+}
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription {
+  font-size: 14px;
+  line-height: 15px;
+  height: 90px;
+  overflow: hidden;
+}
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription P {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  height: 108px;
+  display: none;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: #727272;
+}
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription P:first-child {
+  display: block;
+}
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription ol, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h3, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h1, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h2, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h4, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h5, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h6, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription ul {
+  display: none;
+}
+.HightLight .BreakingnewsScrollInside .HightCol button.highlightcardbtn {
+  border: 2px solid #c2121c;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 }
 
 .VideoSection a {
@@ -515,6 +600,122 @@
 .SecondStatic .Static_row {
   margin: 5px;
 }
+.SecondStatic .Static_row .olcards {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  counter-reset: cardCount;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  --cardsgap: 1rem;
+  gap: var(--cardsGap);
+  padding-bottom: var(--cardsGap);
+}
+.SecondStatic .Static_row .olcards * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.SecondStatic .Static_row .olcards li {
+  counter-increment: cardCount;
+  padding: 10px;
+  display: flex;
+  color: white;
+  --labeloffset: 1rem;
+  --arrowclipsize: 1.5rem;
+  margin-top: var(--labelOffset);
+  position: relative;
+  margin-bottom: 10px;
+}
+.SecondStatic .Static_row .olcards li:first-child {
+  background-color: #C2121C;
+}
+.SecondStatic .Static_row .olcards li:first-child::before {
+  content: "";
+  -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+          clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -50px;
+  background-color: #C2121C;
+}
+.SecondStatic .Static_row .olcards li:nth-child(2) {
+  background-color: #ec4b00;
+}
+.SecondStatic .Static_row .olcards li:nth-child(2)::before {
+  content: "";
+  -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+          clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -50px;
+  background-color: #ec4b00;
+}
+.SecondStatic .Static_row .olcards li:nth-child(3) {
+  background-color: #00a2ff;
+}
+.SecondStatic .Static_row .olcards li:nth-child(3)::before {
+  content: "";
+  -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+          clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -50px;
+  background-color: #00a2ff;
+}
+.SecondStatic .Static_row .olcards li:nth-child(4) {
+  background-color: #c300ff;
+}
+.SecondStatic .Static_row .olcards li:nth-child(4)::before {
+  content: "";
+  -webkit-clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+          clip-path: polygon(39% 0, 100% 50%, 41% 100%, 0% 100%, 0 48%, 0% 0%);
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -50px;
+  background-color: #c300ff;
+}
+.SecondStatic .Static_row .olcards li .content {
+  background-color: var(--cardColor);
+  --inlinepadding: 1em;
+  --boxpadding: 0.5em;
+  display: grid;
+  padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize)) var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
+  grid-template-areas: "icon title" "icon text";
+  gap: 0.25em 1em;
+  -webkit-clip-path: polygon(0 0, calc(100% - var(--arrowClipSize)) 0, 100% 50%, calc(100% - var(--arrowClipSize)) 100%, calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)), 0 calc(100% + var(--cardsGap)));
+          clip-path: polygon(0 0, calc(100% - var(--arrowClipSize)) 0, 100% 50%, calc(100% - var(--arrowClipSize)) 100%, calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)), 0 calc(100% + var(--cardsGap)));
+  position: relative;
+}
+.SecondStatic .Static_row .olcards li .content .title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+}
+.SecondStatic .Static_row .olcards li .content .text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+}
+.SecondStatic .Static_row .olcards li .icon {
+  grid-area: icon;
+  align-self: center;
+  font-size: 2em;
+  justify-self: center;
+  text-align: center;
+}
 .SecondStatic .hedding {
   text-align: center;
   color: #C2151B;
@@ -525,18 +726,18 @@
 .teams_color {
   color: white;
   text-align: center;
-  background-color: #C2121C;
+  background-color: #fff;
   font: Segoe UI;
 }
 .teams_color .teams_image_box {
   display: flex;
-  gap: 78px;
+  gap: 0;
 }
 .teams_color .teams_image_box .teams_image_container {
   margin-top: 25px;
   background-color: white;
   border-radius: 26px;
-  width: 300px;
+  width: 200px;
   height: 230px;
   position: relative;
   justify-content: center;
@@ -547,8 +748,13 @@
   gap: 20px;
   display: grid;
 }
-.teams_color .teams_image_box .teams_image_container p {
+.teams_color .teams_image_box .teams_image_container p.teamNametitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
   color: #000;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
 }
 .teams_color .team_img {
   width: 10rem;
@@ -882,8 +1088,10 @@
   color: #c2121c;
   align-items: center;
   margin-top: 32px;
+  justify-content: flex-end;
 }
 .Breaking_new .hovereffect {
+  justify-content: flex-end;
   background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
   background-size: 200% 100%;
   background-position: -100%;
@@ -974,7 +1182,7 @@
 .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount .ViewCountDate {
   align-self: center;
   padding-right: 10px;
-  text-align: end;
+  text-align: flex-end;
 }
 .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount .ViewCountDate P {
   font-size: 12px;
@@ -1061,7 +1269,7 @@
 }
 .ViewCountDetailspage .ViewCountDate {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .ViewCountDetailspage .ViewCount {
   display: ruby;
@@ -1291,6 +1499,27 @@ h1.newcardwrappermainHeading {
     max-width: 220px;
     width: 22%;
   }
+  .HightLight .BreakingnewsScrollInside {
+    display: flex;
+    gap: 25px;
+    padding: 15px;
+  }
+  .HightLight .BreakingnewsScrollInside .HightCol {
+    height: 250px;
+    padding: 10px;
+  }
+  .HightLight .BreakingnewsScrollInside .HightCol h3.highlightcardtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription P {
+    height: 90px;
+  }
+  .HightLight .BreakingnewsScrollInside .HightCol button.highlightcardbtn {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
 }
 @media (max-width: 992px) {
   .Breaking_new .Breaking_newCardWrapper {
@@ -1302,6 +1531,44 @@ h1.newcardwrappermainHeading {
   .newcardwrapper .newcard {
     max-width: 220px;
     width: 30%;
+  }
+  .HightLight .latest_bottem {
+    margin: 18px 0;
+  }
+  .HightLight .highlightCardWrapper {
+    height: 400px;
+    overflow: hidden;
+  }
+  .HightLight .highlightCardWrapper .BreakingnewsScrollInside {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  .HightLight .highlightCardWrapper .BreakingnewsScrollInside .HightCol {
+    display: block;
+    overflow: hidden;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 10px;
+  }
+  .HightLight .highlightCardWrapper .BreakingnewsScrollInside .HightCol img {
+    width: 100%;
+    height: 160px;
+    max-height: 160px;
+  }
+  .HightLight .highlightCardWrapper .BreakingnewsScrollInside .HightCol:hover img {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+  .HightLight .highlightCardWrapper .BreakingnewsScrollInside .HightCol h3.highlightcardtitle {
+    font-size: 18px;
+  }
+  .HightLight .highlightCardWrapper .BreakingnewsScrollInside .HightCol span.highlightcarddescription P {
+    line-height: 16px;
+    height: 48px;
+  }
+  .HightLight .highlightCardWrapper .BreakingnewsScrollInside .HightCol span.highlightcarddescription P:first-child {
+    display: block;
   }
 }
 @media (max-width: 768px) {
@@ -1329,7 +1596,7 @@ h1.newcardwrappermainHeading {
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount .ViewCountDate {
     align-self: center;
     padding-right: 5px;
-    text-align: end;
+    text-align: flex-end;
   }
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount .ViewCountDate P {
     font-size: 12px;
@@ -1352,10 +1619,6 @@ h1.newcardwrappermainHeading {
     display: block;
   }
 }
-.update_match img {
-  height: 100%;
-}
-
 @media (max-width: 576px) {
   .Breaking_new .Breaking_newCardWrapper {
     gap: 10px;

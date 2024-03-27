@@ -41,9 +41,11 @@ function Match({ updatematch, image }) {
                         return (
 
                             <div className={` ${style.updatematch}`} key={index}>
+                                  <Link href={`/cricket-match-predictions/${data.id}`} >
                                 <Image
                                    className={style.updatematchimg}
                                     sizes="100vw" loader={imageLoader1} src={image[7].image} width={'100'} height={'100'} alt="G11-Fantasy " />
+                                    </Link>
                                 <div className={` ${style.grid_row}`}>
                                     <Link href={`/cricket-match-predictions/${data.id}`} >
 

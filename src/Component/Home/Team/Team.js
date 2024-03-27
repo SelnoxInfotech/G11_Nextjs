@@ -26,10 +26,9 @@ export default function Teams({Teamsdata}) {
                       <div key={index} className={`${style.teams_image_container}`}>
                        <div >
                        <Image loader={imageLoader} className={style.team_img} width={100} height={20} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
-                        <p >{data.name}</p>
+                        <p className={style.teamNametitle} >{data.name}</p>
                        </div>
                       </div>
-                      // <div className="col-12  team_text">
                     );
                   })
                 }
