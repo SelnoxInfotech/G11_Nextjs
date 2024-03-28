@@ -5,17 +5,7 @@ import Link from 'next/link';
 
 
 export default function Index ({props}){
-    const [recentnews, setrecentnews] = React.useState([]);
 
-    // React.useEffect(() => {
-    //     const apicalling = async () => {
-    //         const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
-    //         const topNews = await topNewsRes.json();
-    //         setrecentnews(topNews.slice(0, 5))
-    //     }
-    //     apicalling()
-
-    // }, [])
     function modifystr(str) {
 
         str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
