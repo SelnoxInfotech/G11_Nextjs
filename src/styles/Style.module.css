@@ -1253,7 +1253,8 @@
   -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
-  line-height: 1.5;
+  line-height: 18px;
+  height: 36px;
 }
 .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount {
   border: 1px solid #cbb9ba;
