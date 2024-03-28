@@ -15,7 +15,7 @@ const fetcher = async (url) => {
     return res.json();
 };
 
-const Video = ( initialData ) => {
+const Video = (initialData) => {
     const imagePerRow = 8
     const [next, setNext] = React.useState(imagePerRow);
     const [setHandleAudio] = React.useState(false)
@@ -38,13 +38,13 @@ const Video = ( initialData ) => {
 
     return (
         <>
-            {/* <Seo
-        image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-        title={"Breaking News | G11 Fantasy Cricket Prediction |"}
-        description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
-        keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
-        canonical={"https://g11prediction.com/icc-cricket-world-cup-2023/"}
-    ></Seo> */}
+            <Seo
+                image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+                title={"Video News | G11 Fantasy Cricket Prediction |"}
+                description={"Video Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
+                keywords={"fantasy cricket prediction"}
+                canonical={"https://g11prediction.com/latest-video"}
+            ></Seo>
             <div className={`${'container'} ${style.videoBox}`}>
                 <div className="row">
                     <div className={style.videoh1box}>
@@ -82,7 +82,7 @@ const Video = ( initialData ) => {
                             Load more
                         </button>
                     )}
-                    {next <  data.data?.length && (
+                    {next < data.data?.length && (
                         <button className={next <= 3 ? 'hidden' : "btn readleft"} onClick={handlelessImage}
                         >
                             Read Less
@@ -110,7 +110,7 @@ export async function getStaticProps(ctx) {
         const [topNews] = await Promise.all([
             topNewsRes.json(),
         ]);
- 
+
 
         const responseData = {
             breaking: topNews.data,
@@ -121,7 +121,7 @@ export async function getStaticProps(ctx) {
                 initialData: responseData.breaking,
             },
         };
-  
+
     } catch (error) {
         console.error('Error fetching data:', error);
         return {

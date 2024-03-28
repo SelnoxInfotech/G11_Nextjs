@@ -15,10 +15,10 @@ const fetcher = async (url) => {
 
 const Cricket_players = ({ initialData }) => {
 
-  const k = initialData
-  const { data: fetchedData, error } = useSWR(`/Filterbycategory/${3}`, fetcher, { k });
+  // const k = initialData
+  // const { data: fetchedData, error } = useSWR(`/Filterbycategory/${3}`, fetcher, { k });
 
-  const data = fetchedData || k;
+  const data = initialData
   if (!data) return <div>Loading...</div>;
 
 

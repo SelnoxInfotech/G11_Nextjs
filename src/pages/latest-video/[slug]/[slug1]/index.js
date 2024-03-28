@@ -1,9 +1,9 @@
 import React from 'react';
 import Videodetails from "../../../../Component/Details/Videodetails"
 import _ from "lodash";
-import  style from "../../../../styles/Style.module.scss"
+import style from "../../../../styles/Style.module.scss"
 import Link from 'next/link';
-
+import { Seo } from '../../../../Component/Seo/Seo';
 
 function Index({ data }) {
     return (
@@ -21,27 +21,24 @@ function Index({ data }) {
 function index(props) {
     return (
         <div className="container">
-        <div className="row">
-            <div className="col-lg-8 col-12">
-                {/* {[  ]?.map((data, index) => ( */}
+            <div className="row">
+                <div className="col-lg-8 col-12">
                     <React.Fragment >
-                        {/* <Seo
-                            image={"https://www.g11fantasy.com" + data.Image}
-                            title={data?.Meta_title || data.title}
-                            description={data?.Meta_Description}
-                            keywords={data.Keywords === null ? "IPL 2024, PBKS vs DC Dream11 Prediction | Dream11 Team Today, Dream11 Winning Tips, Dream11 prediction for today's match, Best Dream11 team for Today match,dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction, dream11 today team,dream11 update,dream11 prediction,today dream11 team, dream11 prediction today match,who will win today match,who win today ipl match, my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today match,fantasy cricket prediction,best prediction site,best prediction website" : data.Keywords}
-                            canonical={`https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}`}
-                        /> */}
-                        <Videodetails data={props.initialData}  />
+                        <Seo
+                            image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+                            title={"Video News | G11 Fantasy Cricket Prediction |"}
+                            description={"Video Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
+                            keywords={"fantasy cricket prediction"}
+                            canonical={"https://g11prediction.com/latest-video"}
+                        ></Seo>
+                        <Videodetails data={props.initialData} />
                     </React.Fragment>
-                {/* ))} */}
-            </div>
-            <div className="col-lg-4 col-12">
-            <Index data={props.fulldata} />
+                </div>
+                <div className="col-lg-4 col-12">
+                    <Index data={props.fulldata} />
+                </div>
             </div>
         </div>
-        {/* <Card data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{dynamicslug}</h2>} query={dynamicslug} /> */}
-    </div>
     );
 }
 
@@ -59,15 +56,15 @@ export async function getServerSideProps(ctx) {
         const responseData = {
             breaking: topNews.data,
         };
-   const  LatestVideo  =  responseData.breaking
-    const find =  _.find(LatestVideo, LatestVideo => LatestVideo.id === parseInt(ctx.query.slug1))
+        const LatestVideo = responseData.breaking
+        const find = _.find(LatestVideo, LatestVideo => LatestVideo.id === parseInt(ctx.query.slug1))
         return {
             props: {
                 initialData: find,
-                fulldata: responseData.breaking.slice(0,10)
+                fulldata: responseData.breaking.slice(0, 10)
             },
         };
-  
+
     } catch (error) {
         console.error('Error fetching data:', error);
         return {

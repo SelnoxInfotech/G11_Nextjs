@@ -31,6 +31,9 @@ export default function Rss() {
                     <li>
                         <a href='/rss/ipl-2024-dream11-predictions.xml' className='calling'><span> <FaRssSquare />ipl-2024-dream11-predictions</span> </a>
                     </li>
+                    <li>
+                        <a href='/rss/latest-video.xml' className='calling'><span> <FaRssSquare />latest-video</span> </a>
+                    </li>
                 </ol>
             </div>
 

@@ -62,6 +62,10 @@ destination: '/api/Rss/ipl2024pridiction',
         source: '/cricket-rules-and-regulation.xml',
         destination: '/api/Rss/cricket-rules-and-regulation.xml',
       },
+      {
+        source: '/latest-video.xml',
+        destination: '/api/Rss/latest-video.xml',
+      },
       // {
       //   source: '/sitemapBreakingnews.xml',
       //   destination: '/api/Rss/sitemapBreakingnews.xml',
