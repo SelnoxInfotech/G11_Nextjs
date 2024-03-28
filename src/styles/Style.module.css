@@ -28,6 +28,21 @@
   width: 100%;
 }
 
+.loadmorebtm {
+  padding: 5px 12px;
+  border: 1px solid #C2121C;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #C2121C;
+  font-weight: 500;
+  border-radius: 3px;
+}
+.loadmorebtm:hover {
+  background-color: #C2121C;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
 .Offcanvas {
   background-color: #c2121c;
 }
@@ -95,6 +110,12 @@
   border-radius: 5px;
 }
 
+.dropdownLink {
+  padding: 5px 10px;
+}
+.dropdownLink a:hover {
+  padding: 10px 14px;
+}
 .dropdownLink div {
   background-color: #c2121c;
 }
@@ -282,6 +303,8 @@
 .Static .Static_row {
   text-align: center;
   align-items: center;
+  z-index: 10;
+  color: #fff;
 }
 .Static .welcome {
   color: #c2151b;
@@ -602,7 +625,7 @@
 }
 
 .Static {
-  width: 97%;
+  width: 100%;
   margin-top: 10px;
   position: relative;
   border: 2px solid #e7e6e6;
@@ -611,24 +634,57 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  background: url("../Image/teamimage.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 40px 20px;
+  position: relative;
 }
-.Static .latest_n {
+.Static .bgelle {
+  background-color: rgba(0, 0, 0, 0.7411764706);
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.Static .staticsectioncontent {
+  z-index: 10;
+}
+.Static .staticsectioncontent h2.StaticTitle {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  color: #fff;
+  z-index: 10;
+}
+.Static .staticsectioncontent .latest_n {
   font-size: 20px;
   font-weight: 700;
   color: #111010;
 }
-.Static .todaymatchli li::marker {
+.Static .staticsectioncontent .todaymatchli h2::marker {
   color: #111010;
   content: "# ";
 }
-.Static .todaymatchli ul {
-  list-style-type: none;
+.Static .staticsectioncontent ul li {
+  list-style: disc;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  z-index: 10;
+  margin: 20px 0;
 }
 
 .SecondStatic {
-  font-family: segeo UI;
+  font-family: "segeo UI";
+  margin: 30px 0;
 }
 .SecondStatic .Static_row {
+  z-index: 10;
   background: #e4ebf4;
   padding: 20px 40px;
 }
@@ -919,69 +975,39 @@
 }
 
 .footer_head {
-  position: relative;
   margin-top: 20px;
-  height: 500px;
-  background: linear-gradient(40deg, #C2121C 50%, #ffffff 50%, #f5f5f5 100%);
+  border: 1px solid #C2121C;
+  background: rgb(194, 18, 28);
+  background: linear-gradient(71deg, rgb(194, 18, 28) 0%, rgb(194, 18, 28) 45%, rgb(255, 255, 255) 45%, rgb(255, 255, 255) 87%);
+  width: 100%;
+  display: flex;
 }
-.footer_head .footer_text {
-  font-size: small;
-  right: -33px;
-  left: 20px;
-  text-align: center;
-  font-weight: 600;
-  top: 250px;
-  position: relative;
-  color: white;
-  width: -moz-fit-content;
-  width: fit-content;
+.footer_head .appdownloadtext {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #fff;
+  flex-direction: column;
 }
-.footer_head .size {
-  width: 412px;
-  height: 494px;
+.footer_head .appdownloadtext span {
+  font-size: 22px;
+  font-weight: 500;
 }
-.footer_head #end {
-  bottom: 8% !important;
-  right: 10% !important;
+.footer_head .appdownloadtext P {
+  font-size: 32px;
+  font-weight: 700;
 }
-@media (max-width: 1060px) {
-  .footer_head #end {
-    bottom: 46% !important;
-    right: 11% !important;
-  }
-  .footer_head .size {
-    width: 261px;
-    height: 265px;
-  }
+.footer_head .appdownloadtext button {
+  margin-top: 5px;
 }
-@media (max-width: 734px) {
-  .footer_head #end {
-    bottom: 46% !important;
-    right: 0% !important;
-  }
-  .footer_head .size {
-    height: 262px;
-  }
+.footer_head .appdownloadtext button:hover {
+  margin-top: 0;
+  transition: all 0.3s ease;
 }
-@media (max-width: 500px) {
-  .footer_head #end {
-    bottom: 53% !important;
-    right: 2% !important;
-  }
-  .footer_head .size {
-    height: 270px;
-    width: 205px;
-  }
-}
-.footer_head .andriod_logo {
-  right: 7px;
-  width: 127px;
-  position: relative;
-  height: 65px;
-}
-.footer_head .apple_logo {
-  width: 151px;
-  height: 95px;
+.footer_head .downloadappimage {
+  width: 50%;
 }
 
 .footer_link {
@@ -1220,14 +1246,14 @@
   height: 150px;
 }
 .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .News_image_title h2 {
-  display: block;
-  display: -webkit-box;
   font-size: 14px;
   font-weight: 600;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
 }
 .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount {
   border: 1px solid #cbb9ba;
@@ -1402,7 +1428,7 @@ h1.newcardwrappermainHeading {
 .breaknewssidebar .breaknewssidebartitle {
   font-size: 24px;
   font-weight: 600;
-  color: rgb(0, 81, 156);
+  color: #C2121C;
   line-height: 1.5;
   border-bottom: 1px solid black;
 }
@@ -1412,26 +1438,65 @@ h1.newcardwrappermainHeading {
 .breaknewssidebar .breaknewssidebarList a {
   text-decoration: none;
 }
-.breaknewssidebar .breaknewssidebarList a h2.breaknewssidebarListitem {
+.breaknewssidebar .breaknewssidebarList a .toclistItem {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.breaknewssidebar .breaknewssidebarList a .toclistItem:hover {
+  background-color: #C2121C;
+  border-radius: 4px;
+}
+.breaknewssidebar .breaknewssidebarList a .toclistItem:hover .listiconsdot {
+  color: #fff;
+}
+.breaknewssidebar .breaknewssidebarList a .toclistItem:hover h2.breaknewssidebarListitem {
+  color: #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.breaknewssidebar .breaknewssidebarList a .toclistItem .listiconsdot {
+  color: #C2121C;
+  font-size: 22px;
+}
+.breaknewssidebar .breaknewssidebarList a .toclistItem h2.breaknewssidebarListitem {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
   color: #313131;
-  margin-bottom: 20px;
   list-style-type: disc;
   text-decoration: none;
 }
-.breaknewssidebar .breaknewssidebarList a h2.breaknewssidebarListitem:hover {
-  color: #000;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
 
-.detailspaget h1 {
+.detailspaget h1.title_had {
+  font-size: 32px;
+  line-height: 1.4;
   color: rgb(194, 18, 28);
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  word-spacing: 2px;
+  letter-spacing: 1.5px;
+  margin: 20px 0;
 }
 .detailspaget .detailspagecontent h2 {
   text-align: left !important;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 28px;
+}
+.detailspaget .detailspagecontent table {
+  width: 100% !important;
+}
+.detailspaget .detailspagecontent ul li {
+  list-style: disc;
+}
+.detailspaget .detailspagecontent P span {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .newcardwrapper {
@@ -1500,9 +1565,10 @@ h1.newcardwrappermainHeading {
 .newcardwrapper .newcard .viewCount .ViewCountDate p {
   padding: 4px;
   margin: 0;
-  color: #0088cc;
+  color: #c2121c;
   font-size: 14px;
   font-weight: 600;
+  text-align: right;
 }
 
 @media (max-width: 1400px) {
@@ -1598,6 +1664,36 @@ h1.newcardwrappermainHeading {
   .HightLight .highlightCardWrapper .BreakingnewsScrollInside .HightCol span.highlightcarddescription P:first-child {
     display: block;
   }
+  .footer_head .appdownloadtext {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    flex-direction: column;
+  }
+  .footer_head .appdownloadtext span {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .footer_head .appdownloadtext P {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .footer_head .appdownloadtext button {
+    margin-top: 5px;
+  }
+  .footer_head .appdownloadtext button:hover {
+    margin-top: 0;
+    transition: all 0.3s ease;
+  }
+  .footer_head .downloadappimage {
+    width: 50%;
+  }
+  .footer_head .downloadappimage img {
+    width: 100%;
+  }
 }
 @media (max-width: 768px) {
   .Breaking_new .Breaking_newCardWrapper {
@@ -1648,6 +1744,30 @@ h1.newcardwrappermainHeading {
   }
 }
 @media (max-width: 576px) {
+  .footer_head .appdownloadtext {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    flex-direction: column;
+  }
+  .footer_head .appdownloadtext span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .footer_head .appdownloadtext P {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .footer_head .appdownloadtext button {
+    margin-top: 5px;
+  }
+  .footer_head .appdownloadtext button:hover {
+    margin-top: 0;
+    transition: all 0.3s ease;
+  }
   .Breaking_new .Breaking_newCardWrapper {
     gap: 10px;
     justify-content: space-evenly;
@@ -1985,9 +2105,24 @@ h1.newcardwrappermainHeading {
     top: -5px;
     border-radius: 50px;
   }
-  .detailspaget h1 {
-    font-size: 24px;
-    line-height: 1.5;
-    margin: 10px 0;
+  .detailspaget h1.title_had {
+    font-size: 22px;
+  }
+  .detailspaget .detailspagecontent h2 span {
+    font-size: 16px;
+  }
+  .detailspaget .detailspagecontent h3 {
+    font-size: 17px;
+  }
+  .detailspaget .detailspagecontent table {
+    width: 100% !important;
+  }
+  .detailspaget .detailspagecontent ul li {
+    list-style: disc;
+  }
+  .detailspaget .detailspagecontent P span {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
   }
 }/*# sourceMappingURL=Style.module.css.map */

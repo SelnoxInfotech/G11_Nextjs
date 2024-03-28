@@ -121,15 +121,15 @@ function Senglepage({ props }) {
 
                     </div>
                     <div className='row '>
-                        <div className={`col-12 ${style.loadingButton}`}>
+                        <div className={`col-12 d-flex gap-2 justify-content-center ${style.loadingButton}`}>
                             {next < props?.length && (
-                                <button className="btn readleft" onClick={handleMoreImage}
+                                <button className={style.loadmorebtm} onClick={handleMoreImage}
                                 >
                                     Load more
                                 </button>
                             )}
                             {next < props?.length && (
-                                <button className={next <= 6 ? 'hidden' : "btn readleft"} onClick={handlelessImage}
+                                <button className={next <= 6 ? 'hidden' : style.loadmorebtm} onClick={handlelessImage}
                                 >
                                     Read Less
                                 </button>

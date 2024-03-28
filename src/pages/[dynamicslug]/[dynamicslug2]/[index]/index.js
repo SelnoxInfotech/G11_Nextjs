@@ -36,7 +36,7 @@ export default function Detailpage({ l, topNews }) {
                     ))}
                 </div>
                 <div className="col-lg-4 col-12">
-                    <TableOfContent props={topNews?.slice(0, 5) || []} />
+                    <TableOfContent props={topNews?.slice(0, 6) || []} />
                 </div>
             </div>
             <Card data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{dynamicslug}</h2>} query={dynamicslug} />

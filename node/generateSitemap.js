@@ -97,7 +97,7 @@ async function generateSitemap() {
       </urlset>`;
       fs.writeFileSync('./Xml/matches.xml', xml, 'utf-8');
 
-      console.log('Sitemap XML generated successfully.');
+
       return 0;
     } else {
       throw new Error('Failed to generate RSS XML. No data available.');

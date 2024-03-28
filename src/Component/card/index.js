@@ -33,9 +33,7 @@ const Card = ({ props, query  ,data1 , heading}) => {
 
         return str?.toLowerCase()
     }
-    // const imageLoader = ({ src, width, height, quality }) => {
-    //     return `https://www.g11fantasy.com/${src}?w=${width}&q=${quality || 75}`
-    // }
+   
     const imageLoader = ({ src, width, height, quality }) => {
         const l  =  data1 === "cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com"
             return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
@@ -150,15 +148,15 @@ const Card = ({ props, query  ,data1 , heading}) => {
                     }
                 </div>
                 <div className={`${'row'} ${style.BreakingButton}`}>
-                    <div className='col-12 ' id='Buttongap'>
+                    <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
                         {next < data?.length && (
-                            <button className="btn readleft" onClick={handleMoreImage}
+                            <button className={style.loadmorebtm} onClick={handleMoreImage}
                             >
                                 Load more
                             </button>
                         )}
                         {next < data?.length && (
-                            <button className={next <= 5 ? 'hidden' : "btn readleft"} onClick={handlelessImage}
+                            <button className={next <= 12 ? 'hidden' :style.loadmorebtm} onClick={handlelessImage}
                             >
                                 Read Less
                             </button>

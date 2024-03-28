@@ -11,9 +11,9 @@ export default function Footer() {
   }
   return (
 
-    <div className={`${'container-fluid'} ${style.footer_head}`}>
+    <div className={`${'container'} ${style.footer_head}`}>
 
-      <div className={`${style.footer_text}`}>
+      <div className={`${style.appdownloadtext}`}>
 
         <span>OFFICAL APP    </span>
         <p>G11 SPORT  </p>
@@ -21,16 +21,12 @@ export default function Footer() {
         <a href={urlAndriod}><button type="button" className="btn btn-light">DOWNLOAD NOW</button></a>
 
       </div>
-      <div className='container-fluid '>
-        <div className='row '>
-          <div className='col-12 '>
-            <div className='position-absolute bottom-50 end-50 ' id={`${style.end}`}>
-            <Image width={600} height={500}   src={image1} alt="G11-Fantasy Cricket Prediction for Today's Match" className={`${'img-responsive'} ${style.size}`} />
+    
+            <div  className={style.downloadappimage}>
+               <Image width={600} height={500}   src={image1} alt="G11-Fantasy Cricket Prediction for Today's Match" className={style.imgsfgf} />
             </div>
        
-          </div>
-        </div>
-      </div>
+        
 
 
       <div className='position-absolute bottom-0 end-0 d-flex' style={{  alignContent: 'center'}}>

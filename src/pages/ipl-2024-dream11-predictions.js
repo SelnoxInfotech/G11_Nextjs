@@ -70,7 +70,7 @@ const ipl2024dream11predictions = (props) => {
                                                   {/* <div className={`col-md-6 col-4 ${style.viewCounteye}`}>
                                                       <span>{breakingnews?.ViewCount}</span><AiFillEye></AiFillEye>
                                                   </div> */}
-                                                  <div className={`col-md-6 col-8 ${style.ViewCountDate}`}>
+                                                  <div className={style.ViewCountDate}>
                                                       <p >{items?.created?.slice(0, 10)}</p>
                                                   </div>
                                               </div>

@@ -13,11 +13,7 @@ function MatchPriview(props) {
     const [metaDiscription, SetmetaDiscription] = useState('')
    
     const [Title1, SetTitle] = useState('')
-    const [preview, Setpreview] = useState()
-   
-    useEffect(() => {
-        Setpreview(router.query.slug[1])
-    }, [])
+  
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -106,20 +102,7 @@ function MatchPriview(props) {
         SetTitle(input)
     }, [])
 
-    // const TaBFunction = (e) => {
-    //     const l = e.target.innerText === "Match Preview" ? "match-preview" : e.target.innerText === "Team Guide" ? "team-guide" : e.target.innerText === "Cheat sheet" ? "cheat-sheet" : e.target.innerText === "Teams" && "teams"
-    //     Setpreview(() => l)
-    //     function checkString(string) {
-    //         return typeof string === "string" && !isNaN(string)
-    //     }
-    //     if (checkString(router.query.slug[3])) {
-    //         window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[3]}`);
-    //     }
-    //     else {
-    //         window.history.replaceState({}, '', `/cricket-match-predictions/${l}/${modifystr(router.query.slug[1])}/${modifystr(Title1)}/${router.query.slug[2]}`);
-    //     }
 
-    // }
 
     return (
         <div>
@@ -131,54 +114,7 @@ function MatchPriview(props) {
                 canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(Title1) +"-dream11-prediction-today-match"}/${router.query.slug[1] || router.query.slug[0]}/`}
             >
             </Seo>
-                {/* <Tabs
-                defaultActiveKey={preview}
-                id="uncontrolled-tab-example"
-                className={style.matchpriviewtab}
-                onClick={TaBFunction}>
-                < Tab className='color' eventKey="match-preview" title={preview === "match-preview" ? <h1 className={`${style.match_priview}`} >Match Preview</h1> : <h2 className={`${style.match_priview}`}>Match Preview</h2>} >
-                    <div className='container'>
-                        <div className='row'>
-                            <div className='col-12 mt-5' >
-                                <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
-                                <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe }}></div>
-                            </div>
-                        </div>
-                    </div>
-                </Tab>
-                < Tab className='color' eventKey="team-guide" title={preview === "team-guide" ? <h1 className={`${style.match_priview}`} >Team Guide</h1> : <h2 className={`${style.match_priview}`}>Team Guide</h2>} >
-                    <div className='container' >
-                        <div className='row'>
-                            <div className='col-12 mt-5'>
-                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
-                                <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide }}></div>
-                            </div>
-                        </div>
-                    </div>
-                </Tab>
-
-                < Tab className='color' eventKey="cheat-sheet" title={preview === "cheat-sheet" ? <h1 className={`${style.match_priview}`} >Cheat sheet</h1> : <h2 className={`${style.match_priview}`}>Cheat sheet</h2>}>
-                    <div className='container'>
-                        <div className='row'>
-                            <div className='col-12  mt-5'>
-                           <p className={`${style.matchPrivewTitle} mb-5`}>{Title1 + "dream11 prediction today match" +  ", dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</p>
-                                <div className={style.font} dangerouslySetInnerHTML={{ __html: Detail }}></div>
-                            </div>
-                        </div>
-                    </div>
-                </Tab>
-                < Tab className='color' eventKey="teams" title={preview === "teams" ? <h1 className={`${style.match_priview}`} >Teams</h1> : <h2 className={`${style.match_priview}`}>Teams</h2>}>
-                    <div className='container'>
-                        <div className='row'>
-                            <p className={`${style.matchPrivewTitle} mb-5 mt-5`}>{Title1 + "dream11 prediction today match"}</p>
-                            <div className='col-4 '>
-                                <div className='Teams_image_full img-thumbnail' dangerouslySetInnerHTML={{ __html: Teams_image }}></div>
-                            </div>
-                        </div>
-                    </div>
-                </Tab>
-            </Tabs>  */}
-
+             
             <div className={`${style.matchpage} container py-5`}>
                  <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " , dream11 prediction today match" +  " , dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
                      
@@ -193,17 +129,7 @@ function MatchPriview(props) {
                        </div>
                      </div>
                      <div className='col-lg-4 '>
-                        {/* <div className={style.breaknewssidebar}>
-                            <h4 className={style.breaknewssidebartitle}>Recent News</h4>
-                            <ul className={style.breaknewssidebarList}>
-                                
-                            {
-                                breakingNews.map((item)=>{
-                                    return <Link href={`/cricket-breaking-news/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title ||  item?.title)}/${item.id}`}><li className={style.breaknewssidebarListitem}>{item.Title}</li></Link>
-                                })
-                            }
-                            </ul>
-                        </div> */}
+                      
                         <TableOfContent  props={props.props.topNews.slice(0,5)}/>
                      </div>
                 </div>

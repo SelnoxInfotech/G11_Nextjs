@@ -6,12 +6,6 @@ import { Seo } from '../../Component/Seo/Seo';
 const MatchPriview = dynamic(() => import('../../Component/MatchPriview/MatchPriview'), { ssr: true });
 
 function Matchguide(props) {
-    // if(router.asPath === "/breaking-news/"){
-    //     window.history.replaceState({}, '', `/cricket-breaking-news`);
-    //   }
-      
-
-
     return (
         <div>
          

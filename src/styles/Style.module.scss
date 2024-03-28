@@ -27,6 +27,21 @@ $background-color_1: var(--cardColor);
         }
     }
 }
+.loadmorebtm{
+    padding: 5px 12px;
+    border: 1px solid #C2121C;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    color: #C2121C;
+    font-weight: 500;
+    border-radius: 3px;
+    &:hover{
+        background-color: #C2121C;
+        color: #fff;
+        transition: all .3s ease-in-out;
+    }
+
+}
 .Offcanvas{
 background-color: #c2121c;
 // justify-content: center;
@@ -101,13 +116,18 @@ background-color: #c2121c;
 }
 
 .dropdownLink {
+    a{
+        &:hover{
+            padding: 10px 14px;
+        }
+    }
+    padding: 5px 10px;
     div {
         background-color: #c2121c;
         div{
             margin: 10px;
             display: grid;
-
-    justify-items: center;
+             justify-items: center;
             a{
                 width: 230px;
             }
@@ -323,7 +343,8 @@ background-color: #c2121c;
     .Static_row {
         text-align: center;
         align-items: center;
-
+        z-index: 10;
+        color: #fff;
     }
 
     .welcome {
@@ -608,7 +629,7 @@ background-color: #c2121c;
                 -webkit-line-clamp: 2; /* number of lines to show */
                         line-clamp: 2; 
                 -webkit-box-orient: vertical;
-                font-family: "Bebas Neue", sans-serif;
+                font-family: "Bebas Neue", sans-serif;  
                 letter-spacing: .5px;
                 word-spacing: 1px;
 
@@ -694,8 +715,7 @@ background-color: #c2121c;
 }
 
 .Static {
-    width: 97%;
-
+    width: 100%;
     margin-top: 10px;
     position: relative;
     border: 2px solid #e7e6e6;
@@ -704,34 +724,65 @@ background-color: #c2121c;
     justify-content: center;
     align-items: center;
     display: flex;
-
+    background:url('../Image/teamimage.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 20px;
+    position: relative;
     //   .Static_row {
     //     margin: 5px;
     //   }
-    .latest_n {
-
-        font-size: 20px;
-        font-weight: 700;
-        color: #111010;
+    .bgelle{
+        background-color: #000000bd;
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        
     }
+    .staticsectioncontent{
+        z-index: 10;
+            h2.StaticTitle{
+                font-size: 32px;
+                font-weight: 700;
+                font-family: "Roboto", sans-serif;
+                line-height: 1.5;
+                color: #fff;
+                z-index: 10;
+            }
+            .latest_n {
 
-    .todaymatchli li::marker {
-        color: #111010;
-        content: "# ";
-    }
+                font-size: 20px;
+                font-weight: 700;
+                color: #111010;
+            }
 
-    .todaymatchli ul {
-        list-style-type: none;
-
+            .todaymatchli h2::marker {
+                color: #111010;
+                content: "# ";
+            }
+            ul{
+                li{
+                    list-style: disc;
+                    font-size: 16px;
+                    color: #fff;
+                    font-weight: 500;
+                    z-index: 10;
+                    margin: 20px 0;
+                }
+            }
     }
 
 }
 
 .SecondStatic {
-    font-family: segeo UI;
-
+    font-family: 'segeo UI';
+    margin: 30px 0;
     .Static_row {
-     
+      z-index: 10;
         background: #e4ebf4;
         padding: 20px 40px;
         .olcards {
@@ -1046,84 +1097,40 @@ background-color: #c2121c;
     }
 
 .footer_head {
-    position: relative;
+  
     margin-top: 20px;
-    height: 500px;
-    background: linear-gradient(40deg,
-            #C2121C 50%, #ffffff 50%, #f5f5f5 100%);
-
-    .footer_text {
-        font-size: small;
-        right: -33px;
-        left: 20px;
-        text-align: center;
-        font-weight: 600;
-        top: 250px;
-        position: relative;
-        color: white;
-        width: fit-content;
-    }
-
-    .size {
-       width: 412px;
-    height: 494px;
-    }
-
-    #end {
-        bottom: 8% !important;
-        right: 10% !important;
-    }
-
-    @media (max-width: 1060px) {
-        #end {
-            bottom: 46% !important;
-            right: 11% !important;
+    border: 1px solid #C2121C;
+    background: rgb(194,18,28);
+    background: linear-gradient(71deg, rgba(194,18,28,1) 0%, rgba(194,18,28,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 87%);
+    width: 100%;
+    display: flex;
+    .appdownloadtext {
+       width: 50%;
+      padding: 20px;
+       display: flex;
+       justify-content: center;
+       align-items: flex-start;
+       color: #fff;
+       flex-direction: column;
+       span{
+          font-size: 22px;
+          font-weight: 500;
+       }
+       P{
+        font-size: 32px;
+        font-weight: 700;
+       }
+       button{
+        margin-top: 5px;
+        &:hover{
+           margin-top: 0;
+           transition: all .3s ease;
         }
-
-        .size {
-            width: 261px;
-            height: 265px;
-
-        }
-
+       }
     }
-
-    @media (max-width: 734px) {
-
-        #end {
-            bottom: 46% !important;
-            right: 0% !important;
-        }
-
-        .size {
-            height: 262px;
-        }
+    .downloadappimage{
+        width: 50%;
     }
-
-    @media (max-width: 500px) {
-        #end {
-            bottom: 53% !important;
-            right: 2% !important;
-        }
-
-        .size {
-            height: 270px;
-            width: 205px;
-        }
-    }
-
-    .andriod_logo {
-        right: 7px;
-        width: 127px;
-        position: relative;
-        height: 65px;
-    }
-
-    .apple_logo {
-        width: 151px;
-        height: 95px;
-    }
-
 }
 
 .footer_link {
@@ -1397,21 +1404,21 @@ background-color: #c2121c;
         
             .News_image_title {
                 h2{
-                display: block;
+                font-size: 14px;
+                font-weight: 600;
+                overflow: hidden;
                 display: -webkit-box;
-            font-size: 14px;
-            font-weight: 600;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
+                -webkit-line-clamp: 2; /* number of lines to show */
+                        line-clamp: 2; 
+                -webkit-box-orient: vertical;
+                line-height: 1.5;
             }
             }
                   
             .viewCount {
                 border: 1px solid #cbb9ba;
                 display: flex;
-            padding: 5px;
+                padding: 5px;
 
                 p {
                     padding: 0;
@@ -1615,39 +1622,90 @@ h1.newcardwrappermainHeading{
     .breaknewssidebartitle{
         font-size: 24px;
         font-weight: 600;
-        color: rgb(0, 81, 156);
+        color: #C2121C;
         line-height: 1.5;
         border-bottom: 1px solid black;
     }
     .breaknewssidebarList{
         padding: 20px 10px;
-        a{
-            text-decoration: none;
-        h2.breaknewssidebarListitem{
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #313131;
-            margin-bottom: 20px;
-            list-style-type: disc;
-            text-decoration: none;
-            &:hover{
-              color: #000;
-              font-weight: 500;
-              transition: all .3s ease;
+       
+            a{
+                text-decoration: none;
+                .toclistItem{
+                    display: flex;
+                    margin-bottom: 20px;
+
+                    gap: 10px;
+                    align-items: center;
+                    transition: all .3s ease;
+
+                    &:hover{
+                      background-color: #C2121C;
+                      border-radius: 4px;
+                      .listiconsdot{
+                        color: #fff;
+                       }
+                    
+                        h2.breaknewssidebarListitem{
+                        color: #fff;
+                        font-weight: 500;
+                        transition: all .3s ease;
+                        }
+                    }
+                    .listiconsdot{
+                        color: #C2121C;
+                        font-size: 22px;
+                    }
+                    
+                    h2.breaknewssidebarListitem{
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 1.5;
+                        color: #313131;
+                        list-style-type: disc;
+                        text-decoration: none;
+                    
+                    }
+                }
             }
-        }
-    }
-    }
+     }
   }
   .detailspaget{
-    h1{
+    h1.title_had{
+        font-size: 32px;
+        line-height: 1.4;
         color: rgb(194, 18, 28);
+        font-weight: 700;
+        font-family: "Inter", sans-serif;
+        word-spacing: 2px;
+        letter-spacing: 1.5px;
+        margin: 20px 0;
     }
   .detailspagecontent{
+  
      h2{
         text-align: left !important;
+        font-family: "Inter", sans-serif;
+       font-weight: 700;
+       line-height: 1.5;
+       font-size: 28px;
      }
+     table{
+        width: 100% !important;
+     }
+     ul{
+        li{
+            list-style: disc;
+        }
+     }
+     P{
+        span{
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+        }
+     }
+     
   }
   }
   .newcardwrapper{
@@ -1719,9 +1777,10 @@ h1.newcardwrappermainHeading{
                 p{
                     padding: 4px;
                     margin: 0;
-                    color: #0088cc;
+                    color: #c2121c;
                     font-size: 14px;
                     font-weight: 600;
+                    text-align: right;
                 }
             }
         }
@@ -1875,7 +1934,40 @@ h1.newcardwrappermainHeading{
    
 
    }
-
+   .footer_head {
+  
+   
+    .appdownloadtext {
+       width: 50%;
+       padding: 20px;
+       display: flex;
+       justify-content: center;
+       align-items: flex-start;
+       color: #fff;
+       flex-direction: column;
+       span{
+          font-size: 18px;
+          font-weight: 500;
+       }
+       P{
+        font-size: 22px;
+        font-weight: 700;
+       }
+       button{
+        margin-top: 5px;
+        &:hover{
+           margin-top: 0;
+           transition: all .3s ease;
+        }
+       }
+    }
+    .downloadappimage{
+        width: 50%;
+        img{
+            width: 100%;
+        }
+    }
+    }
   }
   @media (max-width : 768px){
     .Breaking_new {
@@ -1948,6 +2040,35 @@ h1.newcardwrappermainHeading{
     }
   }
   @media (max-width : 576px){
+    .footer_head {
+  
+   
+        .appdownloadtext {
+           width: 50%;
+           padding: 20px;
+           display: flex;
+           justify-content: center;
+           align-items: flex-start;
+           color: #fff;
+           flex-direction: column;
+           span{
+              font-size: 16px;
+              font-weight: 500;
+           }
+           P{
+            font-size: 18px;
+            font-weight: 700;
+           }
+           button{
+            margin-top: 5px;
+            &:hover{
+               margin-top: 0;
+               transition: all .3s ease;
+            }
+           }
+        }
+      
+        }
     .Breaking_new {
         .Breaking_newCardWrapper{
             gap: 10px;
@@ -2296,7 +2417,7 @@ h1.newcardwrappermainHeading{
     }
   }
   @media (max-width : 576px){
-    .matchpage{
+      .matchpage{
         position: relative;
         .pridctionImageSection{
             img{
@@ -2336,12 +2457,38 @@ h1.newcardwrappermainHeading{
         top: -5px;
         border-radius: 50px;
       } 
+    
       .detailspaget{
-        h1{
-            font-size: 24px;
-             line-height: 1.5;
-             margin: 10px 0;
+        h1.title_had{
+            font-size: 22px;
+          
         }
-     
-    }   
+      .detailspagecontent{
+      
+         h2{
+            span{
+              font-size: 16px;
+            }
+         }
+         h3{
+            font-size: 17px;
+         }
+         table{
+            width: 100% !important;
+         }
+         ul{
+            li{
+                list-style: disc;
+            }
+         }
+         P{
+            span{
+                font-family: "Inter", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+            }
+         }
+         
+      }
+      } 
   }

@@ -2,20 +2,14 @@
 import React from 'react'
 import style from '../../styles/Style.module.scss'
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+import { GoDotFill } from "react-icons/go";
+
 
 
 export default function Index ({props}){
-    const [recentnews, setrecentnews] = React.useState([]);
-
-    // React.useEffect(() => {
-    //     const apicalling = async () => {
-    //         const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
-    //         const topNews = await topNewsRes.json();
-    //         setrecentnews(topNews.slice(0, 5))
-    //     }
-    //     apicalling()
-
-    // }, [])
+ 
+    const router = useRouter()
     function modifystr(str) {
 
         str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -43,8 +37,15 @@ export default function Index ({props}){
             <div className={style.breaknewssidebarList}>
 
                 {
-                    props?.map((item , index) => {
-                        return <Link key={index} href={`/cricket-breaking-news/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title || item?.title)}/${item.id}`}><h2 className={style.breaknewssidebarListitem}>{item.Title}</h2></Link>
+                    props?.filter((items)=>{
+                        return items.id != router.query.index
+                    })?.map((item , index) => {
+                        return <Link key={index} href={`/cricket-breaking-news/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title || item?.title)}/${item.id}`}>
+                            <div className={style.toclistItem}>
+                                <span className={style.listiconsdot}> <GoDotFill /></span>
+                                <h2 className={style.breaknewssidebarListitem}>{item.Title}</h2>
+                            </div>
+                            </Link>
                     })
                 }
             </div>

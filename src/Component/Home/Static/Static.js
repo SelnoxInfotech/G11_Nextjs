@@ -3,14 +3,12 @@ import style from "../../../styles/Style.module.scss"
 export default function Static_todaymatch() {
     return (
         <div className={`${'container-fluid' } ${style.Static}`}>
-            <div className={`row mt-2 `}>
+         
+            <div className={`row mt-2  ${style.staticsectioncontent}`}>
                 <div className={`${'col-12'}  ${style.latest_n} ${style.todaymatchli}`}>
-                    <ul>
-                        <li>1 Dream11 Fantasy Cricket Prediction Today Match</li>
-                    </ul>
+                  <h2 className={style.StaticTitle}> 1 Dream11 Fantasy Cricket Prediction Today Match</h2>
                 </div>
-             <div className='row '>
-             <div className='col-12'>
+                <div className='col-12'>
                     <ul>
                         <li>G11 provides the most accurate updated Dream11 cricket prediction for today&#39;s
                             match. Our experts provide our users with the best teams that increase their chances
@@ -26,7 +24,7 @@ export default function Static_todaymatch() {
 
                 </div>
              </div>
-            </div>
+             <div className={style.bgelle}></div>
         </div >
     )
 }

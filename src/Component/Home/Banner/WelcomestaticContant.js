@@ -3,6 +3,7 @@ import style from "../../../styles/Style.module.scss"
 export default function Static_Content() {
     return (
         <div className={`${ style.Static} container-fluid`}>
+               <div className={style.bgelle}></div>
             <div className={`${style.Static_row} `}>
                 <div className='col-12' >
                     <h2 className={style.welcome}>Welcome to G11</h2>
