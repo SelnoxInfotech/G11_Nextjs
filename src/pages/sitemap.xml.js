@@ -62,6 +62,12 @@ export async function getServerSideProps({ res }) {
     <url>
       <loc>https://g11prediction.com/cricket-prediction.xml</loc>
     </url>
+    <url>
+    <loc>https://g11prediction.com/latest-video.xml</loc>
+  </url>
+  <url>
+  <loc>https://g11prediction.com/ipl-2024-dream11-predictions.xml</loc>
+</url>
   </urlset>
 `;
 

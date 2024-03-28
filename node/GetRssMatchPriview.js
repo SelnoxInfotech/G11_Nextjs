@@ -31,7 +31,7 @@ router.get('/rss/:category', (req, res) => {
   async function generateRssXml(url, link, siteurl) {
     const data = await axios.get(url);
 
-    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data :  link === "ipl-2024-dream11-predictions.xml"  ? data.data.data:data.data;
+    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data :  link === "ipl-2024-dream11-predictions.xml"  ? data.data.data :  link === "latest-video.xml"  ? data.data.data  :  data.data;
 
     let feed = new RSS({
       title: 'Cricket Breaking News ON TRENDING TOPICS',
@@ -48,7 +48,7 @@ router.get('/rss/:category', (req, res) => {
       feed.item({
         title: url.Title,
         description: l['__html'],
-        url: `https://g11prediction.com/${siteurl}/${modifystr(url.Title)}/${url.id}/`,
+        url: `https://g11prediction.com/${siteurl}/${link === "latest-video.xml"  ? url.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase() : modifystr(url.Title)}/${url.id}/`,
         date: new Date(url.created),
       });
     });
@@ -170,6 +170,22 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
+  else if (req.params.category === "latest-video.xml") {
+    try {
+      async function k() {
+        const rssXml = await generateRssXml("https://www.g11fantasy.com/NewsSection/Get-VideoNews/", "latest-video.xml", "latest-video");
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(rssXml);
+        res.end();
+      }
+      k()
+    } catch (error) {
+      console.error('Error generating RSS feed:', error);
+      res.status(500).end('Internal Server Error');
+    }
+  }
+
   else {
     res.status(200).json("page Not Found");
   }
