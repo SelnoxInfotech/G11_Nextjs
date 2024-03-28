@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import Link from 'next/link';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
-import image1 from "./banner.png";
+import image1 from "./converted_banner.webp";
 
 function Index({ match ,image }) {
     function modifystr(str) {
