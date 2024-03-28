@@ -100,7 +100,7 @@ const Card = ({ props, query  ,data1 , heading}) => {
 
 
     return (
-        <div className='container-fluid center'>
+        <div className='container center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
                    {heading}

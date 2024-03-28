@@ -9,7 +9,7 @@ export default function BraekingNewsSlider({ props }) {
       <div className="container-fluid">
         <div className="row ">
           <div className={`col-4 ${style.braking_news}`}>
-            <p className="align-middle">BREAKING NEWS</p>
+            <p className="align-middle m-0 py-2">BREAKING NEWS</p>
           </div>
           <div className={`${style.scroll_container}  col`}>
             <span className={style.scroll_text}>

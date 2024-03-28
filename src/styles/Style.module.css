@@ -49,16 +49,6 @@
   background-color: #2EA8DE;
 }
 
-.Homelink {
-  left: 20px;
-  position: relative;
-  font-size: 26px;
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  align-items: center;
-}
-
 .Nav {
   background-color: #c2121c;
 }
@@ -75,6 +65,15 @@
   background-color: #2EA8DE;
 }
 
+.Homelink {
+  left: 20px;
+  position: relative;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  align-items: center;
+}
 .Homelink a {
   position: relative;
   margin: 20px;
@@ -84,6 +83,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.Homelink a:hover {
+  transform: scale(1.1);
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+  color: #C2121C;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .dropdownLink div {
@@ -1172,7 +1181,7 @@
 }
 .Breaking_new .Breaking_newCardWrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -1443,7 +1452,12 @@ h1.newcardwrappermainHeading {
 .newcardwrapper .newcard a {
   text-decoration: none;
 }
+.newcardwrapper .newcard:hover {
+  box-shadow: 0px 14px 20px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
 .newcardwrapper .newcard:hover .News_image {
+  transform: scale(1.1);
   transition: all 0.4s ease-in-out;
   z-index: -1;
   text-decoration: none !important;
@@ -1458,6 +1472,7 @@ h1.newcardwrappermainHeading {
   position: absolute;
   top: 5px;
   right: 5px;
+  z-index: 1;
 }
 .newcardwrapper .newcard .News_image {
   width: 100%;
@@ -1473,16 +1488,14 @@ h1.newcardwrappermainHeading {
   display: inline-block;
   word-wrap: break-word;
   overflow: hidden;
-  max-height: 42px;
+  height: 28px;
   line-height: 14px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   box-sizing: content-box;
-}
-.newcardwrapper .newcard h2.card_text::after {
-  content: "...";
-  position: absolute;
-  right: -12px;
-  bottom: 4px;
-  z-index: 10;
 }
 .newcardwrapper .newcard .viewCount .ViewCountDate p {
   padding: 4px;
