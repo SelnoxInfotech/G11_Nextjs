@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic'
-import  Seo from '../Component/Seo/Seo';
+import Seo from '../Component/Seo/Seo';
 import useSWR from 'swr';
 import ReactPlayer from 'react-player'
 import Link from 'next/link';
@@ -33,8 +33,8 @@ const Video = (initialData) => {
         setNext(next - imagePerRow);
     };
 
-        const alternativeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-       
+    const alternativeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+
     return (
         <>
             <Seo
@@ -46,17 +46,17 @@ const Video = (initialData) => {
             ></Seo>
             <div className={`${'container'} ${style.latestVideoPage}`}>
                 <div className="row">
-                
-                     <h1 className={style.videopagetitle}>Latest Video News </h1>
-                     <div className={style.videoh1box}> 
-                            {data.data?.slice(0, next)?.map((ele) => {
-                                console.log(ele)
-                                console.log(ele.VideoUrl.match(alternativeRegex)[1])
-                                return (
-                                    <div className={style.latestvideo_card} key={ele.id}>
-                                    
-                                            <div className={style.react_player}>
-                                                {/* <ReactPlayer playing ={false} config={{
+
+                    <h1 className={style.videopagetitle}>Latest Video News </h1>
+                    <div className={style.videoh1box}>
+                        {data.data?.slice(0, next)?.map((ele) => {
+                            console.log(ele)
+                            console.log(ele.VideoUrl.match(alternativeRegex)[1])
+                            return (
+                                <div className={style.latestvideo_card} key={ele.id}>
+
+                                    <div className={style.react_player}>
+                                        {/* <ReactPlayer playing ={false} config={{
           youtube: {
             playerVars: {
               autoplay: 0, // Set to 1 if you want the video to autoplay
@@ -70,24 +70,24 @@ const Video = (initialData) => {
           },
         }} controls={true} url={`${ele.VideoUrl}/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?modestbranding=0&;showinfo=0&;autohide=1&;rel=0;`} width="100%" height="100%" onClick={handleVideo} />
                                     */}
-                                            <iframe className={style.videoplayer}
-        title='Youtube player'
-        sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
-        src={`https://youtube.com/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?autoplay=0&showinfo=0&modestbranding=0&part=snippet&wmode=transparent&controls=1&color=white&rel=0&enablejsapi=1&playsinline=1&&version=3&theme=light&autohide=1&egm=0&showsearch=0&loop=1`}>
-</iframe>
-                                            
-                                            </div>
-                                          
-                                            <div className="col ">
-                                                <Link href={`/latest-video/${ele.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${ele.id}`}><p className={style.latest_video_title}>{ele.Title.substr(0, 100)}</p></Link>
-                                                <span className={style.Latest_video_date}>
-                                                    {ele.created.slice(0, 10)}
-                                                </span>
-                                            </div>
+                                        <iframe className={style.videoplayer}
+                                            title='Youtube player'
+                                            sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+                                            src={`https://youtube.com/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?autoplay=0&showinfo=0&modestbranding=0&part=snippet&wmode=transparent&controls=1&color=white&rel=0&enablejsapi=1&playsinline=1&&version=3&theme=light&autohide=1&egm=0&showsearch=0&loop=1`}>
+                                        </iframe>
+
                                     </div>
-                                )
-                            })}
-                     </div>
+
+                                    <div className="col ">
+                                        <Link href={`/latest-video/${ele.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${ele.id}`}><p className={style.latest_video_title}>{ele.Title.substr(0, 100)}</p></Link>
+                                        <span className={style.Latest_video_date}>
+                                            {ele.created.slice(0, 10)}
+                                        </span>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>  
                 <div className='mt-5 d-flex gap-2 justify-content-center '>
