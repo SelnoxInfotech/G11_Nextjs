@@ -44,9 +44,7 @@ const contact_us = () => {
                                     <p>Email Id:   <a href="mailto:g11hosting@gmail.com">g11hosting@gmail.com</a> </p>
                                     <p> <span>Contacts No:</span><span><a href='tel:+916262003399'>+916262003399</a></span></p>
                                     <p>or</p>
-                                    <p>Visit: shop no 8,1st floor platinum plaza mata mandir road, bhopal (m.p)
-                                        Bhopal, Madhya Pradesh, India, Madhya pradesh 462003
-                                        India</p>
+                                    <p>Visit:179, 2nd Floor, Happy Chambers, Near Hotel Surendra Vilas, Zone-I, Maharana Pratap Nagar, Bhopal, Madhya Pradesh 462011</p>
                                 </div>
                             </div>
                         </div>

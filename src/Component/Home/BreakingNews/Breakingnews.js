@@ -30,49 +30,39 @@ const Breakingnews = ({ Breaking }) => {
       }
 
     return (
-        <div className={`${'container-fluid'} ${style.BreakingNewsSectionHomepage}`} >
-            <div className={style.latest_bottem}>
-                <div className="row border  ">
-                    <div className="col-md-12 View_All_link">
-                        <div>
-                            <h3>   <span className={style.hadding}> Breaking</span> <span className="latest_n hadd">News</span></h3>
-                            {/* <span className="  position-absolute end-0 view_all"><Link to="/BreakingNews"> View All  </Link></span> */}
+        <div className={`${'container'} ${style.BreakingNewsSectionHomepage}`} >
+         
+                 <h2 className={style.sectionMainTitle}> Breaking News</h2>  
+                <div className={` ${style.Breaking} `}>
+
+                    <ScrollContainer className={style.BreakingnewsScroll}>
+
+                        <div className='col-12 d-flex gap-4 py-3'>
+                            {Breaking !== undefined && Breaking?.map((data, index) => {
+
+                                return (
+                                    <div key={index} className={style.homepagebreakingness} >
+                                        <div className={'col'} >
+                                                <Link href={`/cricket-breaking-news/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}/${data?.id}`} >
+                                                    <div className={style.breakingnewshomeimage}><Image loader={imageLoader} src={`${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} /></div>
+                                                    <h4 className={style.breakingnewshometitle}> {data?.Title.substr(0, 100)}</h4> 
+                                                </Link>
+                                        
+                                        </div>
+                                        <div className="col ">
+                                                <span className={`${style.BreakingNews_date}`} >
+                                                <span className="ClenderIcon"> <CiCalendarDate color='#c2121c'></CiCalendarDate></span>
+                                                {data?.created.slice(0, 10)}
+                                                </span>
+
+                                        </div>
+                                    </div >
+                                )
+                            })}
                         </div>
-                    </div>
+                    </ScrollContainer>
+
                 </div>
-            </div>
-            <div className={` ${style.Breaking} `}>
-
-                <ScrollContainer className={style.BreakingnewsScroll}>
-
-                    <div className='col-12 d-flex gap-4'>
-                        {Breaking !== undefined && Breaking?.map((data, index) => {
-
-                            return (
-                                <div key={index} className={style.homepagebreakingness} >
-                                    <div className={'col'} >
-                                            <Link href={`/cricket-breaking-news/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}/${data?.id}`} >
-                                        <Image loader={imageLoader} src={`${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} />
-                                  
-                                                {data?.Title.substr(0, 100)}
-                                            </Link>
-                                     
-                                    </div>
-                                    <div className="col ">
-                                        <span className={`${style.BreakingNews_date} d-flex`} >
-                                            <span className="ClenderIcon"> <CiCalendarDate color='#000'></CiCalendarDate></span>
-                                            {data?.created.slice(0, 10)}
-                                        </span>
-
-                                    </div>
-                                </div >
-
-                            )
-                        })}
-                    </div>
-                </ScrollContainer>
-
-            </div>
 
 
         </div>

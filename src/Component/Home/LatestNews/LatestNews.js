@@ -12,17 +12,11 @@ const Breakingnews = ({ latestnews }) => {
       }
     
     return (
-        <div className={`${'container-fluid'} ${style.LatestNewsSection}`} >
-            <div className={style.latest_bottem}>
-                <div className="row border  ">
-                    <div className="col-md-12 View_All_link">
-                        <div>
-                            <h3><span className={style.hadding}> Ipl 2024  Latest</span> <span className="latest_n hadd">News</span></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className={` col ${style.box}`}>
+        <div className={`${'container'} ${style.LatestNewsSection}`} >
+            <h2 className={style.sectionMainTitle}>Ipl 2024  Latest News</h2>
+                     
+           
+            <div className={`row ${style.box}`}>
                 <div className={`${style.imageCenter} col`}>
                    
                   <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>
@@ -34,8 +28,6 @@ const Breakingnews = ({ latestnews }) => {
                     <div className={style.latestnewsTextdesc}><span className={`${style.text}`}>{parse(latestnews[0].Description.substr(0, 1000))}</span></div>      
                     <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}><button className={`${style.highlightcardbtn} ${style.hoverSlideRight}`}>Read Full News</button></Link>
                 </div>
-
-
             </div>
 
 

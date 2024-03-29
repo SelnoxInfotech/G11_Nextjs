@@ -33,15 +33,7 @@ const HightLight = ({ latestnews }) => {
     
     return (
         <div className={`${'container-fluid'} ${style.HightLight}`} >
-            <div className={style.latest_bottem}>
-                <div className=" border  ">
-                    <div className="col-md-12 View_All_link">
-                        <div>
-                            <h3><span className={style.hadding}> HighLight</span> </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 className={style.sectionMainTitle}> HighLight</h2>
             <div className={style.highlightCardWrapper}>
             <ScrollContainer vertical={false} className={style.BreakingnewsScroll}>
                 <div className={`${'col-12'} ${style.BreakingnewsScrollInside}`}>
@@ -57,7 +49,7 @@ const HightLight = ({ latestnews }) => {
                                         </div>
                                         <div className='col-lg-6 col-12'>
                                             <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>   
-                                             <h3 className={style.highlightcardtitle}> {data?.title?.substr(0, 55)}</h3>
+                                            <h3 className={style.highlightcardtitle}> {data?.title?.substr(0, 55)}</h3>
                                             </Link>
                                             <span className={style.highlightcarddescription}>{parse(data?.content) ? parse(data?.content) : ""}</span>
                                             <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>

@@ -138,7 +138,7 @@ function OffcanvasExample({ props }) {
 
                   >
 
-                 <div>
+                 <div className={style.customnavdrpstyle}>
                    <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
                    <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}
                     onClick={toggleOffCanvas}

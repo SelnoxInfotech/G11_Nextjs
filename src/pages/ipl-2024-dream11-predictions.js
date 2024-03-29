@@ -50,7 +50,7 @@ const ipl2024dream11predictions = (props) => {
                
 
                  return   <div className={style.newcard}  key={index}>
-                                            <div className={`${"col"}`}>
+                                              <div className={`${"col"}`}>
                                                   <RWebShare  data={{
                                                           // url: `http://weedx.site/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title || breakingnews?.title)}/${breakingnews.id}`
                                                   }}  onClick={() => console.log("shared successfully!")}  >
@@ -67,9 +67,7 @@ const ipl2024dream11predictions = (props) => {
                                                   </div>
                                               </Link>
                                               <div className={`col-12 ${style.viewCount}`}>
-                                                  {/* <div className={`col-md-6 col-4 ${style.viewCounteye}`}>
-                                                      <span>{breakingnews?.ViewCount}</span><AiFillEye></AiFillEye>
-                                                  </div> */}
+                                                 
                                                   <div className={style.ViewCountDate}>
                                                       <p >{items?.created?.slice(0, 10)}</p>
                                                   </div>

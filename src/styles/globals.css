@@ -30,6 +30,9 @@ body {
     background-size: cover !important;
     opacity: 1 !important;
 }
+.ytp-large-play-button{
+ display: none !important;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;

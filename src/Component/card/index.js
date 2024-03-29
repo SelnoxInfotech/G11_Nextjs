@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import axios from 'axios';
 const Card = ({ props, query  ,data1 , heading}) => {
     const [data, setdata] = React.useState(props)
-    const imagePerRow = 12
+    const imagePerRow = 10
     const [next, setNext] = React.useState(imagePerRow);
     function modifystr(str) {
 
@@ -33,12 +33,10 @@ const Card = ({ props, query  ,data1 , heading}) => {
 
         return str?.toLowerCase()
     }
-   
     const imageLoader = ({ src, width, height, quality }) => {
         const l  =  data1 === "cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com"
             return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
-        }
-
+    }
     const handleMoreImage = () => {
         setNext(next + imagePerRow);
     };
@@ -101,7 +99,7 @@ const Card = ({ props, query  ,data1 , heading}) => {
         <div className='container center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
-                   {heading}
+                  <h2 className={style.cardpagetitle}> {heading}</h2>
                 </div>
                <div className={style.Breaking_newCardWrapper}>
                     {
@@ -113,10 +111,7 @@ const Card = ({ props, query  ,data1 , heading}) => {
                                         
                                             <div className={`${"col"}`}>
                                                 <RWebShare
-                                                    data={{
-                                                        // url: `http://weedx.site/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title || breakingnews?.title)}/${breakingnews.id}`
-
-                                                    }}
+                                                    data={{  }}
                                                     onClick={() => console.log("shared successfully!")}
                                                 >
                                                     <Button className={`${style.ShareButton}`}>
@@ -135,8 +130,8 @@ const Card = ({ props, query  ,data1 , heading}) => {
                                                 <div className={`col-md-6 col-4 ${style.viewCounteye}`}>
                                                     <span>{breakingnews?.ViewCount}</span><AiFillEye></AiFillEye>
                                                 </div>
-                                                <div className={`col-md-6 col-8 ${style.ViewCountDate}`}>
-                                                    <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date}</p>
+                                                <div className={`col-md-6 col-8 text-end ${style.ViewCountDate}`}>
+                                                    <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date.slice(0, 10)}</p>
                                                 </div>
                                             </div>
                                     
@@ -156,7 +151,7 @@ const Card = ({ props, query  ,data1 , heading}) => {
                             </button>
                         )}
                         {next < data?.length && (
-                            <button className={next <= 12 ? 'hidden' :style.loadmorebtm} onClick={handlelessImage}
+                            <button className={next <= 10 ? 'hidden' :style.loadmorebtm} onClick={handlelessImage}
                             >
                                 Read Less
                             </button>

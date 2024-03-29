@@ -1,5 +1,4 @@
 import React from 'react';
-
 import dynamic from 'next/dynamic'
 const Card = dynamic(() => import('../Component/card/index'), { ssr: true, loading: () => <p>Loading...</p> });
 import { Seo } from '../Component/Seo/Seo';
@@ -35,7 +34,8 @@ const Video = (initialData) => {
         setNext(next - imagePerRow);
     };
 
-
+        const alternativeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+       
     return (
         <>
             <Seo
@@ -45,45 +45,62 @@ const Video = (initialData) => {
                 keywords={"fantasy cricket prediction"}
                 canonical={"https://g11prediction.com/latest-video"}
             ></Seo>
-            <div className={`${'container'} ${style.videoBox}`}>
+            <div className={`${'container'} ${style.latestVideoPage}`}>
                 <div className="row">
-                    <div className={style.videoh1box}>
-                        <h1>Latest Video News </h1><h2>- G11 Fantasy Cricket Prediction</h2>
-                    </div>
-                    {data.data?.slice(0, next)?.map((ele) => {
-                        return (
-                            <div className='col-md-3' key={ele.id}>
-                                <div className='video' style={{ margin: "20px" }}>
-                                    <div className='react_player iframeContainer'>
-                                        <ReactPlayer controls={false} url={ele.VideoUrl} width="100%" height="100%" onClick={handleVideo} />
+                
+                     <h1 className={style.videopagetitle}>Latest Video News </h1>
+                     <div className={style.videoh1box}> 
+                            {data.data?.slice(0, next)?.map((ele) => {
+                                console.log(ele)
+                                console.log(ele.VideoUrl.match(alternativeRegex)[1])
+                                return (
+                                    <div className={style.latestvideo_card} key={ele.id}>
+                                    
+                                            <div className={style.react_player}>
+                                                {/* <ReactPlayer playing ={false} config={{
+          youtube: {
+            playerVars: {
+              autoplay: 0, // Set to 1 if you want the video to autoplay
+              controls: 0, // Show YouTube player controls
+              modestbranding: 0, // Hide YouTube logo
+              fs: 1, // Show fullscreen button
+              rel: 0, // Don't show related videos at the end
+              showinfo: 0, // Show title and uploader info
+              playIcon:0,
+            },
+          },
+        }} controls={true} url={`${ele.VideoUrl}/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?modestbranding=0&;showinfo=0&;autohide=1&;rel=0;`} width="100%" height="100%" onClick={handleVideo} />
+                                    */}
+                                            <iframe className={style.videoplayer}
+        title='Youtube player'
+        sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+        src={`https://youtube.com/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?autoplay=0&showinfo=0&modestbranding=0&part=snippet&wmode=transparent&controls=1&color=white&rel=0&enablejsapi=1&playsinline=1&&version=3&theme=light&autohide=1&egm=0&showsearch=0&loop=1`}>
+</iframe>
+                                            
+                                            </div>
+                                          
+                                            <div className="col ">
+                                                <Link href={`/latest-video/${ele.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${ele.id}`}><p className={style.latest_video_title}>{ele.Title.substr(0, 100)}</p></Link>
+                                                <span className={style.Latest_video_date}>
+                                                    {ele.created.slice(0, 10)}
+                                                </span>
+                                            </div>
                                     </div>
-                                    <div>
-                                        <div className="col latest_video_title">
-                                            <Link className="hedding hovereffect text" href={`/latest-video/${ele.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${ele.id}`}><p>{ele.Title.substr(0, 100)}</p></Link>
-                                            <span className="Latest_video_date">
-                                                {/* <span className="ClenderIcon"> <CiCalendarDate></CiCalendarDate></span> */}
-                                                {ele.created.slice(0, 10)}
-                                            </span>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        )
-                    })}
+                                )
+                            })}
+                     </div>
                 </div>
             </div>
-            <div className='row'>
-                <div className='col-12 center '>
+            <div className='row mt-5'>
+                <div className='col-12 d-flex gap-2 justify-content-center '>
                     {next < data.data?.length && (
-                        <button className="btn readleft" onClick={handleMoreImage}
+                        <button className={style.loadmorebtm} onClick={handleMoreImage}
                         >
                             Load more
                         </button>
                     )}
                     {next < data.data?.length && (
-                        <button className={next <= 3 ? 'hidden' : "btn readleft"} onClick={handlelessImage}
+                        <button className={next <= 3 ? 'hidden' : style.loadmorebtm} onClick={handlelessImage}
                         >
                             Read Less
                         </button>
