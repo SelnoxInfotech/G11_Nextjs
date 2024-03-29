@@ -90,9 +90,8 @@ const Video = (initialData) => {
                             })}
                      </div>
                 </div>
-            </div>
-            <div className='row mt-5'>
-                <div className='col-12 d-flex gap-2 justify-content-center '>
+            </div>  
+                <div className='mt-5 d-flex gap-2 justify-content-center '>
                     {next < data.data?.length && (
                         <button className={style.loadmorebtm} onClick={handleMoreImage}
                         >
@@ -107,7 +106,7 @@ const Video = (initialData) => {
                     )}
                 </div>
 
-            </div>
+           
 
         </>
     );

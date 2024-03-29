@@ -4,6 +4,7 @@ import _ from "lodash";
 import style from "../../../../styles/Style.module.scss"
 import Link from 'next/link';
 import Seo from '../../../../Component/Seo/Seo';
+import { GoDotFill } from "react-icons/go";
 
 function Index({ data }) {
     return (
@@ -11,7 +12,12 @@ function Index({ data }) {
             <h4 className={style.breaknewssidebartitle}>Recent News</h4>
             <div className={style.breaknewssidebarList}>
                 {data?.map((item, index) => {
-                    return <Link key={index} href={`/latest-video/${item?.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${item.id}`}><h2 className={style.breaknewssidebarListitem}>{item.Title}</h2></Link>
+                    return <Link key={index} href={`/latest-video/${item?.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${item.id}`}>
+                          <div className={style.toclistItem}>
+                            <span className={style.listiconsdot}> <GoDotFill /></span>
+                            <h2 className={style.breaknewssidebarListitem}>{item.Title}</h2>
+                         </div>
+                        </Link>
                 })}
             </div>
         </div>
