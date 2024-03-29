@@ -1,6 +1,5 @@
 import React from 'react';
 import dynamic from 'next/dynamic'
-const Card = dynamic(() => import('../Component/card/index'), { ssr: true, loading: () => <p>Loading...</p> });
 import  Seo from '../Component/Seo/Seo';
 import useSWR from 'swr';
 import ReactPlayer from 'react-player'

@@ -67,13 +67,15 @@ function MatchPriview(props) {
         var TeamsData1 = Teams_.querySelectorAll("div")
         var Team_data = TeamsData1[4].innerHTML
         SetTeams_image(Team_data)
-        const input = containerData.querySelector("div >p").innerHTML.slice(26)
+        const input = containerData.querySelector("div >p").innerHTML.split(":")[1]
         const f = containerData.querySelector("div >h3").innerHTML;
+        console.log(input , containerData.querySelector("div >p").innerHTML)
         function checkString(string) {
             if (typeof string === "string") {
                 return !isNaN(string)
             }
         }
+
         if (router.query.slug[0] === "cricket-match-predictions") {
             if (checkString(router.query.slug[4])) {
 
@@ -99,6 +101,7 @@ function MatchPriview(props) {
                 window.history.replaceState({}, '', newURL);
             }
         }
+
         SetTitle(input)
     }, [])
 

@@ -39,7 +39,7 @@ function Details({ data , h}) {
                         </div>
                         <div className={style.detailspagecontent}>
 
-                            {parse(data.Description.replace(<p>&nbsp;</p>, "") || data.content.replace(<p>&nbsp;</p>, ""))}
+                            {parse(data?.Description?.replace(<p>&nbsp;</p>, "") || data?.content.replace(<p>&nbsp;</p>, ""))}
                         </div>
                         <div className={`col-12 ${style.ViewCountDetailspage}`}>
                             <div className={`col-6 ${style.ViewCount}`}>
