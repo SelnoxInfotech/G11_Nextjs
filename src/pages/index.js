@@ -1,8 +1,24 @@
 // // import React from "react";
 import dynamic from 'next/dynamic'
-const Home = dynamic(() => import('../Component/Home/Index'));
 import useSWR from 'swr';
-import  Seo  from '../Component/Seo/Seo';
+const Seo = dynamic(() => import('../Component/Seo/Seo'));
+const ScrollBreaking = dynamic(() => import('../Component/Home/ScrollBreakingnews/index'), { ssr: false, loading: () => <p>Loading...</p> });
+const UpdateMatch = dynamic(() => import('../Component/Home/Updatematch/Match'), { ssr: true, loading: () => <p>Loading...</p> });
+import Banner from "../Component/Home/Banner/index"
+import Static_Content from "../Component/Home/Banner/WelcomestaticContant"
+const Breakingnews = dynamic(() => import('../Component/Home/BreakingNews/Breakingnews'), { ssr: true, loading: () => <p>Loading...</p> })
+const LatestNews = dynamic(() => import('../Component/Home/LatestNews/LatestNews'), { ssr: true, loading: () => <p>Loading...</p> })
+const HightLight = dynamic(() => import('../Component/Home/HightLight/HightLight'), { ssr: true, loading: () => <p>Loading...</p> })
+import Static from "../Component/Home/Static/Static"
+import SecondStatic from "../Component/Home/Static/SecondStatic"
+const Teams = dynamic(() => import('../Component/Home/Team/Team'), { ssr: true, loading: () => <p>Loading...</p> })
+const Review = dynamic(() => import('../Component/Home/Static/Review'), { ssr: true, loading: () => <p>Loading...</p> })
+const Customerrate = dynamic(() => import('../Component/Home/Static/Customerrate'), { ssr: true, loading: () => <p>Loading...</p> })
+const Staticres = dynamic(() => import('../Component/Home/Static/Staticres'), { ssr: true, loading: () => <p>Loading...</p> })
+const Companyexpi = dynamic(() => import('../Component/Home/Static/Companyexpi'), { ssr: true, loading: () => <p>Loading...</p> })
+const Footer = dynamic(() => import('../Component/Home/FooterBanner/FooterBanner'))
+
+
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -25,12 +41,28 @@ function MyComponent({ initialData }) {
         keywords={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
         canonical={"https://g11prediction.com/"}
       ></Seo>
-       <Home props={[data?.ipl[0]]} match={data.l1} updatematch={data.l1} Breaking={data.ipl} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ipl={data.ipl}></Home>
+      <ScrollBreaking props={[data?.ipl[0]]}></ScrollBreaking>
+      <Banner match={data.l1}></Banner>
+      <div className="container">
+        <UpdateMatch updatematch={data.l1}></UpdateMatch>
+        <Static_Content></Static_Content>
+        <Breakingnews Breaking={data.ipl}></Breakingnews>
+        <LatestNews latestnews={[data.ipl[0]]}></LatestNews>
+        <HightLight post={data.post.result} ></HightLight>
+        <Static></Static>
+        <SecondStatic></SecondStatic>
+        <Teams ></Teams>
+        <Review></Review>
+        <Customerrate ></Customerrate>
+        <Staticres></Staticres>
+      </div>
+      <Companyexpi></Companyexpi>
+      <Footer></Footer>
     </div>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const handleError = (error) => {
     console.error('Error fetching data:', error);
     return {
@@ -38,23 +70,20 @@ export async function getServerSideProps() {
         initialData: [],
         error: 'Failed to fetch data',
       },
-      // revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs
     };
   };
 
   try {
-    const [ matchesRes, postRes, teamsRes, iplRes ] = await Promise.all([
+    const [matchesRes, post, iplRes] = await Promise.all([
       fetch('https://grand11.in/g11/api/matches').catch(handleError),
       fetch('https://grand11.in/g11/api/post').catch(handleError),
-      fetch('https://grand11.in/g11/api/teams').catch(handleError),
       fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1').catch(handleError),
-      
+
     ]);
 
-    const [ matches, posts, teams, ipl ] = await Promise.all([
+    const [matches, Post, ipl] = await Promise.all([
       matchesRes.json().catch(handleError),
-      postRes.json().catch(handleError),
-      teamsRes.json().catch(handleError),
+      post.json().catch(handleError),
       iplRes.json().catch(handleError),
 
     ]);
@@ -62,17 +91,16 @@ export async function getServerSideProps() {
     // Assuming breaking news is the first item in topNews array
     const responseData = {
       l1: matches.result,
-      l3: posts?.result,
-      teamsData: teams?.result,
+      post: Post,
       ipl: ipl,
-      
+
     };
 
     return {
       props: {
         initialData: responseData,
       },
-      // revalidate: 60,
+      revalidate: 60,
     };
   } catch (error) {
     return handleError(error);

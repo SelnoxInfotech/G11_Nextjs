@@ -3,7 +3,7 @@ import Link from "next/link";
 import axios from "axios"
 import Head from 'next/head';
 import Senglepage from "../../Component/MatchPriview/Senglepage";
-import { Seo } from "../../Component/Seo/Seo";
+import  Seo  from "../../Component/Seo/Seo";
 import useSWR from 'swr';
 const fetcher = async (url) => {
     const res = await fetch(url);
