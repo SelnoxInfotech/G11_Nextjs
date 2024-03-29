@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
-import { Seo } from '../Component/Seo/Seo';
+import Seo from '../Component/Seo/Seo';
 
 const aboutus = () => {
     return (

@@ -4,7 +4,7 @@ import React from "react";
 import dynamic from 'next/dynamic';
 import Card from "../../../../Component/card/index";
 import TableOfContent from '../../../../Component/tableofcontent/index';
-import { Seo } from "../../../../Component/Seo/Seo";
+import Seo from "../../../../Component/Seo/Seo";
 
 const Details = dynamic(() => import('../../../../Component/Details/Details'), { ssr: true, loading: () => <p>Loading...</p> });
 

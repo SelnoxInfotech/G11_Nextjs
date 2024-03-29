@@ -1,14 +1,20 @@
 
-import { useEffect, useState, useContext } from "react";
+import React from "react";
 import axios from 'axios';
 import style from "../../../styles/Style.module.scss"
 import ScrollContainer from 'react-indiana-drag-scroll';
 import Image from "next/image";
-export default function Teams({Teamsdata}) {
+export default function Teams() {
+   const  [teams , setTeams] = React.useState([])
   const imageLoader = ({ src, width, quality }) => {
     return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
   }
 
+ React.useEffect(() => {
+        axios("https://grand11.in/g11/api/teams").then((res) => {
+          setTeams  (res.data.result)
+        })
+    }, [])
   return (
 
     <div className={`${'container-fluid'} ${style.teams_color}`}>
@@ -21,7 +27,7 @@ export default function Teams({Teamsdata}) {
             {/* <div className={`col-12 `}> */}
               <div className= {`${style.teams_image_box}`}>
                 {
-                  Teamsdata.map((data, index) => {
+                  teams?.map((data, index) => {
                     return (
                       <div key={index} className={`${style.teams_image_container}`}>
                        <div >
