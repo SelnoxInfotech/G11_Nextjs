@@ -3,7 +3,7 @@ import Videodetails from "../../../../Component/Details/Videodetails"
 import _ from "lodash";
 import style from "../../../../styles/Style.module.scss"
 import Link from 'next/link';
-import { Seo } from '../../../../Component/Seo/Seo';
+import Seo from '../../../../Component/Seo/Seo';
 
 function Index({ data }) {
     return (
