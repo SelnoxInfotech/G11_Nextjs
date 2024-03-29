@@ -31,7 +31,7 @@ const Cricket_players = ({ initialData }) => {
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/cricket-players/"}
     ></Seo>
-      <Card props={data} heading={<h1>cricket players</h1>} query={"cricket-players"}></Card>
+      <Card props={data} heading={<h1>cricket players</h1>} query={"cricket-players"} data1={"cricket-players"}></Card>
     </>
   );
 };
