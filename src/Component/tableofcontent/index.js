@@ -7,8 +7,8 @@ import { GoDotFill } from "react-icons/go";
 
 
 
-export default function Index ({props}){
- 
+export default function Index ({props , domain}){
+    console.log(domain)
     const router = useRouter()
     function modifystr(str) {
 
@@ -31,6 +31,8 @@ export default function Index ({props}){
 
         return str?.toLowerCase()
     }
+
+    let redirect =  domain === "/cricket-news" ? "/cricket-news" : "/cricket-breaking-news"
     return (
         <div className={style.breaknewssidebar}>
             <h4 className={style.breaknewssidebartitle}>Recent News</h4>
@@ -40,10 +42,10 @@ export default function Index ({props}){
                     props?.filter((items)=>{
                         return items.id != router.query.index
                     })?.map((item , index) => {
-                        return <Link key={index} href={`/cricket-breaking-news/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title || item?.title)}/${item.id}`}>
+                        return <Link key={index} href={`${redirect}/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title || item?.title)}/${item.id}`}>
                             <div className={style.toclistItem}>
                                 <span className={style.listiconsdot}> <GoDotFill /></span>
-                                <h2 className={style.breaknewssidebarListitem}>{item.Title}</h2>
+                                <h2 className={style.breaknewssidebarListitem}>{item.Title || item?.title}</h2>
                             </div>
                             </Link>
                     })

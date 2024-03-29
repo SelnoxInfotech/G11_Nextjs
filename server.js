@@ -19,6 +19,7 @@ app.prepare()
     server.use(express.urlencoded({ extended: true }));
     server.use(sitemap);
     server.use(Rss);
+  
     // cron.schedule("*/1 * * * *  ", async function () {
     //   if (run === 0) {
     //     run = 1
@@ -54,7 +55,21 @@ app.prepare()
     // });
 
 
-    // Custom API (if needed)
+    // Custom API (Rediecrct)
+    server.get("/breakingnews/", (req, res, next) => {
+      // Redirect to '/cricket-breaking-news/' with status code 307
+      res.redirect(307, '/cricket-breaking-news/');
+    });
+    server.get("/latest-match/", (req, res, next) => {
+      // Redirect to '/cricket-breaking-news/' with status code 307
+      res.redirect(307, '/cricket-match-predictions/');
+    });
+    server.get("/Cricket-prediction/", (req, res, next) => {
+      // Redirect to '/cricket-breaking-news/' with status code 307
+      res.redirect(307, '/cricket-match-predictions/');
+    });
+
+
     server.get('/FilterbySubCategory/:id', (req, res) => {
       async function l() {
         try {

@@ -4,6 +4,8 @@ const   Card = dynamic(() => import('../Component/card/index'), { ssr: true  , l
 import  Seo  from '../Component/Seo/Seo';
 import useSWR from 'swr';
 import { useRouter } from 'next/router'
+
+import { redirect } from 'next/navigation'
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -16,9 +18,12 @@ const Cricket_news = ({ initialData }) => {
   const router = useRouter()
   const k = initialData
   // const { data: fetchedData, error } = useSWR(`https://grand11.in/g11/api/post`, fetcher, { k });
-  if(router.asPath === "/Cricket-news/"){
-    window.history.replaceState({}, '', `/cricket-news`);
+  
+  if (router.asPath === "/Cricket-News/" || router.asPath === "/Cricket-news/") {
+    router.push("/cricket-news"); // Redirect to the desired path
+    // return null; // Return null to prevent rendering anything on this page
   }
+
   const data = k;  
   if (!data) return <div>Loading...</div>;
   return (
@@ -30,7 +35,7 @@ const Cricket_news = ({ initialData }) => {
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/cricket-news/"}
     ></Seo>
-      <Card props={data} heading={<h1>cricket players</h1>} query={"cricket-news"}  data1={"cricket-news"}></Card>
+      <Card props={data} heading={<h1>cricket players</h1>} query={"cricket-news"}  data1={""} domain={"https://grand11.in/g11/"}></Card>
     </>
   );
 };
@@ -56,6 +61,7 @@ export async function getStaticProps(ctx) {
       props: {
         initialData: responseData.breaking,
       },
+      revalidate: 60,
     };
   } catch (error) {
     console.error('Error fetching data:', error);

@@ -7,8 +7,10 @@ import { AiFillEye } from "react-icons/ai"
 import { RWebShare } from "react-web-share";
 import { BsFillShareFill } from "react-icons/bs"
 import Button from "react-bootstrap/Button";
+import { useRouter } from 'next/router'
 import axios from 'axios';
-const Card = ({ props, query  ,data1 , heading}) => {
+const Card = ({ props, query  ,data1 , heading , domain}) => {
+    const router = useRouter()
     const [data, setdata] = React.useState(props)
     const imagePerRow = 10
     const [next, setNext] = React.useState(imagePerRow);
@@ -34,7 +36,7 @@ const Card = ({ props, query  ,data1 , heading}) => {
         return str?.toLowerCase()
     }
     const imageLoader = ({ src, width, height, quality }) => {
-        const l  =  data1 === "cricket-news" ? 'https://grand11.in/g11/': "https://www.g11fantasy.com"
+        const l  =  domain !==  undefined ? domain: "https://www.g11fantasy.com"
             return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
     const handleMoreImage = () => {
@@ -92,7 +94,6 @@ const Card = ({ props, query  ,data1 , heading}) => {
             })
         }
     },[data1])
-
 
 
     return (

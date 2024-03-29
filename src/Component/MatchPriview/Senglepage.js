@@ -4,7 +4,7 @@ import Link from 'next/link'
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
 import { useRouter } from 'next/router'
-import { Seo } from "../../Component/Seo/Seo";
+
 function Senglepage({ props }) {
     const router = useRouter()
     const imagePerRow = 6
