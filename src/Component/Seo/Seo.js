@@ -21,4 +21,4 @@ function Seo({ image, title, description , keywords, canonical}) {
 }
 
 
-export { Seo }
+export default Seo

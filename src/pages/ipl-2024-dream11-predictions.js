@@ -3,7 +3,7 @@ import style from '../styles/Style.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 import { AiFillEye } from "react-icons/ai"
-import { Seo } from '../Component/Seo/Seo';
+import  Seo  from '../Component/Seo/Seo';
 import { RWebShare } from "react-web-share";
 import { BsFillShareFill } from "react-icons/bs"
 const ipl2024dream11predictions = (props) => {

@@ -1,8 +1,8 @@
 // // import React from "react";
 import dynamic from 'next/dynamic'
-const Home = dynamic(() => import('../Component/Home/index'));
+const Home = dynamic(() => import('../Component/Home/Index'));
 import useSWR from 'swr';
-import { Seo } from '../Component/Seo/Seo';
+import  Seo  from '../Component/Seo/Seo';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -25,12 +25,12 @@ function MyComponent({ initialData }) {
         keywords={"G11- Fantasy Cricket Prediction for Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 Tips Cricket Prediction."}
         canonical={"https://g11prediction.com/"}
       ></Seo>
-      <Home props={[data?.ipl[0]]} match={data.l1} updatematch={data.l1} Breaking={data.ipl} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ipl={data.ipl}></Home>
+       <Home props={[data?.ipl[0]]} match={data.l1} updatematch={data.l1} Breaking={data.ipl} latestnews={data.l3} Teamsdata={data.teamsData} image={data.imageData} ipl={data.ipl}></Home>
     </div>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const handleError = (error) => {
     console.error('Error fetching data:', error);
     return {
@@ -38,7 +38,7 @@ export async function getStaticProps() {
         initialData: [],
         error: 'Failed to fetch data',
       },
-      revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs
+      // revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs
     };
   };
 
@@ -72,7 +72,7 @@ export async function getStaticProps() {
       props: {
         initialData: responseData,
       },
-      revalidate: 60,
+      // revalidate: 60,
     };
   } catch (error) {
     return handleError(error);
