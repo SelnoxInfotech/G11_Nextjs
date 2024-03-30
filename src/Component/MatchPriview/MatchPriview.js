@@ -69,7 +69,6 @@ function MatchPriview(props) {
         SetTeams_image(Team_data)
         const input = containerData.querySelector("div >p").innerHTML.split(":")[1]
         const f = containerData.querySelector("div >h3").innerHTML;
-        console.log(input , containerData.querySelector("div >p").innerHTML)
         function checkString(string) {
             if (typeof string === "string") {
                 return !isNaN(string)
