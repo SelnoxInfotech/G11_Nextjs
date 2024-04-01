@@ -7,7 +7,7 @@ const generateSitemap = require("./node/generateSitemap")
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const sitemap = require("./node/sitemap");
-const Rss =  require("./node/GetRssMatchPriview")
+const Rss = require("./node/GetRssMatchPriview")
 
 app.prepare()
   .then(() => {
@@ -19,41 +19,16 @@ app.prepare()
     server.use(express.urlencoded({ extended: true }));
     server.use(sitemap);
     server.use(Rss);
-  
+
     // cron.schedule("*/1 * * * *  ", async function () {
     //   if (run === 0) {
     //     run = 1
-      //  generateSitemap()
-    
+    //  generateSitemap()
+
     //     console.log("running a task every 1 seconds");
     //   }
 
     // });
-
-
-
-    // server.get('/open-xml', (req, res) => {
-    //   const filePath = path.join(__dirname, '/public/txt.xml'); // Update the file path accordingly
-
-    //   // Check if the file exists
-    //   fs.access(filePath, fs.constants.F_OK, (err) => {
-    //     if (err) {
-    //       console.error(err);
-    //       return res.status(404).send('XML file not found');
-    //     }
-
-    //     // Set headers to specify XML content and to open directly in browser
-    //     res.set({
-    //       'Content-Type': 'application/xml',
-    //       // 'Content-Disposition': 'inline', // This header tells the browser to open the file instead of downloading it
-    //     });
-
-    //     // Stream the file as response
-    //     const fileStream = fs.createReadStream(filePath);
-    //     fileStream.pipe(res);
-    //   });
-    // });
-
 
     // Custom API (Rediecrct)
     server.get("/breakingnews/", (req, res, next) => {
@@ -71,64 +46,87 @@ app.prepare()
     server.get("/Cricket-prediction/:id/:name", (req, res, next) => {
       // Function to check if a value is a number or a string
       function test(g) {
-          var number = g;
-          return (number == Number(number)) ? "number" : "string";
+        var number = g;
+        return (number == Number(number)) ? "number" : "string";
       }
 
       // Check if the id parameter is a number
       if (test(req.params.id) === "number") {
-          // Redirect to '/cricket-match-predictions/:id' with status code 307
-          res.redirect(307, `/cricket-match-predictions/${req.params.id}`);
+        // Redirect to '/cricket-match-predictions/:id' with status code 307
+        res.redirect(307, `/cricket-match-predictions/${req.params.id}`);
       }
-      else{
+      else {
         if (test(req.params.name) === "number") {
           // Redirect to '/cricket-match-predictions/:id' with status code 307
           res.redirect(307, `/cricket-match-predictions/${req.params.name}`);
+        }
+
       }
-       
-      }
-  });
-  server.get("/cricket-prediction/:id/:name", (req, res, next) => {
-    // Function to check if a value is a number or a string
-    function test(g) {
+    });
+    server.get("/cricket-prediction/:id/:name", (req, res, next) => {
+      // Function to check if a value is a number or a string
+      function test(g) {
         var number = g;
         return (number == Number(number)) ? "number" : "string";
-    }
+      }
 
-    // Check if the id parameter is a number
-    if (test(req.params.id) === "number") {
+      // Check if the id parameter is a number
+      if (test(req.params.id) === "number") {
         // Redirect to '/cricket-match-predictions/:id' with status code 307
         res.redirect(307, `/cricket-match-predictions/${req.params.id}`);
-    }
-    else{
-      if (test(req.params.name) === "number") {
+      }
+      else {
+        if (test(req.params.name) === "number") {
+          // Redirect to '/cricket-match-predictions/:id' with status code 307
+          res.redirect(307, `/cricket-match-predictions/${req.params.name}`);
+        }
+
+      }
+    });
+    server.get("/cricket-breakingnews/:id/:name", (req, res, next) => {
+      // Function to check if a value is a number or a string
+      function test(g) {
+        var number = g;
+        return (number == Number(number)) ? "number" : "string";
+      }
+
+      // Check if the id parameter is a number
+      if (test(req.params.id) === "number") {
         // Redirect to '/cricket-match-predictions/:id' with status code 307
-        res.redirect(307, `/cricket-match-predictions/${req.params.name}`);
-    }
-     
-    }
-});
-server.get("/cricket-breakingnews/:id/:name", (req, res, next) => {
-  // Function to check if a value is a number or a string
-  function test(g) {
-      var number = g;
-      return (number == Number(number)) ? "number" : "string";
-  }
+        res.redirect(307, `/cricket-breaking-news/${req.params.name}/${req.params.id}`);
+      }
+      else {
+        if (test(req.params.name) === "number") {
+          // Redirect to '/cricket-match-predictions/:id' with status code 307
+          res.redirect(307, `/cricket-breaking-news/${req.params.id}/${req.params.name}`);
+        }
 
-  // Check if the id parameter is a number
-  if (test(req.params.id) === "number") {
-      // Redirect to '/cricket-match-predictions/:id' with status code 307
-      res.redirect(307, `/cricket-breaking-news/${req.params.name}/${req.params.id}`);
-  }
-  else{
-    if (test(req.params.name) === "number") {
-      // Redirect to '/cricket-match-predictions/:id' with status code 307
-      res.redirect(307, `/cricket-breaking-news/${req.params.id}/${req.params.name}`);
-  }
-   
-  }
-});
+      }
+    });
+    server.get("/Ipl_2023/:id/:name", (req, res, next) => {
+      // Function to check if a value is a number or a string
+      function test(g) {
+        var number = g;
+        return (number == Number(number)) ? "number" : "string";
+      }
 
+      // Check if the id parameter is a number
+      if (test(req.params.id) === "number") {
+        // Redirect to '/cricket-match-predictions/:id' with status code 307
+        res.redirect(307, `/ipl-2023/${req.params.name}/${req.params.id}`);
+      }
+      else {
+        if (test(req.params.name) === "number") {
+          // Redirect to '/cricket-match-predictions/:id' with status code 307
+          res.redirect(307, `/ipl-2023/${req.params.id}/${req.params.name}`);
+        }
+
+      }
+    });
+
+    server.get("/Latest-Video/", (req, res, next) => {
+      res.redirect(307, '/latest-video//');
+    });
 
 
     server.get('/FilterbySubCategory/:id', (req, res) => {
