@@ -51,8 +51,8 @@ const nextConfig = {
         destination: '/api/Rss/ipl-2024RSS.xml',
       },
       {
-source:"/ipl-2024-dream11-predictions.xml",
-destination: '/api/Rss/ipl2024pridiction',
+        source: "/ipl-2024-dream11-predictions.xml",
+        destination: '/api/Rss/ipl2024pridiction',
       },
       {
         source: '/breaking-news.xml',
