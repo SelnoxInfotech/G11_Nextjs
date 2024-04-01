@@ -1,6 +1,9 @@
 // // import React from "react";
 import dynamic from 'next/dynamic'
 import useSWR from 'swr';
+import  Review from "../Component/Home/Static/Review"
+import Customerrate from "../Component/Home/Static/Customerrate"
+
 const Seo = dynamic(() => import('../Component/Seo/Seo'));
 const ScrollBreaking = dynamic(() => import('../Component/Home/ScrollBreakingnews/index'), { ssr: false, loading: () => <p>Loading...</p> });
 const UpdateMatch = dynamic(() => import('../Component/Home/Updatematch/Match'), { ssr: true, loading: () => <p>Loading...</p> });
@@ -12,8 +15,9 @@ const HightLight = dynamic(() => import('../Component/Home/HightLight/HightLight
 import Static from "../Component/Home/Static/Static"
 import SecondStatic from "../Component/Home/Static/SecondStatic"
 const Teams = dynamic(() => import('../Component/Home/Team/Team'), { ssr: true, loading: () => <p>Loading...</p> })
-const Review = dynamic(() => import('../Component/Home/Static/Review'), { ssr: true, loading: () => <p>Loading...</p> })
-const Customerrate = dynamic(() => import('../Component/Home/Static/Customerrate'), { ssr: true, loading: () => <p>Loading...</p> })
+
+// const Review = dynamic(() => import('../Component/Home/Static/Review'), { ssr: true, loading: () => <p>Loading...</p> })
+// const Customerrate = dynamic(() => import('../Component/Home/Static/Customerrate'), { ssr: true, loading: () => <p>Loading...</p> })
 const Staticres = dynamic(() => import('../Component/Home/Static/Staticres'), { ssr: true, loading: () => <p>Loading...</p> })
 const Companyexpi = dynamic(() => import('../Component/Home/Static/Companyexpi'), { ssr: true, loading: () => <p>Loading...</p> })
 const Footer = dynamic(() => import('../Component/Home/FooterBanner/FooterBanner'))
@@ -29,7 +33,7 @@ const fetcher = async (url) => {
 };
 
 function MyComponent({ initialData }) {
-
+  
   const data = initialData;
   if (!data) return <div>Loading...</div>;
   return (
@@ -48,7 +52,7 @@ function MyComponent({ initialData }) {
         <Static_Content></Static_Content>
         <Breakingnews Breaking={data.ipl}></Breakingnews>
         <LatestNews latestnews={[data.ipl[0]]}></LatestNews>
-        <HightLight post={data.post.result} ></HightLight>
+        <HightLight post={data.post} ></HightLight>
         <Static></Static>
         <SecondStatic></SecondStatic>
         <Teams ></Teams>
@@ -76,7 +80,7 @@ export async function getStaticProps() {
   try {
     const [matchesRes, post, iplRes] = await Promise.all([
       fetch('https://grand11.in/g11/api/matches').catch(handleError),
-      fetch('https://grand11.in/g11/api/post').catch(handleError),
+      fetch('https://g11fantasy.com/NewsSection/tbl_pageApi/').catch(handleError),
       fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1').catch(handleError),
 
     ]);
