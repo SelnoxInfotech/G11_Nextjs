@@ -48,7 +48,7 @@ const ipl2024dream11predictions = (props) => {
           <div className={style.newcardwrapper}>
             {
               props?.breakingData?.data.map((items , index)=>{
-               console.log(items)
+           
 
                  return   <div className={style.newcard}  key={index}>
                                               <div className={`${"col"}`}>

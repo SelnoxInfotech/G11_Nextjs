@@ -50,8 +50,8 @@ const Video = (initialData) => {
                     <h1 className={style.videopagetitle}>Latest Video News </h1>
                     <div className={style.videoh1box}>
                         {data.data?.slice(0, next)?.map((ele) => {
-                            console.log(ele)
-                            console.log(ele.VideoUrl.match(alternativeRegex)[1])
+                            // console.log(ele)
+                            // console.log(ele.VideoUrl.match(alternativeRegex)[1])
                             return (
                                 <div className={style.latestvideo_card} key={ele.id}>
 

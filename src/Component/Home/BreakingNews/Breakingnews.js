@@ -41,7 +41,7 @@ const Breakingnews = ({ Breaking }) => {
 
                         <div className='col-12 d-flex gap-4 py-3'>
                             {Breaking !== undefined && Breaking?.map((data, index) => {
-                                console.log(data ,'data')
+                          
                                 return (
                                     <div key={index} className={style.homepagebreakingness} >
                                         <div className={'col'} >
@@ -57,7 +57,6 @@ const Breakingnews = ({ Breaking }) => {
                                                     <span className="ClenderIcon"> <CiCalendarDate color='#c2121c'></CiCalendarDate></span>
                                                     {data?.created.slice(0, 10)}
                                                 </span>
-
                                         </div>
                                     </div >
                                 )
