@@ -4,6 +4,8 @@ import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
 import Link from 'next/link';
 import Image from 'next/image';
+import { IoMdEye } from "react-icons/io";
+
 const Breakingnews = ({ Breaking }) => {
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -39,7 +41,7 @@ const Breakingnews = ({ Breaking }) => {
 
                         <div className='col-12 d-flex gap-4 py-3'>
                             {Breaking !== undefined && Breaking?.map((data, index) => {
-
+                                console.log(data ,'data')
                                 return (
                                     <div key={index} className={style.homepagebreakingness} >
                                         <div className={'col'} >
@@ -49,10 +51,11 @@ const Breakingnews = ({ Breaking }) => {
                                                 </Link>
                                         
                                         </div>
-                                        <div className="col ">
+                                        <div className="col d-flex w-100 align-items-center justify-content-between ">
+                                               <span className={style.BreakingNews_view}><IoMdEye /> {data?.ViewCount} </span>
                                                 <span className={`${style.BreakingNews_date}`} >
-                                                <span className="ClenderIcon"> <CiCalendarDate color='#c2121c'></CiCalendarDate></span>
-                                                {data?.created.slice(0, 10)}
+                                                    <span className="ClenderIcon"> <CiCalendarDate color='#c2121c'></CiCalendarDate></span>
+                                                    {data?.created.slice(0, 10)}
                                                 </span>
 
                                         </div>

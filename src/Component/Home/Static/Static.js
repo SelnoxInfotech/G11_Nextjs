@@ -6,7 +6,7 @@ export default function Static_todaymatch() {
          
             <div className={`row mt-2  ${style.staticsectioncontent}`}>
                 <div className={`${'col-12'}  ${style.latest_n} ${style.todaymatchli}`}>
-                  <h2 className={style.StaticTitle}> 1 Dream11 Fantasy Cricket Prediction Today Match</h2>
+                  <h2 className={style.StaticTitle}>#1 Dream11 Fantasy Cricket Prediction Today Match</h2>
                 </div>
                 <div className='col-12'>
                     <ul>

@@ -47,7 +47,7 @@ const HightLight = ({post}) => {
                         {
                             post?.map((data, index) => {
                                 return (
-                                    <div className={`${style.HightCol} col-lg-6  col-sm-4 col-6  gap-3`} key={index}>
+                                    <div className={`${style.HightCol}`} key={index}>
                                         <div className='col-lg-6 col-12 overflow-hidden' >
                                             <Image loader={imageLoader} width={0}
                                                 height={0}

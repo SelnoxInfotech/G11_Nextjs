@@ -1,6 +1,7 @@
 import React from 'react'
 import style from '../styles/Style.module.scss'
 import Link from 'next/link';
+import { IoMdEye } from "react-icons/io";
 import Image from 'next/image';
 import { AiFillEye } from "react-icons/ai"
 import  Seo  from '../Component/Seo/Seo';
@@ -46,8 +47,8 @@ const ipl2024dream11predictions = (props) => {
         <h1 className={style.newcardwrappermainHeading}> Dream11 Prediction for IPL 2024</h1>
           <div className={style.newcardwrapper}>
             {
-              props.breakingData.data.map((items , index)=>{
-               
+              props?.breakingData?.data.map((items , index)=>{
+               console.log(items)
 
                  return   <div className={style.newcard}  key={index}>
                                               <div className={`${"col"}`}>
@@ -67,7 +68,9 @@ const ipl2024dream11predictions = (props) => {
                                                   </div>
                                               </Link>
                                               <div className={`col-12 ${style.viewCount}`}>
-                                                 
+                                                   <div className={style.view_counttext}>
+                                                     <IoMdEye  size={18} color='#c2121c'/> {items?.ViewCount}
+                                                   </div>
                                                   <div className={style.ViewCountDate}>
                                                       <p >{items?.created?.slice(0, 10)}</p>
                                                   </div>

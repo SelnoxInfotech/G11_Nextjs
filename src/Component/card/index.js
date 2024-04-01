@@ -123,7 +123,10 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
 
                                             </div>
                                             <Link className={`${style.hovereffect}`} href={`/${query}/${breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title)}/${breakingnews.id}`} >
-                                                <Image className={style.News_image} loader={imageLoader} src={`${breakingnews?.Image || breakingnews?.image}`} height={10} width={100} alt="news_image" quality={100} />
+                                                <div className={style.News_image}>
+                                                    <div className={style.imghovereffect}></div>
+                                                  <Image className={style.NewsImage} loader={imageLoader} src={`${breakingnews?.Image || breakingnews?.image}`} height={10} width={100} alt="news_image" quality={100} />
+                                                </div>
                                                 <div className={style.News_image_title}>
                                                     <h2 className={`card-text  ${style.card_text}`}>{breakingnews?.Title?.slice(0, 80) || breakingnews?.title}</h2>
                                                 </div>
