@@ -54,6 +54,7 @@ h2.sectionMainTitle {
 
 .Offcanvas {
   background-color: #c2121c;
+  justify-content: space-evenly;
 }
 
 .btn_tele {
@@ -91,7 +92,6 @@ h2.sectionMainTitle {
   font-size: 26px;
   display: flex;
   justify-content: center;
-  width: 80%;
   align-items: center;
 }
 .Homelink a {
@@ -103,6 +103,8 @@ h2.sectionMainTitle {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px 10px;
+  font-weight: 500;
 }
 .Homelink a:hover {
   transform: scale(1.1);
@@ -111,7 +113,6 @@ h2.sectionMainTitle {
   background-color: #fff;
   color: #C2121C;
   padding: 5px 10px;
-  font-size: 16px;
   border-radius: 5px;
 }
 
@@ -1607,6 +1608,17 @@ h1.newcardwrappermainHeading {
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap {
     width: 18%;
   }
+  .Homelink {
+    left: 20px;
+    position: relative;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Homelink a {
+    font-size: 16px;
+  }
 }
 @media (max-width: 1200px) {
   .Breaking_new .Breaking_newCardWrapper {
@@ -1657,6 +1669,9 @@ h1.newcardwrappermainHeading {
   }
 }
 @media (max-width: 992px) {
+  .Offcanvas {
+    justify-content: space-between;
+  }
   .updatecardhomewrapper {
     justify-content: flex-start;
   }

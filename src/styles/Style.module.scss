@@ -51,8 +51,8 @@ h2.sectionMainTitle{
     margin: 30px 0;
 }
 .Offcanvas{
-background-color: #c2121c;
-// justify-content: center;
+    background-color: #c2121c;
+    justify-content: space-evenly;
 }
 
 .btn_tele {
@@ -95,7 +95,7 @@ background-color: #c2121c;
     font-size: 26px;
     display: flex;
     justify-content: center;
-    width: 80%;
+   
     align-items: center;
     
     a {
@@ -107,6 +107,8 @@ background-color: #c2121c;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 5px 10px;
+        font-weight: 500;
         &:hover{
             transform: scale(1.1);
             font-weight: 500;
@@ -114,7 +116,7 @@ background-color: #c2121c;
             background-color:#fff ;
             color:#C2121C ;
             padding: 5px 10px;
-            font-size: 16px;
+          
             border-radius: 5px;
 
         }
@@ -1805,7 +1807,26 @@ a{
       
         }
     }
-   }
+    }
+    .Homelink {
+        left: 20px;
+        position: relative;
+        font-size: 26px;
+        display: flex;
+        justify-content: center;
+       
+        align-items: center;
+        
+        a {
+           
+            font-size: 16px;
+            &:hover{
+               
+    
+            }
+        }
+    }
+    
   }
   @media (max-width : 1200px){
     .Breaking_new {
@@ -1886,6 +1907,11 @@ a{
       }   
   }
   @media (max-width : 992px){
+    .Offcanvas{
+      
+        justify-content: space-between;
+    }
+    
     .updatecardhomewrapper{
         justify-content: flex-start;
     }
