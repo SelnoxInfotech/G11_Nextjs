@@ -18,9 +18,9 @@ export default function Teams() {
   return (
 
     <div className={`${'container-fluid'} ${style.teams_color}`}>
-      <div className="row  ">
+      {/* <div className="row  ">
         <h2>Teams</h2>
-      </div>
+      </div> */}
       <div className="row">
         <div className="col-12">
           <ScrollContainer className={style.BreakingnewsScroll}>

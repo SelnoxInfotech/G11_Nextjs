@@ -70,11 +70,11 @@ const Video = (initialData) => {
           },
         }} controls={true} url={`${ele.VideoUrl}/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?modestbranding=0&;showinfo=0&;autohide=1&;rel=0;`} width="100%" height="100%" onClick={handleVideo} />
                                     */}
-                                            <iframe className={style.videoplayer}
-        title='Youtube player'
-        sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
-        src={`https://youtube.com/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?autoplay=0&showinfo=0&modestbranding=0&part=snippet&wmode=transparent&controls=1&color=white&rel=0&enablejsapi=1&playsinline=1&&version=3&theme=light&autohide=1&egm=0&showsearch=0&loop=1`}>
-</iframe>
+                                            <iframe className={`w-100 ${style.videoplayer}`}
+                                                    title='Youtube player'
+                                                    sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
+                                                    src={`https://youtube.com/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?autoplay=0&showinfo=0&modestbranding=0&part=snippet&wmode=transparent&controls=1&color=white&rel=0&enablejsapi=1&playsinline=1&&version=3&theme=light&autohide=1&egm=0&showsearch=0&loop=1`}>
+                                            </iframe>
                                             
                                             </div>
                                           

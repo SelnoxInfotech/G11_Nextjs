@@ -49,6 +49,7 @@ h2.sectionMainTitle {
   font-weight: 700;
   font-family: "Inter", sans-serif;
   color: #c2121c;
+  margin: 30px 0;
 }
 
 .Offcanvas {
@@ -368,9 +369,6 @@ h2.sectionMainTitle {
   scroll-behavior: unset !important;
 }
 
-.LatestNewsSection {
-  padding: 30px 0;
-}
 .LatestNewsSection a {
   text-decoration: none;
   color: #c2121c;
@@ -439,7 +437,6 @@ h2.sectionMainTitle {
 }
 .LatestNewsSection .box {
   display: flex;
-  height: 375px;
 }
 @media only screen and (max-width: 850px) {
   .LatestNewsSection .box {
@@ -460,7 +457,6 @@ h2.sectionMainTitle {
   overflow: hidden;
   min-width: 220px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  height: auto;
 }
 .homepagebreakingness:hover {
   border-color: #c2121c;
@@ -509,9 +505,6 @@ h2.sectionMainTitle {
   color: #C2121C;
 }
 
-.HightLight {
-  padding: 30px 0;
-}
 .HightLight a {
   text-decoration: none;
   color: #c2121c;
@@ -530,15 +523,15 @@ h2.sectionMainTitle {
 .HightLight .BreakingnewsScrollInside {
   display: flex;
   gap: 32px;
-  padding: 20px;
+  padding: 5px;
 }
 .HightLight .BreakingnewsScrollInside .HightCol {
   display: flex;
   overflow: hidden;
-  height: 325px;
+  height: 280px;
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  padding: 15px;
+  padding: 20px;
 }
 .HightLight .BreakingnewsScrollInside .HightCol:hover img {
   transform: scale(1.1);
@@ -1018,7 +1011,6 @@ h2.sectionMainTitle {
 .footer_link {
   position: relative;
   width: auto;
-  height: 250px;
 }
 .footer_link .link {
   top: 47px;
@@ -1930,6 +1922,9 @@ h1.newcardwrappermainHeading {
     border-radius: 8px;
     height: 100px;
   }
+  .latestVideoPage .videoh1box .latestvideo_card .react_player .videoplayer {
+    width: 100% !important;
+  }
   .newcardwrapper {
     justify-content: space-evenly;
   }
@@ -2239,9 +2234,6 @@ h1.newcardwrappermainHeading {
   .latestVideoPage .videoh1box .latestvideo_card {
     width: 48%;
   }
-  .latestVideoPage .videoh1box .latestvideo_card .react_player .videoplayer {
-    display: none;
-  }
   .latestVideoPage .videoh1box .latestvideo_card a {
     text-decoration: none;
   }
@@ -2256,7 +2248,6 @@ h1.newcardwrappermainHeading {
   .footer_link {
     position: relative;
     width: auto;
-    height: 250px;
   }
   .footer_link .link .Follow {
     font-size: 22px;

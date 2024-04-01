@@ -48,6 +48,7 @@ h2.sectionMainTitle{
     font-weight: 700;
     font-family: "Inter", sans-serif;
     color: #c2121c;
+    margin: 30px 0;
 }
 .Offcanvas{
 background-color: #c2121c;
@@ -422,7 +423,6 @@ background-color: #c2121c;
 }
 
 .LatestNewsSection {
-    padding: 30px 0;
     a {
         text-decoration: none;
         color: #c2121c;
@@ -499,7 +499,6 @@ background-color: #c2121c;
     }
     .box{
         display: flex;
-        height: 375px;
         @media only screen and (max-width: 850px) {
             // width: 100%;
             display: block;
@@ -520,7 +519,7 @@ background-color: #c2121c;
      overflow: hidden;
      min-width: 220px;
      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-     height: auto;
+  
      &:hover{
         border-color: #c2121c;
       a{  
@@ -574,7 +573,7 @@ background-color: #c2121c;
      }
 }
 .HightLight {
-    padding: 30px 0;
+  
     a {
         text-decoration: none;
         color: #c2121c;
@@ -593,14 +592,14 @@ background-color: #c2121c;
     .BreakingnewsScrollInside {
         display: flex;
         gap: 32px;
-        padding: 20px;
+        padding: 5px;
         .HightCol {
             display: flex;
             overflow: hidden;
-            height: 325px;
+            height: 280px;
             border-radius: 8px;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-            padding: 15px;
+            padding: 20px;
             &:hover{
                 img{
                     transform: scale(1.1);
@@ -1127,8 +1126,6 @@ background-color: #c2121c;
 .footer_link {
     position: relative;
     width: auto;
-    height: 250px;
-
     .link {
         top: 47px;
         color: #C2121C;
@@ -2239,9 +2236,11 @@ a{
             .latestvideo_card{
               
                 .react_player{
-                 
                     border-radius: 8px;
                     height: 100px;
+                     .videoplayer{
+                        width: 100% !important;
+                    }
                 }
             }
         }
@@ -2607,7 +2606,7 @@ a{
                 width: 48%;
               .react_player{
                 .videoplayer{
-                    display: none;
+                    
                 }
               }
             a{
@@ -2628,8 +2627,6 @@ a{
     .footer_link {
         position: relative;
         width: auto;
-        height: 250px;
-    
         .link {
             .Follow {
                 font-size: 22px;
