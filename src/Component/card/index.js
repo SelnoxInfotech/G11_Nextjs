@@ -100,7 +100,7 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
         <div className='container center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
-                  <h2 className={style.cardpagetitle}> {heading}</h2>
+                  <p className={style.cardpagetitle}> {heading}</p>
                 </div>
                <div className={style.Breaking_newCardWrapper}>
                     {

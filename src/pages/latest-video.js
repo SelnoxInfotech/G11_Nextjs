@@ -1,6 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic'
-import  Seo from '../Component/Seo/Seo';
+import Seo from '../Component/Seo/Seo';
 import useSWR from 'swr';
 import ReactPlayer from 'react-player'
 import Link from 'next/link';
@@ -33,8 +33,8 @@ const Video = (initialData) => {
         setNext(next - imagePerRow);
     };
 
-        const alternativeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-       
+    const alternativeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+
     return (
         <>
             <Seo
@@ -46,17 +46,17 @@ const Video = (initialData) => {
             ></Seo>
             <div className={`${'container'} ${style.latestVideoPage}`}>
                 <div className="row">
-                
-                     <h1 className={style.videopagetitle}>Latest Video News </h1>
-                     <div className={style.videoh1box}> 
-                            {data.data?.slice(0, next)?.map((ele) => {
-                                console.log(ele)
-                                console.log(ele.VideoUrl.match(alternativeRegex)[1])
-                                return (
-                                    <div className={style.latestvideo_card} key={ele.id}>
-                                    
-                                            <div className={style.react_player}>
-                                                {/* <ReactPlayer playing ={false} config={{
+
+                    <h1 className={style.videopagetitle}>Latest Video News </h1>
+                    <div className={style.videoh1box}>
+                        {data.data?.slice(0, next)?.map((ele) => {
+                            console.log(ele)
+                            console.log(ele.VideoUrl.match(alternativeRegex)[1])
+                            return (
+                                <div className={style.latestvideo_card} key={ele.id}>
+
+                                    <div className={style.react_player}>
+                                        {/* <ReactPlayer playing ={false} config={{
           youtube: {
             playerVars: {
               autoplay: 0, // Set to 1 if you want the video to autoplay
@@ -84,10 +84,12 @@ const Video = (initialData) => {
                                                     {ele.created.slice(0, 10)}
                                                 </span>
                                             </div>
-                                    </div>
-                                )
-                            })}
-                     </div>
+                                
+
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>  
                 <div className='mt-5 d-flex gap-2 justify-content-center '>

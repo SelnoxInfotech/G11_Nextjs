@@ -68,6 +68,67 @@ app.prepare()
       // Redirect to '/cricket-breaking-news/' with status code 307
       res.redirect(307, '/cricket-match-predictions/');
     });
+    server.get("/Cricket-prediction/:id/:name", (req, res, next) => {
+      // Function to check if a value is a number or a string
+      function test(g) {
+          var number = g;
+          return (number == Number(number)) ? "number" : "string";
+      }
+
+      // Check if the id parameter is a number
+      if (test(req.params.id) === "number") {
+          // Redirect to '/cricket-match-predictions/:id' with status code 307
+          res.redirect(307, `/cricket-match-predictions/${req.params.id}`);
+      }
+      else{
+        if (test(req.params.name) === "number") {
+          // Redirect to '/cricket-match-predictions/:id' with status code 307
+          res.redirect(307, `/cricket-match-predictions/${req.params.name}`);
+      }
+       
+      }
+  });
+  server.get("/cricket-prediction/:id/:name", (req, res, next) => {
+    // Function to check if a value is a number or a string
+    function test(g) {
+        var number = g;
+        return (number == Number(number)) ? "number" : "string";
+    }
+
+    // Check if the id parameter is a number
+    if (test(req.params.id) === "number") {
+        // Redirect to '/cricket-match-predictions/:id' with status code 307
+        res.redirect(307, `/cricket-match-predictions/${req.params.id}`);
+    }
+    else{
+      if (test(req.params.name) === "number") {
+        // Redirect to '/cricket-match-predictions/:id' with status code 307
+        res.redirect(307, `/cricket-match-predictions/${req.params.name}`);
+    }
+     
+    }
+});
+server.get("/cricket-breakingnews/:id/:name", (req, res, next) => {
+  // Function to check if a value is a number or a string
+  function test(g) {
+      var number = g;
+      return (number == Number(number)) ? "number" : "string";
+  }
+
+  // Check if the id parameter is a number
+  if (test(req.params.id) === "number") {
+      // Redirect to '/cricket-match-predictions/:id' with status code 307
+      res.redirect(307, `/cricket-breaking-news/${req.params.name}/${req.params.id}`);
+  }
+  else{
+    if (test(req.params.name) === "number") {
+      // Redirect to '/cricket-match-predictions/:id' with status code 307
+      res.redirect(307, `/cricket-breaking-news/${req.params.id}/${req.params.name}`);
+  }
+   
+  }
+});
+
 
 
     server.get('/FilterbySubCategory/:id', (req, res) => {
