@@ -52,11 +52,8 @@ const Video = (initialData) => {
                     </div> 
                     <div className={style.videoh1box}>
                         {data.data?.slice(0, next)?.map((ele) => {
-<<<<<<< HEAD
                             // console.log(ele)
                             // console.log(ele.VideoUrl.match(alternativeRegex)[1])
-=======
->>>>>>> c8148cc (gdfgdf)
                             return (
                                 <div className={style.latestvideo_card} key={ele.id}>
 
