@@ -2047,15 +2047,6 @@ h1.newcardwrappermainHeading {
     font-weight: 700;
     line-height: 1.5;
   }
-  .latestVideoPage h1.videopagetitle {
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.4;
-    font-family: "Inter", sans-serif;
-    color: #c2121c;
-    text-align: center;
-    margin: 30px 0;
-  }
   .latestVideoPage .videoh1box {
     display: flex;
     flex-wrap: wrap;
@@ -2454,10 +2445,5 @@ h1.newcardwrappermainHeading {
   }
   .footer_link .copy_right p {
     font-size: 16px;
-  }
-}
-@media (max-width: 365px) {
-  .Banner_img h1 {
-    font-size: 18px;
   }
 }/*# sourceMappingURL=Style.module.css.map */
