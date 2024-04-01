@@ -35,7 +35,7 @@ function Details({ data , h}) {
                                 width={100} height={100} quality={100}
                                 
                             />
-                        <div className={style.headeringImagehover}></div>
+                        {/* <div className={style.headeringImagehover}></div> */}
                         </div>
                         <div className={style.detailspagecontent}>
 
