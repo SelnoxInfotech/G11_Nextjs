@@ -5,7 +5,7 @@ import style from "../../../../styles/Style.module.scss"
 import Link from 'next/link';
 import Seo from '../../../../Component/Seo/Seo';
 import { GoDotFill } from "react-icons/go";
-
+import { useRouter } from "next/router";
 function Index({ data }) {
     return (
         <div className={style.breaknewssidebar}>
@@ -25,6 +25,31 @@ function Index({ data }) {
 }
 
 function index(props) {
+    const router = useRouter();
+React.useEffect(()=>{
+    function modifystr(str) {
+
+        str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str?.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str?.includes("--")) {
+                str = str?.replaceAll("--", "-")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("//", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("-/", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str?.toLowerCase()
+    }
+    router.replace(`/latest-video/${router.query.slug.replace(/:/g, "").toLowerCase()}/${router.query.slug1.toLowerCase()}`)
+},[])
     return (
         <div className="container">
             <div className="row">

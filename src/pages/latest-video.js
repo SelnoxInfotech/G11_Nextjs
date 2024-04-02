@@ -81,7 +81,7 @@ const Video = (initialData) => {
                                     </div>
 
                                     <div className="col ">
-                                        <Link href={`/latest-video/${ele.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${ele.id}`}><p className={style.latest_video_title}>{ele.Title.substr(0, 100)}</p></Link>
+                                        <Link href={`/latest-video/${ele.Title.replace(/\s+/g, '-').replaceAll("|", "").slice(0, -1).toLowerCase()}/${ele.id}`}><p className={style.latest_video_title}>{ele.Title.substr(0, 100)}</p></Link>
                                         <span className={style.Latest_video_date}>
                                             {ele.created.slice(0, 10)}
                                         </span>
