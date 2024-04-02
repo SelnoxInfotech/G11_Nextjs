@@ -45,7 +45,7 @@ export async function getServerSideProps(ctx) {
             return { props: { error: "Failed to fetch data" } };
         }
     }
-    else if(ctx.params.slug[0] === "teams" || "match-preview"  ){
+    else if(ctx.params.slug[0] ===( "teams" || "match-preview" ) ){
         const idIndex = checkString(ctx.params.slug[3]);
 
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
