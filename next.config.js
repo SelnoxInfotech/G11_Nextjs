@@ -66,10 +66,10 @@ const nextConfig = {
         source: '/latest-video.xml',
         destination: '/api/Rss/latest-video.xml',
       },
-      // {
-      //   source: '/sitemapBreakingnews.xml',
-      //   destination: '/api/Rss/sitemapBreakingnews.xml',
-      // },
+      {
+        source: '/cricket-prediction.xml',
+        destination: '/api/Rss/cricket-prediction.xml',
+      },
       {
         source: '/breaking-news',
         destination: '/cricket-breaking-news',

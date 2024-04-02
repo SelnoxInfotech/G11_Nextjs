@@ -3,10 +3,10 @@ const next = require('next');
 const cors = require('cors');
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
-const generateSitemap = require("./node/generateSitemap")
+// const generateSitemap = require("./node/cricket-match-predictions")
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const sitemap = require("./node/sitemap");
+// const sitemap = require("./node/sitemap");
 const Rss = require("./node/GetRssMatchPriview")
 
 app.prepare()
@@ -17,18 +17,8 @@ app.prepare()
     server.use(cors());
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
-    server.use(sitemap);
+    // server.use(sitemap);
     server.use(Rss);
-
-    // cron.schedule("*/1 * * * *  ", async function () {
-    //   if (run === 0) {
-    //     run = 1
-    //  generateSitemap()
-
-    //     console.log("running a task every 1 seconds");
-    //   }
-
-    // });
 
     // Custom API (Rediecrct)
     server.get("/breakingnews/", (req, res, next) => {
@@ -123,12 +113,9 @@ app.prepare()
 
       }
     });
-
     server.get("/Latest-Video/", (req, res, next) => {
-      res.redirect(307, '/latest-video//');
+      res.redirect(307, '/latest-video');
     });
-
-
     server.get('/FilterbySubCategory/:id', (req, res) => {
       async function l() {
         try {

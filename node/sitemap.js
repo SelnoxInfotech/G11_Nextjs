@@ -1,94 +1,73 @@
-// const router = require('express').Router();
-// const path = require('path')
-// const fs = require("fs")
-
-// router.get('/sitemap/:category', (req, res) => {
-//    console.log(req.params)
-
-//   if (req.params.category === "sitemapBreakingnews.xml") {
-//     const filePath = path.join(__dirname, '../Xml/Breakingnewsrss-Feed.xml'); // Update the file path accordingly
-
-//     // Check if the file exists
-//     fs.access(filePath, fs.constants.F_OK, (err) => {
-//       if (err) {
-//         console.error(err);
-//         return res.status(404).send('XML file not found');
-//       }
-
-//       // Set headers to specify XML content and to open directly in browser
-//       res.set({
-//         'Content-Type': 'application/xml',
-//         // 'Content-Disposition': 'inline', // This header tells the browser to open the file instead of downloading it
-//       });
-
-//       // Stream the file as response
-//       const fileStream = fs.createReadStream(filePath);
-//       fileStream.pipe(res);
-//     });
-//   }
-
-// else if (req.params.category === "cricket-prediction.xml") {
-//   const filePath = path.join(__dirname, '../Xml/cricket-prediction.xml'); // Update the file path accordingly
-
-//   // Check if the file exists
-//   fs.access(filePath, fs.constants.F_OK, (err) => {
-//     if (err) {
-//       console.error(err);
-//       return res.status(404).send('XML file not found');
-//     }
-
-//     // Set headers to specify XML content and to open directly in browser
-//     res.set({
-//       'Content-Type': 'application/xml',
-//       // 'Content-Disposition': 'inline', // This header tells the browser to open the file instead of downloading it
-//     });
-
-//     // Stream the file as response
-//     const fileStream = fs.createReadStream(filePath);
-//     fileStream.pipe(res);
-//   });
-// }
-
-//   else {
-//     res.status(200).json("page Not Found");
-//   }
-
-// });
-
-
-// module.exports = router;
-
-
-
 const router = require('express').Router();
-const path = require('path');
-const fs = require("fs");
-const { default: axios } = require('axios');
+const axios = require('axios');
 
-router.get('/cricket-prediction.xml', (req, res) => {
+router.get('/cricket-prediction.xml', async (req, res) => {
 
-
-  const filePath = path.join(__dirname, '../Xml/matches.xml'); // Update the file path accordingly
-
-  // Check if the file exists
-  fs.access(filePath, fs.constants.F_OK, (err) => {
-    if (err) {
-      console.error(err);
-      return res.status(404).send('XML file not found');
+  function modifystr(str) {
+    // Correcting replaceAll usage
+    str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+    str = str.trim().replace(/ /g, "-");
+    let a = 0;
+    while (a < 1) {
+      if (str.includes("--")) {
+        str = str.replace("--", "-");
+      } else if (str.includes("//")) {
+        str = str.replace("//", "/");
+      } else if (str.includes("//")) {
+        str = str.replace("-/", "/");
+      } else if (str.includes("//")) {
+        str = str.replace("/-", "/");
+      } else {
+        a++;
+      }
     }
+    return str.toLowerCase();
+  }
 
-    // Set headers to specify XML content and to open directly in browser
-    res.set({
-      'Content-Type': 'application/xml',
-      // 'Content-Disposition': 'inline', // This header tells the browser to open the file instead of downloading it
-    });
+  function htmlStringToJson(htmlString) {
+    const regex = /<strong>(.*?)<\/strong>[\s:]+(.*?)(?=<)/g;
+    let match;
+    const data = {};
+    while ((match = regex.exec(htmlString)) !== null) {
+        const key = match[1].trim();
+        const value = match[2].trim();
+        data[key] = value;
+    }
+    return data;
+  }
 
-    // Stream the file as response
-    const fileStream = fs.createReadStream(filePath);
-    fileStream.pipe(res);
-  });
+  async function generateRssXml() {
+    try {
+      // Fetch data from API
+      const response = await axios.get('https://g11fantasy.com/NewsSection/tbl_matchApi/');
+      const rssData = response.data.reverse(); // Assuming data structure is correct
 
+      // Generating XML
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          ${rssData.map((url) => `
+            <url>
+              <loc>https://g11prediction.com/cricket-rules-and-regulation/${ htmlStringToJson(url.match_discription).Match !== undefined ? modifystr(htmlStringToJson(url.match_discription).Match) : '-'}/${url.id}/</loc>
+              <changefreq>daily</changefreq>
+              <priority>0.7</priority>
+            </url>
+          `).join('')}
+        </urlset>`;
+      return xml;
+    } catch (error) {
+      throw error;
+    }
+  }
 
+  try {
+    const rssXml = await generateRssXml(); // Await here
+    res.setHeader('Content-Type', 'text/xml');
+    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+    res.send(rssXml);
+  } catch (error) {
+    console.error('Error generating RSS feed:', error);
+    res.status(500).end('Internal Server Error');
+  }
 });
 
 module.exports = router;
