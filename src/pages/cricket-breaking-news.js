@@ -86,13 +86,13 @@ const Card = dynamic(() => import('../Component/card/index'), { ssr: false, load
 const Breakingnews = ({ breakingData }) => {
   const router = useRouter();
      
-// React.useEffect(()=>{
-//   if(router.asPath === "/breakingnews/" || "/breakingnews") {
-//     // redirect("/cricket-breaking-news/");
-//     router.push({ pathname: '/cricket-breaking-news/'});
-//   }
+React.useEffect(()=>{
+  
+    // redirect("/cricket-breaking-news/");
+    router.push({ pathname: '/cricket-breaking-news/'});
+  
 
-// },[])
+},[])
      
   if (!breakingData) return <div>Loading...</div>;
   // if(router.asPath === "/breakingnews/" || "/breakingnews") {

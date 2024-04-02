@@ -195,11 +195,11 @@ router.get('/rss/:category', (req, res) => {
       });
 
       rssData.forEach((url) => {
-        const l = url.match_discription?.split('</p>')[0].replace(/(<([^>]+)>)/gi, "");
+        // const l = url.match_discription?.split('</p>')[0].replace(/(<([^>]+)>)/gi, "");
         feed.item({
-          title: url.match_title,
+          title: htmlStringToJson(url.match_discription).Match  +" dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update ",
           description: url.match_discription,
-          url: `https://g11prediction.com/cricket-match-predictions/${htmlStringToJson(url.match_discription).Match !== undefined ? modifystr(htmlStringToJson(url.match_discription).Match) : '-'}/${url.id}/`,
+          url: `https://g11prediction.com/cricket-match-predictions/${htmlStringToJson(url.match_discription).Match !== undefined ? modifystr(htmlStringToJson(url.match_discription).Match)+"-dream11-prediction-today-match" : "dream11-prediction-today-match"}/${url.id}/`,
           date: new Date(url.create_date),
         });
       });

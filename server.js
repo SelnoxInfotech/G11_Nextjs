@@ -113,6 +113,7 @@ app.prepare()
 
       }
     });
+
     server.get("/Latest-Video/", (req, res, next) => {
       res.redirect(307, '/latest-video');
     });

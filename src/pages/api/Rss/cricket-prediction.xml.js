@@ -46,7 +46,7 @@ export default async function handler(req, res) {
             <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
               ${rssData.map((url) => `
                 <url>
-                  <loc>https://g11prediction.com/cricket-match-predictions/${ htmlStringToJson(url.match_discription).Match !== undefined ? modifystr(htmlStringToJson(url.match_discription).Match) : '-'}/${url.id}/</loc>
+                  <loc>https://g11prediction.com/cricket-match-predictions/${ htmlStringToJson(url.match_discription).Match !== undefined ? modifystr(htmlStringToJson(url.match_discription).Match)+"-dream11-prediction-today-match": 'dream11-prediction-today-match'}/${url.id}/</loc>
                   <changefreq>daily</changefreq>
                   <priority>0.7</priority>
                 </url>
