@@ -58,28 +58,8 @@ router.get('/rss/:category', (req, res) => {
   }
 
 
-  if (req.params.category === "cricket-prediction.xml") {
-    const filePath = path.join(__dirname, '../Xml/Rss/matches.xml'); // Update the file path accordingly
 
-    // Check if the file exists
-    fs.access(filePath, fs.constants.F_OK, (err) => {
-      if (err) {
-        console.error(err);
-        return res.status(404).send('XML file not found');
-      }
-
-      // Set headers to specify XML content and to open directly in browser
-      res.set({
-        'Content-Type': 'application/xml',
-        // 'Content-Disposition': 'inline', // This header tells the browser to open the file instead of downloading it
-      });
-
-      // Stream the file as response
-      const fileStream = fs.createReadStream(filePath);
-      fileStream.pipe(res);
-    });
-  }
-  else if (req.params.category === "Breakingnewsrss-Feed.xml") {
+   if (req.params.category === "Breakingnewsrss-Feed.xml") {
     try {
       async function k() {
         const rssXml = await generateRssXml("https://www.g11fantasy.com/NewsSection/Get-News/1", "Breakingnewsrss-feed.xml", "cricket-breaking-news");
@@ -187,13 +167,7 @@ router.get('/rss/:category', (req, res) => {
     }
   }
   else if (req.params.category === "cricket-prediction.xml") {
-    function modifyString(inputString) {
-      if (typeof inputString === 'string') {
-        return inputString.replace(/[^a-zA-Z0-9_]/g, '-').replace(/-+/g, '-').toLowerCase();
-      } else {
-        return '';
-      }
-    }
+
     function htmlStringToJson(htmlString) {
       const regex = /<strong>(.*?)<\/strong>[\s:]+(.*?)(?=<)/g;
       let match;
@@ -209,11 +183,11 @@ router.get('/rss/:category', (req, res) => {
     async function generateRssXml() {
       const data = await axios.get("https://g11fantasy.com/NewsSection/tbl_matchApi/");
 
-      const rssData = data.data;
+      const rssData = data.data.reverse();
       let feed = new RSS({
         title: 'Cricket Breaking News ON TRENDING TOPICS',
         description: 'Cricket Breaking News ON TRENDING TOPICS',
-        feed_url: `https://g11prediction.com/rss/${"link"}/`,
+        feed_url: `https://g11prediction.com/rss/cricket-match-predictions/`,
         site_url: 'https://g11prediction.com/',
         image_url: 'https://g11prediction.com/image/G11.png',
         language: 'en',
@@ -221,10 +195,10 @@ router.get('/rss/:category', (req, res) => {
       });
 
       rssData.forEach((url) => {
-        const l = url.Description?.split('</p>')[0].replace(/(<([^>]+)>)/gi, "");
+        const l = url.match_discription?.split('</p>')[0].replace(/(<([^>]+)>)/gi, "");
         feed.item({
           title: url.match_title,
-          // description: l['__html'],
+          description: url.match_discription,
           url: `https://g11prediction.com/cricket-match-predictions/${htmlStringToJson(url.match_discription).Match !== undefined ? modifystr(htmlStringToJson(url.match_discription).Match) : '-'}/${url.id}/`,
           date: new Date(url.create_date),
         });
