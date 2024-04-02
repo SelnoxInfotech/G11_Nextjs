@@ -17,7 +17,8 @@ export default function Detailpage({ l, topNews }) {
             router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
         }
         else{
-            router.replace(`/${router.query.dynamicslug}/${router.query.dynamicslug2.toLowerCase()}/${router.query.index}`);
+            console.log(router.query.dynamicslug2.toLowerCase())
+            router.replace(`/${router.query.dynamicslug.toLowerCase()}/${router.query.dynamicslug2.toLowerCase()}/${router.query.index}`);
         }
     }, []);
 
