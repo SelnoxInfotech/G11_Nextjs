@@ -17,7 +17,6 @@ export default function Detailpage({ l, topNews }) {
             router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
         }
         else{
-            console.log(router.query.dynamicslug2.toLowerCase())
             router.replace(`/${router.query.dynamicslug.toLowerCase()}/${router.query.dynamicslug2.toLowerCase()}/${router.query.index}`);
         }
     }, []);
