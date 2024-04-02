@@ -3,6 +3,26 @@ import Link from 'next/link'
 import style from "../../../styles/Style.module.scss"
 
 export default function BraekingNewsSlider({ props }) {
+  function modifystr(str) {
+    str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+    str = str.trim().replaceAll(' ', "-");
+    let a = 0;
+    while (a < 1) {
+        if (str.includes("--")) {
+            str = str.replaceAll("--", "-")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("//", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("-/", "/")
+        } else if (str.includes("//")) {
+            str = str.replaceAll("/-", "/")
+        } else {
+            a++
+        }
+    }
+
+    return str
+}
 
   return (
     <>
@@ -13,7 +33,7 @@ export default function BraekingNewsSlider({ props }) {
           </div>
           <div className={`${style.scroll_container}  col`}>
             <span className={style.scroll_text}>
-              <Link href={`/cricket-match-predictions/${props[0]?.id}`} className={style.hovereffect} > {props[0]?.Title} </Link>
+              <Link href={`/cricket-breaking-news/${modifystr(props[0]?.Title)}/${props[0]?.id}`} className={style.hovereffect} > {props[0]?.Title} </Link>
             </span>
           </div>
         </div>
