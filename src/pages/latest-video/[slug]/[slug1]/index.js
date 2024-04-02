@@ -24,7 +24,7 @@ function Index({ data }) {
     )
 }
 
-function index(props) {
+function Index1(props) {
     const router = useRouter();
 React.useEffect(()=>{
     function modifystr(str) {
@@ -106,4 +106,4 @@ export async function getServerSideProps(ctx) {
         };
     }
 }
-export default index;
+export default Index1;
