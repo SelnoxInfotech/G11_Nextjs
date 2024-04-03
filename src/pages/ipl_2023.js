@@ -15,7 +15,7 @@ const Ipl2024 = ({initialData}) => {
     const k = initialData
     const { data: fetchedData, error } = useSWR(`/FilterbySubCategory/${1}`,fetcher,{ k } );
 
-    const data = fetchedData || k;
+    const data = fetchedData || initialData;
 
     if (!data) return <div>Loading...</div>;
 

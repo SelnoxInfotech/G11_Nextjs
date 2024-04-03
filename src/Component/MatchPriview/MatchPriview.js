@@ -76,7 +76,6 @@ function MatchPriview(props) {
         }
          
 
-  console.log(router.query)
         if (router.query.slug[0] === "cricket-match-predictions") {
             if (checkString(router.query.slug[4])) {
 
@@ -94,17 +93,20 @@ function MatchPriview(props) {
             const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[0]}/`;
                 window.history.replaceState({}, '', newURL);
         }
-        else if(router.query.slug[0] === "teams"){
-            const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[3    ]}/`;
+        else if(router.query.slug[0] === "teams" || router.query.slug[0] === "match-preview"  || router.query.slug[0] === "team-guide" || router.query.slug[0] === "cheat-sheet"){
+            const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[3]}/`;
                 window.history.replaceState({}, '', newURL);
         }
 
 
         else {
-
             if (router.asPath.slice(0, 13) === "/latest-match" || checkString(router.query.slug[2])) {
 
                 const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[2]}/`;
+                window.history.replaceState({}, '', newURL);
+            }
+            else{
+                const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[1]}/`;
                 window.history.replaceState({}, '', newURL);
             }
         }
