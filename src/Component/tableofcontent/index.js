@@ -8,7 +8,6 @@ import { GoDotFill } from "react-icons/go";
 
 
 export default function Index ({props , domain}){
-  
     const router = useRouter()
     function modifystr(str) {
 

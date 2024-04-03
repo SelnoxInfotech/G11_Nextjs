@@ -76,23 +76,21 @@
 
 
 import React from 'react';
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import  Seo from '../Component/Seo/Seo';
 import { useRouter } from 'next/router';
-import { redirect } from 'next/navigation'
 const Card = dynamic(() => import('../Component/card/index'), { ssr: false, loading: () => <p>Loading...</p> });
 
 const Breakingnews = ({ breakingData }) => {
   const router = useRouter();
      
-// React.useEffect(()=>{
-//   if(router.asPath === "/breakingnews/" || "/breakingnews") {
-//     // redirect("/cricket-breaking-news/");
-//     router.push({ pathname: '/cricket-breaking-news/'});
-//   }
+React.useEffect(()=>{
+  
+    // redirect("/cricket-breaking-news/");
+    router.push({ pathname: '/cricket-breaking-news/'});
+  
 
-// },[])
+},[])
      
   if (!breakingData) return <div>Loading...</div>;
   // if(router.asPath === "/breakingnews/" || "/breakingnews") {

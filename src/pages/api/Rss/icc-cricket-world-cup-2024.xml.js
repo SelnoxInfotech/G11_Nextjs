@@ -24,7 +24,7 @@ function modifystr(str) {
 
 export async function generateRssXml() {
     const data = await axios.get(`https://g11fantasy.com/NewsSection/FilterbySubCategory/${8}`);
-    const rssData = data.data .data;
+    const rssData = data.data.data;
     const sitemapTeamguide = `<?xml version="1.0" encoding="UTF-8"?>
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
              ${rssData.map((url) => `

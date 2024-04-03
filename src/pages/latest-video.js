@@ -1,8 +1,9 @@
-import React from 'react';
+"use client"
+import React , {useEffect} from 'react';
 import dynamic from 'next/dynamic'
 import Seo from '../Component/Seo/Seo';
 import useSWR from 'swr';
-import ReactPlayer from 'react-player'
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import style from "../styles/Style.module.scss"
 import Videocardskeleton from '../Component/skeleton/Videocardskeleton';
@@ -15,6 +16,7 @@ const fetcher = async (url) => {
 };
 
 const Video = (initialData) => {
+    const router = useRouter();
     const imagePerRow = 8
     const [next, setNext] = React.useState(imagePerRow);
     const [setHandleAudio] = React.useState(false)
@@ -36,6 +38,14 @@ const Video = (initialData) => {
 
     const alternativeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
 
+
+
+  //  router.replace({ pathname: '/latest-video/'});
+
+  if(router.asPath === "/Latest-Video/"){
+    router.replace({ pathname: '/latest-video/'});
+  }
+
     return (
         <>
             <Seo
@@ -48,14 +58,30 @@ const Video = (initialData) => {
             <div className={`${'container'} ${style.latestVideoPage}`}>
                 <div className="row">
 
-                    <h1 className={style.videopagetitle}>Latest Video News </h1>
+                   <div  className={style.videopagetitle}>
+                   <h1 >Latest Video</h1> <h2>New</h2>
+                    </div> 
                     <div className={style.videoh1box}>
                         {data.data?.slice(0, next)?.map((ele) => {
                            
                             return (
                                 <div className={style.latestvideo_card} key={ele.id}>
 
-                                    <div className={style.react_player}> 
+                                    <div className={style.react_player}>
+                                        {/* <ReactPlayer playing ={false} config={{
+          youtube: {
+            playerVars: {
+              autoplay: 0, // Set to 1 if you want the video to autoplay
+              controls: 0, // Show YouTube player controls
+              modestbranding: 0, // Hide YouTube logo
+              fs: 1, // Show fullscreen button
+              rel: 0, // Don't show related videos at the end
+              showinfo: 0, // Show title and uploader info
+              playIcon:0,
+            },
+          },
+        }} controls={true} url={`${ele.VideoUrl}/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?modestbranding=0&;showinfo=0&;autohide=1&;rel=0;`} width="100%" height="100%" onClick={handleVideo} />
+                                    */}
                                             <iframe className={`w-100 ${style.videoplayer}`}
                                                     title='Youtube player'
                                                     sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
@@ -92,9 +118,9 @@ const Video = (initialData) => {
                         </button>
                     )}
                 </div>
-<div className='container'>
-       <Videocardskeleton/>
-           </div>
+
+           
+
         </>
     );
 };

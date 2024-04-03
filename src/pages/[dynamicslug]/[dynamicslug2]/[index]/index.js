@@ -16,7 +16,14 @@ export default function Detailpage({ l, topNews }) {
         if (dynamicslug === "Cricket-BreakingNews") {
             router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
         }
+        else{
+            router.replace(`/${router.query.dynamicslug.toLowerCase()}/${router.query.dynamicslug2.toLowerCase()}/${router.query.index}`);
+        }
     }, []);
+
+    function formatString(str) {
+        return str.replace(/-/g, ' ').replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    }
 
     return (
         <div className="container">
@@ -39,7 +46,7 @@ export default function Detailpage({ l, topNews }) {
                     <TableOfContent props={topNews?.slice(0, 6) || []} domain={dynamicslug === "cricket-news" ? "cricket-news" : undefined} />
                 </div>
             </div>
-            <Card data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{dynamicslug}</h2>} query={dynamicslug}  domain={dynamicslug === "cricket-news" ? "https://grand11.in/g11/" : undefined} />
+            <Card data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{formatString(dynamicslug)}</h2>} query={dynamicslug}  domain={dynamicslug === "cricket-news" ? "https://grand11.in/g11/" : undefined} />
         </div>
     );
 }

@@ -26,6 +26,13 @@ const nextConfig = {
 
   async rewrites() {
     return [
+          // server.get("/Latest-Video/", (req, res, next) => {
+    //   res.redirect(301, '/latest-video');
+    // });
+    {
+      source: '/Latest-Video',
+      destination: '/latest-video',
+    },
       {
         source: '/ads.txt',
         destination: '/api/Rss/ads.txt',
@@ -66,10 +73,10 @@ const nextConfig = {
         source: '/latest-video.xml',
         destination: '/api/Rss/latest-video.xml',
       },
-      // {
-      //   source: '/sitemapBreakingnews.xml',
-      //   destination: '/api/Rss/sitemapBreakingnews.xml',
-      // },
+      {
+        source: '/cricket-prediction.xml',
+        destination: '/api/Rss/cricket-prediction.xml',
+      },
       {
         source: '/breaking-news',
         destination: '/cricket-breaking-news',
