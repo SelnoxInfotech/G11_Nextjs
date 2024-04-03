@@ -24,6 +24,7 @@ export async function getServerSideProps(ctx) {
             return false
         }
     }
+    
     if(ctx.params.slug[0] === "cricket-prediction"){
  
         const idIndex = checkString(ctx.params.slug[3]) ? checkString(ctx.params.slug[3]) : checkString(ctx.params.slug[4]);
@@ -61,7 +62,7 @@ export async function getServerSideProps(ctx) {
         }
     }
     else{
-        const idIndex = checkString(ctx.params.slug[0]) ? checkString(ctx.params.slug[0]) : checkString(ctx.params.slug[1]);
+        const idIndex = checkString(ctx.params.slug[0]) ? checkString(ctx.params.slug[0]) : checkString(ctx.params.slug[ctx.params.slug.length - 1]);
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
         const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');
         const topNews = await topNewsRes.json();
