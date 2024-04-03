@@ -22,6 +22,7 @@ class MyDocument extends Document {
           </Script>
           {/* Google AdSense script */}
           <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9898508472606807" crossOrigin="anonymous"></script>
+          
         </Head>
 
         <body>

@@ -12,7 +12,7 @@
 .hoverSlideRight::before {
   position: absolute;
   content: "";
-  background-color: #C2121C;
+  background-color: #c2121c;
   transition: 0.3s ease-out;
   top: 0;
   bottom: 0;
@@ -30,15 +30,15 @@
 
 .loadmorebtm {
   padding: 5px 12px;
-  border: 1px solid #C2121C;
+  border: 1px solid #c2121c;
   font-family: "Inter", sans-serif;
   font-size: 16px;
-  color: #C2121C;
+  color: #c2121c;
   font-weight: 500;
   border-radius: 3px;
 }
 .loadmorebtm:hover {
-  background-color: #C2121C;
+  background-color: #c2121c;
   color: #fff;
   transition: all 0.3s ease-in-out;
 }
@@ -67,7 +67,7 @@ h2.sectionMainTitle {
 }
 
 .btn_tele:hover {
-  background-color: #2EA8DE;
+  background-color: #2ea8de;
 }
 
 .Nav {
@@ -83,7 +83,7 @@ h2.sectionMainTitle {
   color: white;
 }
 .Nav .btn_tele:hover {
-  background-color: #2EA8DE;
+  background-color: #2ea8de;
 }
 
 .Homelink {
@@ -111,7 +111,7 @@ h2.sectionMainTitle {
   font-weight: 500;
   transition: all 0.3s ease-in-out;
   background-color: #fff;
-  color: #C2121C;
+  color: #c2121c;
   padding: 5px 10px;
   border-radius: 5px;
 }
@@ -147,7 +147,7 @@ h2.sectionMainTitle {
 .braking_news {
   font-family: "Segoe" UI-MONOSPACE;
   text-align: center;
-  background-color: #C2121C;
+  background-color: #c2121c;
   color: white;
   width: 200px;
   -webkit-animation: braking_news 0.5s step-end infinite alternate;
@@ -160,7 +160,7 @@ h2.sectionMainTitle {
 }
 .scroll_container {
   font-size: 20px;
-  color: #C2121C;
+  color: #c2121c;
   overflow: hidden;
   width: 100%;
   font-family: "Segoe UI";
@@ -174,7 +174,7 @@ h2.sectionMainTitle {
   position: relative;
 }
 .scroll_container a {
-  background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
+  background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
   background-size: 200% 100%;
   background-position: -100%;
   display: inline-block;
@@ -186,7 +186,7 @@ h2.sectionMainTitle {
 }
 .scroll_container a:before {
   content: "";
-  background: #C2121C;
+  background: #c2121c;
   display: block;
   position: absolute;
   bottom: 7px;
@@ -331,7 +331,7 @@ h2.sectionMainTitle {
 }
 
 .BreakingNewsSectionHomepage a {
-  background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
+  background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
   background-size: 200% 100%;
   background-position: -100%;
   display: inline-block;
@@ -343,7 +343,7 @@ h2.sectionMainTitle {
 }
 .BreakingNewsSectionHomepage a:before {
   content: "";
-  background: #C2121C;
+  background: #c2121c;
   display: block;
   position: absolute;
   bottom: 7px;
@@ -453,6 +453,381 @@ h2.sectionMainTitle {
   font-weight: 500;
 }
 
+.skeletonSign {
+  background-color: #e2e5e7;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+
+.skeletonCard {
+  width: 18%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+.skeletonCard .skeletonCardImage {
+  height: 180px;
+  width: 100%;
+}
+.skeletonCard .skeletonCardtexe {
+  margin-top: 10px;
+  display: block;
+}
+.skeletonCard .skeletonCardtexe span {
+  height: 10px;
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #e7e7e7;
+  margin-bottom: 5px;
+}
+.skeletonCard .skeletonCardtexe span:nth-child(2) {
+  width: 60%;
+}
+.skeletonCard .skeletonCardbutton {
+  width: 100%;
+  height: 30px;
+  background-color: #e7e7e7;
+  margin-top: 20px;
+}
+
+.skeletonContent .skeletoncontenttitle span {
+  height: 18px;
+  display: block;
+  border-radius: 4px;
+  background-color: #e2e5e7;
+  margin-bottom: 5px;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+.skeletonContent .skeletoncontenttitle span:nth-child(2) {
+  width: 70%;
+}
+.skeletonContent .skeletoncontentimage {
+  margin: 30px 0;
+  height: 480px;
+  border-radius: 4px;
+  background-color: #e2e5e7;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+.skeletonContent .skeletoncontentdescription p span {
+  height: 10px;
+  display: block;
+  border-radius: 4px;
+  background-color: #e2e5e7;
+  margin-bottom: 5px;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+.skeletonContent .skeletoncontentdescription p span:last-child {
+  width: 70%;
+}
+.skeletonContent .skeletoncontentlist ol li {
+  list-style-type: circle;
+  height: 10px;
+  margin-bottom: 10px;
+  display: block;
+  border-radius: 4px;
+  background-color: #e2e5e7;
+  position: relative;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+.skeletonContent .skeletoncontentlist ol li:nth-child(1) {
+  width: 70%;
+}
+.skeletonContent .skeletoncontentlist ol li:nth-child(2) {
+  width: 40%;
+}
+.skeletonContent .skeletoncontentlist ol li:nth-child(3) {
+  width: 70%;
+}
+.skeletonContent .skeletoncontentlist ol li:nth-child(4) {
+  width: 50%;
+}
+.skeletonContent .skeletoncontentlist ol li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e2e5e7;
+  position: absolute;
+  top: 0;
+  left: -20px;
+}
+
+.skeletontoc .tocskeletonlist ul li {
+  list-style-type: circle;
+  display: block;
+  margin-bottom: 30px;
+  position: relative;
+}
+.skeletontoc .tocskeletonlist ul li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e2e5e7;
+  position: absolute;
+  top: 0;
+  left: -20px;
+}
+.skeletontoc .tocskeletonlist ul li span {
+  height: 10px;
+  margin-bottom: 10px;
+  display: block;
+  border-radius: 4px;
+  background-color: #e2e5e7;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+.skeletontoc .tocskeletonlist ul li span:nth-child(2) {
+  width: 60%;
+}
+
+.videoSkeetonwrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 20px;
+}
+.videoSkeetonwrapper .skeletonVideroCard {
+  width: 24%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+.videoSkeetonwrapper .skeletonVideroCard .skeletonCardvideo {
+  height: 180px;
+  width: 100%;
+}
+.videoSkeetonwrapper .skeletonVideroCard .skeletonCardtexe {
+  margin-top: 10px;
+  display: block;
+}
+.videoSkeetonwrapper .skeletonVideroCard .skeletonCardtexe span {
+  height: 10px;
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #e7e7e7;
+  margin-bottom: 5px;
+}
+.videoSkeetonwrapper .skeletonVideroCard .skeletonCardtexe span:nth-child(2) {
+  width: 60%;
+}
+.videoSkeetonwrapper .skeletonVideroCard .skeletonCardbutton {
+  width: 30%;
+  height: 10px;
+  background-color: #e7e7e7;
+  margin-top: 20px;
+}
+
+.homepageskeleton .bannersectionskeleton {
+  width: 100%;
+  height: 400px;
+  background-color: #e2e5e7;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+.homepageskeleton .skeletoncardhomewrapper {
+  display: flex;
+  gap: 20px;
+  margin: 30px 0;
+}
+.homepageskeleton .skeletonhomecontent {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.homepageskeleton .skeletonhomecontent h4.title {
+  width: 50%;
+  height: 22px;
+  margin: 20px auto;
+}
+.homepageskeleton .skeletonhomecontent .subtitle {
+  width: 70%;
+  height: 14px;
+  margin: 15px auto;
+}
+.homepageskeleton .skeletonhomecontent P span {
+  display: block;
+  width: 100%;
+  height: 10px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+.homepageskeleton .skeletonhomecontent P span:last-child {
+  width: 60%;
+}
+.homepageskeleton .latestnewsskeleton .title {
+  height: 40px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 40%;
+}
+.homepageskeleton .latestnewsskeleton .latestnewsImgeskeleton {
+  height: 400px;
+}
+.homepageskeleton .latestnewsskeleton .latestnewscontentkeleton h3.title {
+  height: 18px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.homepageskeleton .latestnewsskeleton .latestnewscontentkeleton p.description span {
+  height: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: block;
+}
+.homepageskeleton .latestnewsskeleton .latestnewscontentkeleton p.description span:last-child {
+  width: 60%;
+}
+.homepageskeleton .latestnewsskeleton .latestnewscontentkeleton button {
+  width: 200px;
+  height: 40px;
+}
+.homepageskeleton .highlightsskeleton {
+  display: flex;
+  justify-content: space-between;
+}
+.homepageskeleton .highlightsskeleton .highlightcards {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 8px;
+  background-color: #fff;
+  width: 48%;
+  padding: 25px;
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.homepageskeleton .highlightsskeleton .highlightcards .latestnewsImgeskeleton {
+  height: 260px;
+  width: 45%;
+}
+.homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton {
+  width: 50%;
+}
+.homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton h3.title {
+  height: 18px;
+  border-radius: 5px;
+}
+.homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton h3.title:nth-child(2) {
+  width: 80%;
+  margin-bottom: 30px;
+}
+.homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton p.description span {
+  height: 10px;
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton button {
+  width: 150px;
+  height: 40px;
+}
+
+.matchpageskeleton .title {
+  margin-bottom: 40px;
+}
+.matchpageskeleton .title span {
+  height: 18px;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.matchpageskeleton .title span:last-child {
+  width: 80%;
+}
+.matchpageskeleton .matchpageskeleton h2 {
+  width: 35%;
+  height: 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.matchpageskeleton .matchpageskeleton h3 {
+  width: 30%;
+  height: 17px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.matchpageskeleton .matchpageskeleton p span {
+  display: block;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.matchpageskeleton .matchpageskeleton p span:last-child {
+  width: 60%;
+}
+.matchpageskeleton .matchpageskeleton .teamimg {
+  width: 100%;
+  height: 300px;
+}
+
 .homepagebreakingness {
   border-radius: 5px;
   overflow: hidden;
@@ -493,7 +868,8 @@ h2.sectionMainTitle {
   padding: 0 10px;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 18px;
+  height: 35px;
 }
 .homepagebreakingness .BreakingNews_view {
   padding: 10px;
@@ -503,7 +879,7 @@ h2.sectionMainTitle {
   gap: 5px;
   align-items: center;
   justify-content: flex-end;
-  color: #C2121C;
+  color: #c2121c;
 }
 .homepagebreakingness .BreakingNews_date {
   padding: 10px;
@@ -513,7 +889,7 @@ h2.sectionMainTitle {
   gap: 5px;
   align-items: center;
   justify-content: flex-end;
-  color: #C2121C;
+  color: #c2121c;
 }
 
 .HightLight a {
@@ -584,7 +960,14 @@ h2.sectionMainTitle {
 .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription P:first-child {
   display: block;
 }
-.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription ol, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h3, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h1, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h2, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h4, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h5, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h6, .HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription ul {
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription ol,
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h3,
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h1,
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h2,
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h4,
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h5,
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription h6,
+.HightLight .BreakingnewsScrollInside .HightCol span.highlightcarddescription ul {
   display: none;
 }
 .HightLight .BreakingnewsScrollInside .HightCol button.highlightcardbtn {
@@ -613,11 +996,11 @@ h2.sectionMainTitle {
 .VideoSection .latest_bottem {
   margin: 18px;
   position: relative;
-  border: 1px solid #FAFAFA;
+  border: 1px solid #fafafa;
   background-color: #c2121c;
 }
 .VideoSection .latest_bottem h3 {
-  color: #FAFAFA;
+  color: #fafafa;
   margin: 0;
   font: normal normal 25px/37px Segoe UI;
 }
@@ -725,7 +1108,7 @@ h2.sectionMainTitle {
   margin-bottom: 20px;
 }
 .SecondStatic .Static_row .olcards li:first-child {
-  background-color: #C2121C;
+  background-color: #c2121c;
   color: #fff;
 }
 .SecondStatic .Static_row .olcards li:first-child::before {
@@ -737,11 +1120,11 @@ h2.sectionMainTitle {
   position: absolute;
   top: 0;
   right: -40px;
-  background-color: #C2121C;
+  background-color: #c2121c;
 }
 .SecondStatic .Static_row .olcards li:nth-child(2) {
   background-color: #fff;
-  color: #C2121C;
+  color: #c2121c;
 }
 .SecondStatic .Static_row .olcards li:nth-child(2)::before {
   content: "";
@@ -817,7 +1200,7 @@ h2.sectionMainTitle {
 }
 .SecondStatic .hedding {
   text-align: center;
-  color: #C2151B;
+  color: #c2151b;
   font-weight: 900;
   font: normal normal bold 28px/37px Segoe UI;
 }
@@ -989,7 +1372,7 @@ h2.sectionMainTitle {
 
 .footer_head {
   margin-top: 20px;
-  border: 1px solid #C2121C;
+  border: 1px solid #c2121c;
   background: rgb(194, 18, 28);
   background: linear-gradient(71deg, rgb(194, 18, 28) 0%, rgb(194, 18, 28) 45%, rgb(255, 255, 255) 45%, rgb(255, 255, 255) 87%);
   width: 100%;
@@ -1029,7 +1412,7 @@ h2.sectionMainTitle {
 }
 .footer_link .link {
   top: 47px;
-  color: #C2121C;
+  color: #c2121c;
   text-align: center;
   position: relative;
 }
@@ -1070,7 +1453,7 @@ h2.sectionMainTitle {
   list-style-type: none;
 }
 .footer_link .hovereffect {
-  background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
+  background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
   background-size: 200% 100%;
   background-position: -100%;
   display: inline-block;
@@ -1088,7 +1471,7 @@ h2.sectionMainTitle {
   position: relative;
   top: 46px;
   text-align: center;
-  background-color: #C2121C;
+  background-color: #c2121c;
   color: white;
 }
 .footer_link .copy_right p {
@@ -1128,6 +1511,14 @@ h2.sectionMainTitle {
   transition: all 0.3s ease-in-out;
   margin-top: -5px;
 }
+.matchcard .matchcardteamname {
+  line-height: 18px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 
 .font h3 span {
   background-color: #fffcfc;
@@ -1137,7 +1528,7 @@ h2.sectionMainTitle {
 }
 
 .team {
-  background: #FAFAFA !important;
+  background: #fafafa !important;
   grid-row-gap: 10px;
   font-size: inherit;
   font-family: Segoe UI;
@@ -1237,7 +1628,7 @@ h2.sectionMainTitle {
 }
 .Breaking_new .hovereffect {
   justify-content: flex-end;
-  background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
+  background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
   background-size: 200% 100%;
   background-position: -100%;
   display: inline-block;
@@ -1249,7 +1640,7 @@ h2.sectionMainTitle {
 }
 .Breaking_new .hovereffect::before {
   content: "";
-  background: #C2121C;
+  background: #c2121c;
   display: block;
   position: absolute;
   bottom: 7px;
@@ -1372,7 +1763,7 @@ h2.sectionMainTitle {
 }
 .Breaking_new .breaking_news_hed {
   text-align: center;
-  padding: 20PX 0;
+  padding: 20px 0;
 }
 .Breaking_new .breaking_news_hed .cardpagetitle {
   font-size: 32px;
@@ -1468,7 +1859,7 @@ h1.newcardwrappermainHeading {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
-  color: #C2121C;
+  color: #c2121c;
   margin: 20px 0;
   padding: 0;
   text-align: center;
@@ -1503,7 +1894,7 @@ h1.newcardwrappermainHeading {
 .breaknewssidebar .breaknewssidebartitle {
   font-size: 24px;
   font-weight: 600;
-  color: #C2121C;
+  color: #c2121c;
   line-height: 1.5;
   border-bottom: 1px solid black;
 }
@@ -1521,7 +1912,7 @@ h1.newcardwrappermainHeading {
   transition: all 0.3s ease;
 }
 .breaknewssidebar .breaknewssidebarList a .toclistItem:hover {
-  background-color: #C2121C;
+  background-color: #c2121c;
   border-radius: 4px;
 }
 .breaknewssidebar .breaknewssidebarList a .toclistItem:hover .listiconsdot {
@@ -1533,7 +1924,7 @@ h1.newcardwrappermainHeading {
   transition: all 0.3s ease;
 }
 .breaknewssidebar .breaknewssidebarList a .toclistItem .listiconsdot {
-  color: #C2121C;
+  color: #c2121c;
   font-size: 22px;
 }
 .breaknewssidebar .breaknewssidebarList a .toclistItem h2.breaknewssidebarListitem {
@@ -1696,6 +2087,12 @@ h1.newcardwrappermainHeading {
   .newcardwrapper .newcard {
     width: 19%;
   }
+  .videoSkeetonwrapper {
+    justify-content: flex-start;
+  }
+  .videoSkeetonwrapper .skeletonVideroCard {
+    width: 30%;
+  }
 }
 @media (max-width: 1200px) {
   .Breaking_new .Breaking_newCardWrapper {
@@ -1734,6 +2131,19 @@ h1.newcardwrappermainHeading {
   .newcardwrapper .newcard {
     width: 24%;
   }
+  .skeletonCard {
+    width: 23%;
+  }
+  .skeletonCard .skeletonCardImage {
+    height: 180px;
+    width: 100%;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard {
+    width: 23%;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard:last-child {
+    display: none;
+  }
 }
 @media (max-width: 1024px) {
   .matchpage {
@@ -1753,6 +2163,12 @@ h1.newcardwrappermainHeading {
 @media (max-width: 992px) {
   .Offcanvas {
     justify-content: space-between;
+  }
+  .videoSkeetonwrapper {
+    justify-content: space-between;
+  }
+  .videoSkeetonwrapper .skeletonVideroCard {
+    width: 48%;
   }
   .updatecardhomewrapper {
     justify-content: flex-start;
@@ -1858,6 +2274,18 @@ h1.newcardwrappermainHeading {
     margin: 0;
     margin-top: 10px;
     height: 35px;
+  }
+  .skeletonCard {
+    width: 31%;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard {
+    width: 30%;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard:last-child {
+    display: none;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard:nth-last-child(2) {
+    display: none;
   }
 }
 @media (max-width: 768px) {
@@ -2022,7 +2450,7 @@ h1.newcardwrappermainHeading {
     min-height: 150px;
   }
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .News_image_title h2 {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
   }
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount {
@@ -2133,10 +2561,20 @@ h1.newcardwrappermainHeading {
     font-size: 14px;
     padding: 5px;
   }
+  .homepagebreakingness a .breakingnewshometitle {
+    font-size: 16px;
+    line-height: 18px;
+    height: 35px;
+  }
+  .homepagebreakingness .BreakingNews_view {
+    padding: 10px 5px;
+    font-size: 12px;
+    font-weight: 500;
+  }
   .homepagebreakingness .BreakingNews_date {
     padding: 10px 5px;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
     display: flex;
     gap: 5px;
     align-items: center;
@@ -2198,7 +2636,7 @@ h1.newcardwrappermainHeading {
     margin-bottom: 10px;
   }
   .SecondStatic .Static_row .olcards li:first-child {
-    background-color: #C2121C;
+    background-color: #c2121c;
   }
   .SecondStatic .Static_row .olcards li:first-child::before {
     content: "";
@@ -2209,7 +2647,7 @@ h1.newcardwrappermainHeading {
     position: absolute;
     top: 0;
     right: -30px;
-    background-color: #C2121C;
+    background-color: #c2121c;
   }
   .SecondStatic .Static_row .olcards li:nth-child(2) {
     background-color: #fff;
@@ -2286,7 +2724,7 @@ h1.newcardwrappermainHeading {
   }
   .SecondStatic .hedding {
     text-align: center;
-    color: #C2151B;
+    color: #c2151b;
     font-weight: 900;
     font: normal normal bold 28px/37px Segoe UI;
   }
@@ -2428,7 +2866,7 @@ h1.newcardwrappermainHeading {
     list-style-type: none;
   }
   .footer_link .hovereffect {
-    background-image: linear-gradient(to right, #eb7e7e, #C2121C 50%);
+    background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
     background-size: 200% 100%;
     background-position: -100%;
     display: inline-block;
@@ -2446,7 +2884,7 @@ h1.newcardwrappermainHeading {
     position: relative;
     top: 46px;
     text-align: center;
-    background-color: #C2121C;
+    background-color: #c2121c;
     color: white;
   }
   .footer_link .copy_right p {
@@ -2454,6 +2892,52 @@ h1.newcardwrappermainHeading {
   }
   .footer_link .copy_right p {
     font-size: 16px;
+  }
+  .skeletonCard {
+    width: 48%;
+  }
+  .homepageskeleton .skeletoncardhomewrapper {
+    overflow: hidden;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard {
+    width: 48%;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard:last-child {
+    display: none;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard:first-child {
+    display: none;
+  }
+  .homepageskeleton .skeletoncardhomewrapper .skeletonCard:nth-last-child(2) {
+    display: none;
+  }
+  .homepageskeleton .highlightsskeleton {
+    display: flex;
+    justify-content: space-between;
+  }
+  .homepageskeleton .highlightsskeleton .highlightcards {
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0;
+  }
+  .homepageskeleton .highlightsskeleton .highlightcards:first-child {
+    display: none;
+  }
+  .homepageskeleton .highlightsskeleton .highlightcards .latestnewsImgeskeleton {
+    height: 220px;
+  }
+  .homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton h3.title {
+    height: 16px;
+  }
+  .homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton p.description span {
+    height: 8px;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .homepageskeleton .highlightsskeleton .highlightcards .latestnewscontentkeleton button {
+    width: 60%;
+    height: 20px;
   }
 }
 @media (max-width: 365px) {

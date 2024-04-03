@@ -9,6 +9,7 @@ import { BsFillShareFill } from "react-icons/bs"
 import Button from "react-bootstrap/Button";
 import { useRouter } from 'next/router'
 import axios from 'axios';
+import Cardskeleton from '../skeleton/cardskeleton';
 const Card = ({ props, query  ,data1 , heading , domain}) => {
     const router = useRouter()
     const [data, setdata] = React.useState(props)
@@ -100,12 +101,12 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
         <div className='container center'>
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
-                  {/* <p className={style.cardpagetitle}> </p> */}
                   {heading}
                 </div>
-               <div className={style.Breaking_newCardWrapper}>
+                <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {
+                            console.log(data)
                             return (
 
                                 <div className={`${style.Breaking_news_gap}`} key={index}>
@@ -164,6 +165,16 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
                     </div>
 
                 </div>
+               
+               {/* <div className={style.Breaking_newCardWrapper}>
+                    {
+                       [1, 2, 3,4,55,5,5,5,5,6].map((e, i) => {
+                         return   <Cardskeleton/>
+                      })
+                    }
+                </div> */}
+                
+              
             </div>
 
         </div>

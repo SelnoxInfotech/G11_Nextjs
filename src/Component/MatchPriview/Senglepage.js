@@ -93,7 +93,7 @@ function Senglepage({ props }) {
                                                         <p>  {data.title}</p>
                                                     </div>
                                                     <div className="col-12 center fonting font" >
-                                                        <p>{data.first_team} vs {data.second_team}</p>
+                                                        <p className={style.matchcardteamname}>{data.first_team} vs {data.second_team}</p>
 
                                                     </div>
                                                     <div className="col-12 center fonting">

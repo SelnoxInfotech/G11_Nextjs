@@ -5,6 +5,8 @@ import Head from 'next/head';
 import Senglepage from "../../Component/MatchPriview/Senglepage";
 import  Seo  from "../../Component/Seo/Seo";
 import useSWR from 'swr';
+import Homeskeleton from "../../Component/skeleton/Homeskeleton";
+import Matchpage from "../../Component/skeleton/Matchpage";
 const fetcher = async (url) => {
     const res = await fetch(url);
     if (!res.ok) {
@@ -34,7 +36,7 @@ export default function UpdateMatch({ initialData }) {
                 canonical={"https://g11prediction.com/cricket-match-predictions/"}
                 ></Seo>
             <Senglepage props={data} ></Senglepage>
-
+             {/* <Homeskeleton/> */}
         </>
 
     );

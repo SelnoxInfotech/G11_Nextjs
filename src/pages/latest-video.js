@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import ReactPlayer from 'react-player'
 import Link from 'next/link';
 import style from "../styles/Style.module.scss"
+import Videocardskeleton from '../Component/skeleton/Videocardskeleton';
 const fetcher = async (url) => {
     const res = await fetch(url);
     if (!res.ok) {
@@ -50,26 +51,11 @@ const Video = (initialData) => {
                     <h1 className={style.videopagetitle}>Latest Video News </h1>
                     <div className={style.videoh1box}>
                         {data.data?.slice(0, next)?.map((ele) => {
-                            // console.log(ele)
-                            // console.log(ele.VideoUrl.match(alternativeRegex)[1])
+                           
                             return (
                                 <div className={style.latestvideo_card} key={ele.id}>
 
-                                    <div className={style.react_player}>
-                                        {/* <ReactPlayer playing ={false} config={{
-          youtube: {
-            playerVars: {
-              autoplay: 0, // Set to 1 if you want the video to autoplay
-              controls: 0, // Show YouTube player controls
-              modestbranding: 0, // Hide YouTube logo
-              fs: 1, // Show fullscreen button
-              rel: 0, // Don't show related videos at the end
-              showinfo: 0, // Show title and uploader info
-              playIcon:0,
-            },
-          },
-        }} controls={true} url={`${ele.VideoUrl}/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?modestbranding=0&;showinfo=0&;autohide=1&;rel=0;`} width="100%" height="100%" onClick={handleVideo} />
-                                    */}
+                                    <div className={style.react_player}> 
                                             <iframe className={`w-100 ${style.videoplayer}`}
                                                     title='Youtube player'
                                                     sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
@@ -106,9 +92,9 @@ const Video = (initialData) => {
                         </button>
                     )}
                 </div>
-
-           
-
+<div className='container'>
+       <Videocardskeleton/>
+           </div>
         </>
     );
 };
