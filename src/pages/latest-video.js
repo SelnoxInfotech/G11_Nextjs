@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic'
 import Seo from '../Component/Seo/Seo';
 import useSWR from 'swr';
-import ReactPlayer from 'react-player'
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import style from "../styles/Style.module.scss"
 const fetcher = async (url) => {
@@ -14,6 +14,7 @@ const fetcher = async (url) => {
 };
 
 const Video = (initialData) => {
+    const router = useRouter();
     const imagePerRow = 8
     const [next, setNext] = React.useState(imagePerRow);
     const [setHandleAudio] = React.useState(false)
@@ -34,6 +35,10 @@ const Video = (initialData) => {
     };
 
     const alternativeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+
+    React.useEffect(()=>{
+        router.replace({ pathname: '/latest-video/'});
+    },[router])
 
     return (
         <>

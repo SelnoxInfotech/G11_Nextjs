@@ -93,6 +93,26 @@ app.prepare()
 
       }
     });
+    server.get("/latest-match/cricket-predictions/:priview/:title/:slug/:id", (req, res, next) => {
+      // Function to check if a value is a number or a string
+      function test(g) {
+        var number = g;
+        return (number == Number(number)) ? "number" : "string";
+      }
+
+      // Check if the id parameter is a number
+      if (test(req.params.id) === "number") {
+        // Redirect to '/cricket-match-predictions/:id' with status code 301
+        res.redirect(301, `/cricket-match-predictions/${req.params.id}`);
+      }
+      else {
+        if (test(req.params.name) === "number") {
+          // Redirect to '/cricket-match-predictions/:id' with status code 301
+          res.redirect(301, `/cricket-match-predictions/${req.params.name}`);
+        }
+
+      }
+    });
     server.get("/cricket-breakingnews/:id/:name", (req, res, next) => {
       // Function to check if a value is a number or a string
       function test(g) {
@@ -133,9 +153,9 @@ app.prepare()
 
       }
     });
-    server.get("/Latest-Video/", (req, res, next) => {
-      res.redirect(301, '/latest-video');
-    });
+    // server.get("/Latest-Video/", (req, res, next) => {
+    //   res.redirect(301, '/latest-video');
+    // });
     server.get('/FilterbySubCategory/:id', (req, res) => {
       async function l() {
         try {

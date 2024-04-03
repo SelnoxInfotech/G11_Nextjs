@@ -26,6 +26,13 @@ const nextConfig = {
 
   async rewrites() {
     return [
+          // server.get("/Latest-Video/", (req, res, next) => {
+    //   res.redirect(301, '/latest-video');
+    // });
+    {
+      source: '/Latest-Video',
+      destination: '/latest-video',
+    },
       {
         source: '/ads.txt',
         destination: '/api/Rss/ads.txt',
