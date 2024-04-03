@@ -15,8 +15,6 @@ function Matchguide(props) {
 
 
 export async function getServerSideProps(ctx) {
-
-    // console.log(ctx.params.slug[0] === "teams" , ctx.params.slug)
     function checkString(string) {
         if (typeof string === "string" && !isNaN(string)) {
 
@@ -47,7 +45,7 @@ export async function getServerSideProps(ctx) {
     // console.log(ctx.params.slug[0] === "match-preview")
 
     else if(ctx.params.slug[0] === "teams" || ctx.params.slug[0] === "match-preview" || ctx.params.slug[0] === "team-guide" || ctx.params.slug[0] === "cheat-sheet"){
-        const idIndex = checkString(ctx.params.slug[3]);
+        const idIndex = checkString( ctx.params.slug[ctx.params.slug.length - 1]);
 
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
         const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');

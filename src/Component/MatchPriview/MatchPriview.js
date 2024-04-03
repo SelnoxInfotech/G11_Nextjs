@@ -86,29 +86,32 @@ function MatchPriview(props) {
                 const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[3]}/`;
                 window.history.replaceState({}, '', newURL);
             }
+    //    cricket-match-predictions/match-preview/undefined/1673/ 
           
         }
     
-        else if(checkString(router.query.slug[0])){
+        else if(checkString(router.query.slug[0])){                              
             const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[0]}/`;
                 window.history.replaceState({}, '', newURL);
         }
         else if(router.query.slug[0] === "teams" || router.query.slug[0] === "match-preview"  || router.query.slug[0] === "team-guide" || router.query.slug[0] === "cheat-sheet"){
-            const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[3]}/`;
+
+            const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[router.query.slug.length-1]}/`;
                 window.history.replaceState({}, '', newURL);
         }
 
-
         else {
-            if (router.asPath.slice(0, 13) === "/latest-match" || checkString(router.query.slug[2])) {
 
+            if (router.asPath.slice(0, 13) === "/latest-match" || checkString(router.query.slug[2])) {
+    
                 const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[2]}/`;
                 window.history.replaceState({}, '', newURL);
             }
             else{
-                const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[1]}/`;
+                const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[router.query.slug.length-1]}/`;
                 window.history.replaceState({}, '', newURL);
             }
+            console.log("sdhfgdjsfdsf")
         }
 
         SetTitle(input)
