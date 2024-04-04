@@ -106,7 +106,6 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
                 <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {
-                            console.log(data)
                             return (
 
                                 <div className={`${style.Breaking_news_gap}`} key={index}>
@@ -165,14 +164,7 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
                     </div>
 
                 </div>
-               
-               {/* <div className={style.Breaking_newCardWrapper}>
-                    {
-                       [1, 2, 3,4,55,5,5,5,5,6].map((e, i) => {
-                         return   <Cardskeleton/>
-                      })
-                    }
-                </div> */}
+         
                 
               
             </div>

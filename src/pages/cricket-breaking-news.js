@@ -77,40 +77,58 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import  Seo from '../Component/Seo/Seo';
+import Seo from '../Component/Seo/Seo';
 import { useRouter } from 'next/router';
 const Card = dynamic(() => import('../Component/card/index'), { ssr: false, loading: () => <p>Loading...</p> });
-
+import Cardskeleton from '../Component/skeleton/cardskeleton'
+import style from "../styles/Style.module.scss"
 const Breakingnews = ({ breakingData }) => {
   const router = useRouter();
-     
-React.useEffect(()=>{
-  
-    // redirect("/cricket-breaking-news/");
-    router.push({ pathname: '/cricket-breaking-news/'});
-  
 
-},[])
-     
-  if (!breakingData) return <div>Loading...</div>;
+  React.useEffect(() => {
+
+    // redirect("/cricket-breaking-news/");
+    router.push({ pathname: '/cricket-breaking-news/' });
+
+
+  }, [])
+
+  if (breakingData) {
+    return (
+      <div className='container '>
+        <div className={style.Breaking_new}>
+          <div className={style.Breaking_newCardWrapper}>
+            {
+              [1, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                return <div key={i}> < Cardskeleton /></div>
+              })
+            }
+          </div>
+        </div>
+
+      </div>
+    )
+  }
   // if(router.asPath === "/breakingnews/" || "/breakingnews") {
   //   // redirect("/cricket-breaking-news/");
   //   router.push({ pathname: '/cricket-breaking-news/'});
   // }
-  return (
-    <React.Fragment>
-      <Seo
-        image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-        title="Breaking News | G11 Fantasy Cricket Prediction |"
-        description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
-        keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
-        canonical={"https://g11prediction.com/breaking-news/"}
-      />
-      <div className='container'>
-       <Card props={breakingData} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
-       </div>
-    </React.Fragment>
-  );
+  else {
+    return (
+      <React.Fragment>
+        <Seo
+          image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+          title="Breaking News | G11 Fantasy Cricket Prediction |"
+          description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
+          keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
+          canonical={"https://g11prediction.com/breaking-news/"}
+        />
+        <div className='container'>
+          {/* <Card props={breakingData} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} /> */}
+        </div>
+      </React.Fragment>
+    );
+  }
 };
 
 export default Breakingnews;
@@ -123,7 +141,7 @@ export async function getStaticProps() {
       props: {
         breakingData: topNews,
       },
-      revalidate: 60 , // Revalidate every hour (in seconds)
+      revalidate: 60, // Revalidate every hour (in seconds)
     };
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -137,5 +155,5 @@ export async function getStaticProps() {
   }
 }
 
-
+  
 
