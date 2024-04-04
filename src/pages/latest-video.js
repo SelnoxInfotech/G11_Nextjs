@@ -26,8 +26,26 @@ const Video = (initialData) => {
     const data = fetchedData || k;
 
     if (!data) return <div>Loading...</div>;
-    const handleVideo = () => {
-        setHandleAudio(true)
+    function modifystr(str) {
+
+        str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str?.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str?.includes("--")) {
+                str = str?.replaceAll("--", "-")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("//", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("-/", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str?.toLowerCase()
     }
     const handleMoreImage = () => {
         setNext(next + imagePerRow);
@@ -63,25 +81,11 @@ const Video = (initialData) => {
                     </div> 
                     <div className={style.videoh1box}>
                         {data.data?.slice(0, next)?.map((ele) => {
-                           
                             return (
                                 <div className={style.latestvideo_card} key={ele.id}>
 
                                     <div className={style.react_player}>
-                                        {/* <ReactPlayer playing ={false} config={{
-          youtube: {
-            playerVars: {
-              autoplay: 0, // Set to 1 if you want the video to autoplay
-              controls: 0, // Show YouTube player controls
-              modestbranding: 0, // Hide YouTube logo
-              fs: 1, // Show fullscreen button
-              rel: 0, // Don't show related videos at the end
-              showinfo: 0, // Show title and uploader info
-              playIcon:0,
-            },
-          },
-        }} controls={true} url={`${ele.VideoUrl}/embed/${ele.VideoUrl.match(alternativeRegex)[1]}?modestbranding=0&;showinfo=0&;autohide=1&;rel=0;`} width="100%" height="100%" onClick={handleVideo} />
-                                    */}
+                                       
                                             <iframe className={`w-100 ${style.videoplayer}`}
                                                     title='Youtube player'
                                                     sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
@@ -91,7 +95,7 @@ const Video = (initialData) => {
                                             </div>
                                           
                                             <div className="col ">
-                                                <Link href={`/latest-video/${ele.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${ele.id}`}><p className={style.latest_video_title}>{ele.Title.substr(0, 100)}</p></Link>
+                                                <Link href={`/latest-video/${modifystr(ele.Translated_Title)}/${ele.id}`}><p className={style.latest_video_title}>{ele.Title.substr(0, 100)}</p></Link>
                                                 <span className={style.Latest_video_date}>
                                                     {ele.created.slice(0, 10)}
                                                 </span>
