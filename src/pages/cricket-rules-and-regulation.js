@@ -4,7 +4,8 @@ import dynamic from 'next/dynamic'
 const Card = dynamic(() => import('../Component/card/index'), { ssr: true, loading: () => <p>Loading...</p> });
 import  Seo  from '../Component/Seo/Seo';
 import useSWR from 'swr';
-
+import Cardskeleton from '../Component/skeleton/cardskeleton'
+import style from "../styles/Style.module.scss" 
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -18,9 +19,23 @@ const Cricket_rules_and_regulation = ({ initialData }) => {
   const k = initialData
   const { data: fetchedData, error } = useSWR(`/Filterbycategory/${2}`, fetcher, { k });
 
-  const data = fetchedData || k;
-  if (!data) return <div>Loading...</div>;
+  const data = fetchedData ;
+  if (!data) {
+    return (
+      <div className='container '>
+        <div className={style.Breaking_new}>
+          <div className={style.Breaking_newCardWrapper}>
+            {
+              [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                return < Cardskeleton key={i} />
+              })
+            }
+          </div>
+        </div>
 
+      </div>
+    )
+  }
   return (
     <>
       <Seo

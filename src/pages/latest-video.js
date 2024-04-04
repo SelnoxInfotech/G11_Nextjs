@@ -19,13 +19,22 @@ const Video = (initialData) => {
     const router = useRouter();
     const imagePerRow = 8
     const [next, setNext] = React.useState(imagePerRow);
-    const [setHandleAudio] = React.useState(false)
     const k = initialData
     const { data: fetchedData, error } = useSWR(`https://www.g11fantasy.com/NewsSection/Get-VideoNews/`, fetcher, { k });
 
-    const data = fetchedData || k;
+    const data = fetchedData ;
 
-    if (!data) return <div>Loading...</div>;
+    if (!fetchedData) {
+        return (
+          <div className='container '>
+            
+                     < Videocardskeleton />
+                
+            
+          </div>
+        )
+      }
+
     function modifystr(str) {
 
         str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");

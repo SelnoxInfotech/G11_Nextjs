@@ -5,8 +5,9 @@ import Head from 'next/head';
 import Senglepage from "../../Component/MatchPriview/Senglepage";
 import  Seo  from "../../Component/Seo/Seo";
 import useSWR from 'swr';
-import Homeskeleton from "../../Component/skeleton/Homeskeleton";
-import Matchpage from "../../Component/skeleton/Matchpage";
+import style from "../../styles/Style.module.scss"
+// import Homeskeleton from "../../Component/skeleton/Homeskeleton";
+import Cardskeleton from "../../Component/skeleton/cardskeleton";
 const fetcher = async (url) => {
     const res = await fetch(url);
     if (!res.ok) {
@@ -17,12 +18,29 @@ const fetcher = async (url) => {
 
 
 export default function UpdateMatch({ initialData }) { 
-    const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher, { initialData });
+    const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher, );
 
-    const data = fetchedData || initialData;
+    let data = fetchedData ;
     // if (error) return <div>Error loading data</div>;
-    if (!data) return <div>Loading...</div>;
-
+    if (!data) {
+        return (
+          <div className='container '>
+            <div className={style.Breaking_new}>
+              <div className={style.Breaking_newCardWrapper}>
+                {
+                  [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                    return< Cardskeleton key={i}/>
+                  })
+                }
+              </div>
+            </div>
+    
+          </div>
+        )
+      }
+      else{
+data =  initialData
+      }
     return (
         <>
             <Seo

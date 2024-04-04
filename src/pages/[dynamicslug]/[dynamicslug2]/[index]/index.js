@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from 'next/dynamic';
 import Card from "../../../../Component/card/index";
 import TableOfContent from '../../../../Component/tableofcontent/index';
@@ -11,8 +11,10 @@ const Details = dynamic(() => import('../../../../Component/Details/Details'), {
 export default function Detailpage({ l, topNews }) {
     const router = useRouter();
     const { dynamicslug } = router.query;
+    const [loading, setLoading] = useState(true);
 
-    React.useEffect(() => {
+    useEffect(() => {
+        setLoading(true); // Set loading state to true before fetching data
         if (dynamicslug === "Cricket-BreakingNews") {
             router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
         }
@@ -21,8 +23,17 @@ export default function Detailpage({ l, topNews }) {
         }
     }, []);
 
+    useEffect(() => {
+        // After fetching data, set loading state to false
+        setLoading(false);
+    }, [l]);
+
     function formatString(str) {
         return str.replace(/-/g, ' ').replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    }
+
+    if (loading) {
+        return <p>Loading...</p>; // Display loading state
     }
 
     return (
