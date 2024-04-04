@@ -7,12 +7,33 @@ import Seo from '../../../../Component/Seo/Seo';
 import { GoDotFill } from "react-icons/go";
 import { useRouter } from "next/router";
 function Index({ data }) {
+    function modifystr(str) {
+
+        str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str?.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str?.includes("--")) {
+                str = str?.replaceAll("--", "-")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("//", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("-/", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str?.toLowerCase()
+    }
     return (
         <div className={style.breaknewssidebar}>
             <h4 className={style.breaknewssidebartitle}>Recent News</h4>
             <div className={style.breaknewssidebarList}>
                 {data?.map((item, index) => {
-                    return <Link key={index} href={`/latest-video/${item?.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase()}/${item.id}`}>
+                    return <Link key={index} href={`/latest-video/${modifystr(item?.Translated_Title)}/${item.id}`}>
                           <div className={style.toclistItem}>
                             <span className={style.listiconsdot}> <GoDotFill /></span>
                             <h2 className={style.breaknewssidebarListitem}>{item.Title}</h2>
