@@ -11,7 +11,7 @@ function MatchPriview(props) {
     const [Detail, SetDetails_Data] = useState('')
     const [Teams_image, SetTeams_image] = useState('')
     const [metaDiscription, SetmetaDiscription] = useState('')
-   
+    const [ogimage, setogimage] = useState('')
     const [Title1, SetTitle] = useState('')
   
     function modifystr(str) {
@@ -43,7 +43,10 @@ function MatchPriview(props) {
         //  container /////
         var container = parserhtm[1].querySelector(".container")
         var containerData = container.querySelectorAll(".row")[1]
+        var image =  container.querySelectorAll(".row")[0]
+        var k = image.querySelector("img").src
         var a = containerData.querySelector("div").innerHTML
+        setogimage(k)
         setmatchpreviwe(a)
         const list = containerData.querySelector("div")?.getElementsByTagName("*")
         for (let i = 0; i < list.length; i++) {
@@ -111,7 +114,7 @@ function MatchPriview(props) {
                 const newURL = `/cricket-match-predictions/${modifystr(input + "-dream11 prediction today match")}/${router.query.slug[router.query.slug.length-1]}/`;
                 window.history.replaceState({}, '', newURL);
             }
-            console.log("sdhfgdjsfdsf")
+            
         }
 
         SetTitle(input)
@@ -123,7 +126,7 @@ function MatchPriview(props) {
         <div>
             <Seo
             title={`${Title1} Dream11 Prediction Today Match | Dream11 Team Today`}
-                image={"/image/images/download/media/Static/favicon.jpg"}
+                image={ogimage}
                 description={`Dream11 today match prediction for ${Title1}.Win big with accurate tips & best Dream11 team prediction, Today Dream11 Team Check out!`}
                 keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,dream11 today team,dream11 update,dream11 prediction,today dream11 team,dream11 prediction today match,who will win today match,who win today ipl match,my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}
                 canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(Title1) +"-dream11-prediction-today-match"}/${router.query.slug[1] || router.query.slug[0]}/`}
@@ -132,6 +135,7 @@ function MatchPriview(props) {
              
             <div className={`${style.matchpage} container py-5`}>
                  <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
+                <img src={ogimage}></img>
                      
                 <div className='row mt-3'>
                      <div className='col-lg-8' >

@@ -67,7 +67,7 @@ React.useEffect(()=>{
             }
         }
 
-        return str?.toLowerCase()
+        return str?.toLowerCase().trim('-')
     }
     router.replace(`/latest-video/${modifystr(props?.initialData?.Translated_Title)}/${router?.query?.slug1.toLowerCase()}`)
 },[])

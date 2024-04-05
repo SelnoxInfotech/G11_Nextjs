@@ -6,7 +6,6 @@ const MatchPriview = dynamic(() => import('../../Component/MatchPriview/MatchPri
 function Matchguide(props) {
     return (
         <div>
-         
             <MatchPriview props={props} ></MatchPriview>
         </div>
     );
