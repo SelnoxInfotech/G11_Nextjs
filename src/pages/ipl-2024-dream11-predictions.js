@@ -23,7 +23,7 @@ const fetcher = async (url) => {
 
 const Ipl2024dream11predictions = (props) => {
   const data1 = props?.breakingData?.data
-  const { data: fetchedData, error } = useSWR(`/FilterbySubCategory/${11}`,fetcher,{ data1 } );
+  const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/11`,fetcher,{ data1 } );
   // const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/11`, fetcher, { data });
 
   const imageLoader = ({ src, width, height, quality }) => {
@@ -51,8 +51,6 @@ const Ipl2024dream11predictions = (props) => {
 
     return str?.toLowerCase()
   }
-
-
 
   if (!fetchedData) {
     return (
@@ -85,7 +83,7 @@ const Ipl2024dream11predictions = (props) => {
           <h1 className={style.newcardwrappermainHeading}> Dream11 Prediction for IPL 2024</h1>
           <div className={style.newcardwrapper}>
             {
-              props?.breakingData?.data.map((items, index) => {
+              fetchedData.data.map((items, index) => {
 
 
                 return <div className={style.newcard} key={index}>
@@ -133,7 +131,7 @@ export async function getStaticProps() {
       props: {
         breakingData: topNews,
       },
-      // revalidate: 60 , 
+      revalidate: 60 , 
     };
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -142,7 +140,7 @@ export async function getStaticProps() {
         breakingData: null,
         error: 'Failed to fetch data',
       },
-      // revalidate: 60 * 5,
+      revalidate: 60 * 5,
     };
   }
 }

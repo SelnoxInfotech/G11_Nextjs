@@ -69,7 +69,7 @@ React.useEffect(()=>{
 
         return str?.toLowerCase()
     }
-    router.replace(`/latest-video/${router.query.slug.replace(/:/g, "").toLowerCase()}/${router.query.slug1.toLowerCase()}`)
+    router.replace(`/latest-video/${modifystr(props?.initialData?.Translated_Title)}/${router?.query?.slug1.toLowerCase()}`)
 },[])
     return (
         <div className="container">

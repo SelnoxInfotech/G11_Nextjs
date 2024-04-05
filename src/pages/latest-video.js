@@ -72,6 +72,7 @@ const Video = (initialData) => {
   if(router.asPath === "/Latest-Video/"){
     router.replace({ pathname: '/latest-video/'});
   }
+  
 
     return (
         <>
