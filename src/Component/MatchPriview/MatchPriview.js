@@ -143,8 +143,8 @@ function MatchPriview(props) {
                 <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
 
                 <div className='row mt-3'>
-                    <div className='col-lg-8' >
-                            <Image alt={Title1 + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "} loader={imageLoader} src={ogimage} style={{width:"100%" }} width={100} height={10} quality={10}></Image>
+                    <div className='col-lg-8 ' >
+                            <Image className='mb-4' alt={Title1 + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "} loader={imageLoader} src={ogimage} style={{width:"100%" }} width={100} height={10} quality={10}></Image>
                         <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe.split('&nbsp;').join('') }}></div>
                         <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide.split('&nbsp;').join('') }}></div>
                         <div className={style.font} dangerouslySetInnerHTML={{ __html: Detail.split('&nbsp;').join('') }}></div>
