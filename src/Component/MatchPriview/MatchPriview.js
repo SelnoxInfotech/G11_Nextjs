@@ -144,11 +144,7 @@ function MatchPriview(props) {
 
                 <div className='row mt-3'>
                     <div className='col-lg-8' >
-                        {/* <div className={style.imagematchsection}> */}
-                            <Image loader={imageLoader} src={ogimage} style={{width:"100%" , height:"3.5%"}} width={100} height={10} quality={10}></Image>
-                            <div  className={style.font} dangerouslySetInnerHTML={{ __html: timedetails }}></div> 
-                        {/* </div> */}
-
+                            <Image alt={Title1 + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "} loader={imageLoader} src={ogimage} style={{width:"100%" }} width={100} height={10} quality={10}></Image>
                         <div className={style.font} dangerouslySetInnerHTML={{ __html: matchpreviwe.split('&nbsp;').join('') }}></div>
                         <div className={style.font} dangerouslySetInnerHTML={{ __html: Team_Guide.split('&nbsp;').join('') }}></div>
                         <div className={style.font} dangerouslySetInnerHTML={{ __html: Detail.split('&nbsp;').join('') }}></div>

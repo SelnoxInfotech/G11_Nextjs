@@ -69,7 +69,7 @@ React.useEffect(()=>{
 
         return str?.toLowerCase().trim('-')
     }
-    router.replace(`/latest-video/${modifystr(props?.initialData?.Translated_Title)}/${router?.query?.slug1.toLowerCase()}`)
+    router.replace(`/latest-video/${modifystr(props?.initialData?.Translated_Title)}/${props?.initialData?.id}`)
 },[])
     return (
         <div className="container">
@@ -108,8 +108,14 @@ export async function getServerSideProps(ctx) {
         const responseData = {
             breaking: topNews.data,
         };
+        function checkString(string) {
+            if (typeof string === "string") {
+                return !isNaN(string)
+            }
+        }
         const LatestVideo = responseData.breaking
-        const find = _.find(LatestVideo, LatestVideo => LatestVideo.id === parseInt(ctx.query.slug1))
+        const find = _.find(LatestVideo, LatestVideo => LatestVideo.id ===( checkString(ctx.query.slug1) ? parseInt(ctx.query.slug1) : parseInt(ctx.query.slug)))
+          
         return {
             props: {
                 initialData: find,
