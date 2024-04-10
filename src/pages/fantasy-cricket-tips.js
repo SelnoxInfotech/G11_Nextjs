@@ -308,7 +308,9 @@ const Fantasycrickettip = (props) => {
                 <Accodien></Accodien>
             </div>
         </div>
-      </div>
+           </div>
+           </div>
+   </div>
     </React.Fragment>
   );
 };
