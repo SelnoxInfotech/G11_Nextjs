@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 $color_1: white;
 $color_2: var(--cardColor);
 $font-family_1: sans-serif;
@@ -2527,6 +2528,99 @@ h1.newcardwrappermainHeading {
   }
 }
 
+.Fantasycrickettip {
+  margin-top: 10px;
+ background-color: #e1e1e145;
+  .box {
+    .slug{
+      color: #C2121C;
+      gap: 10px; 
+      display: flex;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.5;
+      font-family: "Inter", sans-serif;
+    }
+    .LoadMOre{
+     
+      padding: 4px 7px;
+      border: 1px solid #c2121c ;
+      border-radius: 20px;
+      color: #C2121C;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 500;
+      &:hover{
+      
+        color: #fff;
+        background-color: #c2121c;
+        transition: all .3s ease-in-out;
+      }
+    }
+    h1 {
+      font-size: 36px;
+      color: #C2121C;
+      font-weight: 700;
+      font-family: "Be Vietnam Pro", sans-serif;
+
+    }
+
+    p {
+      font-size: 16px;
+    }
+    .heading{
+      font-weight: 500; 
+    }
+    height: 100%;
+    display: flexbox;
+    justify-content: center;
+    border: 1px solid #C2121C;
+    border-radius: 12px;
+    // background: rgb(232, 243, 245);
+   
+  }
+}
+.faqheading{
+  height: 50px;
+  // border: 1px solid black;
+  align-items: center;
+  display: flex;
+  color: #C2121C;
+  font-size: 20px;
+  font-weight: 500;
+  // margin-bottom: 20px;
+  p{
+    margin: 0;
+  }
+  .newcardwrapper{
+    padding: 0;
+  }
+}
+.accordion {
+  button {
+    border-top-left-radius: #C2121C;
+    border-top-right-radius: #C2121C;
+}
+button :focus-visible {
+  z-index: 3;
+  border-color: black;
+  outline: 0;
+  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+  // border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+}
+}
+
+@media (max-width: 1480px){
+  .Homelink {
+    a {
+      font-size: 16px;
+      margin: 16px;
+  
+    
+    }
+  }
+}
 @media (max-width: 1400px) {
   .Breaking_new {
     .Breaking_newCardWrapper {
@@ -2585,7 +2679,22 @@ h1.newcardwrappermainHeading {
     }
   }
 }
-
+@media (max-width: 1338px){
+  .Homelink {
+    a {
+      font-size: 14px;
+      margin: 14px;
+    }
+  }
+}
+@media (max-width: 1266px){
+  .Homelink {
+    a {
+      font-size: 12px;
+      margin: 14px;
+    }
+  }
+}
 @media (max-width: 1200px) {
   .Breaking_new {
     .Breaking_newCardWrapper {
@@ -2668,6 +2777,12 @@ h1.newcardwrappermainHeading {
     }
 
   }
+  .Homelink {
+    a {
+      font-size: 12px;  
+      margin: 12px;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -2687,6 +2802,12 @@ h1.newcardwrappermainHeading {
     color: #c2121c;
     font-weight: 700;
     line-height: 1.5;
+  }
+  .Homelink {
+    a {
+      font-size: 10px;  
+      margin: 10px;
+    }
   }
 }
 
@@ -3687,6 +3808,21 @@ h1.newcardwrappermainHeading {
       font-size: 16px;
     }
   }
+  .Fantasycrickettip {
+    margin-top: 10px;
+   background-color: #e1e1e145;
+    .box {
+      
+     
+      h1 {
+        font-size: 22px;
+     
+      }
+  
+   
+     
+    }
+  }
 }
 
 @media (max-width : 365px) {
@@ -3698,69 +3834,4 @@ h1.newcardwrappermainHeading {
 }
 
 
-.Fantasycrickettip {
-  margin-top: 10px;
-
-  .box {
-    .slug{
-      color: #C2121C;
-   gap: 15px; 
-   display: flex;
-
-    }
-    .LoadMOre{
-      display: flex;
-      justify-content: flex-end;
-    }
-    h1 {
-      font-size: 36px;
-    }
-
-    p {
-      font-size: 16px;
-    }
-    .heading{
-      font-weight: 500; 
-    }
-    height: 100%;
-    display: flexbox;
-    justify-content: center;
-    border: 1px solid #C2121C;
-    border-radius: 12px;
-    // background: rgb(232, 243, 245);
-   
-  }
-}
-
-.faqheading{
-  height: 50px;
-  // border: 1px solid black;
-  align-items: center;
-  display: flex;
-  color: #C2121C;
-  font-size: 20px;
-  font-weight: 500;
-  // margin-bottom: 20px;
-  p{
-    margin: 0;
-  }
-  .newcardwrapper{
-    padding: 0;
-  }
-}
-
-
-.accordion {
-  button {
-    border-top-left-radius: #C2121C;
-    border-top-right-radius: #C2121C;
-}
-button :focus-visible {
-  z-index: 3;
-  border-color: black;
-  outline: 0;
-  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
-  // border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
-}
-}
 
