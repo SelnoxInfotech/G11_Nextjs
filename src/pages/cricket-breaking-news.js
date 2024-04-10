@@ -100,7 +100,7 @@ const Breakingnews = ({ breakingData }) => {
           <div className={style.Breaking_newCardWrapper}>
             {
               [1, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
-                return <div key={i}> < Cardskeleton /></div>
+                return <div key={i}> < Cardskeleton /></div> 
               })
             }
           </div>
