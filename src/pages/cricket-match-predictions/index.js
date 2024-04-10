@@ -21,6 +21,7 @@ export default function UpdateMatch({ initialData }) {
     const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher,);
 
     let data = fetchedData;
+
     // if (error) return <div>Error loading data</div>;
     if (!data) {
         return (
@@ -39,7 +40,10 @@ export default function UpdateMatch({ initialData }) {
         )
     }
     else {
-        data = initialData
+        if(Boolean(error)){
+            
+            data = initialData
+        }
     }
     return (
         <>
