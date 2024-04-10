@@ -43,7 +43,7 @@ const Ipl2024 = ({initialData}) => {
                 keywords={"IPL 2024,IPL schedule 2024, IPL teams 2024, IPL venues 2024, Dream11 prediction, IPL 2024 match prediction, IPL 2024"}
                 canonical={"https://g11prediction.com/ipl-2023/"}
            ></Seo>
-     <Card props={fetchedData} heading={<h1>ipl 2023</h1>} query={"ipl-2023"}  data={null}></Card>
+     <Card slug={'Ipl-2023'} props={fetchedData} heading={<h1>ipl 2023</h1>} query={"ipl-2023"}  data={null}></Card>
         </>
     );
 };

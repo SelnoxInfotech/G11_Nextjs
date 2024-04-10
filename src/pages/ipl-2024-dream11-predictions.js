@@ -1,16 +1,12 @@
 import useSWR from 'swr';
 import React from 'react'
 import style from '../styles/Style.module.scss'
-import Link from 'next/link';
-import { IoMdEye } from "react-icons/io";
-import Image from 'next/image';
-import { AiFillEye } from "react-icons/ai"
+
 import Seo from '../Component/Seo/Seo';
-import { RWebShare } from "react-web-share";
-import { BsFillShareFill } from "react-icons/bs"
+
 import Cardskeleton from '../Component/skeleton/cardskeleton'
-
-
+import { useRouter } from 'next/router'
+import Newcard from "../Component/card/NewCard"
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -22,35 +18,12 @@ const fetcher = async (url) => {
 
 
 const Ipl2024dream11predictions = (props) => {
+  const router = useRouter()
   const data1 = props?.breakingData?.data
   const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/11`,fetcher,{ data1 } );
-  // const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/11`, fetcher, { data });
 
-  const imageLoader = ({ src, width, height, quality }) => {
-    const l = "https://www.g11fantasy.com"
-    return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
-  }
-  function modifystr(str) {
 
-    str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
-    str = str?.trim().replaceAll(' ', "-");
-    let a = 0;
-    while (a < 1) {
-      if (str?.includes("--")) {
-        str = str?.replaceAll("--", "-")
-      } else if (str?.includes("//")) {
-        str = str?.replaceAll("//", "/")
-      } else if (str?.includes("//")) {
-        str = str?.replaceAll("-/", "/")
-      } else if (str?.includes("//")) {
-        str = str?.replaceAll("/-", "/")
-      } else {
-        a++
-      }
-    }
 
-    return str?.toLowerCase()
-  }
 
   if (!fetchedData) {
     return (
@@ -81,7 +54,8 @@ const Ipl2024dream11predictions = (props) => {
       <div className='container'>
         <div className='row'>
           <h1 className={style.newcardwrappermainHeading}> Dream11 Prediction for IPL 2024</h1>
-          <div className={style.newcardwrapper}>
+          <p style={{color:"#c2121c" , display:"flex" ,gap:"15px"}}><span style={{cursor: "pointer"  }} onClick={() => router.push("/")}>Home</span>{">"}<span>{"Dream11 Prediction for IPL 2024"}</span></p>
+          {/* <div className={style.newcardwrapper}>
             {
               fetchedData.data.map((items, index) => {
 
@@ -114,7 +88,10 @@ const Ipl2024dream11predictions = (props) => {
                 </div>
               })
             }
-          </div>
+          </div> */}
+
+
+          <Newcard props={fetchedData} link={'/ipl-2024-dream11-predictions'}></Newcard>
         </div>
       </div>
     </>

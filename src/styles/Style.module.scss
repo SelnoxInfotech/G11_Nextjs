@@ -1988,6 +1988,16 @@ h2.sectionMainTitle {
       }
     }
   }
+
+  .videopagetitle {
+    color: #c2121c;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    h1 {}
+  }
 }
 
 // Breaking News
@@ -3096,7 +3106,7 @@ h1.newcardwrappermainHeading {
             .ViewCountDate {
               align-self: center;
               padding-right: 5px;
-              text-align: end;
+              text-align: flex-end;
 
               P {
                 font-size: 12px;
@@ -3504,8 +3514,8 @@ h1.newcardwrappermainHeading {
       }
     }
 
-  
-  } 
+
+  }
 
   .matchPrivewTitle {
     text-align: left;
@@ -3686,3 +3696,71 @@ h1.newcardwrappermainHeading {
     }
   }
 }
+
+
+.Fantasycrickettip {
+  margin-top: 10px;
+
+  .box {
+    .slug{
+      color: #C2121C;
+   gap: 15px; 
+   display: flex;
+
+    }
+    .LoadMOre{
+      display: flex;
+      justify-content: flex-end;
+    }
+    h1 {
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+    .heading{
+      font-weight: 500; 
+    }
+    height: 100%;
+    display: flexbox;
+    justify-content: center;
+    border: 1px solid #C2121C;
+    border-radius: 12px;
+    // background: rgb(232, 243, 245);
+   
+  }
+}
+
+.faqheading{
+  height: 50px;
+  // border: 1px solid black;
+  align-items: center;
+  display: flex;
+  color: #C2121C;
+  font-size: 20px;
+  font-weight: 500;
+  // margin-bottom: 20px;
+  p{
+    margin: 0;
+  }
+  .newcardwrapper{
+    padding: 0;
+  }
+}
+
+
+.accordion {
+  button {
+    border-top-left-radius: #C2121C;
+    border-top-right-radius: #C2121C;
+}
+button :focus-visible {
+  z-index: 3;
+  border-color: black;
+  outline: 0;
+  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+  // border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+}
+}
+

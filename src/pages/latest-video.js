@@ -89,6 +89,7 @@ const Video = (initialData) => {
                    <div  className={style.videopagetitle}>
                    <h1 >Latest Video</h1> <h2>New</h2>
                     </div> 
+                   <p style={{color:"#c2121c" , display:"flex" ,gap:"15px"}}><span style={{ cursor: "pointer"  }} onClick={() => router.push("/")}>Home</span>{">"}<span>{"Latest-Video"}</span></p>
                     <div className={style.videoh1box}>
                         {data.data?.slice(0, next)?.map((ele) => {
                             return (
