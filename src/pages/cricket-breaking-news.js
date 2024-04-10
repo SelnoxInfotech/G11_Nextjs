@@ -95,7 +95,7 @@ const fetcher = async (url) => {
 
 const Breakingnews = () => {
   const router = useRouter();
-  const { data: fetchedData, error } = useSWR(`https://www.g11fantasy.com/NewsSection/Get-News/1`, fetcher);
+  const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/5`, fetcher);
   React.useEffect(() => {
 
     // redirect("/cricket-breaking-news/");
@@ -103,6 +103,7 @@ const Breakingnews = () => {
 
 
   }, [])
+
 
   if (!fetchedData) {
     return (
@@ -131,7 +132,7 @@ const Breakingnews = () => {
           canonical={"https://g11prediction.com/breaking-news/"}
         />
         <div className='container'>
-          <Card props={fetchedData} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
+          <Card props={fetchedData?.data} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
         </div>
       </React.Fragment>
     );

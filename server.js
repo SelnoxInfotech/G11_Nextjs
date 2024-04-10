@@ -155,7 +155,7 @@ app.prepare()
     });
     // server.get("/Latest-Video/", (req, res, next) => {
     //   res.redirect(301, '/latest-video');
-    // });
+    // });  
     server.get('/FilterbySubCategory/:id', (req, res) => {
       async function l() {
         try {

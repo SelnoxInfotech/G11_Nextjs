@@ -42,6 +42,7 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
     }
     const handleMoreImage = () => {
         setNext(next + imagePerRow);
+        
     };
     const handlelessImage = () => {
         setNext(next - imagePerRow);
@@ -149,7 +150,7 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
                 </div>
                 <div className={`${'row'} ${style.BreakingButton}`}>
                     <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
-                        {next < data?.length && (
+                        {next <= data?.length && (
                             <button className={style.loadmorebtm} onClick={handleMoreImage}
                             >
                                 Load more

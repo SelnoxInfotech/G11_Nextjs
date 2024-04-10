@@ -10,7 +10,6 @@ import style from "../../../../styles/Style.module.scss"
 
 const Details = dynamic(() => import('../../../../Component/Details/Details'), { ssr: true });
 
-let k = true
 
 export default function Detailpage({ l, topNews }) {
 
