@@ -74,6 +74,10 @@ const nextConfig = {
         destination: '/api/Rss/latest-video.xml',
       },
       {
+        source: '/fantasy-cricket-tips.xml',
+        destination: '/api/Rss/fantasy-cricket-tips.xml',
+      },
+      {
         source: '/cricket-prediction.xml',
         destination: '/api/Rss/cricket-prediction.xml',
       },

@@ -33,7 +33,7 @@ router.get('/rss/:category', (req, res) => {
 
 
     const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data : link === "ipl-2024-dream11-predictions.xml" ? data.data.data 
-    : link === "latest-video.xml" ? data.data.data : link === "icc-cricket-world-cup-2024RSS-feed.xml" ? data.data.data : link === "Breakingnewsrss-feed.xml" ? data.data.data : data.data;
+    : link === "latest-video.xml" ? data.data.data : link === "icc-cricket-world-cup-2024RSS-feed.xml" ? data.data.data : link === "Breakingnewsrss-feed.xml" ? data.data.data : data.data.data;
 
     let feed = new RSS({
       title: 'Cricket Breaking News ON TRENDING TOPICS',
@@ -210,6 +210,23 @@ router.get('/rss/:category', (req, res) => {
     try {
       async function k() {
         const rssXml = await generateRssXml();
+        res.setHeader('Content-Type', 'text/xml');
+        res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
+        res.write(rssXml);
+        res.end();
+      }
+      k()
+    } catch (error) {
+      console.error('Error generating RSS feed:', error);
+      res.status(500).end('Internal Server Error');
+    }
+  }
+ 
+
+  else if (req.params.category === "fantasy-cricket-tips.xml") {
+    try {
+      async function k() {
+        const rssXml = await generateRssXml("https://g11fantasy.com/NewsSection/FilterbySubCategory/12", "fantasy-cricket-tips.xml", "fantasy-cricket-tips");
         res.setHeader('Content-Type', 'text/xml');
         res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
         res.write(rssXml);

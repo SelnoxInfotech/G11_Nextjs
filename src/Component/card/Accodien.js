@@ -38,7 +38,7 @@ const Accodien = () => {
         <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
           <div className="accordion-body">
             {/* <strong>This is the third item's accordion body.</strong>  */}
-            It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It{"'"}s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
 
           </div>
         </div>
@@ -52,7 +52,7 @@ const Accodien = () => {
         <div id="collapsefour" className="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
           <div className="accordion-body">
             {/* <strong>This is the third item's accordion body.</strong>   */}
-            If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.
+            If you{"'"}re new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.
           </div>
         </div>
       </div>
