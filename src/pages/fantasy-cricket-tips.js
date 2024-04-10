@@ -298,9 +298,15 @@ const Fantasycrickettip = (props) => {
                     your fantasy cricket journey.
                   </div>
                 </div>
-              </div>
-       </div>
-          </div>
+            </div>
+            <div className='col-12 mt-2' >
+                <div className={style.faqheading}> <p>News</p></div>
+                <NewCard  props={fetchedData} link={'/fantasy-cricket-tips'}></NewCard>
+            </div>
+            <div className='col-12 '>
+                <div className={style.faqheading}><p>FAQ’s of Fantasy Cricket Tips</p></div>
+                <Accodien></Accodien>
+            </div>
         </div>
       </div>
     </React.Fragment>

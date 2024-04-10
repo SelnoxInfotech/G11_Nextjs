@@ -34,6 +34,9 @@ export default function Rss() {
                     <li>
                         <a href='/rss/latest-video.xml' className='calling'><span> <FaRssSquare />latest-video</span> </a>
                     </li>
+                    <li>
+                        <a href='/rss/fantasy-cricket-tips.xml' className='calling'><span> <FaRssSquare />fantasy-cricket-tips</span> </a>
+                    </li>
                 </ol>
             </div>
 

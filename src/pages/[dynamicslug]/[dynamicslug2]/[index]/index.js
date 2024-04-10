@@ -66,36 +66,57 @@ export default function Detailpage({ l, topNews }) {
 
 export async function getServerSideProps(ctx) {
 
-    try {
-        if (ctx.query.dynamicslug === "cricket-news") {
-            const res = await axios.get(`https://grand11.in/g11/api/post`);
-            let k = res.data.result;
-            const p = k.find(x => x.id === ctx.params.index);
-            let l = [p];
-            return { props: { l: l, topNews: k } };
-        } else {
-            let res;
-            if (ctx.query.dynamicslug === "Cricket-BreakingNews") {
-                res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.dynamicslug2}`);
+    if (ctx.params.dynamicslug === "cricket-breaking-news"
+        || ctx.params.dynamicslug === "ipl-2024"
+        || ctx.params.dynamicslug === "ipl-2024-dream11-predictions"
+        || ctx.params.dynamicslug === "cricket-rules-and-regulation"
+        || ctx.params.dynamicslug === "icc-cricket-world-cup-2024"
+        || ctx.params.dynamicslug === "icc-cricket-world-cup-2023"
+        || ctx.params.dynamicslug === "cricket-players"
+        || ctx.params.dynamicslug === "ipl-2023"
+        || ctx.params.dynamicslug === "cricket-news"
+    ) {
+        try {
+            if (ctx.query.dynamicslug === "cricket-news") {
+                const res = await axios.get(`https://grand11.in/g11/api/post`);
+                let k = res.data.result;
+                const p = k.find(x => x.id === ctx.params.index);
+                let l = [p];
+                return { props: { l: l, topNews: k } };
             } else {
-                res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
-            }
+                let res;
+                if (ctx.query.dynamicslug === "Cricket-BreakingNews") {
+                    res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.dynamicslug2}`);
+                } else {
+                    res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
+                }
 
-            const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
-            const topNews = await topNewsRes?.json();
+                const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
+                const topNews = await topNewsRes?.json();
 
-            let l = res?.data?.data;
-            if (l) {
-                axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.query.dynamicslug === "Cricket-BreakingNews" ? ctx.params.dynamicslug2 : ctx.params.index });
-                return { props: { l, topNews } };
-            } else {
-                return { props: { l: [], topNews: [] } };
+                let l = res?.data?.data;
+                if (l) {
+                    axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.query.dynamicslug === "Cricket-BreakingNews" ? ctx.params.dynamicslug2 : ctx.params.index });
+                    return { props: { l, topNews } };
+                } else {
+                    return { props: { l: [], topNews: [] } };
+                }
             }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            return { props: { error: "Failed to fetch data" } };
         }
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        return { props: { error: "Failed to fetch data" } };
     }
+
+    else {
+        return {
+            redirect: {
+                destination: '/404',
+                permanent: false, // Set to true for permanent redirection
+            },
+        };
+    }
+
 }
 
 export const dynamicParams = true;

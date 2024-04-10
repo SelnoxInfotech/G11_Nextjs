@@ -31,6 +31,9 @@ function generateSiteMap() {
      <url>
      <loc>https://g11prediction.com/ipl-2024-dream11-predictions.xml</loc>
    </url>
+   <url>
+   <loc>https://g11prediction.com/fantasy-cricket-tips.xml</loc>
+ </url>
    </urlset>
  `;
 }
@@ -67,6 +70,9 @@ export async function getServerSideProps({ res }) {
   </url>
   <url>
   <loc>https://g11prediction.com/ipl-2024-dream11-predictions.xml</loc>
+</url>
+<url>
+<loc>https://g11prediction.com/fantasy-cricket-tips.xml</loc>
 </url>
   </urlset>
 `;
