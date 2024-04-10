@@ -3,10 +3,11 @@ import Link from "next/link";
 import axios from "axios"
 import Head from 'next/head';
 import Senglepage from "../../Component/MatchPriview/Senglepage";
-import  Seo  from "../../Component/Seo/Seo";
+import Seo from "../../Component/Seo/Seo";
 import useSWR from 'swr';
-import Homeskeleton from "../../Component/skeleton/Homeskeleton";
-import Matchpage from "../../Component/skeleton/Matchpage";
+import style from "../../styles/Style.module.scss"
+// import Homeskeleton from "../../Component/skeleton/Homeskeleton";
+import Cardskeleton from "../../Component/skeleton/cardskeleton";
 const fetcher = async (url) => {
     const res = await fetch(url);
     if (!res.ok) {
@@ -16,13 +17,34 @@ const fetcher = async (url) => {
 };
 
 
-export default function UpdateMatch({ initialData }) { 
-    const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher, { initialData });
+export default function UpdateMatch({ initialData }) {
+    const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher,);
 
-    const data = fetchedData || initialData;
+    let data = fetchedData;
+
     // if (error) return <div>Error loading data</div>;
-    if (!data) return <div>Loading...</div>;
+    if (!data) {
+        return (
+            <div className='container '>
+                <div className={style.Breaking_new}>
+                    <div className={style.Breaking_newCardWrapper}>
+                        {
+                            [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                                return < Cardskeleton key={i} />
+                            })
+                        }
+                    </div>
+                </div>
 
+            </div>
+        )
+    }
+    else {
+        if(Boolean(error)){
+            
+            data = initialData
+        }
+    }
     return (
         <>
             <Seo
@@ -34,9 +56,9 @@ export default function UpdateMatch({ initialData }) {
                 dream11 prediction today match,who will win today match,who win today ipl match,
                 my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}
                 canonical={"https://g11prediction.com/cricket-match-predictions/"}
-                ></Seo>
+            ></Seo>
             <Senglepage props={data} ></Senglepage>
-             {/* <Homeskeleton/> */}
+            {/* <Homeskeleton/> */}
         </>
 
     );

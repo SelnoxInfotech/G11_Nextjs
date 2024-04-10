@@ -74,17 +74,28 @@
 //   }
 // }
 
-
+import useSWR from 'swr';
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Seo from '../Component/Seo/Seo';
 import { useRouter } from 'next/router';
-const Card = dynamic(() => import('../Component/card/index'), { ssr: false, loading: () => <p>Loading...</p> });
+const Card = dynamic(() => import('../Component/card/index'), { ssr: true});
 import Cardskeleton from '../Component/skeleton/cardskeleton'
 import style from "../styles/Style.module.scss"
-const Breakingnews = ({ breakingData }) => {
-  const router = useRouter();
 
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return res.json();
+};
+
+
+
+const Breakingnews = () => {
+  const router = useRouter();
+  const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/5`, fetcher);
   React.useEffect(() => {
 
     // redirect("/cricket-breaking-news/");
@@ -93,7 +104,8 @@ const Breakingnews = ({ breakingData }) => {
 
   }, [])
 
-  if (breakingData) {
+
+  if (!fetchedData) {
     return (
       <div className='container '>
         <div className={style.Breaking_new}>
@@ -109,10 +121,6 @@ const Breakingnews = ({ breakingData }) => {
       </div>
     )
   }
-  // if(router.asPath === "/breakingnews/" || "/breakingnews") {
-  //   // redirect("/cricket-breaking-news/");
-  //   router.push({ pathname: '/cricket-breaking-news/'});
-  // }
   else {
     return (
       <React.Fragment>
@@ -124,7 +132,7 @@ const Breakingnews = ({ breakingData }) => {
           canonical={"https://g11prediction.com/breaking-news/"}
         />
         <div className='container'>
-          {/* <Card props={breakingData} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} /> */}
+          <Card slug={"Cricket-Breaking-News"} props={fetchedData?.data} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
         </div>
       </React.Fragment>
     );
@@ -133,27 +141,27 @@ const Breakingnews = ({ breakingData }) => {
 
 export default Breakingnews;
 
-export async function getStaticProps() {
-  try {
-    const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
-    const topNews = await topNewsRes.json();
-    return {
-      props: {
-        breakingData: topNews,
-      },
-      revalidate: 60, // Revalidate every hour (in seconds)
-    };
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return {
-      props: {
-        breakingData: null,
-        error: 'Failed to fetch data',
-      },
-      revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs
-    };
-  }
-}
+// export async function getStaticProps() {
+//   try {
+//     const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
+//     const topNews = await topNewsRes.json();
+//     return {
+//       props: {
+//         breakingData: topNews,
+//       },
+//       // revalidate: 60, // Revalidate every hour (in seconds)
+//     };
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//     return {
+//       props: {
+//         breakingData: null,
+//         error: 'Failed to fetch data',
+//       },
+//       // revalidate: 60 * 5, // Revalidate every 5 minutes if an error occurs
+//     };
+//   }
+// }
 
   
 

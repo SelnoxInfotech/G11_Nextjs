@@ -4,8 +4,8 @@ const   Card = dynamic(() => import('../Component/card/index'), { ssr: true  , l
 import  Seo  from '../Component/Seo/Seo';
 import useSWR from 'swr';
 import { useRouter } from 'next/router'
-
-import { redirect } from 'next/navigation'
+import Cardskeleton from '../Component/skeleton/cardskeleton'
+import style from "../styles/Style.module.scss"
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -17,15 +17,30 @@ const fetcher = async (url) => {
 const Cricket_news = ({ initialData }) => {
   const router = useRouter()
   const k = initialData
-  // const { data: fetchedData, error } = useSWR(`https://grand11.in/g11/api/post`, fetcher, { k });
+  const { data: fetchedData, error } = useSWR(`https://grand11.in/g11/api/post`, fetcher, { k });
   
   if (router.asPath === "/Cricket-News/" || router.asPath === "/Cricket-news/") {
     router.push("/cricket-news"); // Redirect to the desired path
-    // return null; // Return null to prevent rendering anything on this page
   }
 
-  const data = k;  
-  if (!data) return <div>Loading...</div>;
+  const data = fetchedData;  
+  if (!data) {
+    return (
+      <div className='container '>
+        <div className={style.Breaking_new}>
+          <div className={style.Breaking_newCardWrapper}>
+            {
+              [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                return < Cardskeleton key={i} />
+              })
+            }
+          </div>
+        </div>
+
+      </div>
+    )
+  }
+
   return (
     <>
       <Seo
@@ -35,7 +50,7 @@ const Cricket_news = ({ initialData }) => {
         keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
         canonical={"https://g11prediction.com/cricket-news/"}
     ></Seo>
-      <Card props={data} heading={<h1>cricket players</h1>} query={"cricket-news"}  data1={""} domain={"https://grand11.in/g11/"}></Card>
+      <Card slug={"Cricket-News"} props={data.result} heading={<h1>cricket players</h1>} query={"cricket-news"}  data1={""} domain={"https://grand11.in/g11/"}></Card>
     </>
   );
 };

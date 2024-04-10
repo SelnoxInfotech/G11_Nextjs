@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import { useRouter } from 'next/router'
 import axios from 'axios';
 import Cardskeleton from '../skeleton/cardskeleton';
-const Card = ({ props, query  ,data1 , heading , domain}) => {
+const Card = ({ props, query  ,data1 , heading , domain , slug}) => {
     const router = useRouter()
     const [data, setdata] = React.useState(props)
     const imagePerRow = 10
@@ -42,6 +42,7 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
     }
     const handleMoreImage = () => {
         setNext(next + imagePerRow);
+
     };
     const handlelessImage = () => {
         setNext(next - imagePerRow);
@@ -95,14 +96,15 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
             })
         }
     },[data1])
-
-
+ 
     return (
         <div className='container center'>
+  
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
                   {heading}
                 </div>
+                <p style={{color:"#c2121c" , display:"flex" ,gap:"15px"}}><span style={{cursor: "pointer" }} onClick={() => router.push("/")}>Home</span>{">"}<span>{slug}</span></p>
                 <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {
@@ -149,7 +151,7 @@ const Card = ({ props, query  ,data1 , heading , domain}) => {
                 </div>
                 <div className={`${'row'} ${style.BreakingButton}`}>
                     <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
-                        {next < data?.length && (
+                        {next <= data?.length && (
                             <button className={style.loadmorebtm} onClick={handleMoreImage}
                             >
                                 Load more

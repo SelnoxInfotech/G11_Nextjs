@@ -56,7 +56,7 @@ function Details({ data , h}) {
                     </div>
                 </div>
             </div>
-            <div className={style.skeletonContent}>
+            {/* <div className={style.skeletonContent}>
                  <div className={style.skeletoncontenttitle}>
                     <span></span>
                     <span></span>
@@ -90,7 +90,7 @@ function Details({ data , h}) {
                  </div>
 
 
-            </div>
+            </div> */}
         </React.Fragment>
     );
 }

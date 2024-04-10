@@ -1,29 +1,42 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from 'next/dynamic';
 import Card from "../../../../Component/card/index";
 import TableOfContent from '../../../../Component/tableofcontent/index';
 import Seo from "../../../../Component/Seo/Seo";
+import style from "../../../../styles/Style.module.scss"
 
-const Details = dynamic(() => import('../../../../Component/Details/Details'), { ssr: true, loading: () => <p>Loading...</p> });
+
+const Details = dynamic(() => import('../../../../Component/Details/Details'), { ssr: true });
+
 
 export default function Detailpage({ l, topNews }) {
+
     const router = useRouter();
     const { dynamicslug } = router.query;
+    const [loading, setLoading] = useState(true);
 
-    React.useEffect(() => {
+    useEffect(() => {
+        setLoading(true); // Set loading state to true before fetching data
         if (dynamicslug === "Cricket-BreakingNews") {
             router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
         }
-        else{
+        else {
             router.replace(`/${router.query.dynamicslug.toLowerCase()}/${router.query.dynamicslug2.toLowerCase()}/${router.query.index}`);
         }
     }, []);
 
+    useEffect(() => {
+        // After fetching data, set loading state to false
+        setLoading(false);
+    }, [l]);
+
     function formatString(str) {
-        return str.replace(/-/g, ' ').replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+        return str.replace(/-/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
     }
+
+
 
     return (
         <div className="container">
@@ -46,12 +59,13 @@ export default function Detailpage({ l, topNews }) {
                     <TableOfContent props={topNews?.slice(0, 6) || []} domain={dynamicslug === "cricket-news" ? "cricket-news" : undefined} />
                 </div>
             </div>
-            <Card data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{formatString(dynamicslug)}</h2>} query={dynamicslug}  domain={dynamicslug === "cricket-news" ? "https://grand11.in/g11/" : undefined} />
+            <Card data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{formatString(dynamicslug)}</h2>} query={dynamicslug} domain={dynamicslug === "cricket-news" ? "https://grand11.in/g11/" : undefined} />
         </div>
     );
 }
 
 export async function getServerSideProps(ctx) {
+
     try {
         if (ctx.query.dynamicslug === "cricket-news") {
             const res = await axios.get(`https://grand11.in/g11/api/post`);
@@ -67,7 +81,7 @@ export async function getServerSideProps(ctx) {
                 res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
             }
 
-            const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');
+            const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
             const topNews = await topNewsRes?.json();
 
             let l = res?.data?.data;
@@ -83,4 +97,5 @@ export async function getServerSideProps(ctx) {
         return { props: { error: "Failed to fetch data" } };
     }
 }
+
 export const dynamicParams = true;
