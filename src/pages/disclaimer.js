@@ -4,9 +4,13 @@ const Disclaimer = () => {
 
     return (
        <>
-       <Seo>
-        
-       </Seo>
+        <Seo
+             image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+                title={" Disclaimer: G11 Prediction | Today's Match Prediction, Fantasy Cricket Tips  "}
+                description={"Disclaimer: G11 Prediction provides informational content only. We do not guarantee accuracy or reliability. Use at your own risk. We are not liable for linked website content or temporary site unavailability. Opinions expressed are those of the authors."}
+                keywords={"IPL 2024,IPL schedule 2024, IPL teams 2024, IPL venues 2024, Dream11 prediction, IPL 2024 match prediction, IPL 2024"}
+                canonical={"https://g11prediction.com/disclaimer/"}
+           ></Seo>
         <div className={`${"container"} ${style.aboutus}`}>
         <div className='row'>
           <div className={`${'col-12'} ${style.hedding}`}>

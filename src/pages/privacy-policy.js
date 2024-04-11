@@ -1,8 +1,16 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
+import Seo from '../Component/Seo/Seo';
 const Privacypolicy = () => {
     return (
         <div className={`${'container'} ${style.aboutus}`}>
+           <Seo
+             image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
+                title={"Privacy Policy | G11 Fantasy Cricket Prediction Today's Match | "}
+                description={"Privacy Policy, G11 Fantasy Cricket Prediction Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream11 Prediction website."}
+                keywords={"IPL 2024,IPL schedule 2024, IPL teams 2024, IPL venues 2024, Dream11 prediction, IPL 2024 match prediction, IPL 2024"}
+                canonical={"https://g11prediction.com/privacy-policy/"}
+           ></Seo>
             <div className='row'>
                 <div className={`${'col-12'} ${style.hedding}`}>
                     <h1>Privacy Policy</h1>
