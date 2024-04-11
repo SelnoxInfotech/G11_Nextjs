@@ -70,7 +70,7 @@ function Match({ updatematch, image }) {
                                         </div>
 
                                         <div className={`${style.location} col`} >
-                                            <p className="city_location m-0 py-1"><span>match Location-</span>{data.city}</p>
+                                            <p className={`${style.city_location} m-0 py-1`}>View Match Prediction</p>
                                         </div>
                                     </Link>
                                 </div>

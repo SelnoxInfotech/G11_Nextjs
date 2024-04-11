@@ -303,7 +303,7 @@ h2.sectionMainTitle {
     align-items: center;
     width: 300px;
     position: relative;
-
+  
     &:hover {
       box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -339,16 +339,17 @@ h2.sectionMainTitle {
     }
 
     .location {
-      margin: 0;
+      margin: 0 auto;
       background-color: #fff;
-
-      span {
+       width: 90%;
+       border-radius: 5px;
+       p{
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0 ;
         color: #c2121c;
-      }
-
-      p {
-        color: #000;
-      }
+       }
     }
   }
 }
@@ -1057,6 +1058,7 @@ h2.sectionMainTitle {
     border-color: #c2121c;
 
     a {
+      text-decoration: none !important;
       &:hover {
         &::before {
           display: none !important;
@@ -3320,7 +3322,10 @@ button :focus-visible {
       }
     }
   }
-
+  h2.sectionMainTitle {
+    font-size: 26px;
+    margin: 20px 0;
+  }
   .Breaking_new {
     .Breaking_newCardWrapper {
       gap: 10px;
@@ -3504,12 +3509,14 @@ button :focus-visible {
 
     a {
       font-size: 14px;
-      padding: 5px;
+      text-decoration: none;
+      
 
       .breakingnewshometitle {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 18px;
         height: 35px;
+        font-weight: 500;
       }
     }
 

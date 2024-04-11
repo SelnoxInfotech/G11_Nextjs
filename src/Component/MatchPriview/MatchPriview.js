@@ -159,7 +159,6 @@ function MatchPriview(props ) {
                         </div>
                     </div>
                     <div className='col-lg-4 '>
-
                         <TableOfContent props={props.props.topNews.slice(0, 5)} />
                     </div>
                 </div>

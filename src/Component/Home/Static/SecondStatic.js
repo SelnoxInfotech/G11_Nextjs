@@ -24,7 +24,7 @@ export default function Static_benifit() {
 		</li>
 		<li >
 			<div className={style.content}>
-				<div className={style.icon}><MdSupportAgent color='#fff' size={32} /></div>
+				<div className={style.icon}><MdSupportAgent color='#c2121c' size={32} /></div>
 				<div className={style.title}> 24  X 7 Support </div>
 				<div className={style.text}>  G11 provides personalized expert support, league joining tips, and investment tips on
                                 every match.  </div>
@@ -40,7 +40,7 @@ export default function Static_benifit() {
 		</li>
 		<li >
 			<div className={style.content}>
-				<div className={style.icon}><FaDatabase color='#fff' size={32} /></div>
+				<div className={style.icon}><FaDatabase color='#c2121c' size={32} /></div>
 				<div className={style.title}> Our Experience </div>
 				<div className={style.text}>   Our expert work collect all the data, research, build our team, and put this data in one
                                 place with the most accurate fantasy tips. So don&#39;t waste your precious time doing all this

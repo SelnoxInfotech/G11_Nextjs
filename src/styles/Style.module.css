@@ -290,14 +290,17 @@ h2.sectionMainTitle {
   height: 100%;
 }
 .update_match .updatematch .location {
-  margin: 0;
+  margin: 0 auto;
   background-color: #fff;
-}
-.update_match .updatematch .location span {
-  color: #c2121c;
+  width: 90%;
+  border-radius: 5px;
 }
 .update_match .updatematch .location p {
-  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;
+  color: #c2121c;
 }
 
 .ScrollContainerRelative {
@@ -838,6 +841,9 @@ h2.sectionMainTitle {
 }
 .homepagebreakingness:hover {
   border-color: #c2121c;
+}
+.homepagebreakingness:hover a {
+  text-decoration: none !important;
 }
 .homepagebreakingness:hover a:hover::before {
   display: none !important;
@@ -2672,6 +2678,10 @@ h1.newcardwrappermainHeading {
     margin-top: 0;
     transition: all 0.3s ease;
   }
+  h2.sectionMainTitle {
+    font-size: 26px;
+    margin: 20px 0;
+  }
   .Breaking_new .Breaking_newCardWrapper {
     gap: 10px;
     justify-content: center;
@@ -2812,12 +2822,13 @@ h1.newcardwrappermainHeading {
   }
   .homepagebreakingness a {
     font-size: 14px;
-    padding: 5px;
+    text-decoration: none;
   }
   .homepagebreakingness a .breakingnewshometitle {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 18px;
     height: 35px;
+    font-weight: 500;
   }
   .homepagebreakingness .BreakingNews_view {
     padding: 10px 5px;
