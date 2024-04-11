@@ -5,8 +5,7 @@ import { useRouter } from 'next/router'
 import Seo from '../Seo/Seo';
 import TableOfContent from '../tableofcontent/index';
 import Image from 'next/image';
-function MatchPriview(props) {
-    console.log( "fdjsfdskj5555555555555555555" , props.SetSeoData)
+function MatchPriview(props ) {
     const router = useRouter()
     const [matchpreviwe, setmatchpreviwe] = useState("")
     const [Team_Guide, Set_Team_Guide] = useState('')
@@ -37,30 +36,7 @@ function MatchPriview(props) {
         return str.toLowerCase()
     }
 
-    function removeSpanAndColor(htmlString) {
-        // Create a temporary element to hold the HTML string
-        var tempElement = document.createElement('div');
-        tempElement.innerHTML = htmlString;
-    
-        // Get all <span> elements within the temporary element
-        var spanElements = tempElement.getElementsByTagName('span');
-    
-        // Iterate over each <span> element and remove it
-        for (var i = spanElements.length - 1; i >= 0; i--) {
-            var spanElement = spanElements[i];
-    
-            // Remove the 'style' attribute if it's setting color
-            if (spanElement.style.color === 'yellow') {
-                // Preserve the text content before removing the span
-                var textNode = document.createTextNode(spanElement.textContent);
-                spanElement.parentNode.replaceChild(textNode, spanElement);
-            }
-        }
-    
-        // Return the modified HTML string
-        return tempElement.innerHTML;
-    }
-    
+   
     // Example usage
 
     
@@ -103,9 +79,9 @@ function MatchPriview(props) {
         var TeamsData1 = Teams_.querySelectorAll("div")
         var Team_data = TeamsData1[4].innerHTML
         SetTeams_image(Team_data)
-        const input = removeSpanAndColor(containerData.querySelector("div >p").innerHTML.split(":")[1]).slice(12)
+        const input = props.slug
         const f = containerData.querySelector("div >h3").innerHTML;
-        props.SetSeoData({...props.seoData , image:k  , Title:input})
+        props.SetSeoData({...props.seoData , image:k  , Title:input , slug:router.query.slug[1] || router.query.slug[0]})
         function checkString(string) {
             if (typeof string === "string") {
                 return !isNaN(string)
@@ -151,24 +127,23 @@ function MatchPriview(props) {
 
         }
 
-        SetTitle(input)
+        SetTitle(props.slug)
     }, [])
-
     const imageLoader = ({ src, width, height, quality }) => {
   
             return (`${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
-console.log(ogimage)
+
     return (
         <div>
-            <Seo
+            {/* <Seo
                 title={`${Title1} Dream11 Prediction Today Match | Dream11 Team Today`}
                 image={ogimage}
                 description={`Dream11 today match prediction for ${Title1}.Win big with accurate tips & best Dream11 team prediction, Today Dream11 Team Check out!`}
                 keywords={`dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction,dream11 today team,dream11 update,dream11 prediction,today dream11 team,dream11 prediction today match,who will win today match,who win today ipl match,my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today  match,fantasy cricket prediction,best prediction site,best prediction website`}
                 canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(Title1) + "-dream11-prediction-today-match"}/${router.query.slug[1] || router.query.slug[0]}/`}
             >
-            </Seo>
+            </Seo> */}
 
             <div className={`${style.matchpage} container py-5`}>
                 <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
