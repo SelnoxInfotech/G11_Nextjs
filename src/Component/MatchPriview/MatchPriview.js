@@ -6,6 +6,7 @@ import Seo from '../Seo/Seo';
 import TableOfContent from '../tableofcontent/index';
 import Image from 'next/image';
 function MatchPriview(props) {
+    console.log( "fdjsfdskj5555555555555555555" , props.SetSeoData)
     const router = useRouter()
     const [matchpreviwe, setmatchpreviwe] = useState("")
     const [Team_Guide, Set_Team_Guide] = useState('')
@@ -75,7 +76,7 @@ function MatchPriview(props) {
         var containerData = container.querySelectorAll(".row")[1]
         var image = container.querySelectorAll(".row")[0]
         var k = image.querySelector("img").src
-        console.log(k)
+      
         var a = containerData.querySelector("div").innerHTML
         settimedetails(container.querySelectorAll(".row")[0].querySelector('.col-sm-8').innerHTML)
         setogimage(k)
@@ -104,6 +105,7 @@ function MatchPriview(props) {
         SetTeams_image(Team_data)
         const input = removeSpanAndColor(containerData.querySelector("div >p").innerHTML.split(":")[1]).slice(12)
         const f = containerData.querySelector("div >h3").innerHTML;
+        props.SetSeoData({...props.seoData , image:k  , Title:input})
         function checkString(string) {
             if (typeof string === "string") {
                 return !isNaN(string)
