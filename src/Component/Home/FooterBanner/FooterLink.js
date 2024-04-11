@@ -3,6 +3,8 @@ import React from 'react'
 import { IoMdCall } from 'react-icons/io';
 import { AiFillLinkedin } from 'react-icons/ai';
 import { FaFacebook } from "react-icons/fa";
+import { SiGooglenews } from "react-icons/si";
+
 import { BsTwitterX } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -14,7 +16,7 @@ export default function Footer_link() {
     return (
         <div className={`${style.footer_link}`}>
             <div className={`${'container'} ${style.link}`}>
-                <p className={`${style.Follow}`}>Follow us on social media</p>
+                <p className={`${style.Follow}`}>Follow us on social media </p>
             </div>
             <div className={`${'col-12' } ${style.link} ${style.socal_link}`}>
                 <Link href='https://www.facebook.com/g11sport/ ' ><FaFacebook   /></Link>
@@ -22,6 +24,7 @@ export default function Footer_link() {
                 <Link href='https://www.instagram.com/g11sport/'> <FaInstagram   /></Link>
                 <Link href='https://www.linkedin.com/company/g11-sport-fantasy-prediction/' className={`${style.linkin}`}><AiFillLinkedin  /></Link>
                 <Link href='https://twitter.com/G11sport123230' ><BsTwitterX     /></Link>
+                <Link href='https://news.google.com/publications/CAAqBwgKMJmUqgwwq5S3BA?hl=en-IN&gl=IN&ceid=IN%3Aen' ><SiGooglenews     /></Link>
                 <Link href='tel:+916262003399' className={`${style.calling}`}><span><IoMdCall></IoMdCall> </span> </Link>
                 <Link href='/rss-feed' className={`${style.calling}`}><span>   <FaRssSquare /></span> </Link>
             </div>

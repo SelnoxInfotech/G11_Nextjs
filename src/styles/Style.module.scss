@@ -65,14 +65,13 @@ h2.sectionMainTitle {
 .Offcanvas {
   background-color: #c2121c;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .btn_tele {
   border-radius: 21px;
   background-color: #0088cc;
   position: relative;
-  // top: 23px;
-  // left: 40%;
   height: 45px;
   width: 194px;
   color: white;
@@ -89,7 +88,7 @@ h2.sectionMainTitle {
     border-radius: 21px;
     background-color: #0088cc;
     position: relative;
-    top: 23px;
+  
     height: 45px;
     width: 194px;
     color: white;
@@ -2731,6 +2730,22 @@ button :focus-visible {
   font-family: "Inter", sans-serif;
 
 }
+.bredcrumlong{
+ word-wrap: break-word;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 14px;
+  padding: 10px 0;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #c2121c;
+  span{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #c2121c;
+  }
+}
 
 @media (max-width: 1480px){
   .Homelink {
@@ -3280,6 +3295,9 @@ button :focus-visible {
     .newcard {
       width: 30%;
     }
+  }
+  .breaknewssidebar{
+    margin-bottom: 20px;
   }
 }
 

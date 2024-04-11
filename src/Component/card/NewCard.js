@@ -8,10 +8,19 @@ import { AiFillEye } from "react-icons/ai"
 import { RWebShare } from "react-web-share";
 import { BsFillShareFill } from "react-icons/bs"
 const NewCard = ({props , link}) => {
+  const imagePerRow = 10
+  const [next, setNext] = React.useState(imagePerRow);
     const imageLoader = ({ src, width, height, quality }) => {
         const l = "https://www.g11fantasy.com"
         return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
       }
+      const handleMoreImage = () => {
+        setNext(next + imagePerRow);
+
+    };
+    const handlelessImage = () => {
+        setNext(next - imagePerRow);
+    };
      
     function modifystr(str) {
 
@@ -35,9 +44,10 @@ const NewCard = ({props , link}) => {
         return str?.toLowerCase()
       }
     return (
+      <React.Fragment>
         <div className={style.newcardwrapper}>
             {
-                props.data.map((items, index) => {
+                props.data?.slice(0, next)?.map((items, index) => {
 
 
                     return <div className={style.newcard} key={index}>
@@ -68,7 +78,26 @@ const NewCard = ({props , link}) => {
                     </div>
                 })
             }
+             
         </div>
+         <div className={`${'row'} ${style.BreakingButton}`}>
+         <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
+             {next <= props.data?.length && (
+                 <button className={style.loadmorebtm} onClick={handleMoreImage}
+                 >
+                     Load more
+                 </button>
+             )}
+             {next < props.data?.length && (
+                 <button className={next <= 10 ? 'hidden' :style.loadmorebtm} onClick={handlelessImage}
+                 >
+                     Read Less
+                 </button>
+             )}
+         </div>
+
+     </div>
+     </React.Fragment>
     );
 };
 
