@@ -3,7 +3,7 @@ import style from "../../styles/Style.module.scss"
 const Accodien = () => {
   return (
     <div className={`${style.accordion} accordion`} id="accordionExample">
-      <div className='d-none'>
+      {/* <div className='d-none'>
       <div className="accordion-item">
         <h2 className="accordion-header" id="headingOne">
           <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -52,10 +52,11 @@ const Accodien = () => {
         <div id="collapsefour" className="accordion-collapse " aria-labelledby="headingfour" data-bs-parent="#accordionExample">
           <div className="accordion-body">
             {/* <strong>This is the third item's accordion body.</strong>   */}
-            If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.
+            {/* If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.
           </div>
         </div>
       </div>
+    </div> */} 
     </div>
   );
 };
