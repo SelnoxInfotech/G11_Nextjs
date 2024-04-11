@@ -81,7 +81,7 @@ function MatchPriview(props ) {
         SetTeams_image(Team_data)
         const input = props.slug
         const f = containerData.querySelector("div >h3").innerHTML;
-        props.SetSeoData({...props.seoData , image:k  , Title:input , slug:router.query.slug[1] || router.query.slug[0]})
+        props.SetSeoData({...props.seoData , image:k  , Title:input })
         function checkString(string) {
             if (typeof string === "string") {
                 return !isNaN(string)
