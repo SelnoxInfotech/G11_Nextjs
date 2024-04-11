@@ -52,7 +52,7 @@ const Accodien = ({faq}) => {
         <div id="collapsefour" className="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
           <div className="accordion-body">
             {/* <strong>This is the third item's accordion body.</strong>   */}
-             If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.
+            {` If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.`}
           </div>
         </div>
       </div>

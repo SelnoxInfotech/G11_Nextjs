@@ -12,7 +12,7 @@ const Details = dynamic(() => import('../../../../Component/Details/Details'), {
 
 
 export default function Detailpage({ l, topNews }) {
-
+    let redirect
     const router = useRouter();
     const { dynamicslug } = router.query;
     const [loading, setLoading] = useState(true);
@@ -45,15 +45,15 @@ export default function Detailpage({ l, topNews }) {
             router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
         }
         else {
-          let  redirect = l[0].subcategoy_name === "IPL 2024"
-            ? "/ipl-2024" : l[0].subcategoy_name === "IPL 2024 Prediction"
-                ? "/ipl-2024-dream11-predictions" : l[0].subcategoy_name === "Breaking News"
-                    ? "/cricket-breaking-news" : l[0].subcategoy_name === "Fantasy Cricket Tips"
-                        ? "/fantasy-cricket-tips" : l[0].subcategoy_name === "ICC T20 WORLD CUP 2024"
-                            ? "/icc-cricket-world-cup-2024" : l[0].subcategoy_name === "cricket rules and regulation"
-                                ? "/cricket-rules-and-regulation" : l[0].subcategoy_name === "Cricket Players"
-                                    ? "/cricket-players" : l[0].subcategoy_name === "IPL 2023"
-                                        ? "/icc-cricket-world-cup-2023" : l[0].subcategoy_name === "IPL 2023" && "/ipl-2023"
+            redirect = l[0].subcategoy_name === "IPL 2024"
+                ? "/ipl-2024" : l[0].subcategoy_name === "IPL 2024 Prediction"
+                    ? "/ipl-2024-dream11-predictions" : l[0].subcategoy_name === "Breaking News"
+                        ? "/cricket-breaking-news" : l[0].subcategoy_name === "Fantasy Cricket Tips"
+                            ? "/fantasy-cricket-tips" : l[0].subcategoy_name === "ICC T20 WORLD CUP 2024"
+                                ? "/icc-cricket-world-cup-2024" : l[0].subcategoy_name === "cricket rules and regulation"
+                                    ? "/cricket-rules-and-regulation" : l[0].subcategoy_name === "Cricket Players"
+                                        ? "/cricket-players" : l[0].subcategoy_name === "IPL 2023"
+                                            ? "/icc-cricket-world-cup-2023" : l[0].subcategoy_name === "IPL 2023" && "/ipl-2023"
             router.replace(`/${redirect.toLowerCase()}/${modifystr(l[0].Title)}/${l[0].id}`);
         }
     }, []);
@@ -62,25 +62,38 @@ export default function Detailpage({ l, topNews }) {
     function formatString(str) {
         return str.replace(/-/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
     }
+    function capitalizeAndRemoveHyphens(str) {
+        // Split the string by hyphens
+        let words = str.split('-');
+        
+        // Capitalize the first letter of each word
+        let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+        
+        // Join the words back together with spaces
+        let result = capitalizedWords.join(' ');
+        
+        return result;
+    }
 
 
-    
-
+// console.log(data)
     return (
         <div className="container">
             <div className="row">
                 <div className="col-lg-8 col-12">
                     {l?.map((data, index) => (
+                   
                         <React.Fragment key={index}>
                             <Seo
                                 image={"https://www.g11fantasy.com" + data.Image}
-                                title={data?.Meta_title || data.title}
+                                title={data?.Meta_title || data.title || data.Title}
                                 description={data?.Meta_Description}
                                 keywords={data.Keywords === null ? "IPL 2024, PBKS vs DC Dream11 Prediction | Dream11 Team Today, Dream11 Winning Tips, Dream11 prediction for today's match, Best Dream11 team for Today match,dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction, dream11 today team,dream11 update,dream11 prediction,today dream11 team, dream11 prediction today match,who will win today match,who win today ipl match, my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today match,fantasy cricket prediction,best prediction site,best prediction website" : data.Keywords}
                                 canonical={`https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}`}
                             />
-                            
+                            <p className="mt-1 d-flex" style={{ margin: "0" , gap:"10px" , color:"#c2121c" , cursor:"pointer" }}><span onClick={()=>router.replace(`/`)}>Home</span>{">"}<span onClick={()=>router.replace(`/${router.query.dynamicslug}`)}>{capitalizeAndRemoveHyphens(router.query.dynamicslug)}</span>{">"}<span>{capitalizeAndRemoveHyphens(data.Title)}</span></p>
                             <Details data={data} h={dynamicslug} />
+
                         </React.Fragment>
                     ))}
                 </div>
