@@ -13,7 +13,7 @@ function Details({ data, h }) {
     return `${l}${src}?w=${width}&h=${height}&q=${quality || 100}`;
   };
 
-  console.log(data, h);
+ 
   // React.useEffect(() => {
   // axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`,
 
