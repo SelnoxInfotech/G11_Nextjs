@@ -15,7 +15,6 @@ const Accodien = dynamic(() => import("../Component/card/Accodien"), {
 // import NewCard from '../Component/card/NewCard';
 import Cardskeleton from "../Component/skeleton/cardskeleton";
 import AccordionUsage from "../Component/card/Accodien";
-// import Accodien from '../Component/card/Accodien';
 import { BsDisplay } from "react-icons/bs";
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -304,7 +303,7 @@ const Fantasycrickettip = (props) => {
                 <NewCard  props={fetchedData} link={'/fantasy-cricket-tips'}></NewCard>
             </div>
             <div className='col-12 '>
-                <div className={style.faqheading}><p>FAQ’s of Fantasy Cricket Tips</p></div>
+                <div className={style.faqheading}><p>{`FAQ’s of Fantasy Cricket Tips`}</p></div>
                 <Accodien></Accodien>
             </div>
         </div>

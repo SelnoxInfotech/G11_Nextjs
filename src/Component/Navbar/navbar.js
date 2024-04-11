@@ -124,7 +124,7 @@ function OffcanvasExample({ props }) {
                     href="/ipl-2024-dream11-predictions">IPL 2024 Prediction</Link >
                       <Link
                     onClick={toggleOffCanvas}
-                    href="/fantasy-cricket-tips">fantasy cricket tips</Link >
+                    href="/fantasy-cricket-tips">Fantasy Cricket Tips</Link >
                   <Link
                     onClick={toggleOffCanvas}
                     href="/about-us">About</Link >
