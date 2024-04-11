@@ -52,9 +52,7 @@ const Fantasycrickettip = (props) => {
   return (
     <React.Fragment>
       <Seo
-        image={
-          "https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"
-        }
+        image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title=" Best Fantasy Cricket Tips, Today's Dream11 Team, and Winning Strategies - g11 Prediction"
         description={
           "Get your fantasy cricket game with our expert Fantasy Cricket Tips for today's match. Explore Dream11 predictions, best XI picks, player stats, and more. Stay ahead with g11 Prediction"

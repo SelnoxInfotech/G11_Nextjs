@@ -35,6 +35,35 @@ function MatchPriview(props) {
 
         return str.toLowerCase()
     }
+
+    function removeSpanAndColor(htmlString) {
+        // Create a temporary element to hold the HTML string
+        var tempElement = document.createElement('div');
+        tempElement.innerHTML = htmlString;
+    
+        // Get all <span> elements within the temporary element
+        var spanElements = tempElement.getElementsByTagName('span');
+    
+        // Iterate over each <span> element and remove it
+        for (var i = spanElements.length - 1; i >= 0; i--) {
+            var spanElement = spanElements[i];
+    
+            // Remove the 'style' attribute if it's setting color
+            if (spanElement.style.color === 'yellow') {
+                // Preserve the text content before removing the span
+                var textNode = document.createTextNode(spanElement.textContent);
+                spanElement.parentNode.replaceChild(textNode, spanElement);
+            }
+        }
+    
+        // Return the modified HTML string
+        return tempElement.innerHTML;
+    }
+    
+    // Example usage
+
+    
+
     useEffect(() => {
 
         var parser = new DOMParser();
@@ -73,7 +102,7 @@ function MatchPriview(props) {
         var TeamsData1 = Teams_.querySelectorAll("div")
         var Team_data = TeamsData1[4].innerHTML
         SetTeams_image(Team_data)
-        const input = containerData.querySelector("div >p").innerHTML.split(":")[1]
+        const input = removeSpanAndColor(containerData.querySelector("div >p").innerHTML.split(":")[1]).slice(12)
         const f = containerData.querySelector("div >h3").innerHTML;
         function checkString(string) {
             if (typeof string === "string") {
@@ -127,7 +156,7 @@ function MatchPriview(props) {
   
             return (`${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
-
+console.log(ogimage)
     return (
         <div>
             <Seo

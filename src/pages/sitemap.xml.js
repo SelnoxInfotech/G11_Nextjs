@@ -73,7 +73,7 @@ export async function getServerSideProps({ res }) {
 </url>
 <url>
 <loc>https://g11prediction.com/fantasy-cricket-tips.xml</loc>
-</url>
+</url>  
   </urlset>
 `;
 

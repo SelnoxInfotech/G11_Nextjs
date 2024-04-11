@@ -42,7 +42,14 @@ export default function Index({ props, domain }) {
                     })?.map((item, index) => {
                         // console.log(item.subcategoy_name === "IPL 2024", item)
                         redirect = item.subcategoy_name === "IPL 2024"
-                            ? "/ipl-2024" : item.subcategoy_name === "/IPL 2024 Prediction" ? "/IPL 2024 Prediction" : item.subcategoy_name === "/Breaking News" ? "/cricket-breaking-news" : "/cricket-breaking-news"
+                            ? "/ipl-2024" : item.subcategoy_name === "IPL 2024 Prediction"
+                                ? "/ipl-2024-dream11-predictions" : item.subcategoy_name === "Breaking News"
+                                    ? "/cricket-breaking-news" : item.subcategoy_name === "Fantasy Cricket Tips"
+                                        ? "/fantasy-cricket-tips" : item.subcategoy_name === "ICC T20 WORLD CUP 2024"
+                                            ? "/icc-cricket-world-cup-2024" : item.subcategoy_name === "cricket rules and regulation"
+                                                ? "/cricket-rules-and-regulation" : item.subcategoy_name === "Cricket Players"
+                                                    ? "/cricket-players" : item.subcategoy_name === "IPL 2023"
+                                                        ? "/icc-cricket-world-cup-2023" : item.subcategoy_name === "IPL 2023" && "/ipl-2023"
                         return <Link key={index} href={`${redirect}/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title || item?.title)}/${item.id}`}>
                             <div className={style.toclistItem}>
                                 <span className={style.listiconsdot}> <GoDotFill /></span>
