@@ -87,73 +87,73 @@ const Fantasycrickettip = (props) => {
                 </p>
                 <h1>Fantasy Cricket Tips</h1>
                 <p>
-                  Welcome to the G11 Prediction where cricket fans transcend
+                 {` Welcome to the G11 Prediction where cricket fans transcend
                   from being mere spectators to strategic architects of their
                   own fantasy cricket teams. At Fantasy Cricket Tips, we're here
                   to be your guide, your coach, and your cheerleader throughout
-                  your fantasy cricket journey.
+                  your fantasy cricket journey.`}
                 </p>
                 <div style={{ display: height ? "none" : "block" }}>
                   <p className={style.heading}>
-                    Expert Analysis, Strategic Insights
+                   {` Expert Analysis, Strategic Insights`}
                   </p>
 
                   <p>
-                    Our platform is your gateway to a treasure trove of
+                   {` Our platform is your gateway to a treasure trove of
                     articles, blogs, and data meticulously crafted to enhance
                     your fantasy cricket experience. With our in-depth match
                     predictions, derived from rigorous analysis of past
                     performances, team dynamics, and player statistics, you'll
-                    gain a competitive edge like never before
+                    gain a competitive edge like never before`}
                   </p>
                   <p>
-                    But we don't stop at predictions. We equip you with
+                  {`  But we don't stop at predictions. We equip you with
                     strategic insights, delving into captaincy picks,
                     budget-friendly options, and everything in between. Our
                     mission is to empower you to craft your dream team with
-                    confidence and precision.
+                    confidence and precision.`}
                   </p>
                   <p className={style.heading}>
-                    Your Ultimate Toolkit For Fantasy Prediction
+                    {`Your Ultimate Toolkit For Fantasy Prediction`}
                   </p>
                   <p>
-                    Imagine having access to the ultimate toolkit for fantasy
+                   {` Imagine having access to the ultimate toolkit for fantasy
                     cricket. That's precisely what we offer. Our match previews
                     feature updated playing elevens, cricket news, and pitch
                     reports, providing you with a head start in shaping your
-                    winning strategy.
+                    winning strategy.`}
                   </p>
                   <p>
-                    Whether you're a seasoned player seeking to dominate the
+                   {` Whether you're a seasoned player seeking to dominate the
                     leaderboard or a newcomer looking for some fun, our platform
                     caters to all. We believe in simplicity and accessibility,
                     ensuring that our tips are easy to comprehend and implement.
                     No complex theories, just straightforward advice to help you
-                    thrive in fantasy cricket contests.
+                    thrive in fantasy cricket contests.`}
                   </p>
                   <p className={style.heading}>
                     Maximize Your Chances of Win Big In Fantasy Game
                   </p>
                   <p>
-                    In the exhilarating universe of fantasy cricket, every
+                   {` In the exhilarating universe of fantasy cricket, every
                     decision matters. That's why our expert guidance coupled
                     with live cricket scores arms you with the tools to make
-                    informed decisions and maximize your chances of success.
+                    informed decisions and maximize your chances of success.`}
                   </p>
                   <p>
-                    Whether you aspire to claim the top spot or simply enjoy the
+                   {` Whether you aspire to claim the top spot or simply enjoy the
                     thrill of the game, g11 Prediction is your trusted
                     companion. With our comprehensive resources and unwavering
                     support, you'll be primed to conquer any challenge that
-                    comes your way.
+                    comes your way.`}
                   </p>
                   <p>
-                    Join us on this captivating journey where passion meets
+                   {` Join us on this captivating journey where passion meets
                     strategy, and together, let's redefine the essence of
                     fantasy cricket. Let's embark on a quest where every match
                     is an opportunity, and every decision shapes your destiny.
                     Welcome to g11 Prediction - where fantasy cricket transcends
-                    imagination and emerges as reality.
+                    imagination and emerges as reality.`}
                   </p>
                 </div>
               </div>
@@ -177,7 +177,7 @@ const Fantasycrickettip = (props) => {
         </div>
         <div className="col-12 d-none ">
           <div className={style.faqheading}>
-            <p>FAQ’s of Fantasy Cricket Tips</p>
+            <p>{`FAQ’s of Fantasy Cricket Tips`}</p>
           </div>
           <div className={`${style.accordion} accordion`} id="accordionExample">
           <div className='d-none'>
@@ -202,10 +202,10 @@ const Fantasycrickettip = (props) => {
                 >
                   <div className="accordion-body">
                     {/* <strong>This is the first item's accordion body.</strong> */}
-                    We provide various tips and strategies to improve your
+                  {`  We provide various tips and strategies to improve your
                     chances of winning in fantasy cricket. From analyzing player
                     performance to understanding match dynamics, our expert
-                    advice can help you craft winning teams.
+                    advice can help you craft winning teams.`}
                   </div>
                 </div>
               </div>
@@ -230,11 +230,11 @@ const Fantasycrickettip = (props) => {
                 >
                   <div className="accordion-body">
                     {/* <strong>This is the second item's accordion body.</strong>  */}
-                    Predicting a fantasy cricket team involves a combination of
+                   {` Predicting a fantasy cricket team involves a combination of
                     factors such as player form, past performance, pitch
                     conditions, and team dynamics. Our platform offers insights
                     and analysis to assist you in making informed decisions
-                    while selecting your team.
+                    while selecting your team.`}
                   </div>
                 </div>
               </div>
@@ -259,14 +259,14 @@ const Fantasycrickettip = (props) => {
                 >
                   <div className="accordion-body">
                     {/* <strong>This is the third item's accordion body.</strong>  */}
-                    It is hidden by default, until the collapse plugin adds the
+                   {` It is hidden by default, until the collapse plugin adds the
                     appropriate classNamees that we use to style each element.
                     These classNamees control the overall appearance, as well as
                     the showing and hiding via CSS transitions. You can modify
                     any of this with custom CSS or overriding our default
                     variables. It's also worth noting that just about any HTML
                     can go within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
+                    transition does limit overflow.`}
                   </div>
                 </div>
               </div>
@@ -291,11 +291,11 @@ const Fantasycrickettip = (props) => {
                 >
                   <div className="accordion-body">
                     {/* <strong>This is the third item's accordion body.</strong>   */}
-                    If you're new to fantasy cricket, getting started is easy!
+                 {`   If you're new to fantasy cricket, getting started is easy!
                     Simply download a fantasy sports app, create your account,
                     and start selecting your team for upcoming matches. Our
                     platform provides step-by-step guides to help you kickstart
-                    your fantasy cricket journey.
+                    your fantasy cricket journey.`}
                   </div>
                 </div>
             </div>
@@ -304,7 +304,7 @@ const Fantasycrickettip = (props) => {
                 <NewCard  props={fetchedData} link={'/fantasy-cricket-tips'}></NewCard>
             </div>
             <div className='col-12 '>
-                <div className={style.faqheading}><p>FAQ’s of Fantasy Cricket Tips</p></div>
+                <div className={style.faqheading}><p>{`FAQ’s of Fantasy Cricket Tips`}</p></div>
                 <Accodien></Accodien>
             </div>
         </div>

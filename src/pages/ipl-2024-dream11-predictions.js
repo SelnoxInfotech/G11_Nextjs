@@ -81,19 +81,19 @@ const faq=[
                         <div className='col-11 mt-3 mx-auto' style={{ overflow: "hidden" }}>
                             <p className={style.slug}><span>Home</span><span>{">"}</span><span>ipl-2024-dream11-predictions</span></p>
                             <h1>Dream11 Prediction for IPL 2024</h1>
-                            <p>Welcome to our Dream11 Prediction hub, where cricket fans look into the exhilarating world of IPL 2024 dream11 cricket prediction. At g11 Prediction, we're dedicated to providing you with expert insights, today match predictions, and winning strategies to elevate your Dream11 experience to new heights.</p>
+                            <p>{`Welcome to our Dream11 Prediction hub, where cricket fans look into the exhilarating world of IPL 2024 dream11 cricket prediction. At g11 Prediction, we're dedicated to providing you with expert insights, today match predictions, and winning strategies to elevate your Dream11 experience to new heights.`}</p>
                             <div style={{ display: height ? "none" : "block",}}>
                             <p className={style.heading}>Get Success In Dream11</p>
 
-                            <p>Dream11 Prediction for IPL 2024 isn't just about picking players; it's about crafting winning strategies backed by thorough analysis and strategic thinking. Our platform serves as your ultimate companion, offering comprehensive analysis, player insights, and strategic tips to help you build winning teams.</p>
+                            <p>{`Dream11 Prediction for IPL 2024 isn't just about picking players; it's about crafting winning strategies backed by thorough analysis and strategic thinking. Our platform serves as your ultimate companion, offering comprehensive analysis, player insights, and strategic tips to help you build winning teams.`}</p>
                         
-                            <p className={style.heading}>Expert Analysis, Strategic Tips For Every Dream11 Cricket Match</p>
-                            <p>Our team of experts meticulously analyzes every aspect of the game, from player performance to pitch conditions, to deliver accurate predictions and valuable insights. Whether you're aiming for the top spot in your fantasy league or simply looking to enhance your cricket knowledge, our expert analysis will guide you every step of the way.</p>
+                            <p className={style.heading}>{`Expert Analysis, Strategic Tips For Every Dream11 Cricket Match`}</p>
+                            <p>{`Our team of experts meticulously analyzes every aspect of the game, from player performance to pitch conditions, to deliver accurate predictions and valuable insights. Whether you're aiming for the top spot in your fantasy league or simply looking to enhance your cricket knowledge, our expert analysis will guide you every step of the way.`}</p>
                             <p className={style.heading}>Stay Ahead in the Game</p>
-                            <p>With our Dream11 predictions, you'll stay ahead of the competition by making informed decisions based on real-time analysis and strategic tips. From probable XI selections to player stats and match previews, our comprehensive approach ensures that you're well-equipped to navigate the dynamic world of IPL 2024 fantasy cricket.</p>
+                            <p>{`With our Dream11 predictions, you'll stay ahead of the competition by making informed decisions based on real-time analysis and strategic tips. From probable XI selections to player stats and match previews, our comprehensive approach ensures that you're well-equipped to navigate the dynamic world of IPL 2024 fantasy cricket.`}</p>
                             <p className={style.heading}>Join Us on the Journey
 </p>
-                            <p>Whether you're a pro or just starting out, g11 Prediction is your ultimate Dream11 destination. Join us as we decode IPL 2024, empowering you with expert analysis to conquer fantasy cricket.</p>
+                            <p>{`Whether you're a pro or just starting out, g11 Prediction is your ultimate Dream11 destination. Join us as we decode IPL 2024, empowering you with expert analysis to conquer fantasy cricket.`}</p>
                             </div>
                         </div>
                         <div className='col justify-content-end d-flex'><p className={style.LoadMOre} onClick={() => Setheight((height) => !height)}>Read More</p></div>
@@ -143,7 +143,7 @@ const faq=[
         </div>
         <div className='row'>
         <div className='col-12  d-none'>
-                <div className={style.faqheading}><p>FAQ’s of Fantasy Cricket Tips</p></div>
+                <div className={style.faqheading}><p>{`FAQ’s of Fantasy Cricket Tips`}</p></div>
                 <Accodien/>
             </div>
         </div>
