@@ -132,7 +132,7 @@ const Breakingnews = () => {
           canonical={"https://g11prediction.com/breaking-news/"}
         />
         <div className='container'>
-          <Card slug={"Cricket-Breaking-News"} props={fetchedData?.data} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
+          <Card slug={"Cricket Breaking News"} props={fetchedData?.data} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
         </div>
       </React.Fragment>
     );

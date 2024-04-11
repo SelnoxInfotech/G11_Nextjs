@@ -75,15 +75,13 @@ function Senglepage({ props }) {
             ></Seo> */}
             <section id={style.team} className={style.team}>
                 <div className="container">
-                    <h1 className={style.section_title}>Today Match Predictions - Cricket Betting Tips from Experts (100% Free)</h1>
-                    <div className={`row ${style.team}`} id="team_data" >
+                    {/* <h2 className={style.section_title}>Today Match Predictions - Cricket Betting Tips from Experts (100% Free)</h2> */}
+                    <div className={`row ${style.team} ${style.matchcardwrapper}`} id="team_data" >
                         {
                             props?.slice(0, next)?.map((data, index) => {
 
                                 return (
-                                    <div className="col-sm-4 my-3 bottom" key={index}>
-
-                                        <div className={style.matchcard} style={styling} >
+                                        <div className={style.matchcard} key={index} >
                                              <div className='d-flex align-items-center h-100 w-100'>
                                             <Link href={`/cricket-match-predictions/${data.id}/`} className='w-100'>
 
@@ -106,14 +104,13 @@ function Senglepage({ props }) {
                                                     </div>
                                                   
                                                     <div className={`col-12 ${style.location_match}`}>
-                                                        <p className="city_location m-0 py-1"><span className="location text-danger">match Location-</span>{data.city}</p>
+                                                        <p className={`${style.city_location} m-0 py-1`}>View Match Prediction</p>
                                                     </div>
                                                 </div>
 
                                             </Link>
                                              </div>
                                         </div>
-                                    </div>
                                 )
                             })
                         }

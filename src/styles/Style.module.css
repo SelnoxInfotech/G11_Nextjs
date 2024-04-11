@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .logo_img {
   position: relative;
   width: 74px;
@@ -1498,22 +1499,28 @@ h2.sectionMainTitle {
   margin-top: 8px;
 }
 
-.matchcard {
+.matchcardwrapper {
+  display: grid;
+  padding: 30px 0;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+  gap: 40px;
+}
+.matchcardwrapper .matchcard {
   background: url("https://www.g11fantasy.com/image/images/download/media/Static/matchBackground.jpg");
-  padding: "0";
-  background-size: "100% 100%";
-  /* filter: brightness(150%); */
-  width: "300px";
-  height: "300px";
-  border-radius: "20px";
+  padding: 20px;
+  background-size: 100% 100%;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
   margin: 0 auto;
 }
-.matchcard:hover {
+.matchcardwrapper .matchcard:hover {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
   transition: all 0.3s ease-in-out;
   margin-top: -5px;
 }
-.matchcard .matchcardteamname {
+.matchcardwrapper .matchcard .matchcardteamname {
   line-height: 18px;
   overflow: hidden;
   display: -webkit-box;
@@ -1521,6 +1528,9 @@ h2.sectionMainTitle {
   /* number of lines to show */
   line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+.matchcardwrapper .matchcard .city_location {
+  border-radius: 8px;
 }
 
 .font h3 span {
@@ -1563,6 +1573,41 @@ h2.sectionMainTitle {
   color: #000;
   position: relative;
   top: 13px;
+  border-radius: 5px;
+  color: #c2121c;
+  position: relative;
+  font-weight: 500;
+  font-size: 15px;
+  overflow: hidden;
+  height: 33px;
+}
+.team .location_match .city_location {
+  z-index: 10;
+}
+.team .location_match::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #c2121c;
+}
+.team .location_match:hover {
+  color: #fff;
+}
+.team .location_match:hover .city_location {
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+.team .location_match:hover::before {
+  width: 100%;
+  transition: all 0.5s ease;
+  z-index: 9;
 }
 .team .image {
   height: 70px;
@@ -1623,7 +1668,13 @@ h2.sectionMainTitle {
   font-size: 12px;
   font-weight: 500;
 }
-
+.latestVideoPage .videopagetitle {
+  color: #c2121c;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .Breaking_new {
   color: #c2121c;
   align-items: center;
@@ -1951,6 +2002,12 @@ h1.newcardwrappermainHeading {
   letter-spacing: 1.5px;
   margin: 20px 0;
 }
+.detailspaget h3.posttiming {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c2121c;
+}
 .detailspaget .detailspagecontent h2 {
   text-align: left !important;
   font-family: "Inter", sans-serif;
@@ -2058,6 +2115,154 @@ h1.newcardwrappermainHeading {
   text-align: right;
 }
 
+.Fantasycrickettip {
+  margin-top: 10px;
+  background-color: rgba(225, 225, 225, 0.2705882353);
+}
+.Fantasycrickettip .box {
+  height: 100%;
+  display: flexbox;
+  justify-content: center;
+  border: 1px solid #C2121C;
+  border-radius: 12px;
+}
+.Fantasycrickettip .box .slug {
+  color: #C2121C;
+  gap: 10px;
+  display: flex;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+}
+.Fantasycrickettip .box .LoadMOre {
+  padding: 4px 7px;
+  border: 1px solid #c2121c;
+  border-radius: 20px;
+  color: #C2121C;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.Fantasycrickettip .box .LoadMOre:hover {
+  color: #fff;
+  background-color: #c2121c;
+  transition: all 0.3s ease-in-out;
+}
+.Fantasycrickettip .box h1 {
+  font-size: 36px;
+  color: #C2121C;
+  font-weight: 700;
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+.Fantasycrickettip .box p {
+  font-size: 16px;
+}
+.Fantasycrickettip .box .heading {
+  font-weight: 500;
+}
+
+.faqheading {
+  height: 50px;
+  align-items: center;
+  display: flex;
+  color: #C2121C;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 2%;
+}
+.faqheading p {
+  margin: 0;
+}
+.faqheading .newcardwrapper {
+  padding: 0;
+}
+
+.accordion button {
+  border-top-left-radius: #C2121C;
+  border-top-right-radius: #C2121C;
+}
+.accordion button :focus-visible {
+  z-index: 3;
+  border-color: black;
+  outline: 0;
+  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+}
+
+/* Style the accordion section */
+.accordion__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  margin-top: 10px;
+  outline: none;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.accordion:hover,
+.activeaccordion {
+  background-color: #c2121c;
+  color: #fff;
+}
+
+/* Style the accordion content title */
+.accordion__title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* Style the accordion chevron icon */
+.accordion__icon {
+  margin-left: auto;
+  transition: transform 0.6s ease;
+}
+
+/* Style to rotate icon when state is active */
+.rotate {
+  transform: rotate(90deg);
+}
+
+/* Style the accordion content panel. Note: hidden by default */
+.accordion__content {
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  border: 1px solid #c2121c;
+  border-top: none;
+  box-sizing: border-box;
+}
+
+/* Style the accordion content text */
+.accordion__text {
+  font-weight: 500;
+  font-size: 15px;
+  padding: 18px;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+}
+
+@media (max-width: 1480px) {
+  .Homelink a {
+    font-size: 16px;
+    margin: 16px;
+  }
+}
 @media (max-width: 1400px) {
   .Breaking_new .Breaking_newCardWrapper {
     gap: 10px;
@@ -2098,6 +2303,18 @@ h1.newcardwrappermainHeading {
   }
   .videoSkeetonwrapper .skeletonVideroCard {
     width: 30%;
+  }
+}
+@media (max-width: 1338px) {
+  .Homelink a {
+    font-size: 14px;
+    margin: 14px;
+  }
+}
+@media (max-width: 1266px) {
+  .Homelink a {
+    font-size: 12px;
+    margin: 14px;
   }
 }
 @media (max-width: 1200px) {
@@ -2150,6 +2367,10 @@ h1.newcardwrappermainHeading {
   .homepageskeleton .skeletoncardhomewrapper .skeletonCard:last-child {
     display: none;
   }
+  .Homelink a {
+    font-size: 12px;
+    margin: 12px;
+  }
 }
 @media (max-width: 1024px) {
   .matchpage {
@@ -2165,8 +2386,27 @@ h1.newcardwrappermainHeading {
     font-weight: 700;
     line-height: 1.5;
   }
+  .Homelink a {
+    font-size: 10px;
+    margin: 10px;
+  }
+  .matchcardwrapper {
+    display: grid;
+    padding: 30px 0;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-evenly;
+    gap: 40px;
+  }
 }
 @media (max-width: 992px) {
+  .Homelink {
+    align-items: flex-start;
+  }
+  .Homelink a {
+    font-size: 18px;
+    margin: 10px;
+    padding-left: 0;
+  }
   .Offcanvas {
     justify-content: space-between;
   }
@@ -2401,6 +2641,13 @@ h1.newcardwrappermainHeading {
   }
 }
 @media (max-width: 576px) {
+  .matchcardwrapper {
+    display: grid;
+    padding: 30px 0;
+    grid-template-columns: repeat(1, auto);
+    justify-content: space-evenly;
+    gap: 20px;
+  }
   .footer_head .appdownloadtext {
     width: 50%;
     padding: 20px;
@@ -2465,7 +2712,7 @@ h1.newcardwrappermainHeading {
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount .ViewCountDate {
     align-self: center;
     padding-right: 5px;
-    text-align: end;
+    text-align: flex-end;
   }
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap .BreakingNewscard .viewCount .ViewCountDate P {
     font-size: 12px;
@@ -2898,6 +3145,13 @@ h1.newcardwrappermainHeading {
   }
   .footer_link .copy_right p {
     font-size: 16px;
+  }
+  .Fantasycrickettip {
+    margin-top: 10px;
+    background-color: rgba(225, 225, 225, 0.2705882353);
+  }
+  .Fantasycrickettip .box h1 {
+    font-size: 22px;
   }
 }
 @media (max-width: 365px) {

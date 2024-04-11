@@ -6,10 +6,10 @@ import Cardskeleton from '../Component/skeleton/cardskeleton'
 import { useRouter } from 'next/router'
 // import Newcard from "../Component/card/NewCard"
 import dynamic from 'next/dynamic'
-
+import Accordion from '../Component/card/Accodionitem';
 const NewCard = dynamic(() => import('../Component/card/NewCard'), { ssr: true,  });
 
-const Accodien = dynamic(() => import('../Component/card/Accodien'), { ssr: true,  });
+// const Accordion = dynamic(() => import('../Component/card/Accordion'), { ssr: true,  });
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -24,24 +24,6 @@ const fetcher = async (url) => {
 const Ipl2024dream11predictions = (props) => {
   const router = useRouter()
   const [height, Setheight] = useState(true)
-const faq=[
-  {
-    question:"Which is the best Dream11 prediction site?    ",
-    answer:'At g11 Prediction, we pride ourselves on being one of the top Dream11 prediction sites. Our expert analysis and accurate predictions set us apart, helping fantasy cricket enthusiasts make informed decisions for their Dream11 teams.',
-  },
-  {
-    question:"How can I predict my Dream11?",
-    answer:'Predicting your Dream11 team requires a combination of factors such as player form, pitch conditions, team dynamics, and match insights. Our platform offers comprehensive analysis and strategic tips to guide you in making the best possible predictions for your Dream11 team.',
-  },
-  {
-    question:"How to win Dream11 1st rank?",
-    answer:'Winning the 1st rank on Dream11 requires strategic planning, thorough analysis, and a bit of luck. Our platform provides expert insights, player statistics, and match previews to help you build winning strategies for your Dream11 team, increasing your chances of achieving the coveted 1st rank.',
-  },
-  {
-    question:"What strategies can I use to improve my Dream11 performance? ",
-    answer:'To enhance your Dream11 performance, consider factors such as player consistency, recent form, pitch conditions, and match dynamics. Our platform offers valuable tips and strategies to help you make informed decisions and maximize your chances of success in Dream11 contests.',
-  },
-]
   const data1 = props?.breakingData?.data
   const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/11`,fetcher,{ data1 } );
 
@@ -79,7 +61,7 @@ const faq=[
                 <div className='row' >
                     <div className={`${'col-12'} ${style.box}`} style={{ background: false && "linear-gradient(180deg, rgba(255,255,255,1) 26%, rgba(194, 18, 28, 1) 228%)" }}>
                         <div className='col-11 mt-3 mx-auto' style={{ overflow: "hidden" }}>
-                            <p className={style.slug}><span>Home</span><span>{">"}</span><span>ipl-2024-dream11-predictions</span></p>
+                            <p className={style.slug}><span>Home</span><span>{">"}</span><span>Ipl 2024 Dream11 Predictions</span></p>
                             <h1>Dream11 Prediction for IPL 2024</h1>
                             <p>{`Welcome to our Dream11 Prediction hub, where cricket fans look into the exhilarating world of IPL 2024 dream11 cricket prediction. At g11 Prediction, we're dedicated to providing you with expert insights, today match predictions, and winning strategies to elevate your Dream11 experience to new heights.`}</p>
                             <div style={{ display: height ? "none" : "block",}}>
@@ -96,7 +78,7 @@ const faq=[
                             <p>{`Whether you're a pro or just starting out, g11 Prediction is your ultimate Dream11 destination. Join us as we decode IPL 2024, empowering you with expert analysis to conquer fantasy cricket.`}</p>
                             </div>
                         </div>
-                        <div className='col justify-content-end d-flex'><p className={style.LoadMOre} onClick={() => Setheight((height) => !height)}>Read More</p></div>
+                        <div className='col justify-content-end d-flex'><p className={style.LoadMOre} onClick={() => Setheight((height) => !height)}>Read {height ? "More" :'Less'}</p></div>
                     </div>
                 </div>
             </div>
@@ -142,9 +124,28 @@ const faq=[
           <NewCard props={fetchedData} link={'/ipl-2024-dream11-predictions'}></NewCard>
         </div>
         <div className='row'>
-        <div className='col-12  d-none'>
+        <div className='col-12 '>
                 <div className={style.faqheading}><p>{`FAQ’s of Fantasy Cricket Tips`}</p></div>
-                <Accodien/>
+                <Accordion
+          title="Which is the best Dream11 prediction site?"
+          content=" <p>At g11 Prediction, we pride ourselves on being one of the top Dream11 prediction sites. Our expert analysis and accurate predictions set us apart, helping fantasy cricket enthusiasts make informed decisions for their Dream11 teams.
+          </p>"
+        />
+          <Accordion
+          title="How can I predict my Dream11?"
+          content=" <p>Predicting your Dream11 team requires a combination of factors such as player form, pitch conditions, team dynamics, and match insights. Our platform offers comprehensive analysis and strategic tips to guide you in making the best possible predictions for your Dream11 team.
+          </p> "
+        />
+          <Accordion
+          title="How to win Dream11 1st rank? "
+          content=" <p>Winning the 1st rank on Dream11 requires strategic planning, thorough analysis, and a bit of luck. Our platform provides expert insights, player statistics, and match previews to help you build winning strategies for your Dream11 team, increasing your chances of achieving the coveted 1st rank.
+          </p> "
+        />
+          <Accordion
+          title="What strategies can I use to improve my Dream11 performance?"
+          content=" <p>To enhance your Dream11 performance, consider factors such as player consistency, recent form, pitch conditions, and match dynamics. Our platform offers valuable tips and strategies to help you make informed decisions and maximize your chances of success in Dream11 contests.
+          </p>"
+        />
             </div>
         </div>
       </div>

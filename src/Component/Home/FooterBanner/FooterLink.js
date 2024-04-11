@@ -36,7 +36,7 @@ export default function Footer_link() {
                 </ul>
             </div>
             <div className={`${"container-fluid"} ${style.copy_right}`}>
-                <p className='m-0 py-3'>Copyright 2022 by <a href="https://selnox.com/" >selnox.com</a></p>
+                <p className='m-0 py-3'>Copyright © 2024 by <a href="https://selnox.com/" >selnox.com</a></p>
             </div>
         </div>
     )

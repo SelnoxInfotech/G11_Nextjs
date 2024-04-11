@@ -125,9 +125,9 @@ function OffcanvasExample({ props }) {
                       <Link
                     onClick={toggleOffCanvas}
                     href="/fantasy-cricket-tips">Fantasy Cricket Tips</Link >
-                  <Link
+                  {/* <Link
                     onClick={toggleOffCanvas}
-                    href="/about-us">About</Link >
+                    href="/about-us">About</Link > */}
                   {/* <Link
                   onClick={toggleOffCanvas}
                   href="/contact-us">Contact us</Link > */}
@@ -143,10 +143,12 @@ function OffcanvasExample({ props }) {
 
                  <div className={style.customnavdrpstyle}>
                    <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
-                   <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}
-                    onClick={toggleOffCanvas}
-                    href="/icc-cricket-world-cup-2024">ICC World Cup 2024</Link >
-                    <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>ICC World Cup 2023</Link>
+                   <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}  onClick={toggleOffCanvas} href="/icc-cricket-world-cup-2024">ICC World Cup 2024</Link >
+                   <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}  onClick={toggleOffCanvas} href="/about-us">About</Link >
+                  
+                  
+                  
+                   <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>ICC World Cup 2023</Link>
                     {/* <Link href="/ipl-2024-dream11-predictions" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>IPL 2024 Predictions</Link> */}
                     <Link href="/cricket-players" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}>  Cricket Players</Link>
                     <Link href="/ipl_2023" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2023</Link>

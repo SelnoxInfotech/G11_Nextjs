@@ -1,9 +1,9 @@
 import React from 'react';
 import style from "../../styles/Style.module.scss"
-const Accodien = () => {
+const Accodien = ({faq}) => {
   return (
     <div className={`${style.accordion} accordion`} id="accordionExample">
-      {/* <div className='d-none'>
+  
       <div className="accordion-item">
         <h2 className="accordion-header" id="headingOne">
           <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -18,7 +18,7 @@ const Accodien = () => {
       </div>
       <div className="accordion-item">
         <h2 className="accordion-header" id="headingTwo">
-          <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <button className="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             How do you predict fantasy cricket team?
           </button>
         </h2>
@@ -35,7 +35,7 @@ const Accodien = () => {
             How to win Dream11 easily?
           </button>
         </h2>
-        <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div id="collapseThree" className="accordion-collapse  collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
           <div className="accordion-body">
           
             It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It{"'"}s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
@@ -49,14 +49,14 @@ const Accodien = () => {
             How To Start Playing Fantasy Cricket?
           </button>
         </h2>
-        <div id="collapsefour" className="accordion-collapse " aria-labelledby="headingfour" data-bs-parent="#accordionExample">
+        <div id="collapsefour" className="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
           <div className="accordion-body">
             {/* <strong>This is the third item's accordion body.</strong>   */}
-            {/* If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.
+             If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey.
           </div>
         </div>
       </div>
-    </div> */} 
+ 
     </div>
   );
 };
