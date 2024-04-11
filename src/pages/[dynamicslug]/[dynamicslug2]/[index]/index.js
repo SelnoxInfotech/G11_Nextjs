@@ -16,6 +16,28 @@ export default function Detailpage({ l, topNews }) {
     const router = useRouter();
     const { dynamicslug } = router.query;
     const [loading, setLoading] = useState(true);
+    function modifystr(str) {
+
+        str = str?.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str?.trim().replaceAll(' ', "-");
+        let a = 0;
+        while (a < 1) {
+            if (str?.includes("--")) {
+                str = str?.replaceAll("--", "-")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("//", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("-/", "/")
+            } else if (str?.includes("//")) {
+                str = str?.replaceAll("/-", "/")
+            } else {
+                a++
+            }
+        }
+
+        return str?.toLowerCase()
+    }
+
 
     useEffect(() => {
         setLoading(true); // Set loading state to true before fetching data
@@ -23,20 +45,26 @@ export default function Detailpage({ l, topNews }) {
             router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
         }
         else {
-            router.replace(`/${router.query.dynamicslug.toLowerCase()}/${router.query.dynamicslug2.toLowerCase()}/${router.query.index}`);
+          let  redirect = l[0].subcategoy_name === "IPL 2024"
+            ? "/ipl-2024" : l[0].subcategoy_name === "IPL 2024 Prediction"
+                ? "/ipl-2024-dream11-predictions" : l[0].subcategoy_name === "Breaking News"
+                    ? "/cricket-breaking-news" : l[0].subcategoy_name === "Fantasy Cricket Tips"
+                        ? "/fantasy-cricket-tips" : l[0].subcategoy_name === "ICC T20 WORLD CUP 2024"
+                            ? "/icc-cricket-world-cup-2024" : l[0].subcategoy_name === "cricket rules and regulation"
+                                ? "/cricket-rules-and-regulation" : l[0].subcategoy_name === "Cricket Players"
+                                    ? "/cricket-players" : l[0].subcategoy_name === "IPL 2023"
+                                        ? "/icc-cricket-world-cup-2023" : l[0].subcategoy_name === "IPL 2023" && "/ipl-2023"
+            router.replace(`/${redirect.toLowerCase()}/${modifystr(l[0].Title)}/${l[0].id}`);
         }
     }, []);
 
-    useEffect(() => {
-        // After fetching data, set loading state to false
-        setLoading(false);
-    }, [l]);
 
     function formatString(str) {
         return str.replace(/-/g, ' ').replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
     }
 
 
+    
 
     return (
         <div className="container">
@@ -51,6 +79,7 @@ export default function Detailpage({ l, topNews }) {
                                 keywords={data.Keywords === null ? "IPL 2024, PBKS vs DC Dream11 Prediction | Dream11 Team Today, Dream11 Winning Tips, Dream11 prediction for today's match, Best Dream11 team for Today match,dream 11 team today,cricket prediction,today dream 11 team,cricket betting tips,dream 11 prediction,dream11 team today,dream 11 today team,best team for dream11 today match,who will win today ipl match,today ipl match prediction, dream11 today team,dream11 update,dream11 prediction,today dream11 team, dream11 prediction today match,who will win today match,who win today ipl match, my 11 circle team prediction today,cricket tips,online cricket betting tips,cricket betting tips free,cricket jackpot tips,today cricket match prediction tips,Today Live Toss prediction,cricket match prediction,free cricket match prediction,who will win today match,fantasy cricket prediction,best prediction site,best prediction website" : data.Keywords}
                                 canonical={`https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}`}
                             />
+                            
                             <Details data={data} h={dynamicslug} />
                         </React.Fragment>
                     ))}
@@ -75,6 +104,7 @@ export async function getServerSideProps(ctx) {
         || ctx.params.dynamicslug === "cricket-players"
         || ctx.params.dynamicslug === "ipl-2023"
         || ctx.params.dynamicslug === "cricket-news"
+        || ctx.params.dynamicslug === "fantasy-cricket-tips"
     ) {
         try {
             if (ctx.query.dynamicslug === "cricket-news") {
@@ -111,7 +141,7 @@ export async function getServerSideProps(ctx) {
     else {
         return {
             redirect: {
-                destination: '/404',
+                // destination: '/404',
                 permanent: false, // Set to true for permanent redirection
             },
         };

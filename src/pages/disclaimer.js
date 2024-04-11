@@ -1,7 +1,12 @@
 import React from 'react';
 import style from "../styles/Style.module.scss"
 const Disclaimer = () => {
+
     return (
+       <>
+       <Seo>
+        
+       </Seo>
         <div className={`${"container"} ${style.aboutus}`}>
         <div className='row'>
           <div className={`${'col-12'} ${style.hedding}`}>
@@ -29,6 +34,7 @@ const Disclaimer = () => {
         </div>
      
       </div>
+       </>
     );
 };
 

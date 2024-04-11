@@ -9,7 +9,7 @@ import { BsFillShareFill } from "react-icons/bs"
 import Button from "react-bootstrap/Button";
 import { useRouter } from 'next/router'
 import axios from 'axios';
-import Cardskeleton from '../skeleton/cardskeleton';
+
 const Card = ({ props, query  ,data1 , heading , domain , slug}) => {
     const router = useRouter()
     const [data, setdata] = React.useState(props)
