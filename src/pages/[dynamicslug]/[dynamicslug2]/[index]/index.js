@@ -176,7 +176,6 @@ export default function Detailpage({ l, topNews }) {
 
         return result;
     }
-    console.log(l)
     if(loading)
      {
 

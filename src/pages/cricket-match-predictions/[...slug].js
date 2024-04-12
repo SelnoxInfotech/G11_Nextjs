@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 const cheerio = require('cheerio');
 const MatchPriview = dynamic(() => import('../../Component/MatchPriview/MatchPriview'), { ssr: true });
 const Seo = dynamic(() => import('../../Component/Seo/Seo'), { ssr: true });
-import {Router} from "next/router"
+import { Router } from "next/router"
 function Matchguide(props) {
 
     const $ = cheerio.load(props.MatchData);
@@ -15,11 +15,11 @@ function Matchguide(props) {
     jsonData.topHeader = {
         logo: $('.topheader img').attr('src')
     };
-    
-    const [seoData , SetSeoData] =  useState({})
+
+    const [seoData, SetSeoData] = useState({})
 
     function modifystr(str) {
-      
+
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
         let a = 0;
@@ -58,11 +58,11 @@ function Matchguide(props) {
         detailsAnalysis: $('h3:contains("Details Analysis")').next('p').text(),
         cheatSheet: $('h3:contains("Cheat Sheet")').next('p').text()
     };
-    
-//  console.log(props.idIndex)
-return (
+    return (
         <div>
-       {  <Seo
+            {<Seo
+                createdate={undefined}
+                schema={true}
                 title={`${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} Dream11 Prediction Today Match | Dream11 Team Today`}
                 image={jsonData.image = $('div.col-sm-4 img').attr('src')}
                 description={`Dream11 today match prediction for ${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)}.Win big with accurate tips & best Dream11 team prediction, Today Dream11 Team Check out!`}
@@ -70,7 +70,7 @@ return (
                 canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)) + "-dream11-prediction-today-match"}/${props.idIndex}/`}
             >
             </Seo>}
-            <MatchPriview props={props} slug={jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} SetSeoData={SetSeoData}  seoData={seoData} ></MatchPriview>
+            <MatchPriview props={props} slug={jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} SetSeoData={SetSeoData} seoData={seoData} ></MatchPriview>
         </div>
     );
 }
@@ -88,20 +88,20 @@ export async function getServerSideProps(ctx) {
             return false
         }
     }
-    
-    if(ctx.params.slug[0] === "cricket-prediction"){
- 
+
+    if (ctx.params.slug[0] === "cricket-prediction") {
+
         const idIndex = checkString(ctx.params.slug[3]) ? checkString(ctx.params.slug[3]) : checkString(ctx.params.slug[4]);
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
         const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');
         const topNews = await topNewsRes.json();
         // Parse the JSON
-       
+
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
             // setmatchpreviwe(a)
-            return { props: { MatchData: props , topNews , idIndex} };
+            return { props: { MatchData: props, topNews, idIndex } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
@@ -109,8 +109,8 @@ export async function getServerSideProps(ctx) {
     }
     // console.log(ctx.params.slug[0] === "match-preview")
 
-    else if(ctx.params.slug[0] === "teams" || ctx.params.slug[0] === "match-preview" || ctx.params.slug[0] === "team-guide" || ctx.params.slug[0] === "cheat-sheet"){
-        const idIndex = checkString( ctx.params.slug[ctx.params.slug.length - 1]);
+    else if (ctx.params.slug[0] === "teams" || ctx.params.slug[0] === "match-preview" || ctx.params.slug[0] === "team-guide" || ctx.params.slug[0] === "cheat-sheet") {
+        const idIndex = checkString(ctx.params.slug[ctx.params.slug.length - 1]);
 
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
         const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');
@@ -119,13 +119,13 @@ export async function getServerSideProps(ctx) {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
             // setmatchpreviwe(a)
-            return { props: { MatchData:props  ,topNews , idIndex} };
+            return { props: { MatchData: props, topNews, idIndex } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
         }
     }
-    else{
+    else {
         const idIndex = checkString(ctx.params.slug[0]) ? checkString(ctx.params.slug[0]) : checkString(ctx.params.slug[ctx.params.slug.length - 1]);
         const url = "https://grand11.in/g11/api/page/match_details/" + idIndex;
         const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');
@@ -134,7 +134,7 @@ export async function getServerSideProps(ctx) {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
             // setmatchpreviwe(a)
-            return { props: { MatchData:props  ,topNews ,idIndex}  };
+            return { props: { MatchData: props, topNews, idIndex } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return {

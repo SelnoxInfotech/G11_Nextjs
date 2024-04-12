@@ -3,20 +3,34 @@ import Head from 'next/head';
 
 
 function Seo({ image, title, description, keywords, canonical , schema , createdate }) {
-    function formatDate(dateString) {
-        // Create a new Date object from the provided date string
-        const date = new Date(dateString);
+    function convertDateFormat(dateString) {
+       try {
+            // Create a new Date object from the provided date string
+            const date = new Date(dateString);
     
-        // Extract year, month, and day from the Date object
-        const year = date.getFullYear(); // Full year (e.g., 2024)
-        const month = ('0' + (date.getMonth() + 1)).slice(-2); // Month (zero-based index, so add 1)
-        const day = ('0' + date.getDate()).slice(-2); // Day of the month
-    
-        // Combine year, month, and day with slashes
-        const formattedDate = `${year}-${month}-${day}`;
-    
-        return formattedDate;
+            // Extract the date components
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            const timezoneOffset = date.getTimezoneOffset();
+        
+            // Convert timezone offset to hours and minutes
+            const timezoneOffsetHours = Math.abs(Math.floor(timezoneOffset / 60));
+            const timezoneOffsetMinutes = Math.abs(timezoneOffset) % 60;
+            const timezoneSign = timezoneOffset >= 0 ? '+' : '-';
+        
+            // Construct the new date string in the desired format
+            const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}${timezoneSign}${String(timezoneOffsetHours).padStart(2, '0')}:${String(timezoneOffsetMinutes).padStart(2, '0')}`;
+        
+            return formattedDate;
+       } catch (error) {
+           return ""
+       }
     }
+    
     return (
         <Head>
             <title>{title}</title>
@@ -42,10 +56,11 @@ function Seo({ image, title, description, keywords, canonical , schema , created
                   },
                   "headline": "${title}",
                   "description": "${description}",
+                  "keywords":"${keywords}"
                   "image": "${image}",
                   "author": {
-                    "@type": "Person",
-                    "name": "selnox info",
+                    "@type": "Organization",
+                    "name": "Team G11prediction",
                     "url": "https://g11prediction.com/"
                   },
                   "publisher": {
@@ -56,7 +71,7 @@ function Seo({ image, title, description, keywords, canonical , schema , created
                       "url": ""
                     }
                   },
-                  "datePublished": "${formatDate(createdate)}"
+                  { "datePublished": "${ createdate ? convertDateFormat(createdate)  :""}  }
                 }
             `}} />}
         </Head>
