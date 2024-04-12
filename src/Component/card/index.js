@@ -10,7 +10,8 @@ import Button from "react-bootstrap/Button";
 import { useRouter } from 'next/router'
 import axios from 'axios';
 
-const Card = ({ props, query  ,data1 , heading , domain , slug}) => {
+const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
+    console.log(slug , data1)
     const router = useRouter()
     const [data, setdata] = React.useState(props)
     const imagePerRow = 10
@@ -49,7 +50,7 @@ const Card = ({ props, query  ,data1 , heading , domain , slug}) => {
     };
     React.useEffect(() => {
         if (data1 === undefined) {
-            axios.get('/api/utils/getpostbycategory')
+            axios.get('https://www.g11fantasy.com/NewsSection/Get-TopNews/1')
                 .then(response => {
                     setdata(response.data)
                 })
@@ -71,8 +72,8 @@ const Card = ({ props, query  ,data1 , heading , domain , slug}) => {
             })
         }
         else if (data1 === "cricket-breaking-news") {
-            axios.get(`/api/utils/breakingnew`).then((response) => {
-                setdata(response.data.breaking)
+            axios.get(`https://www.g11fantasy.com/NewsSection/Get-TopNews/1`).then((response) => {
+                setdata(response.data)
             })
         }
         else if (data1 === "ipl-2023") {
@@ -104,7 +105,7 @@ const Card = ({ props, query  ,data1 , heading , domain , slug}) => {
                 <div className={`col-12 ${style.breaking_news_hed}`}>
                   {heading}
                 </div>
-                <p style={{color:"#c2121c" , display:"flex" ,gap:"15px"}}><span style={{cursor: "pointer" }} onClick={() => router.push("/")}>Home</span>{">"}<span>{slug}</span></p>
+             {!basecorme  &&  <p style={{color:"#c2121c" , display:"flex" ,gap:"15px"}}><span style={{cursor: "pointer" }} onClick={() => router.push("/")}>Home</span>{">"}<span>{slug}</span></p>}
                 <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {

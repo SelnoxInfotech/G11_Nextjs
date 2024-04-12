@@ -40,7 +40,6 @@ export default function Index({ props, domain }) {
                     props?.filter((items) => {
                         return items.id != router.query.index
                     })?.map((item, index) => {
-                        // console.log(item.subcategoy_name === "IPL 2024", item)
                         redirect = item.subcategoy_name === "IPL 2024"
                             ? "/ipl-2024" : item.subcategoy_name === "IPL 2024 Prediction"
                                 ? "/ipl-2024-dream11-predictions" : item.subcategoy_name === "Breaking News"
