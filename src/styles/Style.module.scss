@@ -67,7 +67,13 @@ h2.sectionMainTitle {
   justify-content: space-evenly;
   align-items: center;
 }
-
+.sectionCardbox{
+   border-radius: 20px;
+   overflow: hidden;
+   background-color: #ececec;
+   margin: 20px 0;
+   padding: 20px;
+}
 .btn_tele {
   border-radius: 21px;
   background-color: #0088cc;
@@ -551,7 +557,9 @@ h2.sectionMainTitle {
     }
   }
 }
-
+.activeRoute{
+  color: #c2121c !important;
+}
 .skeletonCard {
   width: 18%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -2428,6 +2436,9 @@ h1.newcardwrappermainHeading {
 }
 
 .detailspaget {
+  .newspageheader{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cacaca;
   h1.title_had {
     font-size: 32px;
     line-height: 1.4;
@@ -2436,7 +2447,7 @@ h1.newcardwrappermainHeading {
     font-family: "Inter", sans-serif;
     word-spacing: 2px;
     letter-spacing: 1.5px;
-    margin: 20px 0;
+    margin:10px 0;
   }
 
   h3.posttiming{
@@ -2445,6 +2456,7 @@ h1.newcardwrappermainHeading {
     line-height: 1.6;
     color: #c2121c;
   }
+}
 
   .detailspagecontent {
     h2 {
@@ -2454,7 +2466,9 @@ h1.newcardwrappermainHeading {
       line-height: 1.5;
       font-size: 28px;
     }
-
+    span{
+      background-color: transparent !important;
+    }
     table {
       width: 100% !important;
     }
@@ -2738,12 +2752,12 @@ button :focus-visible {
   padding: 10px 0;
   font-weight: 500;
   line-height: 1.5;
-  color: #c2121c;
+  color: #646464;
   span{
     font-size: 12px;
     font-weight: 500;
     line-height: 1.5;
-    color: #c2121c;
+    color: #444444;
   }
 }
 
@@ -3823,9 +3837,11 @@ button :focus-visible {
   }
 
   .detailspaget {
+    .newspageheader{
     h1.title_had {
       font-size: 22px;
     }
+  }
 
     .detailspagecontent {
       h2 {

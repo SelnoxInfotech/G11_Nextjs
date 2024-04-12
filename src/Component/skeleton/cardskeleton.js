@@ -1,8 +1,8 @@
 import React from 'react'
 import style from '../../styles/Style.module.css'
-const Cardskeleton = () => {
+const Cardskeleton = ({key}) => {
   return (
-    <div className={`${style.skeletonCard}`} >
+    <div className={`${style.skeletonCard}`} key={key} >
     <div className={`${style.skeletonSign} ${style.skeletonCardImage}`}></div>
     <div className={style.skeletonCardtexe}>
         <span className={style.skeletonSign}></span>

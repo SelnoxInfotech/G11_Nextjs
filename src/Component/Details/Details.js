@@ -77,11 +77,9 @@ function Details({ data, h }) {
   return (
     <React.Fragment>
       <div className={style.detailspaget}>
-        <div className="container ">
           <div className="row ">
-            <div className="col-12">
+            <div className={style.newspageheader}>
               <h1 className={style.title_had}>{data.Title || data.title}</h1>
-      
               <h3 className={style.posttiming}>{`Published - ${dateformatter(data.created)} IST | Updated - ${dateformatter(data.updated)} IST`}</h3>
             </div>
             <div className="col-12 imag">
@@ -119,43 +117,9 @@ function Details({ data, h }) {
               </div>
             </div>
           </div>
-        </div>
       </div>
-      {/* <div className={style.skeletonContent}>
-                 <div className={style.skeletoncontenttitle}>
-                    <span></span>
-                    <span></span>
-                 </div>
-                 <div className={style.skeletoncontentimage}></div>
-                 <div className={style.skeletoncontentdescription}>
-                    <p>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </p>
-                    <p>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </p>
-                 </div>
-                 <div className={style.skeletoncontentlist}>
-                    <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ol>
-                 </div>
 
-
-            </div> */}
+      
     </React.Fragment>
   );
 }

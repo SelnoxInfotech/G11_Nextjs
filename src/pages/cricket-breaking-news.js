@@ -111,8 +111,8 @@ const Breakingnews = () => {
         <div className={style.Breaking_new}>
           <div className={style.Breaking_newCardWrapper}>
             {
-              [1, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
-                return <div key={i}> < Cardskeleton /></div> 
+              [1, 6, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                return < Cardskeleton  key={i}/>
               })
             }
           </div>
