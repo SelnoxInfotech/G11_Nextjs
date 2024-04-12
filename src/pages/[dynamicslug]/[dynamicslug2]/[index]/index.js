@@ -209,7 +209,7 @@ export default function Detailpage({ l, topNews }) {
 }
 
 export async function getServerSideProps(ctx) {
-
+   console.log(ctx)
     if (ctx.params.dynamicslug === "cricket-breaking-news"
         || ctx.params.dynamicslug === "ipl-2024"
         || ctx.params.dynamicslug === "ipl-2024-dream11-predictions"
