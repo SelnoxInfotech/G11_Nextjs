@@ -56,6 +56,15 @@ h2.sectionMainTitle {
 .Offcanvas {
   background-color: #c2121c;
   justify-content: space-evenly;
+  align-items: center;
+}
+
+.sectionCardbox {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #ececec;
+  margin: 20px 0;
+  padding: 20px;
 }
 
 .btn_tele {
@@ -78,7 +87,6 @@ h2.sectionMainTitle {
   border-radius: 21px;
   background-color: #0088cc;
   position: relative;
-  top: 23px;
   height: 45px;
   width: 194px;
   color: white;
@@ -470,6 +478,10 @@ h2.sectionMainTitle {
   to {
     background-position: right -40px top 0;
   }
+}
+
+.activeRoute {
+  color: #c2121c !important;
 }
 
 .skeletonCard {
@@ -1998,7 +2010,11 @@ h1.newcardwrappermainHeading {
   text-decoration: none;
 }
 
-.detailspaget h1.title_had {
+.detailspaget .newspageheader {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #cacaca;
+}
+.detailspaget .newspageheader h1.title_had {
   font-size: 32px;
   line-height: 1.4;
   color: rgb(194, 18, 28);
@@ -2006,9 +2022,9 @@ h1.newcardwrappermainHeading {
   font-family: "Inter", sans-serif;
   word-spacing: 2px;
   letter-spacing: 1.5px;
-  margin: 20px 0;
+  margin: 10px 0;
 }
-.detailspaget h3.posttiming {
+.detailspaget .newspageheader h3.posttiming {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.6;
@@ -2020,6 +2036,9 @@ h1.newcardwrappermainHeading {
   font-weight: 700;
   line-height: 1.5;
   font-size: 28px;
+}
+.detailspaget .detailspagecontent span {
+  background-color: transparent !important;
 }
 .detailspaget .detailspagecontent table {
   width: 100% !important;
@@ -2261,6 +2280,23 @@ h1.newcardwrappermainHeading {
   padding: 18px;
   line-height: 1.5;
   font-family: "Inter", sans-serif;
+}
+
+.bredcrumlong {
+  word-wrap: break-word;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 14px;
+  padding: 10px 0;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #646464;
+}
+.bredcrumlong span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #444444;
 }
 
 @media (max-width: 1480px) {
@@ -2644,6 +2680,9 @@ h1.newcardwrappermainHeading {
   }
   .newcardwrapper .newcard {
     width: 30%;
+  }
+  .breaknewssidebar {
+    margin-bottom: 20px;
   }
 }
 @media (max-width: 576px) {
@@ -3051,7 +3090,7 @@ h1.newcardwrappermainHeading {
     top: -5px;
     border-radius: 50px;
   }
-  .detailspaget h1.title_had {
+  .detailspaget .newspageheader h1.title_had {
     font-size: 22px;
   }
   .detailspaget .detailspagecontent h2 span {
