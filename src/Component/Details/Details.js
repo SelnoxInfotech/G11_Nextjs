@@ -80,7 +80,8 @@ function Details({ data, h }) {
           <div className="row ">
             <div className={style.newspageheader}>
               <h1 className={style.title_had}>{data.Title || data.title}</h1>
-              <h3 className={style.posttiming}>{`Published - ${dateformatter(data.created)} IST | Updated - ${dateformatter(data.updated)} IST`}</h3>
+      
+              <h3 className={style.posttiming}>{`Published - ${dateformatter(data.created || data.post_date)} IST | Updated - ${dateformatter(data.updated || data.post_date)} IST`}</h3>
             </div>
             <div className="col-12 imag">
               <div className={`col ${style.headeringImage}`}>

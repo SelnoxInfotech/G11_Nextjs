@@ -13,6 +13,7 @@ function Seo({ image, title, description , keywords, canonical}) {
             <link rel="shortcut icon" href={`https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg`} />
             <meta property="og:image" content={ image !== undefined ? `${image}` : "https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"} />
             <meta property="og:title" content={title} />
+            <meta name="author" content='g11prediction'/>
             <meta property="og:description" content={description} />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
