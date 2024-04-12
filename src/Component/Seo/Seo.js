@@ -68,7 +68,7 @@ function Seo({ image, title, description, keywords, canonical , schema , created
                     "name": "selnox infotech",
                     "logo": {
                       "@type": "ImageObject",
-                      "url": ""
+                      "url": "https://g11prediction.com/"
                     }
                   },
                   { "datePublished": "${ createdate ? convertDateFormat(createdate)  :""}  }
