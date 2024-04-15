@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const path = require('path')
-const fs = require("fs");
+const cheerio = require('cheerio');
 const { default: axios } = require('axios');
 const RSS = require('rss');
 
@@ -32,8 +31,8 @@ router.get('/rss/:category', (req, res) => {
     const data = await axios.get(url);
 
 
-    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data : link === "ipl-2024-dream11-predictions.xml" ? data.data.data 
-    : link === "latest-video.xml" ? data.data.data : link === "icc-cricket-world-cup-2024RSS-feed.xml" ? data.data.data : link === "Breakingnewsrss-feed.xml" ? data.data.data : data.data.data;
+    const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data : link === "ipl-2024-dream11-predictions.xml" ? data.data.data
+      : link === "latest-video.xml" ? data.data.data : link === "icc-cricket-world-cup-2024RSS-feed.xml" ? data.data.data : link === "Breakingnewsrss-feed.xml" ? data.data.data : data.data.data;
 
     let feed = new RSS({
       title: 'Cricket Breaking News ON TRENDING TOPICS',
@@ -60,7 +59,7 @@ router.get('/rss/:category', (req, res) => {
 
 
 
-   if (req.params.category === "Breakingnewsrss-Feed.xml") {
+  if (req.params.category === "Breakingnewsrss-Feed.xml") {
     try {
       async function k() {
         const rssXml = await generateRssXml("https://g11fantasy.com/NewsSection/FilterbySubCategory/5", "Breakingnewsrss-feed.xml", "cricket-breaking-news");
@@ -169,22 +168,32 @@ router.get('/rss/:category', (req, res) => {
   }
   else if (req.params.category === "cricket-prediction.xml") {
 
-    function htmlStringToJson(htmlString) {
-      const regex = /<strong>(.*?)<\/strong>[\s:]+(.*?)(?=<)/g;
-      let match;
-      const data = {};
-      while ((match = regex.exec(htmlString)) !== null) {
-        const key = match[1].trim();
-        const value = match[2].trim();
-        data[key] = value;
-      }
-      return data;
-    }
-
     async function generateRssXml() {
+      function modifystr(str) {
+        // Correcting replaceAll usage
+        str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
+        str = str.trim().replace(/ /g, "-");
+        let a = 0;
+        while (a < 1) {
+          if (str.includes("--")) {
+            str = str.replace("--", "-");
+          } else if (str.includes("//")) {
+            str = str.replace("//", "/");
+          } else if (str.includes("//")) {
+            str = str.replace("-/", "/");
+          } else if (str.includes("//")) {
+            str = str.replace("/-", "/");
+          } else {
+            a++;
+          }
+        }
+        return str.toLowerCase();
+      }
+    
       const data = await axios.get("https://g11fantasy.com/NewsSection/tbl_matchApi/");
 
       const rssData = data.data.reverse();
+
       let feed = new RSS({
         title: 'Cricket Breaking News ON TRENDING TOPICS',
         description: 'Cricket Breaking News ON TRENDING TOPICS',
@@ -196,11 +205,15 @@ router.get('/rss/:category', (req, res) => {
       });
 
       rssData.forEach((url) => {
-        // const l = url.match_discription?.split('</p>')[0].replace(/(<([^>]+)>)/gi, "");
+        const matchesObject = {};
+        const l = url.match_discription?.split('</p>')[0].replace(/(<([^>]+)>)/gi, "");
+        [l].forEach((match, index) => {
+          matchesObject[`Match_${index + 1}`] = match.replace(/&ndash;/g, '-');
+        });
         feed.item({
-          title: htmlStringToJson(url.match_discription).Match  +" dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update ",
+          title:Boolean(matchesObject.Match_1.split(/:|-/)[1]) ?  matchesObject.Match_1.split(/:|-/)[1].replace(/&nbsp;/g, '') : matchesObject.Match_1.replace(/&nbsp;/g, '') + " dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update ",
           description: url.match_discription,
-          url: `https://g11prediction.com/cricket-match-predictions/${htmlStringToJson(url.match_discription).Match !== undefined ? modifystr(htmlStringToJson(url.match_discription).Match)+"-dream11-prediction-today-match" : "dream11-prediction-today-match"}/${url.id}/`,
+          url: `https://g11prediction.com/cricket-match-predictions/${Boolean(matchesObject.Match_1.split(/:|-/)[1]) ? modifystr(matchesObject.Match_1.split(/:|-/)[1].replace(/&nbsp;/g, '')+"-dream11-prediction-today-match"): modifystr(matchesObject.Match_1.replace(/&nbsp;/g, '') + "-dream11-prediction-today-match")}/${url.id}/`,
           date: new Date(url.create_date),
         });
       });
@@ -221,7 +234,7 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
- 
+
 
   else if (req.params.category === "fantasy-cricket-tips.xml") {
     try {

@@ -105,7 +105,7 @@ class MyDocument extends Document {
                 ]
               })
             }} />
-          <script
+          {/* <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(
@@ -162,10 +162,7 @@ class MyDocument extends Document {
                 }
 
               )
-            }} />
-
-
-
+            }} /> */}
         </Head>
 
         <body>
