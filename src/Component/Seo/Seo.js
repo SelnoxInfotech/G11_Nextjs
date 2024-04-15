@@ -30,7 +30,34 @@ function Seo({ image, title, description, keywords, canonical , schema , created
            return ""
        }
     }
-    
+
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonical
+        },
+        "headline": title,
+        "description": description,
+        "keywords": keywords,
+        "image": image,
+        "author": {
+            "@type": "Organization",
+            "name": "Team G11prediction",
+            "url": "https://g11prediction.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "selnox infotech",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://g11prediction.com/"
+            }
+        },
+        "datePublished": createdate ? convertDateFormat(createdate) : ""
+    };
+    const jsonLD = JSON.stringify(structuredData);
     return (
         <Head>
             <title>{title}</title>
@@ -46,34 +73,7 @@ function Seo({ image, title, description, keywords, canonical , schema , created
             <meta property="og:description" content={description} />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
-     { schema &&  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
-                {
-                  "@context": "https://schema.org",
-                  "@type": "Article",
-                  "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "${canonical}"
-                  },
-                  "headline": "${title}",
-                  "description": "${description}",
-                  "keywords":"${keywords}"
-                  "image": "${image}",
-                  "author": {
-                    "@type": "Organization",
-                    "name": "Team G11prediction",
-                    "url": "https://g11prediction.com/"
-                  },
-                  "publisher": {
-                    "@type": "Organization",
-                    "name": "selnox infotech",
-                    "logo": {
-                      "@type": "ImageObject",
-                      "url": "https://g11prediction.com/"
-                    }
-                  },
-                  { "datePublished": "${ createdate ? convertDateFormat(createdate)  :""}  }
-                }
-            `}} />}
+     { schema &&  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD}} />}
         </Head>
     )
 }
