@@ -18,24 +18,23 @@ export default function Footer_link() {
             <div className={`${'container'} ${style.link}`}>
                 <p className={`${style.Follow}`}>Follow us on social media </p>
             </div>
-            <div className={`${'col-12' } ${style.link} ${style.socal_link}`}>
-                <Link href='https://www.facebook.com/g11sport/ ' ><FaFacebook   /></Link>
-                 <Link href='https://www.youtube.com/@g11-sportfantasyprediction66'><FaYoutube    /></Link>
-                <Link href='https://www.instagram.com/g11sport/'> <FaInstagram   /></Link>
-                <Link href='https://www.linkedin.com/company/g11-sport-fantasy-prediction/' className={`${style.linkin}`}><AiFillLinkedin  /></Link>
-                <Link href='https://twitter.com/G11sport123230' ><BsTwitterX     /></Link>
-                <Link href='https://news.google.com/publications/CAAqBwgKMJmUqgwwq5S3BA?hl=en-IN&gl=IN&ceid=IN%3Aen' ><SiGooglenews     /></Link>
+            <div className={`${'col-12'} ${style.link} ${style.socal_link}`}>
+                <Link href='https://www.facebook.com/g11sport/ ' ><FaFacebook /></Link>
+                <Link href='https://www.youtube.com/@g11-sportfantasyprediction66'><FaYoutube /></Link>
+                <Link href='https://www.instagram.com/g11sport/'> <FaInstagram /></Link>
+                <Link href='https://www.linkedin.com/company/g11-sport-fantasy-prediction/' className={`${style.linkin}`}><AiFillLinkedin /></Link>
+                <Link href='https://twitter.com/G11sport123230' ><BsTwitterX /></Link>
+                <Link href='https://news.google.com/publications/CAAqBwgKMJmUqgwwq5S3BA?hl=en-IN&gl=IN&ceid=IN%3Aen' ><SiGooglenews /></Link>
                 <Link href='tel:+916262003399' className={`${style.calling}`}><span><IoMdCall></IoMdCall> </span> </Link>
                 <Link href='/rss-feed' className={`${style.calling}`}><span>   <FaRssSquare /></span> </Link>
             </div>
-            <div className={`${'container '} ${style.link }`}>
+            <div className={`${'container '} ${style.link}`}>
                 <ul className={`${style.policy_link}`}>
 
                     <Link href="/privacy-policy"><li className={`${style.hovereffect}`}> &nbsp;Privacy Policy&nbsp; </li></Link>
                     <Link href="/disclaimer">  <li className={`${style.hovereffect}`}>|&nbsp;Disclaimer&nbsp;</li></Link>
-                    <Link href="/faq"><li className={`${style.hovereffect}`}>|&nbsp;FAQ</li></Link>
-
-                    {/* <li>|&nbsp; </li> */}
+                    <Link href="/faq"><li className={`${style.hovereffect}`}>|&nbsp;FAQ |&nbsp;</li></Link>
+                    <Link href={"/sitemap.html"}><li className={`${style.hovereffect}`}>sitemap</li></Link>
                 </ul>
             </div>
             <div className={`${"container-fluid"} ${style.copy_right}`}>

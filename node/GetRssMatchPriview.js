@@ -234,8 +234,6 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
-
-
   else if (req.params.category === "fantasy-cricket-tips.xml") {
     try {
       async function k() {
