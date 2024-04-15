@@ -38,70 +38,8 @@ export default function Detailpage({ l, topNews }) {
         return str?.toLowerCase()
     }
 
-
-    useEffect(() => {
-        // setLoading(true); // Set loading state to true before fetching data
-
-    }, []);
-    // function redirection() {
-    //     if (dynamicslug === "Cricket-BreakingNews") {
-    //         router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
-    //     }
-    //     else {
-    //         // redirect = l[0].subcategoy_name === "IPL 2024"
-    //         //     ? "/ipl-2024" : l[0].subcategoy_name === "IPL 2024 Prediction"
-    //         //         ? "/ipl-2024-dream11-predictions" : l[0].subcategoy_name === "Breaking News"
-    //         //             ? "/cricket-breaking-news" : l[0].subcategoy_name === "Fantasy Cricket Tips"
-    //         //                 ? "/fantasy-cricket-tips" : l[0].subcategoy_name === "ICC T20 WORLD CUP 2024"
-    //         //                     ? "/icc-cricket-world-cup-2024" : l[0].subcategoy_name === "cricket rules and regulation"
-    //         //                         ? "/cricket-rules-and-regulation" : l[0].subcategoy_name === "Cricket Players"
-    //         //                             ? "/cricket-players" : l[0].subcategoy_name === "ICC T20 WORLD CUP 2023"
-    //         //                                 ? "/icc-cricket-world-cup-2023" : l[0].subcategoy_name === "IPL 2023"
-    //         //                                     ? "/ipl-2023" : l[0].subcategoy_name === (null || undefined) && "cricket-news"
-    //         let redirect;
-
-    //         switch (l[0].subcategoy_name) {
-    //             case "IPL 2024":
-    //                 redirect = "/ipl-2024";
-    //                 break;
-    //             case "IPL 2024 Prediction":
-    //                 redirect = "/ipl-2024-dream11-predictions";
-    //                 break;
-    //             case "Breaking News":
-    //                 redirect = "/cricket-breaking-news";
-    //                 break;
-    //             case "Fantasy Cricket Tips":
-    //                 redirect = "/fantasy-cricket-tips";
-    //                 break;
-    //             case "ICC T20 WORLD CUP 2024":
-    //                 redirect = "/icc-cricket-world-cup-2024";
-    //                 break;
-    //             case "cricket rules and regulation":
-    //                 redirect = "/cricket-rules-and-regulation";
-    //                 break;
-    //             case "Cricket Players":
-    //                 redirect = "/cricket-players";
-    //                 break;
-    //             case "ICC Cricket World Cup 2023":
-    //                 redirect = "/icc-cricket-world-cup-2023";
-    //                 break;
-    //             case "IPL 2023":
-    //                 redirect = "/ipl-2023";
-    //                 break;
-    //             default:
-    //                 redirect = "/cricket-news";
-    //         }
-    //         console.log(redirect, l[0].subcategoy_name, l[0])
-    //         router.replace(`/${redirect.toLowerCase()}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`);
-    //     }
-    // }
-    // redirection()
-
     useEffect(() => {
         async function redirection() {
-            // setLoading(true); // Set loading state to true before fetching data
-            
-            // Perform redirection logic
             if (dynamicslug === "Cricket-BreakingNews") {
                 router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
             } else {
@@ -144,14 +82,13 @@ export default function Detailpage({ l, topNews }) {
                 }
               }
               else{
-                // if(l[0]?.category_name ===( null || undefined) || l[0]?.subcategoy_name ===( null || undefined)){
+             
                     router.replace(`/${'cricket-news'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
                     setLoading(true) 
-                // }
+      
               
               }
-                // console.log(redirect, l[0]?.subcategoy_name, l[0])
-                // router.replace(`/${redirect.toLowerCase()}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`);
+    
             }
         }
         
@@ -176,6 +113,7 @@ export default function Detailpage({ l, topNews }) {
 
         return result;
     }
+    console.log(dynamicslug)
     if(loading)
      {
 

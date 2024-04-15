@@ -96,6 +96,11 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
                 setdata(response.data)
             })
         }
+        else if (data1 === "ipl-2024-dream11-predictions") {
+            axios.get(`/FilterbySubCategory/${11}`).then((response) => {
+                setdata(response.data)
+            })
+        }
     },[data1])
  
     return (
