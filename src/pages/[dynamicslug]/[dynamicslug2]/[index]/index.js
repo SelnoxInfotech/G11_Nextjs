@@ -242,7 +242,7 @@ export async function getServerSideProps(ctx) {
                 } else {
                     res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
                 }
-                const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
+                const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');
             
                 const topNews = await topNewsRes?.json();
                  
