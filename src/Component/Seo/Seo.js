@@ -93,6 +93,9 @@ function Seo({ image, title, description, keywords, canonical, schema, createdat
         };
 
     });
+
+
+    console.log(BreadcrumbList)
     return (
         <Head>
             <title>{title}</title>

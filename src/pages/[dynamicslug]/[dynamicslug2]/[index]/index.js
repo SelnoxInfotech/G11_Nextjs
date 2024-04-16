@@ -44,56 +44,55 @@ export default function Detailpage({ l, topNews }) {
                 router.replace(`/cricket-breaking-news/${router.query.index}/${router.query.dynamicslug2}`);
             } else {
                 // let redirect;
-              
-                if(l[0]?.subcategoy_name !==(null || undefined))
-              {
-                  setLoading(false)
-                switch (l[0]?.subcategoy_name) {
-                    case "IPL 2024":
-                        setLoading(true)
-                        router.replace(`/${'ipl-2024'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    case "IPL 2024 Prediction":setLoading(true)
-                    router.replace(`/${'ipl-2024-dream11-predictions'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    case "Breaking News":setLoading(true)
-                    router.replace(`/${'cricket-breaking-news'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}` , undefined, { shallow: true });
-                        break;
-                    case "Fantasy Cricket Tips":setLoading(true)
-                    router.replace(`/${'fantasy-cricket-tips'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    case "ICC T20 WORLD CUP 2024":setLoading(true)
-                    router.replace(`/${"icc-cricket-world-cup-2024"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    case "cricket rules and regulation":setLoading(true)
-                    router.replace(`/${"cricket-rules-and-regulation"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    case "Cricket Players":setLoading(true)
-                    router.replace(`/${"cricket-players"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    case "ICC Cricket World Cup 2023":setLoading(true)
-                    router.replace(`/${"icc-cricket-world-cup-2023"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    case "IPL 2023":setLoading(true)
-                    router.replace(`/${"ipl-2023"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                        break;
-                    default:
-                        setLoading(false)
+
+                if (l[0]?.subcategoy_name !== (null || undefined)) {
+                    setLoading(false)
+                    switch (l[0]?.subcategoy_name) {
+                        case "IPL 2024":
+                            setLoading(true)
+                            router.replace(`/${'ipl-2024'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "IPL 2024 Prediction": setLoading(true)
+                            router.replace(`/${'ipl-2024-dream11-predictions'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "Breaking News": setLoading(true)
+                            router.replace(`/${'cricket-breaking-news'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "Fantasy Cricket Tips": setLoading(true)
+                            router.replace(`/${'fantasy-cricket-tips'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "ICC T20 WORLD CUP 2024": setLoading(true)
+                            router.replace(`/${"icc-cricket-world-cup-2024"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "cricket rules and regulation": setLoading(true)
+                            router.replace(`/${"cricket-rules-and-regulation"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "Cricket Players": setLoading(true)
+                            router.replace(`/${"cricket-players"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "ICC Cricket World Cup 2023": setLoading(true)
+                            router.replace(`/${"icc-cricket-world-cup-2023"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        case "IPL 2023": setLoading(true)
+                            router.replace(`/${"ipl-2023"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            break;
+                        default:
+                            setLoading(false)
+                    }
                 }
-              }
-              else{
-             
+                else {
+
                     router.replace(`/${'cricket-news'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
-                    setLoading(true) 
-      
-              
-              }
-    
+                    setLoading(true)
+
+
+                }
+
             }
         }
-        
+
         redirection(); // Call the redirection function asynchronously
-    
+
     }, []);
 
 
@@ -113,11 +112,10 @@ export default function Detailpage({ l, topNews }) {
 
         return result;
     }
-    console.log(dynamicslug)
-    if(loading)
-     {
+ 
+    if (loading) {
 
-    //  return    <div>{'loading.....'}</div>
+        //  return    <div>{'loading.....'}</div>
         return (
             <div className="container">
                 <div className="row">
@@ -125,7 +123,7 @@ export default function Detailpage({ l, topNews }) {
                         {l?.map((data, index) => (
                             <React.Fragment key={index}>
                                 <Seo
-                                         Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: router.query.dynamicslug} ,{Sport: `https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}`}]}
+                                    Breadcrumlist={[{ Home: "https://g11prediction.com/" }, { [formatString(router.query.dynamicslug)]:  "https://g11prediction.com/"+router.query.dynamicslug  }, { [ data?.title || data?.Title]: `https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}` }]}
                                     createdate={data.created}
                                     schema={true}
                                     image={"https://www.g11fantasy.com" + data.Image}
@@ -136,7 +134,7 @@ export default function Detailpage({ l, topNews }) {
                                 />
                                 <p className={`${style.bredcrumlong} mb-0`} ><span onClick={() => router.replace(`/`)}>Home</span>{" > "}<span onClick={() => router.replace(`/${router.query.dynamicslug}`)}>{capitalizeAndRemoveHyphens(router.query.dynamicslug)}</span>{" > "}<span className={style.activeRoute}>{capitalizeAndRemoveHyphens(data?.Title || data?.title)}</span></p>
                                 <Details data={loading && data} h={dynamicslug} />
-    
+
                             </React.Fragment>
                         ))}
                     </div>
@@ -144,13 +142,13 @@ export default function Detailpage({ l, topNews }) {
                         <TableOfContent props={topNews?.slice(0, 6) || []} domain={dynamicslug === "cricket-news" ? "cricket-news" : undefined} />
                     </div>
                 </div>
-<div className="d-md-block d-none">
-<Card basecorme={true} data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{formatString(dynamicslug)}</h2>} query={dynamicslug} domain={dynamicslug === "cricket-news" ? "https://grand11.in/g11/" : undefined} />
+                <div className="d-md-block d-none">
+                    <Card basecorme={true} data1={dynamicslug === "cricket-news" ? "cricket-news" : dynamicslug} heading={<h2>{formatString(dynamicslug)}</h2>} query={dynamicslug} domain={dynamicslug === "cricket-news" ? "https://grand11.in/g11/" : undefined} />
 
-</div>
+                </div>
             </div>
         );
-     }
+    }
 }
 
 export async function getServerSideProps(ctx) {
@@ -171,10 +169,10 @@ export async function getServerSideProps(ctx) {
                 let k = res.data.result;
                 const p = k.find(x => x.id === ctx?.params?.index);
                 let l = [p];
-          
+
                 return { props: { l: l, topNews: k } };
             } else {
-                
+
                 let res;
                 if (ctx?.query?.dynamicslug === "Cricket-BreakingNews") {
                     res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.dynamicslug2}`);
@@ -182,12 +180,12 @@ export async function getServerSideProps(ctx) {
                     res = await axios.get(`https://www.g11fantasy.com/NewsSection/Get-Newsbyid/${ctx.params.index}`);
                 }
                 const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1');
-            
-                const topNews = await topNewsRes?.json();
-                 
-          
 
-            
+                const topNews = await topNewsRes?.json();
+
+
+
+
                 let l = res?.data?.data;
                 if (l) {
                     axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`, { "id": ctx.query.dynamicslug === "Cricket-BreakingNews" ? ctx.params.dynamicslug2 : ctx.params.index });
@@ -197,7 +195,7 @@ export async function getServerSideProps(ctx) {
                     let k = res.data.result;
                     const p = k.find(x => x.id === ctx.params.index);
                     let l = [p];
-                    if(l){
+                    if (l) {
 
                         return { props: { l: l, topNews: k } };
                     }
@@ -214,7 +212,7 @@ export async function getServerSideProps(ctx) {
                     destination: '/404',
                     permanent: false, // Set to true for permanent redirection
                 },
-            };  
+            };
         }
     }
 
