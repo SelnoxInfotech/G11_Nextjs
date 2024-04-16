@@ -41,6 +41,24 @@ const Ipl2024dream11predictions = (props) => {
   return (
     <>
       <Seo
+      faq={[
+        {
+          question:"Which is the best Dream11 prediction site?",
+          answer:"At g11 Prediction, we pride ourselves on being one of the top Dream11 prediction sites. Our expert analysis and accurate predictions set us apart, helping fantasy cricket enthusiasts make informed decisions for their Dream11 teams."
+        },
+        {
+          question:"How can I predict my Dream11?",
+          answer:"Predicting your Dream11 team requires a combination of factors such as player form, pitch conditions, team dynamics, and match insights. Our platform offers comprehensive analysis and strategic tips to guide you in making the best possible predictions for your Dream11 team."
+        },
+        {
+          question:"How to win Dream11 1st rank?",
+          answer:"Winning the 1st rank on Dream11 requires strategic planning, thorough analysis, and a bit of luck. Our platform provides expert insights, player statistics, and match previews to help you build winning strategies for your Dream11 team, increasing your chances of achieving the coveted 1st rank."
+        },
+        {
+          question:"What strategies can I use to improve my Dream11 performance?",
+          answer:"To enhance your Dream11 performance, consider factors such as player consistency, recent form, pitch conditions, and match dynamics. Our platform offers valuable tips and strategies to help you make informed decisions and maximize your chances of success in Dream11 contests."
+        },
+      ]}
         Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/ipl-2024-dream11-predictions/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title="Dream11 Prediction & Today Match prediction for IPL 2024"

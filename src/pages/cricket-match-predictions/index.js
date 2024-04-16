@@ -8,12 +8,37 @@ import style from "../../styles/Style.module.scss"
 export default function UpdateMatch({ initialData }) {
 
   const [height, Setheight] = useState(true)
-  let data =  initialData?.initialData 
+  let data = initialData?.initialData
 
   return (
     <>
       <Seo
-          Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/cricket-match-predictions/"}]}
+        faq={[
+
+          {
+            question:"How reliable are your match predictions?",
+            answer:"Our match predictions are based on thorough analysis, statistical data, and expert insights, making them highly reliable. While we strive for accuracy, please remember that cricket is unpredictable, and outcomes may vary.  "
+          }
+          ,
+          {
+            question:"Do you provide predictions for all cricket formats?",
+            answer:" Yes, we cover all cricket formats, including IPL, World Cup, T20 leagues, Men's Cricket, Women's Cricket, and International Leagues. You can rely on us for predictions and tips for various matches across different formats."
+          },
+          {
+            question:"How can I use your predictions to enhance my fantasy cricket gameplay?",
+            answer:"Our predictions provide valuable insights into player performances, pitch conditions, and team strategies, helping you make informed decisions while selecting your fantasy cricket team. By incorporating our tips into your strategy, you can increase your chances of success."
+          },
+          {
+            question:"Are your predictions suitable for all fantasy cricket platforms?",
+            answer:"Yes, our predictions are versatile and can be applied to popular fantasy cricket platforms like Dream11, My11Circle, MyFab11, and many others. Whether you're playing on a specific platform or multiple platforms, our tips are designed to help you excel."
+          }
+          ,
+          {
+            question:"A How frequently are your predictions updated?",
+            answer:"We strive to keep our predictions up-to-date with the latest information available. Our team continuously monitors match developments, player form, and other factors to ensure that our predictions are as accurate and relevant as possible."
+          }
+        ]}
+        Breadcrumlist={[{ Home: "https://g11prediction.com/" }, { News: "/cricket-match-predictions/" }]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title={"Today Cricket Match Prediction & Dream11 Prediction - G11 prediction "}
         description={"G11 Prediction - Your trusted source for today's match prediction, Dream11  prediction, and expert updates. Get 100% free betting tips & accurate match predictions now! "}
@@ -80,8 +105,7 @@ export default function UpdateMatch({ initialData }) {
               content=" <p>   Our match predictions are based on thorough analysis, statistical data, and expert insights, making them highly reliable. While we strive for accuracy, please remember that cricket is unpredictable, and outcomes may vary.  </p>"
             />
             <Accordion
-              title=" Do you provide predictions for all cricket formats?
-                        "
+              title=" Do you provide predictions for all cricket formats? "
               content=" <p>   Yes, we cover all cricket formats, including IPL, World Cup, T20 leagues, Men's Cricket, Women's Cricket, and International Leagues. You can rely on us for predictions and tips for various matches across different formats. </p> "
             />
             <Accordion

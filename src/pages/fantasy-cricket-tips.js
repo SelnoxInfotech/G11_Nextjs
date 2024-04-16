@@ -26,6 +26,24 @@ const Fantasycrickettip = (props) => {
   return (
     <React.Fragment>
       <Seo
+      faq={[
+        {
+          question:"What is the trick to win fantasy cricket?",
+          answer:"We provide various tips and strategies to improve your chances of winning in fantasy cricket. From analyzing player performance to understanding match dynamics, our expert advice can help you craft winning teams."
+        },
+        {
+          question:"How do you predict fantasy cricket team? ",
+          answer:"Predicting a fantasy cricket team involves a combination of factors such as player form, past performance, pitch conditions, and team dynamics. Our platform offers insights and analysis to assist you in making informed decisions while selecting your team."
+        },
+        {
+          question:"How to win Dream11 easily?",
+          answer:" Winning on Dream11 requires skill, strategy, and a deep understanding of the game. We offer tips and tricks tailored specifically for Dream11 users to help enhance your chances of success in fantasy cricket contests."
+        },
+        {
+          question:"How To Start Playing Fantasy Cricket? ",
+          answer:"If you're new to fantasy cricket, getting started is easy! Simply download a fantasy sports app, create your account, and start selecting your team for upcoming matches. Our platform provides step-by-step guides to help you kickstart your fantasy cricket journey."
+        },
+      ]}
        Breadcrumlist={[{Home:"https://g11prediction.com/" } , {CricketTips: "/fantasy-cricket-tips/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title=" Best Fantasy Cricket Tips, Today's Dream11 Team, and Winning Strategies - g11 Prediction"

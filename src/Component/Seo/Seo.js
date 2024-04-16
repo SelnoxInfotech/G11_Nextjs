@@ -2,7 +2,7 @@
 import Head from 'next/head';
 
 
-function Seo({ image, title, description, keywords, canonical, schema, createdate, Breadcrumlist }) {
+function Seo({ image, title, description, keywords, canonical, schema, createdate, Breadcrumlist , faq }) {
     function convertDateFormat(dateString) {
         try {
             // Create a new Date object from the provided date string
@@ -30,7 +30,6 @@ function Seo({ image, title, description, keywords, canonical, schema, createdat
             return ""
         }
     }
-
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -76,7 +75,24 @@ function Seo({ image, title, description, keywords, canonical, schema, createdat
         };
 
     });
-// console.log(Boolean(Breadcrumlist) , BreadcrumbList )
+    let FAQ
+    const itemList1 = [];
+    Boolean(faq) && faq?.forEach((data, index) => {
+        itemList1.push({
+            "@type": "Question",
+            "name": data.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": data.answer
+            }
+        });
+        FAQ = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": itemList1
+        };
+
+    });
     return (
         <Head>
             <title>{title}</title>
@@ -94,6 +110,7 @@ function Seo({ image, title, description, keywords, canonical, schema, createdat
             <meta property="og:image:height" content="630" />
             {schema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLD }} />}
             {Boolean(Breadcrumlist) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(BreadcrumbList) }} />}
+            {Boolean(faq) && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ) }} />}
         </Head>
     )
 }
