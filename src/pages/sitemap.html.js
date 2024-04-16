@@ -7,7 +7,7 @@ const sitemaphtml = () => {
             <div className='col-12  mt-5 '>
                 <h1 className='text-center'>Sitemap</h1>
             </div>
-            <Link href="/"><p role="button">Home</p></Link>
+            <Link href="/"><p role="button">Home</p></Link> 
 
             <Link href={"/cricket-match-predictions/"}><p role="button">Cricket Match Predictions</p></Link>
             <Link href={"/cricket-breaking-news/"}><p role="button">Cricket Breaking News</p> </Link>

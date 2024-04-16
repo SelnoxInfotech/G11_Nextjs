@@ -125,6 +125,7 @@ export default function Detailpage({ l, topNews }) {
                         {l?.map((data, index) => (
                             <React.Fragment key={index}>
                                 <Seo
+                                         Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: router.query.dynamicslug} ,{Sport: `https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}`}]}
                                     createdate={data.created}
                                     schema={true}
                                     image={"https://www.g11fantasy.com" + data.Image}

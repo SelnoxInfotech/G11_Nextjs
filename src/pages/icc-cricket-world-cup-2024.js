@@ -44,6 +44,7 @@ const Icc2024 = ({ initialData }) => {
   return (
     <>
       <Seo
+        Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/icc-cricket-world-cup-2024/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title={"ICC Men's T20 World Cup 2024 Latest News, Predictions, Analysis l G11prediction"}
         description={"ICC Men's T20 World Cup 2024 Live Updates, Latest News, Match Predictions, ICC Men's T20 World Cup 2024 Match Schedule, Venue Details, Points Table, Match Analysis And Much More Only On G11prediction"}

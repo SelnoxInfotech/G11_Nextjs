@@ -41,6 +41,7 @@ const Ipl2024dream11predictions = (props) => {
   return (
     <>
       <Seo
+        Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/ipl-2024-dream11-predictions/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title="Dream11 Prediction & Today Match prediction for IPL 2024"
         description={"Get expert Dream11 predictions and today match prediction for IPL 2024. Stay ahead with our comprehensive analysis, player insights, and strategic tips to build winning teams"}

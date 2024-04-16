@@ -39,6 +39,7 @@ const Cricket_rules_and_regulation = ({ initialData }) => {
   return (
     <>
       <Seo
+                   Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/cricket-rules-and-regulation/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title={"Cricket Rules And Regulations | Playing Conditions- G11 Prediction |"}
         description={"Cricket Rules And Regulations, Playing Conditions by G11 Fantasy Cricket Prediction Website and Application for Today's Match. # 1 Fantasy Cricket Prediction tips."}

@@ -5,6 +5,7 @@ const contact_us = () => {
     return (
       <>
         <Seo
+          Breadcrumlist={[{Home:"https://g11prediction.com/" } , {ContactUs: "/contact-us/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title={"Contact Us | G11 Fantasy Cricket Prediction Today's Match |"}
         description={"Contact us, G11 Fantasy Cricket Prediction Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream 11 betting tips"}

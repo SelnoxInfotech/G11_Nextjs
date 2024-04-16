@@ -77,6 +77,7 @@ const Video = (initialData) => {
     return (
         <>
             <Seo
+             Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/latest-video/"}]}
                 image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                 title={"Video News | G11 Fantasy Cricket Prediction |"}
                 description={"Video Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}

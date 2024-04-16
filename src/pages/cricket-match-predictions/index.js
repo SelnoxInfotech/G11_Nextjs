@@ -3,16 +3,17 @@ import Senglepage from "../../Component/MatchPriview/Senglepage";
 import Accordion from '../../Component/card/Accodionitem';
 import Seo from "../../Component/Seo/Seo";
 import style from "../../styles/Style.module.scss"
-  
+
 
 export default function UpdateMatch({ initialData }) {
 
   const [height, Setheight] = useState(true)
-  let data =  initialData.initialData 
+  let data =  initialData?.initialData 
 
   return (
     <>
       <Seo
+          Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/cricket-match-predictions/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title={"Today Cricket Match Prediction & Dream11 Prediction - G11 prediction "}
         description={"G11 Prediction - Your trusted source for today's match prediction, Dream11  prediction, and expert updates. Get 100% free betting tips & accurate match predictions now! "}

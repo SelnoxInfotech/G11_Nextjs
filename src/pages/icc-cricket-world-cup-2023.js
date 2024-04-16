@@ -40,6 +40,7 @@ const Icc_cricket_world_cup_2023 = ({ initialData }) => {
   return (
     <>
       <Seo
+        Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/icc-cricket-world-cup-2023/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title={"Breaking News | G11 Fantasy Cricket Prediction |"}
         description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}

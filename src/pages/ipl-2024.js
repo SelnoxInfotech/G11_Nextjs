@@ -38,6 +38,7 @@ const Ipl2024 = ({initialData}) => {
     return (
         <>
             <Seo
+               Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/ipl-2024/"}]}
              image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                 title={"Get IPL 2024 Latest News, Predictions, Analysis On G11predictions"}
                 description={"PL 2024 Live Updates, Latest News, Match Predictions, IPL 2024 Match Schedule, Venue Details, Points Table, Match Analysis And Much More Only On G11prediction"}

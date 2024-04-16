@@ -5,6 +5,7 @@ const Faq = () => {
     return (
         <div className={`${"container"} ${style.aboutus}`}>
                  <Seo
+                      Breadcrumlist={[{Home:"https://g11prediction.com/" } , {FAQ: "/faq/"}]}
              image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                 title={" FAQs | G11 | Fantasy Cricket  Prediction Today's Match |  "}
                 description={"FAQs, G11 Fantasy Cricket Betting Prediction Site and Application. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and more. Dream11 Betting Tips. "}

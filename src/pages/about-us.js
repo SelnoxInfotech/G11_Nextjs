@@ -6,6 +6,7 @@ const aboutus = () => {
     return (
         <>
             <Seo
+             Breadcrumlist={[{Home:"https://g11prediction.com/" } , {AboutUs: "/about-us/"}]}
                 image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                 title={"About-Us- G11 | Fantasy Cricket Prediction Web & Application |"}
                 description={"About-Us- G11 best Fantasy Cricket Prediction Web and Application. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. "}

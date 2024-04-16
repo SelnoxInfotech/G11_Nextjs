@@ -120,7 +120,6 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
-
   else if (req.params.category === "ipl-2024RSS-feed.xml") {
     try {
       async function k() {
@@ -211,7 +210,7 @@ router.get('/rss/:category', (req, res) => {
           matchesObject[`Match_${index + 1}`] = match.replace(/&ndash;/g, '-');
         });
         feed.item({
-          title:Boolean(matchesObject.Match_1.split(/:|-/)[1]) ?  matchesObject.Match_1.split(/:|-/)[1].replace(/&nbsp;/g, '') : matchesObject.Match_1.replace(/&nbsp;/g, '') + " dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update ",
+          title:Boolean(matchesObject.Match_1.split(/:|-/)[1]) ?  matchesObject.Match_1.split(/:|-/)[1].replace(/&nbsp;/g, '') + "dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update " : matchesObject.Match_1.replace(/&nbsp;/g, '') + "dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update ",
           description: url.match_discription,
           url: `https://g11prediction.com/cricket-match-predictions/${Boolean(matchesObject.Match_1.split(/:|-/)[1]) ? modifystr(matchesObject.Match_1.split(/:|-/)[1].replace(/&nbsp;/g, '')+"-dream11-prediction-today-match"): modifystr(matchesObject.Match_1.replace(/&nbsp;/g, '') + "-dream11-prediction-today-match")}/${url.id}/`,
           date: new Date(url.create_date),
@@ -249,11 +248,9 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
-
   else {
     res.status(200).json("page Not Found");
   }
-
 });
 
 

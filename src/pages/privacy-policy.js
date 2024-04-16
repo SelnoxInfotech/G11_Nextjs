@@ -5,6 +5,7 @@ const Privacypolicy = () => {
     return (
         <div className={`${'container'} ${style.aboutus}`}>
            <Seo
+              Breadcrumlist={[{Home:"https://g11prediction.com/" } , {PrivacyPolicy: "/privacy-policy/"}]}
              image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
                 title={"Privacy Policy | G11 Fantasy Cricket Prediction Today's Match | "}
                 description={"Privacy Policy, G11 Fantasy Cricket Prediction Today's Match. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps. Dream11 Prediction website."}

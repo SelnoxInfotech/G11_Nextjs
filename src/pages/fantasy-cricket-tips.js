@@ -26,6 +26,7 @@ const Fantasycrickettip = (props) => {
   return (
     <React.Fragment>
       <Seo
+       Breadcrumlist={[{Home:"https://g11prediction.com/" } , {CricketTips: "/fantasy-cricket-tips/"}]}
         image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
         title=" Best Fantasy Cricket Tips, Today's Dream11 Team, and Winning Strategies - g11 Prediction"
         description={
