@@ -1,52 +1,15 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import axios from "axios"
-import Head from 'next/head';
 import Senglepage from "../../Component/MatchPriview/Senglepage";
 import Accordion from '../../Component/card/Accodionitem';
 import Seo from "../../Component/Seo/Seo";
-import useSWR from 'swr';
 import style from "../../styles/Style.module.scss"
-// import Homeskeleton from "../../Component/skeleton/Homeskeleton";
-import Cardskeleton from "../../Component/skeleton/cardskeleton";
-const fetcher = async (url) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-};
-
+  
 
 export default function UpdateMatch({ initialData }) {
-  const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher,);
+
   const [height, Setheight] = useState(true)
+  let data =  initialData.initialData 
 
-  let data = fetchedData;
-
-  // if (error) return <div>Error loading data</div>;
-  if (!data) {
-    return (
-      <div className='container '>
-        <div className={style.Breaking_new}>
-          <div className={style.Breaking_newCardWrapper}>
-            {
-              [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
-                return < Cardskeleton key={i} />
-              })
-            }
-          </div>
-        </div>
-
-      </div>
-    )
-  }
-  else {
-    if (Boolean(error)) {
-
-      data = initialData
-    }
-  }
   return (
     <>
       <Seo
@@ -146,7 +109,7 @@ export default function UpdateMatch({ initialData }) {
 
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const [topNewsRes] = await Promise.all([
       fetch('https://grand11.in/g11/all_matches_api.php'),

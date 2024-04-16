@@ -11,41 +11,32 @@ const NewCard = dynamic(() => import('../Component/card/NewCard'), { ssr: true, 
 
 // const Accordion = dynamic(() => import('../Component/card/Accordion'), { ssr: true,  });
 
-const fetcher = async (url) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-};
-
-
 
 const Ipl2024dream11predictions = (props) => {
-  const router = useRouter()
+
   const [height, Setheight] = useState(true)
   const data1 = props?.breakingData?.data
-  const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/11`,fetcher,{ data1 } );
+  // const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/11`,fetcher,{ data1 } );
 
 
 
 
-  if (!fetchedData) {
-    return (
-      <div className='container '>
-        <div className={style.Breaking_new}>
-          <div className={style.Breaking_newCardWrapper}>
-            {
-              [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
-                return < Cardskeleton key={i} />
-              })
-            }
-          </div>
-        </div>
+  // if (!fetchedData) {
+  //   return (
+  //     <div className='container '>
+  //       <div className={style.Breaking_new}>
+  //         <div className={style.Breaking_newCardWrapper}>
+  //           {
+  //             [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+  //               return < Cardskeleton key={i} />
+  //             })
+  //           }
+  //         </div>
+  //       </div>
 
-      </div>
-    )
-  }
+  //     </div>
+  //   )
+  // }
 
   return (
     <>
@@ -83,45 +74,7 @@ const Ipl2024dream11predictions = (props) => {
                 </div>
             </div>
         <div className='row'>
-          {/* <h1 className={style.newcardwrappermainHeading}> Dream11 Prediction for IPL 2024</h1> */}
-          {/* <p style={{color:"#c2121c" , display:"flex" ,gap:"15px"}}><span style={{cursor: "pointer"  }} onClick={() => router.push("/")}>Home</span>{">"}<span>{"Dream11 Prediction for IPL 2024"}</span></p> */}
-          {/* <div className={style.newcardwrapper}>
-            {
-              fetchedData.data.map((items, index) => {
-
-
-                return <div className={style.newcard} key={index}>
-                  <div className={`${"col"}`}>
-                    <RWebShare data={{
-                      // url: `http://weedx.site/cricket-breaking-news/${modifystr(breakingnews?.urlslug !== null ? breakingnews?.urlslug?.toLowerCase() : breakingnews?.Title || breakingnews?.title)}/${breakingnews.id}`
-                    }} onClick={() => console.log("shared successfully!")}  >
-                      <button className={style.ShareButton}>
-                        <BsFillShareFill color='#c2121c'></BsFillShareFill>
-                      </button>
-                    </RWebShare>
-
-                  </div>
-                  <Link className={`${style.hovereffect}`} href={`/ipl-2024-dream11-predictions/${items?.urlslug !== (null || undefined) ? modifystr(items?.urlslug) : modifystr(items?.Title || items?.title)}/${items.id}`} >
-                    <Image className={style.News_image} loader={imageLoader} src={items?.Image} height={10} width={100} alt="news_image" quality={100} />
-                    <div className={style.News_image_title}>
-                      <h2 className={`card-text  ${style.card_text}`}>{items?.Title}</h2>
-                    </div>
-                  </Link>
-                  <div className={`col-12 ${style.viewCount}`}>
-                    <div className={style.view_counttext}>
-                      <IoMdEye size={18} color='#c2121c' /> {items?.ViewCount}
-                    </div>
-                    <div className={style.ViewCountDate}>
-                      <p >{items?.created?.slice(0, 10)}</p>
-                    </div>
-                  </div>
-                </div>
-              })
-            }
-          </div> */}
-
-
-          <NewCard props={fetchedData} link={'/ipl-2024-dream11-predictions'}></NewCard>
+          <NewCard props={data1} link={'/ipl-2024-dream11-predictions'} api={"https://g11fantasy.com/NewsSection/FilterbySubCategory/11"}></NewCard>
         </div>
         <div className='row'>
         <div className='col-12 '>

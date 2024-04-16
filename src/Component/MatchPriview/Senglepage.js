@@ -4,13 +4,22 @@ import Link from 'next/link'
 import style from "../../styles/Style.module.scss"
 import Image from 'next/image';
 import { useRouter } from 'next/router'
-
+import useSWR from 'swr';
+import Cardskeleton from "../../Component/skeleton/cardskeleton";
+const fetcher = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  };
+  
 function Senglepage({ props }) {
-    const router = useRouter()
     const imagePerRow = 6
     const [next, setNext] = React.useState(imagePerRow);
+    const { data: fetchedData, error } = useSWR('/api/utils/latestmatch', fetcher,);
 
-
+    let data = fetchedData 
     const handleMoreImage = () => {
         setNext(next + imagePerRow);
     };
@@ -56,29 +65,39 @@ function Senglepage({ props }) {
     const imageLoader = ({ src, width, height, quality }) => {
         return `https://grand11.in/g11/${src}?w=${width}&h=${50}&q=${quality || 75}`
     }
+    if (!data) {
+        return (
+          <div className='container '>
+            <div className={style.Breaking_new}>
+              <div className={style.Breaking_newCardWrapper}>
+                {
+                  [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                    return < Cardskeleton key={i} />
+                  })
+                }
+              </div>
+            </div>
+    
+          </div>
+        )
+      }
+      else {
+        if (Boolean(error)) {
+    
+          data = props
+        }
+      }
 
-    // const handleClick = (event, data) => {
-    //     event.preventDefault();
-    //     router.push(
-    //                  `/latest-match/cricket-prediction/${'match-preview'}/${modifystr(data.title)}/${data.id}`);
-    // };   
-    // console.log(window?.location?.host)
     return (
 
         <>
-            {/* <Seo
-                image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
-                title="Today's Match | G11 | Fantasy Cricket Betting Prediction"
-                description={"Today's Match updates, G11 Fantasy Cricket Betting Prediction Site and Application. Dream11, My11Circle, Playerzpot, Howzat, Gamezy and Many More apps"}
-                keywords={"Dream11 team prediction, My11Circle prediction, cricket betting tips, Dream 11 prediction, howzat today team prediction, Playerzpot prediction, prediction for today match, My11Circle cricket team prediction, Dream11 prediction today match, howzat team prediction today match, Playerzpot Fantasy Cricket prediction, Dream11 cricket team prediction, My11Circle prediction today match, Playerzpot Circle team prediction, howzat team prediction, Today Match Prediction, howzat prediction today's match"}
-                canonical={"https://g11prediction.com/latest-match"}
-            ></Seo> */}
+     
             <section id={style.team} className={style.team}>
                 <div className="container">
                     {/* <h2 className={style.section_title}>Today Match Predictions - Cricket Betting Tips from Experts (100% Free)</h2> */}
                     <div className={`row ${style.team} ${style.matchcardwrapper}`} id="team_data" >
                         {
-                            props?.slice(0, next)?.map((data, index) => {
+                            data?.slice(0, next)?.map((data, index) => {
 
                                 return (
                                         <div className={style.matchcard} key={index} >

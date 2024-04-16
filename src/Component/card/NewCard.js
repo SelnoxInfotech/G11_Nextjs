@@ -4,10 +4,29 @@ import Link from 'next/link';
 import { IoMdEye } from "react-icons/io";
 import Image from 'next/image';
 import { AiFillEye } from "react-icons/ai"
-// import Seo from '../Component/Seo/Seo';
+import useSWR from 'swr';
 import { RWebShare } from "react-web-share";
 import { BsFillShareFill } from "react-icons/bs"
-const NewCard = ({props , link}) => {
+import Cardskeleton from '../../Component/skeleton/cardskeleton'
+
+const fetcher = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  };
+  
+  
+
+
+const NewCard = ({props , link , api}) => {
+
+          
+
+    const { data: fetchedData, error } = useSWR(`${api}`,fetcher,{ props } );
+       let data =  fetchedData?.data
+
   const imagePerRow = 10
   const [next, setNext] = React.useState(imagePerRow);
     const imageLoader = ({ src, width, height, quality }) => {
@@ -43,11 +62,35 @@ const NewCard = ({props , link}) => {
     
         return str?.toLowerCase()
       }
+
+
+      if (!data) {
+        return (
+          <div className='container '>
+            <div className={style.Breaking_new}>
+              <div className={style.Breaking_newCardWrapper}>
+                {
+                  [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
+                    return < Cardskeleton key={i} />
+                  })
+                }
+              </div>
+            </div>
+    
+          </div>
+        )
+      }
+      else{
+        if(error){
+            data = props 
+        }
+      }
+
     return (
       <React.Fragment>
         <div className={style.newcardwrapper}>
             {
-                props.data?.slice(0, next)?.map((items, index) => {
+               data?.slice(0, next)?.map((items, index) => {
 
 
                     return <div className={style.newcard} key={index}>
