@@ -63,6 +63,7 @@ function Matchguide(props) {
             {<Seo
                 createdate={undefined}
                 schema={true}
+                Breadcrumlist={[{Home:"https://g11prediction.com/" } , {"cricket-match-predictions": "/cricket-match-predictions/"} ,  {[`${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} Dream11 Prediction Today Match | Dream11 Team Today`]: `${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)) + "-dream11-prediction-today-match"}/${props.idIndex}/`}] }
                 title={`${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} Dream11 Prediction Today Match | Dream11 Team Today`}
                 image={jsonData.image = $('div.col-sm-4 img').attr('src')}
                 description={`Dream11 today match prediction for ${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)}.Win big with accurate tips & best Dream11 team prediction, Today Dream11 Team Check out!`}
