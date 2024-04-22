@@ -85,14 +85,12 @@ const NewCard = ({props , link , api}) => {
             data = props 
         }
       }
-
+console.log( props ,'props?.data?.length')
     return (
       <React.Fragment>
         <div className={style.newcardwrapper}>
             {
                data?.slice(0, next)?.map((items, index) => {
-
-
                     return <div className={style.newcard} key={index}>
                         <div className={`${"col"}`}>
                             <RWebShare data={{
@@ -124,22 +122,22 @@ const NewCard = ({props , link , api}) => {
              
         </div>
          <div className={`${'row'} ${style.BreakingButton}`}>
-         <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
-             {next <= props.data?.length && (
-                 <button className={style.loadmorebtm} onClick={handleMoreImage}
-                 >
-                     Load more
-                 </button>
-             )}
-             {next < props.data?.length && (
-                 <button className={next <= 10 ? 'hidden' :style.loadmorebtm} onClick={handlelessImage}
-                 >
-                     Read Less
-                 </button>
-             )}
-         </div>
+            <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
+                {next <= props?.length && (
+                    <button className={style.loadmorebtm} onClick={handleMoreImage}
+                    >
+                        Load more
+                    </button>
+                )}
+                {next > 10 && (
+                    <button className={next <= 10 ? 'hidden' :style.loadmorebtm} onClick={handlelessImage}
+                    >
+                        Read Less
+                    </button>
+                )}
+            </div>
 
-     </div>
+          </div>
      </React.Fragment>
     );
 };
