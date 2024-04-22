@@ -121,7 +121,7 @@ console.log( props ,'props?.data?.length')
             }
              
         </div>
-         <div className={`${'row'} ${style.BreakingButton}`}>
+        <div className={`${'row'} ${style.BreakingButton}`}>
             <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
                 {next <= props?.length && (
                     <button className={style.loadmorebtm} onClick={handleMoreImage}
@@ -137,7 +137,7 @@ console.log( props ,'props?.data?.length')
                 )}
             </div>
 
-          </div>
+        </div>
      </React.Fragment>
     );
 };
