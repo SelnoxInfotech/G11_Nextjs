@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 
 function President({ president }) {
-    console.log(president)
     const router = useRouter();
 
     if (router.isFallback) {

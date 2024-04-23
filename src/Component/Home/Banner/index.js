@@ -48,7 +48,7 @@ function Index({ match ,image }) {
                 alt="G11Banner"
                 src={image1}
                 // loader={imageLoader}
-                quality={100}
+                quality={70}
                 width={100}
                 height={100}
                 sizes="90vw"
