@@ -6,7 +6,7 @@ import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 import image1 from "./converted_banner.webp";
 
-function Index({ match ,image }) {
+function Index({ match, image }) {
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
@@ -39,19 +39,20 @@ function Index({ match ,image }) {
         arrows: false
     };
     const imageLoader = ({ src, width, quality }) => {
-        return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
+        return `/${src}?w=${width}&q=${quality || 75}`
     }
     return (
-        // style={{backgroundImage: `url(${'/Image/banner.jpg'})`}}
+        
         <div className={style.Banner_img}  >
             <Image
                 alt="G11Banner"
                 src={image1}
+                srcSet={"/_next/static/images/converted_banner-2b6d87f015d2b99f0c4263a104dbfcba.webp"}
                 // loader={imageLoader}
-                quality={70}
+                quality={80}
                 width={100}
-                height={100}
-                sizes="90vw"
+                height={10}
+                sizes="90%"
                 style={{
                     width: '100%',
                     height: '469px',
@@ -65,38 +66,33 @@ function Index({ match ,image }) {
                 </div>
             </div>
             <div className={style.homepagebannertext}>
-                <Slider {...settings}  >
-                    {
-                        match?.map((match, index) => {
-
-                            return (
-                                <div className={` ${style.banner_field}`} key={index} >
-
-                                    <div className='row '>
-
-                                        <div className='col-12'>
-                                        
-                                            <Link href={`/cricket-match-predictions/${match.id}`} className='row ' >
-                                                <div className='col-sm-12 '>
-                                                    <span style={{ color: "white" }}>{match.first_team}</span>
-                                                </div>
-                                                <div className='col-sm-12 '>
-                                                    <span style={{ color: "red" }}> Vs </span>
-                                                </div>
-                                                <div className='col-sm-12 '>
-                                                    <span style={{ color: "white" }}>{match.second_team}</span>
-                                                </div>
-                                            </Link>
-
+                <Slider {...settings}>
+                    {match?.map((match, index) => (
+                        <div className={style.banner_field} key={index}>
+                            <Link href={`/cricket-match-predictions/${match.id}`}>
+                                <div className='row'>
+                                    <div className='col-12'>
+                                        <div className='row'>
+                                            <div className='col-sm-12'>
+                                                <span className={style.match_Title}>{match.first_team}</span>
+                                            </div>
+                                            <div className='col-sm-12'>
+                                                <span style={{ color: "red" }}> Vs </span>
+                                            </div>
+                                            <div className='col-sm-12'>
+                                                <span style={{ color: "white" }}>{match.second_team}</span>
+                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
-                            )
-                        })
-                    }
+                            </Link>
+                        </div>
+                    ))}
                 </Slider>
             </div>
+
+
+
         </div>
 
     );

@@ -51,7 +51,7 @@ function Match({ updatematch, image }) {
                                     <Link href={`/cricket-match-predictions/${data.id}`} >
 
                                         <div className="col">
-                                            {data.title}
+                                            {data.title}    
                                         </div>
                                         <div className="col">
                                             <p>{data.first_team} vs {data.second_team}</p>

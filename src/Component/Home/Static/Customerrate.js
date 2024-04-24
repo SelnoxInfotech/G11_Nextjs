@@ -4,7 +4,7 @@ import { AiFillStar } from 'react-icons/ai'
 import { BsStarHalf } from 'react-icons/bs'
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
-// import blank_image from "../../../../public/Image/user.webp"
+import blank_image from "./user.webp"
 export default function CostumerRate({image}) {
 
 const imageLoader = ({ src, width, quality }) => {
@@ -21,7 +21,7 @@ const imageLoader = ({ src, width, quality }) => {
 
                         <div className={` ${style.Customer_box}`}>
                             <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image  width={100}  height={100}className='rate_image ' loader={imageLoader} src={''} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image  width={100}  height={100}className='rate_image '  src={blank_image} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Maria Luisa</p>
@@ -45,7 +45,7 @@ const imageLoader = ({ src, width, quality }) => {
 
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image loader={imageLoader} width={100}  height={100}className='rate_image ' src={''}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image loader={imageLoader} width={100}  height={100}className='rate_image ' src={blank_image}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Bushra Parveen</p>
@@ -71,7 +71,7 @@ const imageLoader = ({ src, width, quality }) => {
         
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image  loader={imageLoader} width={100}  height={100}className='rate_image ' src={''}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image  loader={imageLoader} width={100}  height={100}className='rate_image ' src={blank_image}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Rishi Singh</p>
@@ -96,7 +96,7 @@ const imageLoader = ({ src, width, quality }) => {
                
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image  loader={imageLoader}width={100}  height={100}className='rate_image ' src={''}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image  loader={imageLoader}width={100}  height={100}className='rate_image ' src={blank_image}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Ishaan Sager</p>
@@ -122,7 +122,7 @@ const imageLoader = ({ src, width, quality }) => {
               
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image loader={imageLoader} width={100}  height={100}className='rate_image ' src={''}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image loader={imageLoader} width={100}  height={100}className='rate_image ' src={blank_image}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Jeetpratap singh</p>
@@ -148,7 +148,7 @@ const imageLoader = ({ src, width, quality }) => {
               
                         <div className={` ${style.Customer_box}`}>
                           <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image  loader={imageLoader} width={100}  height={100}className='rate_image ' src={''}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                <Image     loading="lazy" decoding="async" data-nimg="1"  loader={imageLoader} width={100}  height={100}className='rate_image ' src={blank_image}  alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p> Anushka Patel</p>

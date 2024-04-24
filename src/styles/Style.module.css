@@ -240,6 +240,9 @@ h2.sectionMainTitle {
   font: 40px;
   font-family: "Segoe UI";
 }
+.Banner_img .banner_field .match_Title {
+  color: white;
+}
 .Banner_img .banner_field span {
   font-size: 28px;
 }
@@ -3208,4 +3211,8 @@ h1.newcardwrappermainHeading {
   .Banner_img h1 {
     font-size: 18px;
   }
+}
+.sitemap_xmlpage a {
+  text-decoration: none;
+  color: #C2121C;
 }/*# sourceMappingURL=Style.module.css.map */
