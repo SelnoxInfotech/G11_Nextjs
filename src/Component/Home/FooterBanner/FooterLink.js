@@ -26,7 +26,7 @@ export default function Footer_link() {
       <a href='https://twitter.com/G11sport123230' aria-label="Twitter"><BsTwitterX /></a>
       <a href='https://news.google.com/publications/CAAqBwgKMJmUqgwwq5S3BA?hl=en-IN&gl=IN&ceid=IN%3Aen' aria-label="Google News"><SiGooglenews /></a>
       <a href='tel:+916262003399' className={style.calling} aria-label="Call"><span><IoMdCall /></span></a>
-      <a href='/rss-feed' className={style.rssFeed} aria-label="RSS Feed"><span><FaRssSquare /></span></a>
+      <Link href='/rss-feed' className={style.rssFeed} aria-label="RSS Feed"><span><FaRssSquare /></span></Link>
             </div>
             <div className={`${'container '} ${style.link}`}>
                 <div className={`${style.policy_link}`}>
