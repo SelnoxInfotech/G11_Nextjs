@@ -246,6 +246,7 @@ h2.sectionMainTitle {
 }
 
 .Banner_img {
+  background: url("../Component/Home/Banner/converted_banner.webp");
   color: white;
   height: 469px;
   width: 100%;
@@ -291,6 +292,7 @@ h2.sectionMainTitle {
 }
 
 .update_match {
+
   margin-top: 10px;
   position: relative;
   height: 320px;
@@ -302,6 +304,7 @@ h2.sectionMainTitle {
   box-sizing: content-box;
 
   .updatematch {
+    background: url("../Component/Home/Updatematch/matchBackground.webp");
     font-family: "Segoe UI";
     background-size: 100% 100%;
     height: 300px;
@@ -3526,13 +3529,6 @@ button :focus-visible {
       text-decoration: none;
     }
   }
-
-  .update_match {
-    img {
-      height: 100%;
-    }
-  }
-
   .homepagebreakingness {
     min-width: 150px;
 
@@ -4030,3 +4026,7 @@ button :focus-visible {
  }
 }
 
+.latestnews_image{
+  width: auto;
+  height: auto;
+}

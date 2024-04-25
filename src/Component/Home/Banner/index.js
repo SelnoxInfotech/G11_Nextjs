@@ -44,7 +44,7 @@ function Index({ match, image }) {
     return (
         
         <div className={style.Banner_img}  >
-            <Image
+            {/* <Image
                 alt="G11Banner"
                 src={image1}
                 srcSet={"/_next/static/images/converted_banner-2b6d87f015d2b99f0c4263a104dbfcba.webp"}
@@ -59,7 +59,7 @@ function Index({ match, image }) {
                     position: "absolute",
                     zIndex: "-1"
                 }}
-            ></Image>
+            ></Image> */}
             <div className={`container ${style.center} `}>
                 <div className='row '>
                     <div className={`${style.col} col-12`}><h1>{"Fantasy Cricket Prediction Today's Match"}</h1></div>
