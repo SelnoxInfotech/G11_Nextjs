@@ -1,11 +1,11 @@
-
+"use client"
 import React from 'react';
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import Link from 'next/link';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 import image1 from "./converted_banner.webp";
-
+import Slider from "./slider"
 function Index({ match, image }) {
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -41,8 +41,58 @@ function Index({ match, image }) {
     const imageLoader = ({ src, width, quality }) => {
         return `/${src}?w=${width}&q=${quality || 75}`
     }
+
+
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     const slider = document.querySelector('.slider');
+    //     const slides = document.querySelectorAll('.slide');
+
+    //     if (slides.length === 0) {
+    //         console.error('No slides found.');
+    //         return;
+    //     }
+
+    //     let currentIndex = 0;
+    //     const slideWidth = slides[0].clientWidth;
+    //     const slideCount = slides.length;
+
+    //     function nextSlide() {
+    //         currentIndex = (currentIndex + 1) % slideCount;
+    //         updateSlider();
+    //     }
+
+    //     function updateSlider() {
+    //         const offset = -1 * currentIndex * slideWidth;
+    //         slider.querySelector('.slides').style.transform = `translateX(${offset}px)`;
+    //     }
+
+    //     // Automatically advance to the next slide every 3 seconds
+    //     setInterval(nextSlide, 3000);
+    // });
+    const slides =  match?.map((match, index) => (
+        <div className={style.banner_field} key={index}>
+          <Link href={`/cricket-match-predictions/${match.id}`}>
+            <div className='row'>
+              <div className='col-12'>
+                <div className='row'>
+                  <div className='col-sm-12'>
+                    <span className={style.match_Title}>{match.first_team}</span>
+                  </div>
+                  <div className='col-sm-12'>
+                    <span style={{ color: "red" }}> Vs </span>
+                  </div>
+                  <div className='col-sm-12'>
+                    <span style={{ color: "white" }}>{match.second_team}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+      ));
     return (
-        
+
         <div className={style.Banner_img}  >
             {/* <Image
                 alt="G11Banner"
@@ -66,7 +116,7 @@ function Index({ match, image }) {
                 </div>
             </div>
             <div className={style.homepagebannertext}>
-                <Slider {...settings}>
+                {/* <Slider {...settings}>
                     {match?.map((match, index) => (
                         <div className={style.banner_field} key={index}>
                             <Link href={`/cricket-match-predictions/${match.id}`}>
@@ -88,7 +138,8 @@ function Index({ match, image }) {
                             </Link>
                         </div>
                     ))}
-                </Slider>
+                </Slider> */}
+                 <Slider slides={slides} />
             </div>
 
 
