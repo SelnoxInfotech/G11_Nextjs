@@ -17,7 +17,7 @@ const Slider = ({ slides }) => {
           } else {
             // Reverse the order of slides and return to start from the first slide
             const reversedSlides = slides.map((slide) => ({ ...slide })).reverse();
-            return 0; // Start from the first slide
+            return reversedSlides.length; // Start from the first slide
           }
         });
       }, 3000);
