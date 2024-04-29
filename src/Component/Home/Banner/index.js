@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import Link from 'next/link';
 import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
-import image1 from "./converted_banner.webp";
+import image1 from "./g11BannerDesign.webp";
 
 function Index({ match ,image }) {
     function modifystr(str) {
@@ -42,7 +42,7 @@ function Index({ match ,image }) {
         return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
     }
     return (
-        // style={{backgroundImage: `url(${'/Image/banner.jpg'})`}}
+      <>
         <div className={style.Banner_img}  >
             <Image
                 alt="G11Banner"
@@ -98,7 +98,8 @@ function Index({ match ,image }) {
                 </Slider>
             </div>
         </div>
-
+      
+        </>
     );
 }
 

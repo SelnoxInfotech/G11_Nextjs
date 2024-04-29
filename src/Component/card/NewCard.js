@@ -71,7 +71,8 @@ const NewCard = ({props , link , api}) => {
               <div className={style.Breaking_newCardWrapper}>
                 {
                   [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
-                    return < Cardskeleton key={i} />
+                 
+                    return < Cardskeleton ketprops={i} />
                   })
                 }
               </div>
