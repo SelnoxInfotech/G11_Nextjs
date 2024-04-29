@@ -43,15 +43,15 @@ function Match({ updatematch, image }) {
 
                             <div className={` ${style.updatematch}`} key={index}>
                                   <Link href={`/cricket-match-predictions/${data.id}`} >
-                                <Image
+                                {/* <Image
                                    className={style.updatematchimg}
-                                    sizes="100vw" src={image1} width={'100'} height={'100'} alt="G11-Fantasy " />
+                                    sizes="100vw" src={image1} width={'100'} height={'100'} alt="G11-Fantasy " /> */}
                                     </Link>
                                 <div className={` ${style.grid_row}`}>
                                     <Link href={`/cricket-match-predictions/${data.id}`} >
 
                                         <div className="col">
-                                            {data.title}
+                                            {data.title}    
                                         </div>
                                         <div className="col">
                                             <p>{data.first_team} vs {data.second_team}</p>

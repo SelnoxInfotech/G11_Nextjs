@@ -20,7 +20,7 @@ const Breakingnews = ({ latestnews }) => {
                 <div className={`${style.imageCenter} col`}>
                    
                   <Link href={`/cricket-breaking-news/${latestnews[0].Title.replace(/\s+/g, '-')}/${latestnews[0].id}`}>
-                  <Image loader={imageLoader} width={600} height={500} src={`${latestnews[0].Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                  <Image className={style.latestnews_image} loader={imageLoader} width={600} height={500} src={`${latestnews[0].Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                   </Link>
                 </div>
                 <div className={`${style.latestnewshomepage} col`}>

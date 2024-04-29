@@ -6,6 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     largePageDataBytes: 128 * 100000,
+    
   },
 
   images: {
@@ -22,6 +23,7 @@ const nextConfig = {
         pathname: '/Image/**',
       },
     ],
+    domains: ['www.g11fantasy.com', 'grand11.in'],
   },
 
   async rewrites() {

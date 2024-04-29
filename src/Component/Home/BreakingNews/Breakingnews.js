@@ -47,7 +47,7 @@ const Breakingnews = ({ Breaking }) => {
                                         <div className={'col'} >
                                                 <Link href={`/cricket-breaking-news/${modifystr(data?.Title?.replace(/\s+/g, '-').toLowerCase())}/${data?.id}`} >
                                                     <div className={style.breakingnewshomeimage}><Image loader={imageLoader} src={`${data?.Image}`} alt="G11-Fantasy Cricket Prediction for Today's Match"  width={400} height={100} /></div>
-                                                    <h4 className={style.breakingnewshometitle}> {data?.Title.substr(0, 100)}</h4> 
+                                                    <h3 className={style.breakingnewshometitle}> {data?.Title.substr(0, 100)}</h3> 
                                                 </Link>
                                         
                                         </div>

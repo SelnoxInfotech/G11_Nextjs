@@ -1,6 +1,5 @@
 // // import React from "react";
 import dynamic from 'next/dynamic'
-import useSWR from 'swr';
 import  Review from "../Component/Home/Static/Review"
 import Customerrate from "../Component/Home/Static/Customerrate"
 
