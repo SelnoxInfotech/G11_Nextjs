@@ -4040,13 +4040,17 @@ button :focus-visible {
 }
 
 .slides {
-  display: flex;
+ 
   transition: transform 0.5s ease;
 }
 
 .slide {
   flex: 0 0 100%;
   width: 100%;
+  .slides{
+    display: block;
+    width: 100%;
+  }
 }
 
 /* Add additional styling as needed */
