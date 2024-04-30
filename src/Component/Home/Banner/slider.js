@@ -56,8 +56,8 @@ const Slider = ({ slides }) => {
       } }
     > 
           {slides.map((slide, index) => (
-            <SplideSlide className='w-100'>
-                <div key={index} className={styles.slide}>
+            <SplideSlide className='w-100' key={index}>
+                <div  className={styles.slide}>
                   {slide}
                 </div>
             </SplideSlide>

@@ -72,7 +72,9 @@ const NewCard = ({props , link , api}) => {
                 {
                   [1, 5, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
                  
-                    return < Cardskeleton ketprops={i} />
+                    return <React.Fragment key={i}>
+                       < Cardskeleton ketprops={i} />
+                    </React.Fragment>
                   })
                 }
               </div>
