@@ -112,7 +112,7 @@ export default function Detailpage({ l, topNews }) {
 
         return result;
     }
- 
+
     if (loading) {
 
         //  return    <div>{'loading.....'}</div>
@@ -123,7 +123,7 @@ export default function Detailpage({ l, topNews }) {
                         {l?.map((data, index) => (
                             <React.Fragment key={index}>
                                 <Seo
-                                    Breadcrumlist={[{ Home: "https://g11prediction.com/" }, { [formatString(router.query.dynamicslug)]:  "https://g11prediction.com/"+router.query.dynamicslug  }, { [ data?.title || data?.Title]: `https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}` }]}
+                                    Breadcrumlist={[{ Home: "https://g11prediction.com/" }, { [formatString(router.query.dynamicslug)]: "https://g11prediction.com/" + router.query.dynamicslug }, { [data?.title || data?.Title]: `https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}` }]}
                                     createdate={data.created}
                                     schema={true}
                                     image={"https://www.g11fantasy.com" + data.Image}
@@ -152,6 +152,20 @@ export default function Detailpage({ l, topNews }) {
 }
 
 export async function getServerSideProps(ctx) {
+    function isInteger(value) {
+        // First, check if the value is a number or a numeric string
+        if (!isNaN(value)) {
+            // If it is a number or a numeric string, convert it to a number
+            const num = Number(value);
+            // Then check if the number is an integer
+            return num === parseInt(value, 10);
+        } else {
+            // If it's not a number or a numeric string, return false
+            return false;
+        }
+    }
+    
+      
     if (ctx.params.dynamicslug === "cricket-breaking-news"
         || ctx.params.dynamicslug === "ipl-2024"
         || ctx.params.dynamicslug === "ipl-2024-dream11-predictions"
@@ -167,10 +181,20 @@ export async function getServerSideProps(ctx) {
             if (ctx.query.dynamicslug === "cricket-news") {
                 const res = await axios.get(`https://grand11.in/g11/api/post`);
                 let k = res.data.result;
-                const p = k.find(x => x.id === ctx?.params?.index);
+                 const b = isInteger(ctx.query.index) ? ctx.query.index : ctx.query.dynamicslug2
+                const p = k.find(x => x.id === b);
                 let l = [p];
-
+               if(p) {
                 return { props: { l: l, topNews: k } };
+               }else {
+                return {
+                    redirect: {
+                        destination: '/404',
+                        permanent: false, // Set to true for permanent redirection
+                    },
+                };
+            }
+               
             } else {
 
                 let res;

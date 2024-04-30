@@ -31,7 +31,7 @@ export default function Index({ props, domain }) {
         return str?.toLowerCase()
     }
 
-    let redirect = domain === "/cricket-news" ? "/cricket-news" : "/cricket-breaking-news"
+    let redirect = domain === "/cricket-news" ? "/cricket-news" : "cricket-news" ? "/cricket-news" : "/cricket-breaking-news"
     return (
         <div className={style.breaknewssidebar}>
             <h4 className={style.breaknewssidebartitle}>Recent News</h4>
@@ -48,7 +48,7 @@ export default function Index({ props, domain }) {
                                             ? "/icc-cricket-world-cup-2024" : item.subcategoy_name === "cricket rules and regulation"
                                                 ? "/cricket-rules-and-regulation" : item.subcategoy_name === "Cricket Players"
                                                     ? "/cricket-players" : item.subcategoy_name === "IPL 2023"
-                                                        ? "/icc-cricket-world-cup-2023" : item.subcategoy_name === "IPL 2023" && "/ipl-2023"
+                                                        ? "/icc-cricket-world-cup-2023" : item.subcategoy_name === "IPL 2023" ? "/ipl-2023" : redirect
                         return <Link key={index} href={`${redirect}/${item?.urlslug !== (null || undefined) ? modifystr(item?.urlslug) : modifystr(item?.Title || item?.title)}/${item.id}`}>
                             <div className={style.toclistItem}>
                                 <span className={style.listiconsdot}> <GoDotFill /></span>
