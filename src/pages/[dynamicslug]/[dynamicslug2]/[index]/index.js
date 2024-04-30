@@ -3,16 +3,14 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import dynamic from 'next/dynamic';
 import Card from "../../../../Component/card/index";
-import TableOfContent from '../../../../Component/tableofcontent/index';
-import Seo from "../../../../Component/Seo/Seo";
+// import TableOfContent from '../../../../Component/tableofcontent/index';
+// import Seo from "../../../../Component/Seo/Seo";
 import style from "../../../../styles/Style.module.scss"
-
-
+const TableOfContent = dynamic(() => import('../../../../Component/tableofcontent/index'), { ssr: true });
+const Seo = dynamic(() => import('../../../../Component/Seo/Seo'), { ssr: true });
 const Details = dynamic(() => import('../../../../Component/Details/Details'), { ssr: true });
 
-
-export default function Detailpage({ l, topNews }) {
-    let redirect
+function Detailpage(props) {
     const router = useRouter();
     const { dynamicslug } = router.query;
     const [loading, setLoading] = useState(false);
@@ -45,36 +43,36 @@ export default function Detailpage({ l, topNews }) {
             } else {
                 // let redirect;
 
-                if (l[0]?.subcategoy_name !== (null || undefined)) {
+                if (props.l[0]?.subcategoy_name !== (null || undefined)) {
                     setLoading(false)
-                    switch (l[0]?.subcategoy_name) {
+                    switch (props.l[0]?.subcategoy_name) {
                         case "IPL 2024":
                             setLoading(true)
-                            router.replace(`/${'ipl-2024'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${'ipl-2024'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "IPL 2024 Prediction": setLoading(true)
-                            router.replace(`/${'ipl-2024-dream11-predictions'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${'ipl-2024-dream11-predictions'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "Breaking News": setLoading(true)
-                            router.replace(`/${'cricket-breaking-news'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${'cricket-breaking-news'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "Fantasy Cricket Tips": setLoading(true)
-                            router.replace(`/${'fantasy-cricket-tips'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${'fantasy-cricket-tips'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "ICC T20 WORLD CUP 2024": setLoading(true)
-                            router.replace(`/${"icc-cricket-world-cup-2024"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"icc-cricket-world-cup-2024"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "cricket rules and regulation": setLoading(true)
-                            router.replace(`/${"cricket-rules-and-regulation"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"cricket-rules-and-regulation"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "Cricket Players": setLoading(true)
-                            router.replace(`/${"cricket-players"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"cricket-players"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "ICC Cricket World Cup 2023": setLoading(true)
-                            router.replace(`/${"icc-cricket-world-cup-2023"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"icc-cricket-world-cup-2023"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "IPL 2023": setLoading(true)
-                            router.replace(`/${"ipl-2023"}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"ipl-2023"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         default:
                             setLoading(false)
@@ -82,7 +80,7 @@ export default function Detailpage({ l, topNews }) {
                 }
                 else {
 
-                    router.replace(`/${'cricket-news'}/${modifystr(l[0]?.Title || l[0]?.title)}/${l[0].id}`, undefined, { shallow: true });
+                    router.replace(`/${'cricket-news'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                     setLoading(true)
 
 
@@ -113,14 +111,16 @@ export default function Detailpage({ l, topNews }) {
         return result;
     }
 
-    if (loading) {
+  
 
         //  return    <div>{'loading.....'}</div>
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-lg-8 col-12">
-                        {l?.map((data, index) => (
+                    
+                        {props.l?.map((data, index) => (
+
                             <React.Fragment key={index}>
                                 <Seo
                                     Breadcrumlist={[{ Home: "https://g11prediction.com/" }, { [formatString(router.query.dynamicslug)]: "https://g11prediction.com/" + router.query.dynamicslug }, { [data?.title || data?.Title]: `https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}` }]}
@@ -133,13 +133,13 @@ export default function Detailpage({ l, topNews }) {
                                     canonical={`https://g11prediction.com/${router.query.dynamicslug}/${router.query.dynamicslug2}/${router.query.index}`}
                                 />
                                 <p className={`${style.bredcrumlong} mb-0`} ><span onClick={() => router.replace(`/`)}>Home</span>{" > "}<span onClick={() => router.replace(`/${router.query.dynamicslug}`)}>{capitalizeAndRemoveHyphens(router.query.dynamicslug)}</span>{" > "}<span className={style.activeRoute}>{capitalizeAndRemoveHyphens(data?.Title || data?.title)}</span></p>
-                                <Details data={loading && data} h={dynamicslug} />
+                                <Details data={data} h={dynamicslug} />
 
                             </React.Fragment>
                         ))}
                     </div>
                     <div className="col-lg-4 col-12">
-                        <TableOfContent props={topNews?.slice(0, 6) || []} domain={dynamicslug === "cricket-news" ? "cricket-news" : undefined} />
+                        <TableOfContent props={props.topNews?.slice(0, 6) || []} domain={dynamicslug === "cricket-news" ? "cricket-news" : undefined} />
                     </div>
                 </div>
                 <div className="d-md-block d-none">
@@ -148,7 +148,7 @@ export default function Detailpage({ l, topNews }) {
                 </div>
             </div>
         );
-    }
+    
 }
 
 export async function getServerSideProps(ctx) {
@@ -164,8 +164,8 @@ export async function getServerSideProps(ctx) {
             return false;
         }
     }
-    
-      
+
+
     if (ctx.params.dynamicslug === "cricket-breaking-news"
         || ctx.params.dynamicslug === "ipl-2024"
         || ctx.params.dynamicslug === "ipl-2024-dream11-predictions"
@@ -181,20 +181,20 @@ export async function getServerSideProps(ctx) {
             if (ctx.query.dynamicslug === "cricket-news") {
                 const res = await axios.get(`https://grand11.in/g11/api/post`);
                 let k = res.data.result;
-                 const b = isInteger(ctx.query.index) ? ctx.query.index : ctx.query.dynamicslug2
+                const b = isInteger(ctx.query.index) ? ctx.query.index : ctx.query.dynamicslug2
                 const p = k.find(x => x.id === b);
                 let l = [p];
-               if(p) {
-                return { props: { l: l, topNews: k } };
-               }else {
-                return {
-                    redirect: {
-                        destination: '/404',
-                        permanent: false, // Set to true for permanent redirection
-                    },
-                };
-            }
-               
+                if (p) {
+                    return { props: { l: l, topNews: k } };
+                } else {
+                    return {
+                        redirect: {
+                            destination: '/404',
+                            permanent: false, // Set to true for permanent redirection
+                        },
+                    };
+                }
+
             } else {
 
                 let res;
@@ -251,4 +251,4 @@ export async function getServerSideProps(ctx) {
 
 }
 
-export const dynamicParams = true;
+export default  Detailpage

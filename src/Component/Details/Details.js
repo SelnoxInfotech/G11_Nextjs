@@ -4,7 +4,11 @@ import Image from "next/image";
 import parse from "html-react-parser";
 import style from "../../styles/Style.module.scss";
 import axios from "axios";
-function Details({ data, h }) {
+import dynamic from 'next/dynamic';
+// const Seo = dynamic(() => import('../../Component/Seo/Seo'), { ssr: false });
+ 
+ function Details({ data, h }) {
+  console.log(data, h )
   const imageLoader = ({ src, width, height, quality }) => {
     const l =
       h === "cricket-news"
@@ -76,6 +80,7 @@ function Details({ data, h }) {
   };
   return (
     <React.Fragment>
+
       <div className={style.detailspaget}>
           <div className="row ">
             <div className={style.newspageheader}>

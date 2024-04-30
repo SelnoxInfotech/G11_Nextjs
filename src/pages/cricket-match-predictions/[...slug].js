@@ -76,9 +76,6 @@ function Matchguide(props) {
     );
 }
 
-
-
-
 export async function getServerSideProps(ctx) {
     function checkString(string) {
         if (typeof string === "string" && !isNaN(string)) {

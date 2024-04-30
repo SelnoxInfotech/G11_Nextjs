@@ -11,6 +11,7 @@ const nextConfig = {
 
   images: {
     disableStaticImages: true,
+    // Replace "domains" with "remotePatterns"
     remotePatterns: [
       {
         protocol: 'https',
@@ -22,8 +23,8 @@ const nextConfig = {
         port: '3000',
         pathname: '/Image/**',
       },
+      // Add more remote patterns if needed
     ],
-    domains: ['www.g11fantasy.com', 'grand11.in'],
   },
 
   async rewrites() {
