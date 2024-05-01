@@ -8,7 +8,6 @@ import dynamic from 'next/dynamic';
 // const Seo = dynamic(() => import('../../Component/Seo/Seo'), { ssr: false });
  
  function Details({ data, h }) {
-  console.log(data, h )
   const imageLoader = ({ src, width, height, quality }) => {
     const l =
       h === "cricket-news"
@@ -18,17 +17,6 @@ import dynamic from 'next/dynamic';
   };
 
  
-  // React.useEffect(() => {
-  // axios.post(`https://www.g11fantasy.com/NewsSection/Update-ViewCounter/`,
-
-  //     {
-  //         "id": data.id
-
-  //     }
-
-  // ).then(response => {
-  // })
-  // }, [])
   const dateformatter = (date) => {
     function monthname(val) {
       switch (val) {
@@ -78,6 +66,7 @@ import dynamic from 'next/dynamic';
     let a = date.getDate() + "-" + monthname(date.getMonth() + 1) + "-" + date.getFullYear() + " " + date.getHours() +  ":" + date.getMinutes();
     return a;
   };
+
   return (
     <React.Fragment>
 
@@ -100,7 +89,6 @@ import dynamic from 'next/dynamic';
                   height={100}
                   quality={100}
                 />
-                {/* <div className={style.headeringImagehover}></div> */}
               </div>
               <div className={style.detailspagecontent}>
                 {parse(

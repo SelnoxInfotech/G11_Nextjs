@@ -21,6 +21,10 @@ app.prepare()
     server.use(Rss);
 
     // Custom API (Rediecrct)
+    server.get("/About-us/", (req, res, next) => {
+      // Redirect to '/cricket-breaking-news/' with status code 301
+      res.redirect(301, '/about-us/');
+    });
     server.get("/breakingnews/", (req, res, next) => {
       // Redirect to '/cricket-breaking-news/' with status code 301
       res.redirect(301, '/cricket-breaking-news/');

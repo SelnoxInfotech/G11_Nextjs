@@ -108,6 +108,10 @@ const nextConfig = {
       {
         source: '/Cricket-news',
         destination: '/cricket-news',
+      },
+      {
+        source: '/About-us',
+        destination: '/about-us',
       }
       // Add more custom routing rules as needed
     ];
