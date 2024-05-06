@@ -395,11 +395,6 @@ h2.sectionMainTitle {
     color: #c2151b;
   }
 }
-
-.updatecardhomewrapper {
-  justify-content: center;
-}
-
 .BreakingNewsSectionHomepage {
   a {
     background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
@@ -2820,7 +2815,7 @@ button :focus-visible {
   .newcardwrapper {
     display: flex;
     justify-content: flex-start;
-    gap: 14px;
+    gap: 10px;
     flex-wrap: wrap;
     padding: 20px 0;
 
@@ -2865,9 +2860,12 @@ button :focus-visible {
   }
 
   .newcardwrapper {
+    gap: 20px;
+
     .newcard {
       max-width: 220px;
-      width: 22%;
+      width: 23%;
+
     }
   }
 
@@ -2900,13 +2898,7 @@ button :focus-visible {
     }
   }
 
-  .newcardwrapper {
-    gap: 25px;
 
-    .newcard {
-      width: 24%;
-    }
-  }
 
   .skeletonCard {
     width: 23%;
@@ -2998,11 +2990,6 @@ button :focus-visible {
       width: 48%;
     }
   }
-
-  .updatecardhomewrapper {
-    justify-content: flex-start;
-  }
-
   .Breaking_new {
     .Breaking_newCardWrapper {
       gap: 10px;
@@ -3014,7 +3001,7 @@ button :focus-visible {
   }
 
   .newcardwrapper {
-    gap: 35px;
+    gap: 30px;
 
     .newcard {
       width: 30%;

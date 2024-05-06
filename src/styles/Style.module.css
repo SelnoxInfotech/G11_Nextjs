@@ -345,10 +345,6 @@ h2.sectionMainTitle {
   color: #c2151b;
 }
 
-.updatecardhomewrapper {
-  justify-content: center;
-}
-
 .BreakingNewsSectionHomepage a {
   background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
   background-size: 200% 100%;
@@ -2340,7 +2336,7 @@ h1.newcardwrappermainHeading {
   .newcardwrapper {
     display: flex;
     justify-content: flex-start;
-    gap: 14px;
+    gap: 10px;
     flex-wrap: wrap;
     padding: 20px 0;
   }
@@ -2373,9 +2369,12 @@ h1.newcardwrappermainHeading {
   .Breaking_new .Breaking_newCardWrapper .Breaking_news_gap {
     width: 22%;
   }
+  .newcardwrapper {
+    gap: 20px;
+  }
   .newcardwrapper .newcard {
     max-width: 220px;
-    width: 22%;
+    width: 23%;
   }
   .HightLight .BreakingnewsScrollInside {
     display: flex;
@@ -2396,12 +2395,6 @@ h1.newcardwrappermainHeading {
   .HightLight .BreakingnewsScrollInside .HightCol button.highlightcardbtn {
     padding: 5px 10px;
     font-size: 14px;
-  }
-  .newcardwrapper {
-    gap: 25px;
-  }
-  .newcardwrapper .newcard {
-    width: 24%;
   }
   .skeletonCard {
     width: 23%;
@@ -2465,9 +2458,6 @@ h1.newcardwrappermainHeading {
   .videoSkeetonwrapper .skeletonVideroCard {
     width: 48%;
   }
-  .updatecardhomewrapper {
-    justify-content: flex-start;
-  }
   .Breaking_new .Breaking_newCardWrapper {
     gap: 10px;
   }
@@ -2475,7 +2465,7 @@ h1.newcardwrappermainHeading {
     width: 30%;
   }
   .newcardwrapper {
-    gap: 35px;
+    gap: 30px;
   }
   .newcardwrapper .newcard {
     width: 30%;
