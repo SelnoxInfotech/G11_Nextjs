@@ -114,6 +114,7 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
                 <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {
+                                console.log(breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title))
                             return (
 
                                 <div className={`${style.Breaking_news_gap}`} key={index}>

@@ -21,10 +21,7 @@ app.prepare()
     server.use(Rss);
 
     // Custom API (Rediecrct)
-    server.get("/About-us/", (req, res, next) => {
-      // Redirect to '/cricket-breaking-news/' with status code 301
-      res.redirect(301, '/about-us/');
-    });
+  
     server.get("/breakingnews/", (req, res, next) => {
       // Redirect to '/cricket-breaking-news/' with status code 301
       res.redirect(301, '/cricket-breaking-news/');
@@ -214,6 +211,13 @@ app.prepare()
     server.get('*', (req, res) => {
       return handle(req, res);
     });
+    server. get("/About-us/", (req, res, next) => {
+      console.log("dsdsk")
+      // Redirect to '/cricket-breaking-news/' with status code 301
+      res.redirect(301, '/about-us');
+    });
+
+
     // Error handling middleware
     server.use((err, req, res, next) => {
       console.error(err.stack);

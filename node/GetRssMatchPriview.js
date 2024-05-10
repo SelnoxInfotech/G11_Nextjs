@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const cheerio = require('cheerio');
 const { default: axios } = require('axios');
 const RSS = require('rss');
 
@@ -26,7 +25,6 @@ router.get('/rss/:category', (req, res) => {
 
     return str.toLowerCase()
   }
-
   async function generateRssXml(url, link, siteurl) {
     const data = await axios.get(url);
 
@@ -56,9 +54,6 @@ router.get('/rss/:category', (req, res) => {
 
     return feed.xml({ indent: true });
   }
-
-
-
   if (req.params.category === "Breakingnewsrss-Feed.xml") {
     try {
       async function k() {
@@ -74,7 +69,6 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
-
   else if (req.params.category === "icc-cricket-world-cup-2023RSS-feed.xml") {
     try {
       async function k() {
