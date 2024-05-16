@@ -9,7 +9,8 @@ import { useRouter } from 'next/navigation'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import Dropdown from 'react-bootstrap/Dropdown';
+import logo from "../../Image/G11.webp"
+import dekstoplogo from "../../Image/G11.png"
 import style from "../../../src/styles/Style.module.scss"
 import Image from 'next/image';
 function OffcanvasExample({ props }) {
@@ -59,9 +60,10 @@ function OffcanvasExample({ props }) {
   const hideDropdown = e => {
     setDropshow(false);
   }
-  const imageLoader = ({ src, width, quality }) => {
-    return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
-  }
+  // const imageLoader = ({ src, width, quality }) => {
+  //     console.log("true")
+  //   return windowDimenion?.winWidth <= 991 && `/{src}?w=${width}&q=${quality || 75}`
+  // }
 
   // useEffect(() => {
   //   async function hrefFunction() {
@@ -83,7 +85,7 @@ function OffcanvasExample({ props }) {
           <Container fluid  >
 
             <Nav>
-              <Image loader={imageLoader} src={"/image/images/download/media/Static/G11.png"} width={100} height={100} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
+              <Image src={ windowDimenion?.winWidth <= 991 ? logo : dekstoplogo} width={1000} height={84} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas}  ><GiHamburgerMenu color='#fff'  size={32}/></Navbar.Toggle>
             <Navbar.Offcanvas

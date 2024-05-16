@@ -5,7 +5,7 @@ import style from "../../../styles/Style.module.scss"
 import Image from 'next/image';
 import Link from 'next/link';
 import axios from 'axios';
-const HightLight = ({post}) => {
+const HightLight = ({ post }) => {
     const [latestnews, setlatestnews] = React.useState([])
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
@@ -49,14 +49,19 @@ const HightLight = ({post}) => {
                                 return (
                                     <div className={`${style.HightCol}`} key={index}>
                                         <div className='col-lg-6 col-12 overflow-hidden' >
-                                            <Image loader={imageLoader} width={0}
-                                                height={0}
-                                                sizes="100vw"
-                                                style={{ width: '100%', height: '275px' }} src={`${data.image}`} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                                            <Image
+                                                loader={imageLoader}
+                                                src={data.image}
+                                                alt="G11-Fantasy Cricket Prediction for Today's Match"
+                                                width={1200} // Actual width of the image
+                                                height={360} // Actual height of the image
+                                                sizes="100vw" // Responsive sizes
+                                                style={{ width: '100%', height: 'auto', maxHeight: '275px' }} // Responsive styling
+                                            />
                                         </div>
                                         <div className='col-lg-6 col-12'>
-                                            <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>   
-                                             <h3 className={style.highlightcardtitle}> {data?.title?.substr(0, 55)}</h3>
+                                            <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>
+                                                <h3 className={style.highlightcardtitle}> {data?.title?.substr(0, 55)}</h3>
                                             </Link>
                                             <span className={style.highlightcarddescription}>{parse(data?.content) ? parse(data?.content) : ""}</span>
                                             <Link href={`/cricket-news/${modifystr(data.title)}/${data.id}`}>

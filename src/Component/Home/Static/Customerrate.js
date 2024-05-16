@@ -4,24 +4,24 @@ import { AiFillStar } from 'react-icons/ai'
 import { BsStarHalf } from 'react-icons/bs'
 import ScrollContainer from 'react-indiana-drag-scroll';
 import style from "../../../styles/Style.module.scss"
-import blank_image from "./user.webp"
-export default function CostumerRate({image}) {
+import blank_image from "./user1.webp"
+export default function CostumerRate({ image }) {
 
-const imageLoader = ({ src, width, quality }) => {
-    return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
-  }
+    const imageLoader = ({ src, width, quality }) => {
+        return `https://www.g11fantasy.com${src}?w=${width}?h=${100}&q=${quality || 75}`
+    }   
     return (
 
         <div className='container-fluid rate_box '>
 
             <ScrollContainer className={style.ScrollContainerRelative}>
-              <div className='row'>
+                <div className='row'>
 
-              <div className={`${style.CustomerReview}`}>
+                    <div className={`${style.CustomerReview}`}>
 
                         <div className={` ${style.Customer_box}`}>
-                            <div className={`${'col-12 d-flex justify-content-center '} ${style.insideBox}`}>
-                                <Image  width={100}  height={100}className='rate_image '  src={blank_image} alt="G11-Fantasy Cricket Prediction for Today's Match" />
+                            <div   className={`${'col-12 d-flex justify-content-center '} ${style.insideBox} `}>
+                                <Image  width={100} height={100}   src={blank_image} alt="G11-Fantasy Cricket Prediction for Today's Match" />
                             </div>
                             <div className='col-12 d-flex justify-content-center'>
                                 <p>Maria Luisa</p>
@@ -169,9 +169,9 @@ const imageLoader = ({ src, width, quality }) => {
 
                             </div>
                         </div>
-               
+
+                    </div>
                 </div>
-              </div>
             </ScrollContainer>
         </div>
     )

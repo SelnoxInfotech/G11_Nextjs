@@ -23,6 +23,7 @@ const nextConfig = {
         port: '3000',
         pathname: '/Image/**',
       },
+
       // Add more remote patterns if needed
     ],
   },

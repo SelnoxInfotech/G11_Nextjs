@@ -67,13 +67,15 @@ h2.sectionMainTitle {
   justify-content: space-evenly;
   align-items: center;
 }
-.sectionCardbox{
-   border-radius: 20px;
-   overflow: hidden;
-   background-color: #ececec;
-   margin: 20px 0;
-   padding: 20px;
+
+.sectionCardbox {
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #ececec;
+  margin: 20px 0;
+  padding: 20px;
 }
+
 .btn_tele {
   border-radius: 21px;
   background-color: #0088cc;
@@ -94,7 +96,7 @@ h2.sectionMainTitle {
     border-radius: 21px;
     background-color: #006bd0;
     position: relative;
-  
+
     height: 45px;
     width: 194px;
     color: white;
@@ -279,7 +281,8 @@ h2.sectionMainTitle {
     font-size: -webkit-xxx-large;
     font: 40px;
     font-family: "Segoe UI";
-    .match_Title{
+
+    .match_Title {
       color: white;
     }
   }
@@ -292,6 +295,8 @@ h2.sectionMainTitle {
     text-decoration: none;
   }
 }
+
+
 
 .update_match {
 
@@ -316,7 +321,7 @@ h2.sectionMainTitle {
     align-items: center;
     width: 300px;
     position: relative;
-  
+
     &:hover {
       box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -354,15 +359,16 @@ h2.sectionMainTitle {
     .location {
       margin: 0 auto;
       background-color: #fff;
-       width: 90%;
-       border-radius: 5px;
-       p{
+      width: 90%;
+      border-radius: 5px;
+
+      p {
         font-size: 16px;
         font-weight: 500;
         line-height: 1.6;
-        margin: 0 ;
+        margin: 0;
         color: #c2121c;
-       }
+      }
     }
   }
 }
@@ -395,6 +401,7 @@ h2.sectionMainTitle {
     color: #c2151b;
   }
 }
+
 .BreakingNewsSectionHomepage {
   a {
     background-image: linear-gradient(to right, #eb7e7e, #c2121c 50%);
@@ -560,9 +567,11 @@ h2.sectionMainTitle {
     }
   }
 }
-.activeRoute{
+
+.activeRoute {
   color: #c2121c !important;
 }
+
 .skeletonCard {
   width: 18%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -1069,6 +1078,7 @@ h2.sectionMainTitle {
 
     a {
       text-decoration: none !important;
+
       &:hover {
         &::before {
           display: none !important;
@@ -1174,6 +1184,7 @@ h2.sectionMainTitle {
 
       &:hover {
         img {
+          aspect-ratio: 16 / 9;
           transform: scale(1.1);
           transition: all 0.3s ease-in-out;
         }
@@ -1290,7 +1301,7 @@ h2.sectionMainTitle {
   justify-content: center;
   align-items: center;
   display: flex;
-  background: url("../Image/teamimage.jpg");
+  background: url("../Image/teamimage.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1536,8 +1547,8 @@ h2.sectionMainTitle {
       margin-top: 25px;
       background-color: white;
       border-radius: 26px;
-      width: 200px;
-      height: 230px;
+      // width: 200px;
+      // height: 230px;
       position: relative;
       justify-content: center;
       display: grid;
@@ -1850,41 +1861,46 @@ h2.sectionMainTitle {
     margin-top: 8px;
   }
 }
-.matchcardwrapper{
+
+.matchcardwrapper {
   display: grid;
   padding: 30px 0;
-  grid-template-columns: repeat(3,auto);
+  grid-template-columns: repeat(3, auto);
   justify-content: space-between;
   gap: 40px;
-    .matchcard {
-      background: url("https://www.g11fantasy.com/image/images/download/media/Static/matchBackground.jpg");
-      padding: 20px;
-      background-size: 100% 100%;
-      width: 300px;
-      height: 300px;
-      border-radius: 20px;
-      margin: 0 auto;
-      &:hover {
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
-          rgba(0, 0, 0, 0.05) 0px 5px 10px;
-        transition: all 0.3s ease-in-out;
-        margin-top: -5px;
-      }
 
-      .matchcardteamname {
-        line-height: 18px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        /* number of lines to show */
-        line-clamp: 1;
-        -webkit-box-orient: vertical;
-      }
-      .city_location{
-        border-radius: 8px;
-      }
+  .matchcard {
+    background: url("https://www.g11fantasy.com/image/images/download/media/Static/matchBackground.jpg");
+    padding: 20px;
+    background-size: 100% 100%;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    margin: 0 auto;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+        rgba(0, 0, 0, 0.05) 0px 5px 10px;
+      transition: all 0.3s ease-in-out;
+      margin-top: -5px;
     }
+
+    .matchcardteamname {
+      line-height: 18px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      /* number of lines to show */
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    .city_location {
+      border-radius: 8px;
+    }
+  }
 }
+
 .font {
   h3 {
     span {
@@ -1936,37 +1952,40 @@ h2.sectionMainTitle {
     position: relative;
     top: 13px;
     border-radius: 5px;
-    color: #c2121c; 
+    color: #c2121c;
     position: relative;
     font-weight: 500;
     font-size: 15px;
     overflow: hidden;
     height: 33px;
-   
-    .city_location{
+
+    .city_location {
       z-index: 10;
     }
-    &::before{
-        content: '';
-        width: 0%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #c2121c;
+
+    &::before {
+      content: '';
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #c2121c;
     }
-    &:hover{
+
+    &:hover {
       color: #fff;
-     
-      .city_location{
+
+      .city_location {
         z-index: 10;
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50% , -50%);
+        transform: translate(-50%, -50%);
         width: 90%;
       }
-      &::before{
+
+      &::before {
         width: 100%;
         transition: all .5s ease;
         z-index: 9;
@@ -2439,27 +2458,28 @@ h1.newcardwrappermainHeading {
 }
 
 .detailspaget {
-  .newspageheader{
+  .newspageheader {
     margin-bottom: 20px;
     border-bottom: 1px solid #cacaca;
-  h1.title_had {
-    font-size: 32px;
-    line-height: 1.4;
-    color: rgb(194, 18, 28);
-    font-weight: 700;
-    font-family: "Inter", sans-serif;
-    word-spacing: 2px;
-    letter-spacing: 1.5px;
-    margin:10px 0;
-  }
 
-  h3.posttiming{
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #c2121c;
+    h1.title_had {
+      font-size: 32px;
+      line-height: 1.4;
+      color: rgb(194, 18, 28);
+      font-weight: 700;
+      font-family: "Inter", sans-serif;
+      word-spacing: 2px;
+      letter-spacing: 1.5px;
+      margin: 10px 0;
+    }
+
+    h3.posttiming {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #c2121c;
+    }
   }
-}
 
   .detailspagecontent {
     h2 {
@@ -2469,9 +2489,11 @@ h1.newcardwrappermainHeading {
       line-height: 1.5;
       font-size: 28px;
     }
-    span{
+
+    span {
       background-color: transparent !important;
     }
+
     table {
       width: 100% !important;
     }
@@ -2597,34 +2619,38 @@ h1.newcardwrappermainHeading {
 
 .Fantasycrickettip {
   margin-top: 10px;
- background-color: #e1e1e145;
+  background-color: #e1e1e145;
+
   .box {
-    .slug{
+    .slug {
       color: #C2121C;
-      gap: 10px; 
+      gap: 10px;
       display: flex;
       font-weight: 500;
       font-size: 14px;
       line-height: 1.5;
       font-family: "Inter", sans-serif;
     }
-    .LoadMOre{
-     
+
+    .LoadMOre {
+
       padding: 4px 7px;
-      border: 1px solid #c2121c ;
+      border: 1px solid #c2121c;
       border-radius: 20px;
       color: #C2121C;
       cursor: pointer;
       font-size: 14px;
       line-height: 1.4;
       font-weight: 500;
-      &:hover{
-      
+
+      &:hover {
+
         color: #fff;
         background-color: #c2121c;
         transition: all .3s ease-in-out;
       }
     }
+
     h1 {
       font-size: 36px;
       color: #C2121C;
@@ -2636,19 +2662,22 @@ h1.newcardwrappermainHeading {
     p {
       font-size: 16px;
     }
-    .heading{
-      font-weight: 500; 
+
+    .heading {
+      font-weight: 500;
     }
+
     height: 100%;
     display: flexbox;
     justify-content: center;
     border: 1px solid #C2121C;
     border-radius: 12px;
     // background: rgb(232, 243, 245);
-   
+
   }
 }
-.faqheading{
+
+.faqheading {
   height: 50px;
   // border: 1px solid black;
   align-items: center;
@@ -2657,26 +2686,30 @@ h1.newcardwrappermainHeading {
   font-size: 20px;
   font-weight: 500;
   margin-top: 2%;
+
   // margin-bottom: 20px;
-  p{
+  p {
     margin: 0;
   }
-  .newcardwrapper{
+
+  .newcardwrapper {
     padding: 0;
   }
 }
+
 .accordion {
   button {
     border-top-left-radius: #C2121C;
     border-top-right-radius: #C2121C;
-}
-button :focus-visible {
-  z-index: 3;
-  border-color: black;
-  outline: 0;
-  box-shadow: var(--bs-accordion-btn-focus-box-shadow);
-  // border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
-}
+  }
+
+  button :focus-visible {
+    z-index: 3;
+    border-color: black;
+    outline: 0;
+    box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+    // border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+  }
 }
 
 /* Style the accordion section */
@@ -2733,7 +2766,7 @@ button :focus-visible {
   background-color: white;
   overflow: hidden;
   transition: max-height 0.6s ease;
-  border: 1px solid #c2121c ; 
+  border: 1px solid #c2121c;
   border-top: none;
   box-sizing: border-box;
 }
@@ -2747,8 +2780,9 @@ button :focus-visible {
   font-family: "Inter", sans-serif;
 
 }
-.bredcrumlong{
- word-wrap: break-word;
+
+.bredcrumlong {
+  word-wrap: break-word;
   flex-wrap: wrap;
   gap: 4px;
   font-size: 14px;
@@ -2756,7 +2790,8 @@ button :focus-visible {
   font-weight: 500;
   line-height: 1.5;
   color: #646464;
-  span{
+
+  span {
     font-size: 12px;
     font-weight: 500;
     line-height: 1.5;
@@ -2764,16 +2799,17 @@ button :focus-visible {
   }
 }
 
-@media (max-width: 1480px){
+@media (max-width: 1480px) {
   .Homelink {
     a {
       font-size: 16px;
       margin: 16px;
-  
-    
+
+
     }
   }
 }
+
 @media (max-width: 1400px) {
   .Breaking_new {
     .Breaking_newCardWrapper {
@@ -2832,7 +2868,8 @@ button :focus-visible {
     }
   }
 }
-@media (max-width: 1338px){
+
+@media (max-width: 1338px) {
   .Homelink {
     a {
       font-size: 14px;
@@ -2840,7 +2877,8 @@ button :focus-visible {
     }
   }
 }
-@media (max-width: 1266px){
+
+@media (max-width: 1266px) {
   .Homelink {
     a {
       font-size: 12px;
@@ -2848,6 +2886,7 @@ button :focus-visible {
     }
   }
 }
+
 @media (max-width: 1200px) {
   .Breaking_new {
     .Breaking_newCardWrapper {
@@ -2927,9 +2966,10 @@ button :focus-visible {
     }
 
   }
+
   .Homelink {
     a {
-      font-size: 12px;  
+      font-size: 12px;
       margin: 12px;
     }
   }
@@ -2953,32 +2993,36 @@ button :focus-visible {
     font-weight: 700;
     line-height: 1.5;
   }
+
   .Homelink {
     a {
-      font-size: 10px;  
+      font-size: 10px;
       margin: 10px;
     }
   }
-  .matchcardwrapper{
+
+  .matchcardwrapper {
     display: grid;
     padding: 30px 0;
-    grid-template-columns: repeat(2,auto);
+    grid-template-columns: repeat(2, auto);
     justify-content: space-evenly;
     gap: 40px;
-     
+
   }
 }
 
 @media (max-width: 992px) {
   .Homelink {
     align-items: flex-start;
+
     a {
-      font-size: 18px;  
+      font-size: 18px;
       margin: 10px;
-     padding-left: 0;
+      padding-left: 0;
 
     }
   }
+
   .Offcanvas {
     justify-content: space-between;
   }
@@ -2990,6 +3034,7 @@ button :focus-visible {
       width: 48%;
     }
   }
+
   .Breaking_new {
     .Breaking_newCardWrapper {
       gap: 10px;
@@ -3305,20 +3350,22 @@ button :focus-visible {
       width: 30%;
     }
   }
-  .breaknewssidebar{
+
+  .breaknewssidebar {
     margin-bottom: 20px;
   }
 }
 
 @media (max-width: 576px) {
-  .matchcardwrapper{
+  .matchcardwrapper {
     display: grid;
     padding: 30px 0;
-    grid-template-columns: repeat(1,auto);
+    grid-template-columns: repeat(1, auto);
     justify-content: space-evenly;
     gap: 20px;
-     
+
   }
+
   .footer_head {
     .appdownloadtext {
       width: 50%;
@@ -3349,10 +3396,12 @@ button :focus-visible {
       }
     }
   }
+
   h2.sectionMainTitle {
     font-size: 26px;
     margin: 20px 0;
   }
+
   .Breaking_new {
     .Breaking_newCardWrapper {
       gap: 10px;
@@ -3474,6 +3523,7 @@ button :focus-visible {
   }
 
   .Banner_img {
+    background: url("../Component/Home/Banner/g11BannerDesignmobile.webp");
     color: white;
     height: 320px;
     width: 100%;
@@ -3500,7 +3550,7 @@ button :focus-visible {
     }
 
     .homepagebannertext {
-      top: 20px;
+      top: 0px;
     }
 
     .banner_field {
@@ -3518,6 +3568,7 @@ button :focus-visible {
       text-decoration: none;
     }
   }
+
   .homepagebreakingness {
     min-width: 150px;
 
@@ -3530,7 +3581,7 @@ button :focus-visible {
     a {
       font-size: 14px;
       text-decoration: none;
-      
+
 
       .breakingnewshometitle {
         font-size: 14px;
@@ -3821,15 +3872,17 @@ button :focus-visible {
     position: relative;
     width: 48px;
     top: -5px;
+    height: 50%;
     border-radius: 50px;
+    max-width: 100%;
   }
 
   .detailspaget {
-    .newspageheader{
-    h1.title_had {
-      font-size: 22px;
+    .newspageheader {
+      h1.title_had {
+        font-size: 22px;
+      }
     }
-  }
 
     .detailspagecontent {
       h2 {
@@ -3981,19 +4034,21 @@ button :focus-visible {
       font-size: 16px;
     }
   }
+
   .Fantasycrickettip {
     margin-top: 10px;
-   background-color: #e1e1e145;
+    background-color: #e1e1e145;
+
     .box {
-      
-     
+
+
       h1 {
         font-size: 22px;
-     
+
       }
-  
-   
-     
+
+
+
     }
   }
 }
@@ -4008,14 +4063,14 @@ button :focus-visible {
 
 
 
-.sitemap_xmlpage{
- a{
-  text-decoration: none;
+.sitemap_xmlpage {
+  a {
+    text-decoration: none;
     color: #C2121C;
- }
+  }
 }
 
-.latestnews_image{
+.latestnews_image {
   width: auto;
   height: auto;
 }
@@ -4027,14 +4082,15 @@ button :focus-visible {
 }
 
 .slides {
- 
+
   transition: transform 0.5s ease;
 }
 
 .slide {
   flex: 0 0 100%;
   width: 100%;
-  .slides{
+
+  .slides {
     display: block;
     width: 100%;
   }
@@ -4042,3 +4098,14 @@ button :focus-visible {
 
 /* Add additional styling as needed */
 
+
+.imageCustumerateing {
+  width: 100px;
+  height: 100px;
+}
+
+// @media only screen and (min-width: 560) {
+//   .Banner_img {
+//     background: url("../Component/Home/Banner/g11BannerDesignmobile.webp");
+//   }
+// }

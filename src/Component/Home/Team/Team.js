@@ -7,12 +7,13 @@ import Image from "next/image";
 export default function Teams() {
   const [teams, setTeams] = React.useState([])
   const imageLoader = ({ src, width, quality }) => {
-    return `https://grand11.in/g11/${src}?w=${width}&q=${quality || 75}`
+    return `https://g11fantasy.com${src}?w=${width}&q=${quality || 75}`
   }
 
   React.useEffect(() => {
-    axios("https://grand11.in/g11/api/teams").then((res) => {
-      setTeams(res.data.result)
+    axios("https://g11fantasy.com/NewsSection/Get-AllTeamImage/").then((res) => {
+    setTeams(res.data)
+    
     })
   }, [])
   return (
@@ -34,8 +35,9 @@ export default function Teams() {
                         <Image
                           loader={imageLoader}
                           className={style.team_img}
-                          width={100}
-                          height={20}
+                          width={128}
+                          height={127}
+                          layout="fixed" 
                           onError={(e) => {
                             e.target.onerror = null; // Reset the error handler to prevent infinite loop
                             e.target.srcset = "https://g11fantasy.com/image/images/download/media/Static/G11.png"; // Set the default image source
