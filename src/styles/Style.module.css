@@ -1249,6 +1249,7 @@ h2.sectionMainTitle {
   display: grid;
 }
 .teams_color .teams_image_box .teams_image_container div {
+  width: 175px;
   margin-top: 25px;
   gap: 20px;
   display: grid;
