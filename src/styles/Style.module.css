@@ -948,6 +948,7 @@ h2.sectionMainTitle {
   padding: 20px;
 }
 .HightLight .BreakingnewsScrollInside .HightCol:hover img {
+  aspect-ratio: 16/9;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
@@ -1047,7 +1048,7 @@ h2.sectionMainTitle {
   justify-content: center;
   align-items: center;
   display: flex;
-  background: url("../Image/teamimage.jpg");
+  background: url("../Image/teamimage.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1243,8 +1244,6 @@ h2.sectionMainTitle {
   margin-top: 25px;
   background-color: white;
   border-radius: 26px;
-  width: 200px;
-  height: 230px;
   position: relative;
   justify-content: center;
   display: grid;
@@ -2809,6 +2808,7 @@ h1.newcardwrappermainHeading {
     text-align: center;
   }
   .Banner_img {
+    background: url("../Component/Home/Banner/g11BannerDesignmobile.webp");
     color: white;
     height: 320px;
     width: 100%;
@@ -2831,7 +2831,7 @@ h1.newcardwrappermainHeading {
     display: flex;
   }
   .Banner_img .homepagebannertext {
-    top: 20px;
+    top: 0px;
   }
   .Banner_img .banner_field {
     text-align: center;
@@ -3082,7 +3082,9 @@ h1.newcardwrappermainHeading {
     position: relative;
     width: 48px;
     top: -5px;
+    height: 50%;
     border-radius: 50px;
+    max-width: 100%;
   }
   .detailspaget .newspageheader h1.title_had {
     font-size: 22px;
@@ -3232,4 +3234,8 @@ h1.newcardwrappermainHeading {
   width: 100%;
 }
 
-/* Add additional styling as needed *//*# sourceMappingURL=Style.module.css.map */
+/* Add additional styling as needed */
+.imageCustumerateing {
+  width: 100px;
+  height: 100px;
+}/*# sourceMappingURL=Style.module.css.map */
