@@ -7,7 +7,7 @@ const MatchPriview = dynamic(() => import('../../Component/MatchPriview/MatchPri
 const Seo = dynamic(() => import('../../Component/Seo/Seo'), { ssr: true });
 
 function Matchguide(props) {
-// console.log(props.matchPreview)
+    // console.log(props.matchPreview)
     const $ = cheerio.load(props.MatchData);
     const jsonData = {};
 
@@ -64,7 +64,7 @@ function Matchguide(props) {
             {<Seo
                 createdate={undefined}
                 schema={true}
-                Breadcrumlist={[{Home:"https://g11prediction.com/" } , {"cricket-match-predictions": "/cricket-match-predictions/"} ,  {[`${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} Dream11 Prediction Today Match | Dream11 Team Today`]: `${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)) + "-dream11-prediction-today-match"}/${props.idIndex}/`}] }
+                Breadcrumlist={[{ Home: "https://g11prediction.com/" }, { "cricket-match-predictions": "/cricket-match-predictions/" }, { [`${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} Dream11 Prediction Today Match | Dream11 Team Today`]: `${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)) + "-dream11-prediction-today-match"}/${props.idIndex}/` }]}
                 title={`${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} Dream11 Prediction Today Match | Dream11 Team Today`}
                 image={jsonData.image = $('div.col-sm-4 img').attr('src')}
                 description={`Dream11 today match prediction for ${jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)}.Win big with accurate tips & best Dream11 team prediction, Today Dream11 Team Check out!`}
@@ -109,7 +109,7 @@ export async function getServerSideProps(ctx) {
                 return { dataImage, matchPreview };
             };
             const { dataImage, matchPreview } = extractDataFromHTML(props);
-            return { props: { MatchData: props, topNews, idIndex,dataImage, matchPreview  } };
+            return { props: { MatchData: props, topNews, idIndex, dataImage, matchPreview } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
@@ -135,7 +135,7 @@ export async function getServerSideProps(ctx) {
                 return { dataImage, matchPreview };
             };
             const { dataImage, matchPreview } = extractDataFromHTML(props);
-            return { props: { MatchData: props, topNews, idIndex,dataImage, matchPreview  } };
+            return { props: { MatchData: props, topNews, idIndex, dataImage, matchPreview } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
@@ -152,14 +152,17 @@ export async function getServerSideProps(ctx) {
             const extractDataFromHTML = (html) => {
                 const $ = cheerio.load(html);
                 const container = $('section').eq(1).find('.container');
+                const containerData1 = container.find('.row').eq(1);
+                const matchTitle = containerData1.find('p').first().text().replace('Match : ', '');
                 const containerData = container.find('.row').eq(1);
                 const image = container.find('.row').eq(0);
                 const dataImage = image.find('img').attr('src');
                 const matchPreview = containerData.html();
-                return { dataImage, matchPreview };
+                // console.log(matchPreview)
+                return { dataImage, matchPreview , matchTitle };
             };
-            const { dataImage, matchPreview } = extractDataFromHTML(props);
-            return { props: { MatchData: props, topNews, idIndex,dataImage, matchPreview  } };
+            const { dataImage, matchPreview  , matchTitle} = extractDataFromHTML(props);
+            return { props: { MatchData: props, topNews, idIndex, dataImage, matchPreview , matchTitle} };
         } catch (error) {
             console.error("Error fetching data:", error);
             return {

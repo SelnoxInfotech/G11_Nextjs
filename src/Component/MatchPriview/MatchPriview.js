@@ -93,10 +93,11 @@ function MatchPriview(props ) {
             return (`${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
 
+
     return (
         <div>
             <div className={`${style.matchpage} container py-5`}>
-                <h1 className={`${style.matchPrivewTitle} mb-5`}>{Title1 + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
+                <h1 className={`${style.matchPrivewTitle} mb-5`}>{props.props.matchTitle + " , dream11 prediction today match, dream 11 prediction , Fantasy Cricket Tips, Playing XI, Pitch Report, Injury Update "}</h1>
 
                 <div className='row mt-3'>
                     <div className='col-lg-8 ' >
