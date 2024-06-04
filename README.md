@@ -41,3 +41,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 <!-- ssh -i "G11NEXT.pem" ubuntu@ec2-15-206-147-5.ap-south-1.compute.amazonaws.com -->
+<!-- scp -i "G11NEXT.pem" .next.zip    ubuntu@ec2-15-206-147-5.ap-south-1.compute.amazonaws.com:/home/ubuntu/G11 -->

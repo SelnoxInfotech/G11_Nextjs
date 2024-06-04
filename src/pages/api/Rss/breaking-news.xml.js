@@ -29,7 +29,7 @@ export async function generateRssXml() {
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
              ${rssData.map((url) => `
                        <url>
-                        <loc>https://g11prediction.com/cricket-breaking-news/${modifystr(url.Title)}/${url.id}/</loc>
+                        <loc>https://g11prediction.com/cricket-breaking-news/${Boolean(url?.urlslug)? modifystr(url?.urlslug) : modifystr(url?.Title ||  breakingnews?.title)}/${url.id}/</loc>
                        <changefreq>daily</changefreq>
                         <priority>0.7</priority>
                        </url>
