@@ -16,7 +16,7 @@ const sitemaphtml = () => {
             <Link href={"/ipl-2024-dream11-predictions/"}><p role="button">Ipl 2024 Dream11 Predictions</p></Link>
             <Link href={"/fantasy-cricket-tips/"}><p role="button">Fantasy Cricket Tips</p></Link>
             <Link href={"/cricket-rules-and-regulation/"}><p role="button">Cricket Rules and Regulation</p></Link>
-            <Link href={"/icc-cricket-world-cup-2024/"}><p role="button">Icc Cricket World Cup 2024</p></Link>
+            <Link href={"/icc-t20-world-cup-2024/"}><p role="button">Icc t20 world cup 2024</p></Link>
             <Link href={"/about-us/"}><p role="button">About Us</p></Link>
             <Link href={"/icc-cricket-world-cup-2023/"}> <p role="button">Icc Cricket World Cup 2023</p></Link>
             <Link href={"/cricket-players/"}><p role="button"> Cricket Players</p></Link>

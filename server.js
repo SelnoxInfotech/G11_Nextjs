@@ -26,6 +26,10 @@ app.prepare()
       // Redirect to '/cricket-breaking-news/' with status code 301
       res.redirect(301, '/cricket-breaking-news/');
     });
+    server.get("/icc-cricket-world-cup-2024/", (req, res, next) => {
+      // Redirect to '/cricket-breaking-news/' with status code 301
+      res.redirect(301, '/icc-t20-world-cup-2024/');
+    });
     server.get("/latest-match/", (req, res, next) => {
       // Redirect to '/cricket-breaking-news/' with status code 301
       res.redirect(301, '/cricket-match-predictions/');

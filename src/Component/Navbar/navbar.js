@@ -85,12 +85,12 @@ function OffcanvasExample({ props }) {
           <Container fluid  >
 
             <Nav>
-              <Image src={ windowDimenion?.winWidth <= 991 ? logo : dekstoplogo} width={1000} height={84} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
+              <Image src={windowDimenion?.winWidth <= 991 ? logo : dekstoplogo} width={1000} height={84} onClick={href} className={style.logo_img} alt="Grand11.logo" /></Nav>
 
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas}  ><GiHamburgerMenu color='#fff'  size={32}/></Navbar.Toggle>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} onClick={toggleOffCanvas}  ><GiHamburgerMenu color='#fff' size={32} /></Navbar.Toggle>
             <Navbar.Offcanvas
 
-              id={`offcanvasNavbar-expand-${expand}`}      
+              id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby="offcanvasNavbarLabel"
               placement='end'
               show={show}
@@ -99,9 +99,9 @@ function OffcanvasExample({ props }) {
               <Offcanvas.Header closeButton className={style.Offcanvas}  >
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
                   {/* <div className='row'> */}
-                    {/* <div className='col-12 lrftjoin' > */}
-                      <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn `}><Link href={'https://t.me/+TyYoHMGT3r1jMjM1'} className='text-white text-decoration-none'> Join Telegram </Link> </button>
-                    {/* </div> */}
+                  {/* <div className='col-12 lrftjoin' > */}
+                  <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn `}><Link href={'https://t.me/+TyYoHMGT3r1jMjM1'} className='text-white text-decoration-none'> Join Telegram </Link> </button>
+                  {/* </div> */}
                   {/* </div> */}
                 </Offcanvas.Title>
               </Offcanvas.Header>
@@ -118,21 +118,11 @@ function OffcanvasExample({ props }) {
                     href="/cricket-breaking-news">Breaking News</Link>
                   <Link
                     onClick={toggleOffCanvas}
-                    href="/ipl-2024">IPL 2024</Link>
-               
-
+                    href="/icc-t20-world-cup-2024">ICC World Cup 2024</Link>
                   <Link
                     onClick={toggleOffCanvas}
-                    href="/ipl-2024-dream11-predictions">IPL 2024 Prediction</Link >
-                      <Link
-                    onClick={toggleOffCanvas}
                     href="/fantasy-cricket-tips">Fantasy Cricket Tips</Link >
-                  {/* <Link
-                    onClick={toggleOffCanvas}
-                    href="/about-us">About</Link > */}
-                  {/* <Link
-                  onClick={toggleOffCanvas}
-                  href="/contact-us">Contact us</Link > */}
+
                   <NavDropdown
                     id="nav-dropdown-example"
                     title="More"
@@ -143,26 +133,22 @@ function OffcanvasExample({ props }) {
 
                   >
 
-                 <div className={style.customnavdrpstyle}>
-                   <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
-                   <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}  onClick={toggleOffCanvas} href="/icc-cricket-world-cup-2024">ICC World Cup 2024</Link >
-                   <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}  onClick={toggleOffCanvas} href="/about-us">About</Link >
-                  
-                  
-                  
-                   <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>ICC World Cup 2023</Link>
-                    {/* <Link href="/ipl-2024-dream11-predictions" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative '}}>IPL 2024 Predictions</Link> */}
-                    <Link href="/cricket-players" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}>  Cricket Players</Link>
-                    <Link href="/ipl_2023" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2023</Link>
-                    <Link href="/cricket-news" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>News</Link>
-
-                    <Link href="/latest-video" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>Video</Link>
-                    <Link href="/contact-us" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>Contact</Link>
-                 </div>
+                    <div className={style.customnavdrpstyle}>
+                      <Link href="/cricket-rules-and-regulation/" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}> Cricket Rules and Regulation</Link>
+                      <Link href="/icc-cricket-world-cup-2023" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}>ICC World Cup 2023</Link>
+                      <Link href="/cricket-players" active style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }}>  Cricket Players</Link>
+                      <Link href="/ipl-2024-dream11-predictions" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2024 Prediction</Link>
+                      <Link href="/cricket-news" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>News</Link>
+                      <Link href="/ipl_2023" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2023</Link>
+                      <Link href="/ipl-2024" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>IPL 2024</Link>
+                      <Link href="/latest-video" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>Video</Link>
+                      <Link href="/contact-us" active style={{ fontSize: "17px", margin: '0', display: "flex", position: 'relative ', width: 'fit-content' }}>Contact</Link>
+                      <Link style={{ fontSize: "17px", margin: '0', display: "inline-flex", position: 'relative ' }} onClick={toggleOffCanvas} href="/about-us">About</Link >
+                    </div>
                   </NavDropdown>
                 </Nav>
 
-              {  !show &&  <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn`}> <Link href={'https://t.me/+TyYoHMGT3r1jMjM1'} className='text-decoration-none text-white'> Join Telegram </Link> </button>}
+                {!show && <button onClick={hrefFunction} type="button" className={`${style.btn_tele}  btn`}> <Link href={'https://t.me/+TyYoHMGT3r1jMjM1'} className='text-decoration-none text-white'> Join Telegram </Link> </button>}
               </Offcanvas.Body>
             </Navbar.Offcanvas>
 

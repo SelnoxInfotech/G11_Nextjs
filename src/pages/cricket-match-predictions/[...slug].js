@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 const cheerio = require('cheerio');
 const MatchPriview = dynamic(() => import('../../Component/MatchPriview/MatchPriview'), { ssr: true });
 const Seo = dynamic(() => import('../../Component/Seo/Seo'), { ssr: true });
-import { Router } from "next/router"
 function Matchguide(props) {
 
     const $ = cheerio.load(props.MatchData);

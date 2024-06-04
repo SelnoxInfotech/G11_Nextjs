@@ -45,7 +45,7 @@ export default function Index({ props, domain }) {
                                 ? "/ipl-2024-dream11-predictions" : item.subcategoy_name === "Breaking News"
                                     ? "/cricket-breaking-news" : item.subcategoy_name === "Fantasy Cricket Tips"
                                         ? "/fantasy-cricket-tips" : item.subcategoy_name === "ICC T20 WORLD CUP 2024"
-                                            ? "/icc-cricket-world-cup-2024" : item.subcategoy_name === "cricket rules and regulation"
+                                            ? "/icc-t20-world-cup-2024" : item.subcategoy_name === "cricket rules and regulation"
                                                 ? "/cricket-rules-and-regulation" : item.subcategoy_name === "Cricket Players"
                                                     ? "/cricket-players" : item.subcategoy_name === "IPL 2023"
                                                         ? "/icc-cricket-world-cup-2023" : item.subcategoy_name === "IPL 2023" ? "/ipl-2023" : redirect

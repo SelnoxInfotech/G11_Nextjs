@@ -1,6 +1,5 @@
 
 import axios from "axios";
-
 function modifystr(str) {
     str = str.replaceAll(/[^a-zA-Z0-9/ ]/g, "-");
     str = str.trim().replaceAll(' ', "-");
@@ -29,7 +28,7 @@ export async function generateRssXml() {
           <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
              ${rssData.map((url) => `
                        <url> 
-                        <loc>https://g11prediction.com/icc-cricket-world-cup-2024/${modifystr(url.Title)}/${url.id}/</loc>
+                        <loc>https://g11prediction.com/icc-t20-world-cup-2024/${modifystr(url.Title)}/${url.id}/</loc>
                        <changefreq>daily</changefreq>
                         <priority>0.7</priority>
                        </url>

@@ -15,7 +15,7 @@ export default function Rss() {
 
                     </li>
                     <li>
-                        <a href='/rss/icc-cricket-world-cup-2024RSS-feed.xml' className='calling'><span> <FaRssSquare /> Icc-cricket-world-cup-2024</span> </a>
+                        <a href='/rss/icc-t20-world-cup-2024RSS-feed.xml' className='calling'><span> <FaRssSquare /> icc t20 world cup 2024</span> </a>
 
                     </li>
                     <li>

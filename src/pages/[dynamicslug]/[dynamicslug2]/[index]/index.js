@@ -51,28 +51,28 @@ function Detailpage(props) {
                             router.replace(`/${'ipl-2024'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "IPL 2024 Prediction": setLoading(true)
-                            router.replace(`/${'ipl-2024-dream11-predictions'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${'ipl-2024-dream11-predictions'}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug):modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "Breaking News": setLoading(true)
-                            router.replace(`/${'cricket-breaking-news'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${'cricket-breaking-news'}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug) :  modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "Fantasy Cricket Tips": setLoading(true)
-                            router.replace(`/${'fantasy-cricket-tips'}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${'fantasy-cricket-tips'}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug) :modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "ICC T20 WORLD CUP 2024": setLoading(true)
-                            router.replace(`/${"icc-cricket-world-cup-2024"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"icc-t20-world-cup-2024"}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug) :modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "cricket rules and regulation": setLoading(true)
-                            router.replace(`/${"cricket-rules-and-regulation"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"cricket-rules-and-regulation"}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug) :modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "Cricket Players": setLoading(true)
-                            router.replace(`/${"cricket-players"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"cricket-players"}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug) :modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "ICC Cricket World Cup 2023": setLoading(true)
-                            router.replace(`/${"icc-cricket-world-cup-2023"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"icc-cricket-world-cup-2023"}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug) :modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         case "IPL 2023": setLoading(true)
-                            router.replace(`/${"ipl-2023"}/${modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
+                            router.replace(`/${"ipl-2023"}/${ Boolean(props.l[0]?.urlslug) ? modifystr(props.l[0]?.urlslug) : modifystr(props.l[0]?.Title || l[0]?.title)}/${props.l[0].id}`, undefined, { shallow: true });
                             break;
                         default:
                             setLoading(false)
@@ -170,7 +170,7 @@ export async function getServerSideProps(ctx) {
         || ctx.params.dynamicslug === "ipl-2024"
         || ctx.params.dynamicslug === "ipl-2024-dream11-predictions"
         || ctx.params.dynamicslug === "cricket-rules-and-regulation"
-        || ctx.params.dynamicslug === "icc-cricket-world-cup-2024"
+        || ctx.params.dynamicslug === "icc-t20-world-cup-2024"
         || ctx.params.dynamicslug === "icc-cricket-world-cup-2023"
         || ctx.params.dynamicslug === "cricket-players"
         || ctx.params.dynamicslug === "ipl-2023"

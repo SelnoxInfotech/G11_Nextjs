@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { default: axios } = require('axios');
 const RSS = require('rss');
-
-
+var HTMLParser = require('node-html-parser');
 router.get('/rss/:category', (req, res) => {
   function modifystr(str) {
 
@@ -25,12 +24,16 @@ router.get('/rss/:category', (req, res) => {
 
     return str.toLowerCase()
   }
+  function extractData(root){
+    const description = root.querySelector('p').rawText 
+    console.log(description) 
+  }
   async function generateRssXml(url, link, siteurl) {
     const data = await axios.get(url);
 
 
     const rssData = link === "icc-cricket-world-cup-2023RSS-feed.xml" ? data.data.data : link === "ipl-2023RSS-feed.xml" ? data.data.data : link === "ipl-2024RSS-feed.xml" ? data.data.data : link === "ipl-2024-dream11-predictions.xml" ? data.data.data
-      : link === "latest-video.xml" ? data.data.data : link === "icc-cricket-world-cup-2024RSS-feed.xml" ? data.data.data : link === "Breakingnewsrss-feed.xml" ? data.data.data : data.data.data;
+      : link === "latest-video.xml" ? data.data.data : link === "icc-t20-world-cup-2024RSS-feed.xml" ? data.data.data : link === "Breakingnewsrss-feed.xml" ? data.data.data : data.data.data;
 
     let feed = new RSS({
       title: 'Cricket Breaking News ON TRENDING TOPICS',
@@ -43,11 +46,11 @@ router.get('/rss/:category', (req, res) => {
     });
 
     rssData.forEach((url) => {
-      const l = url.Description?.split('</p>')[0].replace(/(<([^>]+)>)/gi, "");
+      const l = url.Description;
       feed.item({
         title: url.Title,
-        description: l['__html'],
-        url: `https://g11prediction.com/${siteurl}/${link === "latest-video.xml" ? url.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase() : modifystr(url.Title)}/${url.id}/`,
+        // description:HTMLParser.parse(l),
+        url: `https://g11prediction.com/${siteurl}/${link === "latest-video.xml" ? url.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase() :Boolean(url?.urlslug)? modifystr(url?.urlslug) :  modifystr(url.Title)}/${url.id}/`,
         date: new Date(url.created),
       });
     });
@@ -84,10 +87,10 @@ router.get('/rss/:category', (req, res) => {
       res.status(500).end('Internal Server Error');
     }
   }
-  else if (req.params.category === "icc-cricket-world-cup-2024RSS-feed.xml") {
+  else if (req.params.category === "icc-t20-world-cup-2024RSS-feed.xml") {
     try {
       async function k() {
-        const rssXml = await generateRssXml("https://g11fantasy.com/NewsSection/FilterbySubCategory/8", "icc-cricket-world-cup-2024RSS-feed.xml", "icc-cricket-world-cup-2024");
+        const rssXml = await generateRssXml("https://g11fantasy.com/NewsSection/FilterbySubCategory/8", "icc-cricket-world-cup-2024RSS-feed.xml", "icc-t20-world-cup-2024");
         res.setHeader('Content-Type', 'text/xml');
         res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate'); // Cache the feed for 24 hours
         res.write(rssXml);

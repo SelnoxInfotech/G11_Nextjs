@@ -46,7 +46,7 @@ const nextConfig = {
         destination: '/api/Rss/robots.txt',
       },
       {
-        source: '/icc-cricket-world-cup-2024.xml',
+        source: '/icc-t20-world-cup-2024.xml',
         destination: '/api/Rss/icc-cricket-world-cup-2024.xml',
       },
       {

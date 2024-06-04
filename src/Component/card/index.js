@@ -11,7 +11,6 @@ import { useRouter } from 'next/router'
 import axios from 'axios';
 
 const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
-    console.log(slug , data1)
     const router = useRouter()
     const [data, setdata] = React.useState(props)
     const imagePerRow = 10
@@ -114,7 +113,7 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
                 <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {
-                                console.log(breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title))
+                                // console.log(breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title))
                             return (
 
                                 <div className={`${style.Breaking_news_gap}`} key={index}>
@@ -131,7 +130,10 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
                                                 </RWebShare>
 
                                             </div>
-                                            <Link className={`${style.hovereffect}`} href={`/${query}/${breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title)}/${breakingnews.id}`} >
+                                            {/* {
+                                                console.log(breakingnews , breakingnews?.urlslug !== (null || undefined) , Boolean(breakingnews?.urlslug))
+                                            } */}
+                                            <Link className={`${style.hovereffect}`} href={`/${query}/${Boolean(breakingnews?.urlslug)? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title)}/${breakingnews.id}`} >
                                                 <div className={style.News_image}>
                                                     <div className={style.imghovereffect}></div>
                                                   <Image className={style.NewsImage} loader={imageLoader} src={`${breakingnews?.Image || breakingnews?.image}`} height={10} width={100} alt="news_image" quality={100} />

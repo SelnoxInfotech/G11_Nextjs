@@ -5,7 +5,7 @@ import Customerrate from "../Component/Home/Static/Customerrate"
 
 const Seo = dynamic(() => import('../Component/Seo/Seo'));
 const ScrollBreaking = dynamic(() => import('../Component/Home/ScrollBreakingnews/index'), { ssr: false, loading: () => <p>Loading...</p> });
-const UpdateMatch = dynamic(() => import('../Component/Home/Updatematch/Match'), { ssr: true, loading: () => <p>Loading...</p> });
+const   UpdateMatch = dynamic(() => import('../Component/Home/Updatematch/Match'), { ssr: true, loading: () => <p>Loading...</p> });
 import Banner from "../Component/Home/Banner/index"
 import Static_Content from "../Component/Home/Banner/WelcomestaticContant"
 const Breakingnews = dynamic(() => import('../Component/Home/BreakingNews/Breakingnews'), { ssr: true, loading: () => <p>Loading...</p> })
@@ -78,7 +78,7 @@ export async function getStaticProps() {
 
   try {
     const [matchesRes, post, iplRes] = await Promise.all([
-      fetch('https://grand11.in/g11/api/matches').catch(handleError),
+      fetch('https://www.g11fantasy.com/NewsSection/Get-Top4tbl_matchApi/').catch(handleError),
       fetch('https://g11fantasy.com/NewsSection/tbl_pageApi/').catch(handleError),
       fetch('https://www.g11fantasy.com/NewsSection/Get-TopNews/1').catch(handleError),
 
@@ -92,8 +92,9 @@ export async function getStaticProps() {
     ]);
 
     // Assuming breaking news is the first item in topNews array
+    console.log(matches)
     const responseData = {
-      l1: matches.result,
+      l1: matches,
       post: Post,
       ipl: ipl,
 
