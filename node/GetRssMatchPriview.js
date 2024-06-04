@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { default: axios } = require('axios');
 const RSS = require('rss');
 var HTMLParser = require('node-html-parser');
+const cheerio = require('cheerio');
 router.get('/rss/:category', (req, res) => {
   function modifystr(str) {
 
@@ -24,10 +25,7 @@ router.get('/rss/:category', (req, res) => {
 
     return str.toLowerCase()
   }
-  function extractData(root){
-    const description = root.querySelector('p').rawText 
-    console.log(description) 
-  }
+
   async function generateRssXml(url, link, siteurl) {
     const data = await axios.get(url);
 
@@ -46,10 +44,10 @@ router.get('/rss/:category', (req, res) => {
     });
 
     rssData.forEach((url) => {
-      const l = url.Description;
+      const $ = cheerio.load(url.Description);
       feed.item({
         title: url.Title,
-        // description:HTMLParser.parse(l),
+        description: $.text(),
         url: `https://g11prediction.com/${siteurl}/${link === "latest-video.xml" ? url.Title.replace(/\s+/g, '-').slice(0, -1).toLowerCase() :Boolean(url?.urlslug)? modifystr(url?.urlslug) :  modifystr(url.Title)}/${url.id}/`,
         date: new Date(url.created),
       });
