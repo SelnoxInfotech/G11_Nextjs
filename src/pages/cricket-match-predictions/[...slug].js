@@ -5,8 +5,9 @@ import dynamic from 'next/dynamic';
 const cheerio = require('cheerio');
 const MatchPriview = dynamic(() => import('../../Component/MatchPriview/MatchPriview'), { ssr: true });
 const Seo = dynamic(() => import('../../Component/Seo/Seo'), { ssr: true });
-function Matchguide(props) {
 
+function Matchguide(props) {
+// console.log(props.matchPreview)
     const $ = cheerio.load(props.MatchData);
     const jsonData = {};
 
@@ -57,6 +58,7 @@ function Matchguide(props) {
         detailsAnalysis: $('h3:contains("Details Analysis")').next('p').text(),
         cheatSheet: $('h3:contains("Cheat Sheet")').next('p').text()
     };
+
     return (
         <div>
             {<Seo
@@ -70,7 +72,7 @@ function Matchguide(props) {
                 canonical={`${"https://g11prediction.com/cricket-match-predictions"}/${modifystr(jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)) + "-dream11-prediction-today-match"}/${props.idIndex}/`}
             >
             </Seo>}
-            <MatchPriview props={props} slug={jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} SetSeoData={SetSeoData} seoData={seoData} ></MatchPriview>
+            <MatchPriview props={props} slug={jsonData.matchDetails.preview.replace(/:/g, '').trim().slice(7)} SetSeoData={SetSeoData} seoData={seoData} matchPreview={props.matchPreview} ></MatchPriview>
         </div>
     );
 }
@@ -97,14 +99,23 @@ export async function getServerSideProps(ctx) {
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
-            // setmatchpreviwe(a)
-            return { props: { MatchData: props, topNews, idIndex } };
+            const extractDataFromHTML = (html) => {
+                const $ = cheerio.load(html);
+                const container = $('section').eq(1).find('.container');
+                const containerData = container.find('.row').eq(1);
+                console.log(container.find('.row'))
+                const image = container.find('.row').eq(0);
+                const dataImage = image.find('img').attr('src');
+                const matchPreview = containerData.html();
+                return { dataImage, matchPreview };
+            };
+            const { dataImage, matchPreview } = extractDataFromHTML(props);
+            return { props: { MatchData: props, topNews, idIndex,dataImage, matchPreview  } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
         }
     }
-    // console.log(ctx.params.slug[0] === "match-preview")
 
     else if (ctx.params.slug[0] === "teams" || ctx.params.slug[0] === "match-preview" || ctx.params.slug[0] === "team-guide" || ctx.params.slug[0] === "cheat-sheet") {
         const idIndex = checkString(ctx.params.slug[ctx.params.slug.length - 1]);
@@ -115,8 +126,18 @@ export async function getServerSideProps(ctx) {
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
-            // setmatchpreviwe(a)
-            return { props: { MatchData: props, topNews, idIndex } };
+            const extractDataFromHTML = (html) => {
+                const $ = cheerio.load(html);
+                const container = $('section').eq(1).find('.container');
+                const containerData = container.find('.row').eq(1);
+                console.log(container.find('.row'))
+                const image = container.find('.row').eq(0);
+                const dataImage = image.find('img').attr('src');
+                const matchPreview = containerData.html();
+                return { dataImage, matchPreview };
+            };
+            const { dataImage, matchPreview } = extractDataFromHTML(props);
+            return { props: { MatchData: props, topNews, idIndex,dataImage, matchPreview  } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return { props: { error: "Failed to fetch data" } };
@@ -130,8 +151,17 @@ export async function getServerSideProps(ctx) {
         try {
             const response = await axios.get(url, { cache: 'force-cache' | 'no-store' });
             const props = response.data;
-            // setmatchpreviwe(a)
-            return { props: { MatchData: props, topNews, idIndex } };
+            const extractDataFromHTML = (html) => {
+                const $ = cheerio.load(html);
+                const container = $('section').eq(1).find('.container');
+                const containerData = container.find('.row').eq(1);
+                const image = container.find('.row').eq(0);
+                const dataImage = image.find('img').attr('src');
+                const matchPreview = containerData.html();
+                return { dataImage, matchPreview };
+            };
+            const { dataImage, matchPreview } = extractDataFromHTML(props);
+            return { props: { MatchData: props, topNews, idIndex,dataImage, matchPreview  } };
         } catch (error) {
             console.error("Error fetching data:", error);
             return {
