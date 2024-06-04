@@ -88,7 +88,6 @@ const NewCard = ({props , link , api}) => {
             data = props 
         }
       }
-console.log( props ,'props?.data?.length')
     return (
       <React.Fragment>
         <div className={style.newcardwrapper}>

@@ -6,10 +6,8 @@ import style from "../../styles/Style.module.scss"
 
 
 export default function UpdateMatch({ initialData }) {
-
   const [height, Setheight] = useState(true)
-  let data = initialData?.initialData
-
+  let data = initialData
   return (
     <>
       <Seo
@@ -136,24 +134,14 @@ export default function UpdateMatch({ initialData }) {
 
 export async function getStaticProps() {
   try {
-    const [topNewsRes] = await Promise.all([
-      fetch('https://grand11.in/g11/all_matches_api.php'),
-    ]);
-
-    const [topNews] = await Promise.all([
-      topNewsRes.json(),
-    ]);
-
-
-    const responseData = {
-      breaking: topNews,
-    };
+    const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-revesetbl_matchApi/');
+    // console.log(topNewsRes)
+    const topNews = await topNewsRes.json();
     return {
       props: {
-        initialData: responseData.breaking.reverse(),
+        initialData:topNews,
       },
     };
-
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
@@ -164,4 +152,3 @@ export async function getStaticProps() {
     };
   }
 }
-

@@ -15,7 +15,7 @@ const fetcher = async (url) => {
     return res.json();
 };
 
-function Senglepage({ props }) {
+function Senglepage(props) {
     const imagePerRow = 6
     const [next, setNext] = React.useState(imagePerRow);
     const { data: fetchedData, error } = useSWR('https://www.g11fantasy.com/NewsSection/Get-revesetbl_matchApi/', fetcher,);
@@ -106,7 +106,7 @@ try {
     else {
         if (Boolean(error)) {
 
-            data = props
+            data = props.data
         }
     }
 

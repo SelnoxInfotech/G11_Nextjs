@@ -216,7 +216,7 @@ app.prepare()
       return handle(req, res);
     });
     server. get("/About-us/", (req, res, next) => {
-      console.log("dsdsk")
+  
       // Redirect to '/cricket-breaking-news/' with status code 301
       res.redirect(301, '/about-us');
     });

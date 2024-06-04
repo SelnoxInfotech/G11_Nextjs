@@ -3,7 +3,7 @@ export async function getServerSideProps({ res }) {
 
   // Generate the XML sitemap with the blog data
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-  <sitemap xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemapindex xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
       <loc>https://g11prediction.com/breaking-news.xml</loc>
     </sitemap>
@@ -34,7 +34,7 @@ export async function getServerSideProps({ res }) {
 <sitemap>
 <loc>https://g11prediction.com/fantasy-cricket-tips.xml</loc>
 </sitemap>  
-  </sitemap>
+  </sitemapindex>
 `;
 
   res.setHeader("Content-Type", "text/xml");

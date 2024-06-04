@@ -103,7 +103,6 @@ export async function getServerSideProps(ctx) {
                 const $ = cheerio.load(html);
                 const container = $('section').eq(1).find('.container');
                 const containerData = container.find('.row').eq(1);
-                console.log(container.find('.row'))
                 const image = container.find('.row').eq(0);
                 const dataImage = image.find('img').attr('src');
                 const matchPreview = containerData.html();
@@ -130,7 +129,6 @@ export async function getServerSideProps(ctx) {
                 const $ = cheerio.load(html);
                 const container = $('section').eq(1).find('.container');
                 const containerData = container.find('.row').eq(1);
-                console.log(container.find('.row'))
                 const image = container.find('.row').eq(0);
                 const dataImage = image.find('img').attr('src');
                 const matchPreview = containerData.html();

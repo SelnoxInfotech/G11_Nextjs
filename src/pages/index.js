@@ -92,7 +92,6 @@ export async function getStaticProps() {
     ]);
 
     // Assuming breaking news is the first item in topNews array
-    console.log(matches)
     const responseData = {
       l1: matches,
       post: Post,
