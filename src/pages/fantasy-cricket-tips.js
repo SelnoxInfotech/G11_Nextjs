@@ -10,6 +10,7 @@ const Accodien = dynamic(() => import("../Component/card/Accodien"), {ssr: true,
 import Accordion from '../Component/card/Accodionitem'
 
 import { BsDisplay } from "react-icons/bs";
+import axios from "axios";
 const fetcher = async (url) => {
   const res = await fetch(url);
   if (!res.ok) {
@@ -20,9 +21,17 @@ const fetcher = async (url) => {
 
 const Fantasycrickettip = (props) => {
   const [height, Setheight] = useState(true);
+    
+  const [propsdata, setPropsData] = React.useState(props?.initialData?.breaking || [])
 
-  const data1 = props?.breakingData;
+  function loadmorefun() {
+    axios.get(`https://g11fantasy.com/NewsSection/Get-NewsBySubCategoryNewApi/?limit=${propsdata.length + 10}&offset=0&subcategory=12`)
+      .then((data) => {
+        setPropsData(prevPropsData => data.data);
+      }).catch(error => console.log(error));
+  }
 
+ 
   return (
     <React.Fragment>
       <Seo
@@ -53,7 +62,7 @@ const Fantasycrickettip = (props) => {
         keywords={
           "Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"
         }
-        canonical={"https://g11prediction.com/ipl-2024-dream11-predictions/"}
+        canonical={"https://g11prediction.com/fantasy-cricket-tips/"}
       />
       <div className="container">
         <div className={`${style.Fantasycrickettip} container`}>
@@ -129,7 +138,7 @@ const Fantasycrickettip = (props) => {
             {" "}
             <p>News</p>
           </div> */}
-          <NewCard props={data1} link={"/fantasy-cricket-tips"} api={"https://g11fantasy.com/NewsSection/FilterbySubCategory/12"}></NewCard>
+          <NewCard fun={loadmorefun} props={propsdata} link={"/fantasy-cricket-tips"}></NewCard>
         </div>
 
 
@@ -167,26 +176,31 @@ const Fantasycrickettip = (props) => {
 
 export default Fantasycrickettip;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
-    const topNewsRes = await fetch(
-      "https://g11fantasy.com/NewsSection/FilterbySubCategory/12"
-    );
-    const topNews = await topNewsRes.json();
+    const [topNewsRes] = await Promise.all([
+      fetch('https://g11fantasy.com/NewsSection/Get-NewsBySubCategoryNewApi/?limit=10&offset=0&subcategory=12'),
+    ]);
+    const [topNews] = await Promise.all([
+      topNewsRes.json(),
+    ]);
+    
+
+    const responseData = {
+      breaking: topNews,
+    };
     return {
       props: {
-        breakingData: topNews.data,
+        initialData: responseData,
       },
-      revalidate: 60,
     };
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error('Error fetching data:', error);
     return {
       props: {
-        breakingData: null,
-        error: "Failed to fetch data",
+        initialData: null,
+        error: 'Failed to fetch data',
       },
-      revalidate: 60 * 5,
     };
   }
 }

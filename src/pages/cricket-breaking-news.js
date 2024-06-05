@@ -79,9 +79,10 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Seo from '../Component/Seo/Seo';
 import { useRouter } from 'next/router';
-const Card = dynamic(() => import('../Component/card/index'), { ssr: true});
+const Card = dynamic(() => import('../Component/card/index'), { ssr: true });
 import Cardskeleton from '../Component/skeleton/cardskeleton'
 import style from "../styles/Style.module.scss"
+import axios from 'axios';
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -93,26 +94,32 @@ const fetcher = async (url) => {
 
 
 
-const Breakingnews = () => {
+const Breakingnews = (props) => {
+
+  const [propsdata, setPropsData] = React.useState(props?.initialData?.breaking || [])
   const router = useRouter();
-  const { data: fetchedData, error } = useSWR(`https://g11fantasy.com/NewsSection/FilterbySubCategory/5`, fetcher);
   React.useEffect(() => {
-
-    // redirect("/cricket-breaking-news/");
     router.push({ pathname: '/cricket-breaking-news/' });
-
-
   }, [])
 
 
-  if (!fetchedData) {
+  function loadmorefun() {
+    axios.get(`https://g11fantasy.com/NewsSection/Get-NewsBySubCategoryNewApi/?limit=${propsdata.length + 10}&offset=0&subcategory=5`)
+      .then((data) => {
+        setPropsData(prevPropsData => data.data);
+      }).catch(error => console.log(error));
+  }
+
+
+  //  console.log()
+  if (!props.initialData.breaking) {
     return (
       <div className='container '>
         <div className={style.Breaking_new}>
           <div className={style.Breaking_newCardWrapper}>
             {
               [1, 6, 6, 6, 6, 6, 6, 6, 6, 6].map((e, i) => {
-                return < Cardskeleton  key={i}/>
+                return < Cardskeleton key={i} />
               })
             }
           </div>
@@ -121,19 +128,20 @@ const Breakingnews = () => {
       </div>
     )
   }
+
   else {
     return (
       <React.Fragment>
         <Seo
-        Breadcrumlist={[{Home:"https://g11prediction.com/" } , {News: "/cricket-breaking-news/"}]}
+          Breadcrumlist={[{ Home: "https://g11prediction.com/" }, { News: "/cricket-breaking-news/" }]}
           image={"https://www.g11fantasy.com/image/images/download/media/Static/favicon.jpg"}
           title="Breaking News | G11 Fantasy Cricket Prediction |"
           description={"Breaking News on latest cricket updates. G11 Fantasy Cricket Prediction Website and Application for Today's match. # 1 Dream11 Fantasy Cricket Prediction tips."}
           keywords={"Breaking News, Cricket news, G11 Fantasy Cricket Prediction, Dream11 prediction, Cricket News Today, Live Cricket News, Online Cricket News, Cricket News Today Match, world cup 2023 cricket news,"}
           canonical={"https://g11prediction.com/cricket-breaking-news/"}
         />
-        <div className='container'>
-          <Card slug={"Cricket Breaking News"} props={fetchedData?.data} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
+        <div className='container' style={{minHeight:"680px"}}>
+          <Card fun={loadmorefun} slug={"Cricket Breaking News"} props={propsdata} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
         </div>
       </React.Fragment>
     );
@@ -144,7 +152,7 @@ export default Breakingnews;
 
 // export async function getStaticProps() {
 //   try {
-//     const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-News/1');
+//     const topNewsRes = await fetch('https://g11fantasy.com/NewsSection/FilterbySubCategory/5');
 //     const topNews = await topNewsRes.json();
 //     return {
 //       props: {
@@ -164,5 +172,34 @@ export default Breakingnews;
 //   }
 // }
 
-  
+// https://g11fantasy.com/NewsSection/Get-NewsBySubCategoryNewApi/?limit=10&offset=0&subcategory=1
 
+export async function getServerSideProps() {
+  try {
+    const [topNewsRes] = await Promise.all([
+      fetch('https://g11fantasy.com/NewsSection/Get-NewsBySubCategoryNewApi/?limit=10&offset=0&subcategory=5'),
+    ]);
+
+    const [topNews] = await Promise.all([
+      topNewsRes.json(),
+    ]);
+
+
+    const responseData = {
+      breaking: topNews,
+    };
+    return {
+      props: {
+        initialData: responseData,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      props: {
+        initialData: null,
+        error: 'Failed to fetch data',
+      },
+    };
+  }
+}

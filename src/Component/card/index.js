@@ -10,9 +10,9 @@ import Button from "react-bootstrap/Button";
 import { useRouter } from 'next/router'
 import axios from 'axios';
 
-const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
+const Card = ({basecorme, props, query  ,data1 , heading , domain , slug , fun}) => {
     const router = useRouter()
-    const [data, setdata] = React.useState(props)
+    const [data, setdata] = React.useState(()=>props)
     const imagePerRow = 10
     const [next, setNext] = React.useState(imagePerRow);
     function modifystr(str) {
@@ -42,8 +42,9 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
     }
     const handleMoreImage = () => {
         setNext(next + imagePerRow);
-
+        fun()
     };
+
     const handlelessImage = () => {
         setNext(next - imagePerRow);
     };
@@ -101,7 +102,12 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
             })
         }
     },[data1])
- 
+ React.useEffect(()=>{
+    setdata(props)
+ },[props])
+
+
+
     return (
         <div className='container center'>
   
@@ -147,7 +153,7 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug}) => {
                                                     <span>{breakingnews?.ViewCount}</span><AiFillEye></AiFillEye>
                                                 </div>
                                                 <div className={`col-md-6 col-8 text-end ${style.ViewCountDate}`}>
-                                                    <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date.slice(0, 10)}</p>
+                                                    <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date?.slice(0, 10)}</p>
                                                 </div>
                                             </div>
                                     

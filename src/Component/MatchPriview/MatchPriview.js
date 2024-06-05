@@ -4,16 +4,9 @@ import style from "../../styles/Style.module.scss"
 import { useRouter } from 'next/router'
 import TableOfContent from '../tableofcontent/index';
 import Image from 'next/image';
-function MatchPriview(props ) {
+function MatchPriview(props) {
     const router = useRouter()
-    const [matchpreviwe, setmatchpreviwe] = useState("")
-    const [Team_Guide, Set_Team_Guide] = useState('')
-    const [Detail, SetDetails_Data] = useState('')
-    const [Teams_image, SetTeams_image] = useState('')
-    const [metaDiscription, SetmetaDiscription] = useState('')
-    const [ogimage, setogimage] = useState('')
     const [Title1, SetTitle] = useState('')
- const [timedetails , settimedetails] = useState("")
     function modifystr(str) {
         str = str.replace(/[^a-zA-Z0-9/ ]/g, "-");
         str = str.trim().replaceAll(' ', "-");
