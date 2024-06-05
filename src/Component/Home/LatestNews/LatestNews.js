@@ -31,7 +31,6 @@ const Breakingnews = ({ latestnews }) => {
         return `https://www.g11fantasy.com${src}?w=${width}&q=${quality || 75}`
       }
     
- console.log(latestnews)
 
     return (
         <div className={`${'container'} ${style.LatestNewsSection}`} >
