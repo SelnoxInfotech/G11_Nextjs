@@ -6,6 +6,7 @@ import style from "../../styles/Style.module.scss"
 
 
 export default function UpdateMatch({ initialData }) {
+  // console.log(initialData)
   const [height, Setheight] = useState(true)
   let data = initialData
   return (
@@ -134,7 +135,7 @@ export default function UpdateMatch({ initialData }) {
 
 export async function getStaticProps() {
   try {
-    const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-revesetbl_matchApi/');
+    const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-All_matchApiWithLimit/?limit=12');
     // console.log(topNewsRes)
     const topNews = await topNewsRes.json();
     return {

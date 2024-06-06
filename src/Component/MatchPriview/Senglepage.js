@@ -17,54 +17,72 @@ const fetcher = async (url) => {
 
 function Senglepage(props) {
     const imagePerRow = 6
+
+    const [data, setPropsData] = React.useState(props.props || [])
     const [next, setNext] = React.useState(imagePerRow);
-    const { data: fetchedData, error } = useSWR('https://www.g11fantasy.com/NewsSection/Get-revesetbl_matchApi/', fetcher,);
+    const [dataLoad, setdataLoading] = React.useState(false)
+    // const { data: fetchedData, error } = useSWR('https://www.g11fantasy.com/NewsSection/Get-revesetbl_matchApi/', fetcher,);
 
-    let data = fetchedData
-    
-
+    // let data = props.props
+    // https://www.g11fantasy.com/NewsSection/Get-All_matchApiWithLimit/?limit=10
     // React.useEffect(() => {
-    //     axios("https://www.g11fantasy.com/NewsSection/Get-revesetbl_matchApi/", {
+    //     axios("https://www.g11fantasy.com/NewsSection/Get-All_matchApiWithLimit/?limit=10", {
     //         method: 'GET',
 
     //     }).then(response => {
     //         if (response.status === 200) {
-    //             data=response?.data
+    //   console.log(response.data)
+    //             // data=response?.data
     //         }
 
     //     })
     // }, [])
-        
+
+
+
     const handleMoreImage = () => {
+        setdataLoading(true)
         setNext(next + imagePerRow);
+        axios(`https://www.g11fantasy.com/NewsSection/Get-All_matchApiWithLimit/?limit=${data.length + 10}`, {
+            method: 'GET',
+
+        }).then(response => {
+            if (response.status === 200) {
+                // console.log(response.data)
+                setdataLoading(false)
+                setPropsData(response.data);
+                // data=response?.data
+            }
+
+        })
     };
     const handlelessImage = () => {
         setNext(next - imagePerRow);
     };
     function modifystr(str) {
 
-try {
-    str = str.replaceAll(/[^a-zA-Z0-9/ ]/g, "-");
-    str = str.trim().replaceAll(' ', "-");
-    let a = 0;
-    while (a < 1) {
-        if (str.includes("--")) {
-            str = str.replaceAll("--", "-")
-        } else if (str.includes("//")) {
-            str = str.replaceAll("//", "/")
-        } else if (str.includes("//")) {
-            str = str.replaceAll("-/", "/")
-        } else if (str.includes("//")) {
-            str = str.replaceAll("/-", "/")
-        } else {
-            a++
-        }
-    }
+        try {
+            str = str.replaceAll(/[^a-zA-Z0-9/ ]/g, "-");
+            str = str.trim().replaceAll(' ', "-");
+            let a = 0;
+            while (a < 1) {
+                if (str.includes("--")) {
+                    str = str.replaceAll("--", "-")
+                } else if (str.includes("//")) {
+                    str = str.replaceAll("//", "/")
+                } else if (str.includes("//")) {
+                    str = str.replaceAll("-/", "/")
+                } else if (str.includes("//")) {
+                    str = str.replaceAll("/-", "/")
+                } else {
+                    a++
+                }
+            }
 
-    return str.toLowerCase()
-} catch (error) {
-    return ''
-}
+            return str.toLowerCase()
+        } catch (error) {
+            return ""
+        }
     }
 
 
@@ -104,10 +122,10 @@ try {
         )
     }
     else {
-        if (Boolean(error)) {
+        // if (Boolean(error)) {
 
-            data = props.data
-        }
+        //     data = props.data
+        // }
     }
 
     return (
@@ -128,7 +146,7 @@ try {
                                 return (
                                     <div className={style.matchcard} key={index} >
                                         <div className='d-flex align-items-center h-100 w-100'>
-                                            <Link href={`/cricket-match-predictions/${modifystr(matchesObject?.Match_1?.split(/:|-/)[1]?.replace(/&nbsp;/g, ''))+"-dream11-prediction-today-match"}/${data.id}/`} className='w-100'>
+                                            <Link href={`/cricket-match-predictions/${modifystr(matchesObject?.Match_1?.split(/:|-/)[1]?.replace(/&nbsp;/g, '')) + "-dream11-prediction-today-match"}/${data.id}/`} className='w-100'>
 
 
                                                 <div className={` "row" ${style.grid_row} `}>
@@ -163,20 +181,30 @@ try {
 
                     </div>
                     <div className='row '>
-                        <div className={`col-12 d-flex gap-2 justify-content-center ${style.loadingButton}`}>
-                            {next < data?.length && (
-                                <button className={style.loadmorebtm} onClick={handleMoreImage}
-                                >
-                                    Load more
-                                </button>
-                            )}
-                            {next < data?.length && (
-                                <button className={next <= 6 ? 'hidden' : style.loadmorebtm} onClick={handlelessImage}
-                                >
-                                    Read Less
-                                </button>
-                            )}
-                        </div>
+                        {
+                            dataLoad ?
+                                <div class="d-flex justify-content-center">
+                                    <div class="spinner-border" role="status">
+                                        <span class="sr-only"></span>
+                                    </div>
+                                </div>
+
+                                :
+                                <div className={`col-12 d-flex gap-2 justify-content-center ${style.loadingButton}`}>
+                                    {next < data?.length && (
+                                        <button className={style.loadmorebtm} onClick={handleMoreImage}
+                                        >
+                                            Load more
+                                        </button>
+                                    )}
+                                    {next < data?.length && (
+                                        <button className={next <= 6 ? 'hidden' : style.loadmorebtm} onClick={handlelessImage}
+                                        >
+                                            Read Less
+                                        </button>
+                                    )}
+                                </div>
+                        }
 
                     </div>
                 </div>
@@ -188,3 +216,5 @@ try {
 }
 
 export default Senglepage;
+
+

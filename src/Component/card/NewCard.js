@@ -61,7 +61,7 @@ const NewCard = ({ props, link, fun }) => {
     setdata(props)
   }, [props])
 
-console.log(props)
+// console.log(props)
   if (!props) {
     return (
       <div className='container '>

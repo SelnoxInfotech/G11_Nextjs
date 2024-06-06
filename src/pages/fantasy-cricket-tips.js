@@ -3,21 +3,20 @@ import style from "../styles/Style.module.scss";
 import useSWR from "swr";
 import dynamic from "next/dynamic";
 import Seo from "../Component/Seo/Seo";
-
 const NewCard = dynamic(() => import("../Component/card/NewCard"), { ssr: true,});
-
 const Accodien = dynamic(() => import("../Component/card/Accodien"), {ssr: true,});
 import Accordion from '../Component/card/Accodionitem'
-
 import { BsDisplay } from "react-icons/bs";
 import axios from "axios";
-const fetcher = async (url) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-};
+
+
+// const fetcher = async (url) => {
+//   const res = await fetch(url);
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch data");
+//   }
+//   return res.json();
+// };
 
 const Fantasycrickettip = (props) => {
   const [height, Setheight] = useState(true);

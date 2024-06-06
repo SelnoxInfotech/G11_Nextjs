@@ -97,6 +97,7 @@ const fetcher = async (url) => {
 const Breakingnews = (props) => {
 
   const [propsdata, setPropsData] = React.useState(props?.initialData?.breaking || [])
+  const [dataLoad , setdataLoading]  = React.useState(false)
   const router = useRouter();
   React.useEffect(() => {
     router.push({ pathname: '/cricket-breaking-news/' });
@@ -104,9 +105,11 @@ const Breakingnews = (props) => {
 
 
   function loadmorefun() {
+    setdataLoading(()=>true)
     axios.get(`https://g11fantasy.com/NewsSection/Get-NewsBySubCategoryNewApi/?limit=${propsdata.length + 10}&offset=0&subcategory=5`)
       .then((data) => {
         setPropsData(prevPropsData => data.data);
+        setdataLoading(()=>false)
       }).catch(error => console.log(error));
   }
 
@@ -141,7 +144,7 @@ const Breakingnews = (props) => {
           canonical={"https://g11prediction.com/cricket-breaking-news/"}
         />
         <div className='container' style={{minHeight:"680px"}}>
-          <Card fun={loadmorefun} slug={"Cricket Breaking News"} props={propsdata} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
+          <Card dataLoad={dataLoad} fun={loadmorefun} slug={"Cricket Breaking News"} props={propsdata} heading={<h1>Cricket breaking news</h1>} query={"cricket-breaking-news"} data1={''} />
         </div>
       </React.Fragment>
     );

@@ -10,9 +10,9 @@ import Button from "react-bootstrap/Button";
 import { useRouter } from 'next/router'
 import axios from 'axios';
 
-const Card = ({basecorme, props, query  ,data1 , heading , domain , slug , fun}) => {
+const Card = ({ basecorme, props, query, data1, heading, domain, slug, fun  , dataLoad}) => {
     const router = useRouter()
-    const [data, setdata] = React.useState(()=>props)
+    const [data, setdata] = React.useState(() => props)
     const imagePerRow = 10
     const [next, setNext] = React.useState(imagePerRow);
     function modifystr(str) {
@@ -37,12 +37,13 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug , fun})
         return str?.toLowerCase()
     }
     const imageLoader = ({ src, width, height, quality }) => {
-        const l  =  domain !==  undefined ? domain: "https://www.g11fantasy.com"
-            return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
+        const l = domain !== undefined ? domain : "https://www.g11fantasy.com"
+        return (`${l}${src}?w=${width}&h=${height}&q=${quality || 100}`)
     }
     const handleMoreImage = () => {
-        setNext(next + imagePerRow);
         fun()
+        setNext(next + imagePerRow);
+
     };
 
     const handlelessImage = () => {
@@ -101,62 +102,62 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug , fun})
                 setdata(response.data)
             })
         }
-    },[data1])
- React.useEffect(()=>{
-    setdata(props)
- },[props])
+    }, [data1])
+    React.useEffect(() => {
+        setdata(props)
+    }, [props])
 
 
 
     return (
         <div className='container center'>
-  
+
             <div className={`${"row"} ${style.Breaking_new}`}>
                 <div className={`col-12 ${style.breaking_news_hed}`}>
-                  {heading}
+                    {heading}
                 </div>
-             {!basecorme  &&  <p style={{color:"#c2121c" , display:"flex" ,gap:"15px"}}><span style={{cursor: "pointer" }} onClick={() => router.push("/")}>Home</span>{">"}<span>{slug}</span></p>}
+                {!basecorme && <p style={{ color: "#c2121c", display: "flex", gap: "15px" }}><span style={{ cursor: "pointer" }} onClick={() => router.push("/")}>Home</span>{">"}<span>{slug}</span></p>}
                 <div className={style.Breaking_newCardWrapper}>
                     {
                         data?.slice(0, next)?.map((breakingnews, index) => {
-                                // console.log(breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title))
+                            // console.log(breakingnews?.urlslug !== (null || undefined) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title))
                             return (
 
                                 <div className={`${style.Breaking_news_gap}`} key={index}>
                                     <div className={style.BreakingNewscard}>
-                                        
-                                            <div className={`${"col"}`}>
-                                                <RWebShare
-                                                    data={{  }}
-                                                    onClick={() => console.log("shared successfully!")}
-                                                >
-                                                    <Button className={`${style.ShareButton}`}>
-                                                        <BsFillShareFill  color='#c2121c'></BsFillShareFill>
-                                                    </Button>
-                                                </RWebShare>
 
-                                            </div>
-                                            {/* {
+                                        <div className={`${"col"}`}>
+                                            <RWebShare
+                                                data={{}}
+                                                onClick={() => console.log("shared successfully!")}
+                                            >
+                                                <Button className={`${style.ShareButton}`}>
+                                                    <BsFillShareFill color='#c2121c'></BsFillShareFill>
+                                                </Button>
+                                            </RWebShare>
+
+                                        </div>
+                                        {/* {
                                                 console.log(breakingnews , breakingnews?.urlslug !== (null || undefined) , Boolean(breakingnews?.urlslug))
                                             } */}
-                                            <Link className={`${style.hovereffect}`} href={`/${query}/${Boolean(breakingnews?.urlslug)? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title ||  breakingnews?.title)}/${breakingnews.id}`} >
-                                                <div className={style.News_image}>
-                                                    <div className={style.imghovereffect}></div>
-                                                  <Image className={style.NewsImage} loader={imageLoader} src={`${breakingnews?.Image || breakingnews?.image}`} height={10} width={100} alt="news_image" quality={100} />
-                                                </div>
-                                                <div className={style.News_image_title}>
-                                                    <h2 className={`card-text  ${style.card_text}`}>{breakingnews?.Title?.slice(0, 80) || breakingnews?.title}</h2>
-                                                </div>
-                                            </Link>
-                                            <div className={`col-12 ${style.viewCount}`}>
-                                                <div className={`col-md-6 col-4 ${style.viewCounteye}`}>
-                                                    <span>{breakingnews?.ViewCount}</span><AiFillEye></AiFillEye>
-                                                </div>
-                                                <div className={`col-md-6 col-8 text-end ${style.ViewCountDate}`}>
-                                                    <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date?.slice(0, 10)}</p>
-                                                </div>
+                                        <Link className={`${style.hovereffect}`} href={`/${query}/${Boolean(breakingnews?.urlslug) ? modifystr(breakingnews?.urlslug) : modifystr(breakingnews?.Title || breakingnews?.title)}/${breakingnews.id}`} >
+                                            <div className={style.News_image}>
+                                                <div className={style.imghovereffect}></div>
+                                                <Image className={style.NewsImage} loader={imageLoader} src={`${breakingnews?.Image || breakingnews?.image}`} height={10} width={100} alt="news_image" quality={100} />
                                             </div>
-                                    
+                                            <div className={style.News_image_title}>
+                                                <h2 className={`card-text  ${style.card_text}`}>{breakingnews?.Title?.slice(0, 80) || breakingnews?.title}</h2>
+                                            </div>
+                                        </Link>
+                                        <div className={`col-12 ${style.viewCount}`}>
+                                            <div className={`col-md-6 col-4 ${style.viewCounteye}`}>
+                                                <span>{breakingnews?.ViewCount}</span><AiFillEye></AiFillEye>
+                                            </div>
+                                            <div className={`col-md-6 col-8 text-end ${style.ViewCountDate}`}>
+                                                <p >{breakingnews?.created?.slice(0, 10) || breakingnews?.post_date?.slice(0, 10)}</p>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -165,25 +166,31 @@ const Card = ({basecorme, props, query  ,data1 , heading , domain , slug , fun})
                     }
                 </div>
                 <div className={`${'row'} ${style.BreakingButton}`}>
-                    <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
-                        {next <= data?.length && (
-                            <button className={style.loadmorebtm} onClick={handleMoreImage}
-                            >
-                                Load more
-                            </button>
-                        )}
-                        {next < data?.length && (
-                            <button className={next <= 10 ? 'hidden' :style.loadmorebtm} onClick={handlelessImage}
-                            >
-                                Read Less
-                            </button>
-                        )}
-                    </div>
+                    {dataLoad ?
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                        </div> :
+                        <div className='col-12 d-flex gap-2 justify-content-center' id='Buttongap'>
+                            {next <= data?.length && (
+                                <button className={style.loadmorebtm} onClick={handleMoreImage}
+                                >
+                                    Load more
+                                </button>
+                            )}
+                            {next < data?.length && (
+                                <button className={next <= 10 ? 'hidden' : style.loadmorebtm} onClick={handlelessImage}
+                                >
+                                    Read Less
+                                </button>
+                            )}
+                        </div>}
 
                 </div>
-         
-                
-              
+
+
+
             </div>
 
         </div>
