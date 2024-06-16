@@ -49,7 +49,7 @@ const Ipl2024 = ({initialData}) => {
 };
 
 export default Ipl2024;
-
+ 
 export async function getStaticProps() {
     try {
       const [topNewsRes] = await Promise.all([
