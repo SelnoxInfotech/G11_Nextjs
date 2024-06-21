@@ -93,7 +93,6 @@ function Seo({ image, title, description, keywords, canonical, schema, createdat
         };
 
     });
-
     return (
         <Head>
             <title>{title}</title>

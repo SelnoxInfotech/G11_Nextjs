@@ -133,7 +133,7 @@ export default function UpdateMatch({ initialData }) {
 
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   try {
     const topNewsRes = await fetch('https://www.g11fantasy.com/NewsSection/Get-All_matchApiWithLimit/?limit=12');
     // console.log(topNewsRes)
